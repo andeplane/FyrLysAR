@@ -12,15 +12,9 @@ Item {
     property var visibleLighthouses: []
     width: 640
     height: 480
-    onWidthChanged: {
-        console.log(width, height)
-    }
+
     Component.onCompleted: {
         lighthouseComponent = Qt.createComponent("qrc:/Lighthouse.qml");
-    }
-    Lighthouse {
-        height: 10
-
     }
 
     Item {
@@ -32,11 +26,9 @@ Item {
         id: lighthousesSource
         Component.onCompleted: {
             root.lighthouses = JSON.parse(jsonString)
-            console.log(lighthouses.length)
         }
     }
 
-    property real targetDirection: 190
     property real direction: compass.azimuth + accelerometer.theta
     property real fovL: 69
     property real fovP: 38
@@ -231,29 +223,11 @@ Item {
 
             const R = V.times(U)
 
-//            const coords = Qt.vector3d(Math.sin(targetDirection / 180 * Math.PI), Math.cos(targetDirection / 180 * Math.PI), 0)
-//            const coordsPrime = R.times(coords)
-//            xx -= xx / smoothingN
-//            xx += coordsPrime.x / smoothingN
-//            yy -= yy / smoothingN
-//            yy += coordsPrime.y / smoothingN
-//            zz -= zz / smoothingN
-//            zz += coordsPrime.z / smoothingN
-//            rotationMatrix = R
-//            const newAngle = Math.atan2(x, y)
-//            xyAngle -= xyAngle / smoothingN
-//            xyAngle += newAngle / smoothingN
-
             visibleLighthouses.forEach(lighthouse => {
                 if (lighthouse.sprite && lighthouse.sprite.visible) {
                     lighthouse.sprite.update(src.position.coordinate, R, fovP, fovL, root.width, root.height, 0.0)
                 }
             })
-//            const xxx = xx
-//            const yyy = yy
-//            xx = Math.cos(xyAngle*2)*xxx - Math.sin(xyAngle*2)*yyy
-//            yy = Math.sin(xyAngle*2)*xxx + Math.cos(xyAngle*2)*yyy
-//            console.log(xyAngle)
         }
     }
 
