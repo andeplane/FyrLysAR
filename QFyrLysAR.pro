@@ -71,6 +71,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
   Lighthouse.qml \
-  Lighthouses.qml \
-  MyFile.qml \
-  Sector.qml
+  Lighthouses.qml
