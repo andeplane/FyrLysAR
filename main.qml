@@ -3,13 +3,37 @@ import QtSensors
 import QtMultimedia
 import QtPositioning
 import QtCharts
+import "qrc:/"
 
 Item {
     id: root
+    property var lighthouses
+    property var lighthouseComponent
+    property var visibleLighthouses: []
     width: 640
     height: 480
     onWidthChanged: {
         console.log(width, height)
+    }
+    Component.onCompleted: {
+        lighthouseComponent = Qt.createComponent("qrc:/Lighthouse.qml");
+    }
+    Lighthouse {
+        height: 10
+
+    }
+
+    Item {
+        id: lighthouseContainer
+        anchors.fill: parent
+    }
+
+    Lighthouses {
+        id: lighthousesSource
+        Component.onCompleted: {
+            root.lighthouses = JSON.parse(jsonString)
+            console.log(lighthouses.length)
+        }
     }
 
     property real targetDirection: 190
@@ -21,6 +45,10 @@ Item {
 
     function deg2rad(deg) {
         return deg / 180 * Math.PI
+    }
+
+    function visibilityRange(height) {
+        return Math.sqrt(2*earthRadius * height)
     }
 
     function calculateDistance(lat1, lon1, lat2, lon2) {
@@ -52,13 +80,66 @@ Item {
       return Math.atan2(y, x)
     }
 
+    function createLighthouseObjects() {
+        visibleLighthouses.forEach(lighthouse => {
+            let lighthouseHeight = 1.0
+            if (lighthouse.height != null) {
+                lighthouseHeight = lighthouse.height
+            }
+
+            if (lighthouse.sprite === undefined) {
+                lighthouse.sprite = lighthouseComponent.createObject(lighthouseContainer, {
+                    coordinates: QtPositioning.coordinate(lighthouse.latitudeDeg + lighthouse.latitudeMin/60, lighthouse.longitudeDeg + lighthouse.longitudeMin/60, lighthouseHeight),
+                    heightOverSea: lighthouseHeight,
+                    pattern: lighthouse.pattern,
+                    name: lighthouse.name,
+                    sectors: lighthouse.sectors,
+                    x: 100,
+                    y: 100,
+                    radius: 10,
+                    width: 10,
+                    height: 10,
+                    color: Qt.rgba(1.0, 0.0, 0.0, 1.0)
+                });
+            }
+        })
+    }
+
     PositionSource {
         id: src
         updateInterval: 250
         active: true
 
         onPositionChanged: {
-            var coord = src.position.coordinate;
+            var coord = src.position.coordinate
+            lighthouses.forEach(lighthouse => {
+                let lighthouseHeight = 1.0
+                const selfHeight = 2.0
+                if (lighthouse.height !== null) {
+                    lighthouseHeight = lighthouse.height
+                }
+
+                var otherCoord = QtPositioning.coordinate(lighthouse.latitudeDeg + lighthouse.latitudeMin/60, lighthouse.longitudeDeg + lighthouse.longitudeMin/60, lighthouseHeight)
+
+                let isVisible = false
+
+                if (coord.distanceTo(otherCoord) < visibilityRange(selfHeight) + visibilityRange(lighthouseHeight)) {
+                    isVisible = true
+                    if (visibleLighthouses.indexOf(lighthouse) < 0) {
+                        visibleLighthouses.push(lighthouse)
+                    }
+                }
+
+                const index = visibleLighthouses.indexOf(lighthouse)
+                if (index >= 0) {
+                   if (visibleLighthouses[index].sprite) {
+                       visibleLighthouses[index].sprite.visible = isVisible
+                   }
+                }
+            })
+
+            createLighthouseObjects()
+            console.log("Found ", visibleLighthouses.length, " lighthouses")
 
             var otherCoord = QtPositioning.coordinate(59.92756178642623, 10.67633625088176, 10)
             var angle = coord.azimuthTo(otherCoord)
@@ -66,21 +147,21 @@ Item {
         }
     }
 
-    CaptureSession {
-        id: captureSession
-        camera: Camera {
-            id: camera
-            active: true
-        }
-        videoOutput: viewfinder
-    }
+//    CaptureSession {
+//        id: captureSession
+//        camera: Camera {
+//            id: camera
+//            active: true
+//        }
+//        videoOutput: viewfinder
+//    }
 
-    VideoOutput {
-        id: viewfinder
-        visible: true
-//        orientation: 90
-        anchors.fill: parent
-    }
+//    VideoOutput {
+//        id: viewfinder
+//        visible: true
+////        orientation: 90
+//        anchors.fill: parent
+//    }
 
     Rectangle {
         width: 200
@@ -150,18 +231,24 @@ Item {
 
             const R = V.times(U)
 
-            const coords = Qt.vector3d(Math.sin(targetDirection / 180 * Math.PI), Math.cos(targetDirection / 180 * Math.PI), 0)
-            const coordsPrime = R.times(coords)
-            xx -= xx / smoothingN
-            xx += coordsPrime.x / smoothingN
-            yy -= yy / smoothingN
-            yy += coordsPrime.y / smoothingN
-            zz -= zz / smoothingN
-            zz += coordsPrime.z / smoothingN
-            rotationMatrix = R
-            const newAngle = Math.atan2(x, y)
-            xyAngle -= xyAngle / smoothingN
-            xyAngle += newAngle / smoothingN
+//            const coords = Qt.vector3d(Math.sin(targetDirection / 180 * Math.PI), Math.cos(targetDirection / 180 * Math.PI), 0)
+//            const coordsPrime = R.times(coords)
+//            xx -= xx / smoothingN
+//            xx += coordsPrime.x / smoothingN
+//            yy -= yy / smoothingN
+//            yy += coordsPrime.y / smoothingN
+//            zz -= zz / smoothingN
+//            zz += coordsPrime.z / smoothingN
+//            rotationMatrix = R
+//            const newAngle = Math.atan2(x, y)
+//            xyAngle -= xyAngle / smoothingN
+//            xyAngle += newAngle / smoothingN
+
+            visibleLighthouses.forEach(lighthouse => {
+                if (lighthouse.sprite && lighthouse.sprite.visible) {
+                    lighthouse.sprite.update(src.position.coordinate, R, fovP, fovL, root.width, root.height, 0.0)
+                }
+            })
 //            const xxx = xx
 //            const yyy = yy
 //            xx = Math.cos(xyAngle*2)*xxx - Math.sin(xyAngle*2)*yyy

@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
     QObject::connect(viewer.engine(), &QQmlEngine::quit, &viewer, &QWindow::close);
 
     viewer.setTitle(QStringLiteral("QML Axes"));
-    viewer.setSource(QUrl("qrc:/firstattempt/main.qml"));
+    viewer.setSource(QUrl("qrc:/QFyrLysAR/main.qml"));
     viewer.setResizeMode(QQuickView::SizeRootObjectToView);
     viewer.show();
 

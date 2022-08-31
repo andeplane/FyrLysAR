@@ -53,7 +53,8 @@ SOURCES += \
 
 resources.files = main.qml
 resources.prefix = /$${TARGET}
-RESOURCES += resources
+RESOURCES += resources \
+  qml.qrc
 
 #QMAKE_INFO_PLIST = info.plist
 
@@ -67,3 +68,9 @@ QML_DESIGNER_IMPORT_PATH =
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+  Lighthouse.qml \
+  Lighthouses.qml \
+  MyFile.qml \
+  Sector.qml
