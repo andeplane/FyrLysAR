@@ -2,7 +2,6 @@ import QtQuick
 import QtSensors
 import QtMultimedia
 import QtPositioning
-import QtCharts
 import "qrc:/"
 
 Item {
@@ -17,11 +16,6 @@ Item {
         lighthouseComponent = Qt.createComponent("qrc:/Lighthouse.qml");
     }
 
-    Item {
-        id: lighthouseContainer
-        anchors.fill: parent
-    }
-
     Lighthouses {
         id: lighthousesSource
         Component.onCompleted: {
@@ -29,7 +23,6 @@ Item {
         }
     }
 
-    property real direction: compass.azimuth + accelerometer.theta
     property real fovL: 69
     property real fovP: 38
     property real smoothingN: 3
@@ -79,7 +72,7 @@ Item {
                 lighthouseHeight = lighthouse.height
             }
 
-            if (lighthouse.sprite === undefined) {
+            if (lighthouse.sprite === undefined && lighthouseComponent.status === Component.Ready) {
                 lighthouse.sprite = lighthouseComponent.createObject(lighthouseContainer, {
                     coordinates: QtPositioning.coordinate(lighthouse.latitudeDeg + lighthouse.latitudeMin/60, lighthouse.longitudeDeg + lighthouse.longitudeMin/60, lighthouseHeight),
                     heightOverSea: lighthouseHeight,
@@ -131,61 +124,22 @@ Item {
             })
 
             createLighthouseObjects()
-            console.log("Found ", visibleLighthouses.length, " lighthouses")
-
-            var otherCoord = QtPositioning.coordinate(59.92756178642623, 10.67633625088176, 10)
-            var angle = coord.azimuthTo(otherCoord)
-            targetDirection = angle
         }
     }
 
-//    CaptureSession {
-//        id: captureSession
-//        camera: Camera {
-//            id: camera
-//            active: true
-//        }
-//        videoOutput: viewfinder
-//    }
-
-//    VideoOutput {
-//        id: viewfinder
-//        visible: true
-////        orientation: 90
-//        anchors.fill: parent
-//    }
-
-    Rectangle {
-        width: 200
-        height: 180
-        color: Qt.rgba(1.0, 1.0, 1.0, 0.5)
-        radius: 20
-        Column {
-            Text {
-                text: "xx: "+accelerometer.xx.toFixed(3)
-            }
-            Text {
-                text: "yy: "+accelerometer.yy.toFixed(3)
-            }
-            Text {
-                text: "zz: "+accelerometer.zz.toFixed(3)
-            }
-            Text {
-                text: "gx: "+accelerometer.x.toFixed(3)
-            }
-            Text {
-                text: "gy: "+accelerometer.y.toFixed(3)
-            }
-            Text {
-                text: "gz: "+accelerometer.z.toFixed(3)
-            }
-            Text {
-                text: "az: "+compass.azimuth.toFixed(3)
-            }
-            Text {
-                text: "target: "+targetDirection
-            }
+    CaptureSession {
+        id: captureSession
+        camera: Camera {
+            id: camera
+            active: true
         }
+        videoOutput: viewfinder
+    }
+
+    VideoOutput {
+        id: viewfinder
+        visible: true
+        anchors.fill: parent
     }
 
     Accelerometer {
@@ -225,7 +179,7 @@ Item {
 
             visibleLighthouses.forEach(lighthouse => {
                 if (lighthouse.sprite && lighthouse.sprite.visible) {
-                    lighthouse.sprite.update(src.position.coordinate, R, fovP, fovL, root.width, root.height, 0.0)
+                    lighthouse.sprite.update(src.position.coordinate, R, fovP, fovL, root.width, root.height, Date.now())
                 }
             })
         }
@@ -239,25 +193,10 @@ Item {
         onReadingChanged: {
             azimuth = reading.azimuth
         }
-
     }
 
-    Rectangle {
-        x: 180 / Math.PI * Math.atan2(accelerometer.xx, accelerometer.zz)/fovP * root.width + root.width/2
-        y: 180 / Math.PI * Math.atan2(accelerometer.yy, accelerometer.zz)/fovL * root.height + root.height/2
-
-        color: Qt.rgba(1.0, 0.0, 0.0, 1.0)
-        width: 20
-        height: 20
-        radius: 10
+    Item {
+        id: lighthouseContainer
+        anchors.fill: parent
     }
-
-//    Timer {
-//        running: true
-//        repeat: true
-//        interval: 1000
-//        onTriggered: {
-//            console.log(accelerometer.rotationMatrix.column(0), accelerometer.rotationMatrix.column(1), accelerometer.rotationMatrix.column(2))
-//        }
-//    }
 }
