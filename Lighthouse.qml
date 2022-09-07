@@ -2,7 +2,7 @@ import QtQuick
 
 Rectangle {
     id: root
-    property real smoothingN: 5
+    property real smoothingN: 3
     property real xx: 0
     property real yy: 0
     property real zz: 0
@@ -223,7 +223,7 @@ Rectangle {
         } else {
             root.color = color
         }
-        angle /= 180 * Math.PI
+        angle *= Math.PI / 180
 
         const v = Qt.vector3d(Math.sin(angle), Math.cos(angle), 0)
         const vPrime = R.times(v)

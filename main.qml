@@ -164,13 +164,14 @@ Item {
             z = reading.z
 
             const g = Qt.vector3d(0, 0, 1)
-            let gp = Qt.vector3d(x, y, -z).normalized()
+            let gp = Qt.vector3d(-x, y, -z).normalized()
 
             const angle = Math.acos(gp.dotProduct(g))
             const gCrossGp = gp.crossProduct(g).normalized()
+            let xyAngle = Math.atan2(x,y) * 180 / Math.PI
 
             const U = Qt.matrix4x4()
-            U.rotate(compass.azimuth, g )
+            U.rotate(compass.azimuth + 2*xyAngle, g )
 
             const V = Qt.matrix4x4()
             V.rotate(angle * 180 / Math.PI, gCrossGp)
