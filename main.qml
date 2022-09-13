@@ -98,7 +98,7 @@ Item {
 
         onPositionChanged: {
             var coord = src.position.coordinate
-            coord = QtPositioning.coordinate(59.0000250460578, 11.05762879887125)
+//            coord = QtPositioning.coordinate(58.99542454583703, 11.059663925661924)
 
             lighthouses.forEach(lighthouse => {
                 let lighthouseHeight = 1.0
@@ -183,8 +183,8 @@ Item {
 
             visibleLighthouses.forEach(lighthouse => {
                 if (lighthouse.sprite && lighthouse.sprite.visible) {
-//                    lighthouse.sprite.update(src.position.coordinate, R, fovP, fovL, root.width, root.height, Date.now())
-                      lighthouse.sprite.update(QtPositioning.coordinate(59.0000250460578, 11.05762879887125), R, fovP, fovL, root.width, root.height, Date.now())
+                    lighthouse.sprite.update(src.position.coordinate, R, fovP, fovL, root.width, root.height, Date.now())
+//                      lighthouse.sprite.update(QtPositioning.coordinate(58.99542454583703, 11.059663925661924), R, fovP, fovL, root.width, root.height, Date.now())
                 }
             })
         }
