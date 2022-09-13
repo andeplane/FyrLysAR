@@ -256,6 +256,7 @@ Rectangle {
         function lerp (start, end, amt){
           return (1-amt)*start+amt*end
         }
+        maxRange = Math.max(500, maxRange)
 
         let size = lerp(100, 0, distance/maxRange)
         size = Math.max(size, 0)
