@@ -222,8 +222,7 @@ Rectangle {
             }
         })
         if (color == null) {
-//            visible = false
-            root.color = Qt.rgba(0.0, 0.0, 1.0, 1.0)
+            visible = false
         } else {
             root.color = color
         }
@@ -244,13 +243,11 @@ Rectangle {
         y = 180 / Math.PI * Math.atan2(yy, zz)/fovL * height + height/2 - root.height/2
 
         if (flashValues && flashValues.length > 0 & flashPeriod > 0) {
-            let index = Math.floor(time/1000) % (flashPeriod / flashValues.length)
-
-            index = index % flashValues.length
-//            let lightOn = flashValues[index]
-//            if (!lightOn) {
-//                root.color = Qt.rgba(0.0, 0.0, 0.0, 1.0)
-//            }
+            let index = Math.floor(((time/1000 % flashPeriod) / flashPeriod) * flashValues.length)
+            let lightOn = flashValues[index]
+            if (!lightOn) {
+                root.color = Qt.rgba(0.0, 0.0, 0.0, 1.0)
+            }
         }
 
         function lerp (start, end, amt){
