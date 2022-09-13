@@ -8,10 +8,12 @@ Rectangle {
     property real zz: 0
     property var sprite
     property var coordinates
+    property real distance
     property string pattern
     property int flashPeriod
     property string name
     property real heightOverSea
+    property real maxRange
     property var sectors: []
     property var flashValues: []
 
@@ -210,6 +212,7 @@ Rectangle {
 
     function update(deviceCoordinate, R, fovP, fovL, width, height, time) {
         var angle = deviceCoordinate.azimuthTo(coordinates)
+        distance = deviceCoordinate.distanceTo(coordinates)
 
         angle = (angle + 2 * 180) % (2 * 180)
         let color = null
@@ -219,7 +222,8 @@ Rectangle {
             }
         })
         if (color == null) {
-            visible = false
+//            visible = false
+            root.color = Qt.rgba(0.0, 0.0, 1.0, 1.0)
         } else {
             root.color = color
         }
@@ -236,21 +240,85 @@ Rectangle {
         zz -= zz / smoothingN
         zz += vPrime.z / smoothingN
 
-        x = 180 / Math.PI * Math.atan2(xx, zz)/fovP * width + width/2
-        y = 180 / Math.PI * Math.atan2(yy, zz)/fovL * height + height/2
+        x = 180 / Math.PI * Math.atan2(xx, zz)/fovP * width + width/2 - root.width/2
+        y = 180 / Math.PI * Math.atan2(yy, zz)/fovL * height + height/2 - root.height/2
 
         if (flashValues && flashValues.length > 0 & flashPeriod > 0) {
             let index = Math.floor(time/1000) % (flashPeriod / flashValues.length)
 
             index = index % flashValues.length
-            let lightOn = flashValues[index]
-            if (!lightOn) {
-                root.color = Qt.rgba(0.0, 0.0, 0.0, 1.0)
+//            let lightOn = flashValues[index]
+//            if (!lightOn) {
+//                root.color = Qt.rgba(0.0, 0.0, 0.0, 1.0)
+//            }
+        }
+
+        function lerp (start, end, amt){
+          return (1-amt)*start+amt*end
+        }
+
+        let size = lerp(100, 0, distance/maxRange)
+        size = Math.max(size, 0)
+
+        root.radius = size
+        root.width = size
+        root.height = size
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            infoBox.visible = !infoBox.visible
+        }
+    }
+
+    Rectangle {
+        id: infoBox
+        width: 170
+        height: 70
+        x: 30
+        y: -50
+        radius: 10
+        opacity: 0.9
+        visible: false
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                infoBox.visible = false
             }
         }
-//        const size = 40 - 4 * distance / 1000
-//        radius = size
-//        width = size
-//        height = size
+
+        // visible: Math.sqrt( Math.pow(root.x-root.parent.width/2,2) + Math.pow(root.y-root.parent.height/2,2)) < 50
+        Column {
+            Row {
+                Text {
+                    text: "Name: "
+                }
+                Text {
+                    text: name
+                }
+            }
+
+            Row {
+                Text {
+                    text: "Distance: "
+                }
+                Text {
+                    text: distance.toFixed(0.0) + ' m'
+                }
+            }
+
+            Row {
+                Text {
+                    text: "Height: "
+                }
+                Text {
+                    text: heightOverSea + ' m'
+                }
+            }
+        }
+
+
+
     }
 }

@@ -74,10 +74,11 @@ Item {
 
             if (lighthouse.sprite === undefined && lighthouseComponent.status === Component.Ready) {
                 lighthouse.sprite = lighthouseComponent.createObject(lighthouseContainer, {
-                    coordinates: QtPositioning.coordinate(lighthouse.latitudeDeg + lighthouse.latitudeMin/60, lighthouse.longitudeDeg + lighthouse.longitudeMin/60, lighthouseHeight),
+                    coordinates: QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouseHeight),
                     heightOverSea: lighthouseHeight,
                     pattern: lighthouse.pattern,
                     name: lighthouse.name,
+                    maxRange: lighthouse.maxRange,
                     sectors: lighthouse.sectors,
                     x: 100,
                     y: 100,
@@ -97,6 +98,8 @@ Item {
 
         onPositionChanged: {
             var coord = src.position.coordinate
+            coord = QtPositioning.coordinate(59.0000250460578, 11.05762879887125)
+
             lighthouses.forEach(lighthouse => {
                 let lighthouseHeight = 1.0
                 const selfHeight = 2.0
@@ -104,7 +107,7 @@ Item {
                     lighthouseHeight = lighthouse.height
                 }
 
-                var otherCoord = QtPositioning.coordinate(lighthouse.latitudeDeg + lighthouse.latitudeMin/60, lighthouse.longitudeDeg + lighthouse.longitudeMin/60, lighthouseHeight)
+                var otherCoord = QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouseHeight)
 
                 let isVisible = false
 
@@ -180,7 +183,8 @@ Item {
 
             visibleLighthouses.forEach(lighthouse => {
                 if (lighthouse.sprite && lighthouse.sprite.visible) {
-                    lighthouse.sprite.update(src.position.coordinate, R, fovP, fovL, root.width, root.height, Date.now())
+//                    lighthouse.sprite.update(src.position.coordinate, R, fovP, fovL, root.width, root.height, Date.now())
+                      lighthouse.sprite.update(QtPositioning.coordinate(59.0000250460578, 11.05762879887125), R, fovP, fovL, root.width, root.height, Date.now())
                 }
             })
         }
