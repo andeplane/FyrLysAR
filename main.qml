@@ -147,7 +147,9 @@ Window {
     VideoOutput {
         id: viewfinder
         visible: true
+        fillMode: Image.PreserveAspectCrop
         anchors.fill: parent
+        orientation: 0
     }
 
     Accelerometer {
