@@ -4,7 +4,7 @@ import QtMultimedia
 import QtPositioning
 import "qrc:/"
 
-Item {
+Window {
     id: root
     property var lighthouses
     property var lighthouseComponent
@@ -12,6 +12,7 @@ Item {
     property bool hardcodedLocation: true
     width: 640
     height: 480
+    visible: true
 
     Component.onCompleted: {
         lighthouseComponent = Qt.createComponent("qrc:/Lighthouse.qml");
