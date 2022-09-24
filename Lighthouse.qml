@@ -6,6 +6,7 @@ Rectangle {
     property real xx: 0
     property real yy: 0
     property real zz: 0
+    property var accelerometerReading
     property var sprite
     property var coordinates
     property real distance
@@ -279,6 +280,8 @@ Rectangle {
         radius: 10
         opacity: 0.9
         visible: false
+        rotation: 180 / Math.PI * Math.atan2(accelerometerReading.x, accelerometerReading.y)
+
         MouseArea {
             anchors.fill: parent
             onClicked: {
@@ -286,7 +289,6 @@ Rectangle {
             }
         }
 
-        // visible: Math.sqrt( Math.pow(root.x-root.parent.width/2,2) + Math.pow(root.y-root.parent.height/2,2)) < 50
         Column {
             Row {
                 Text {

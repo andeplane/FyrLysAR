@@ -81,6 +81,7 @@ Item {
                     name: lighthouse.name,
                     maxRange: lighthouse.maxRange,
                     sectors: lighthouse.sectors,
+                    accelerometerReading: accelerometer.reading,
                     x: 100,
                     y: 100,
                     radius: 10,
