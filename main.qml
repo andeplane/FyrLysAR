@@ -9,7 +9,7 @@ Window {
     property var lighthouses
     property var lighthouseComponent
     property var visibleLighthouses: []
-    property bool hardcodedLocation: true
+    property bool hardcodedLocation: false
     width: 640
     height: 480
     visible: true
@@ -98,6 +98,7 @@ Window {
         id: src
         updateInterval: 250
         active: true
+        property var lastUpdatedCoord: undefined
 
         onPositionChanged: {
             var coord = src.position.coordinate
@@ -105,31 +106,35 @@ Window {
                 coord = QtPositioning.coordinate(58.99542454583703, 11.059663925661924)
             }
 
-            lighthouses.forEach(lighthouse => {
-                let lighthouseHeight = 1.0
-                const selfHeight = 2.0
-                if (lighthouse.height !== null) {
-                    lighthouseHeight = lighthouse.height
-                }
-
-                var otherCoord = QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouseHeight)
-
-                let isVisible = false
-
-                if (coord.distanceTo(otherCoord) < visibilityRange(selfHeight) + visibilityRange(lighthouseHeight)) {
-                    isVisible = true
-                    if (visibleLighthouses.indexOf(lighthouse) < 0) {
-                        visibleLighthouses.push(lighthouse)
+            let shouldScanForNewLighthouses = lastUpdatedCoord===undefined || calculateDistance(coord.latitude, coord.longitude, lastUpdatedCoord.latitude, lastUpdatedCoord.longitude) > 1852
+            if (shouldScanForNewLighthouses) {
+                lighthouses.forEach(lighthouse => {
+                    let lighthouseHeight = 1.0
+                    const selfHeight = 2.0
+                    if (lighthouse.height !== null) {
+                        lighthouseHeight = lighthouse.height
                     }
-                }
 
-                const index = visibleLighthouses.indexOf(lighthouse)
-                if (index >= 0) {
-                   if (visibleLighthouses[index].sprite) {
-                       visibleLighthouses[index].sprite.visible = isVisible
-                   }
-                }
-            })
+                    var otherCoord = QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouseHeight)
+
+                    let isVisible = false
+
+                    if (coord.distanceTo(otherCoord) < visibilityRange(selfHeight) + visibilityRange(lighthouseHeight)) {
+                        isVisible = true
+                        if (visibleLighthouses.indexOf(lighthouse) < 0) {
+                            visibleLighthouses.push(lighthouse)
+                        }
+                    }
+
+                    const index = visibleLighthouses.indexOf(lighthouse)
+                    if (index >= 0) {
+                       if (visibleLighthouses[index].sprite) {
+                           visibleLighthouses[index].sprite.visible = isVisible
+                       }
+                    }
+                })
+                lastUpdatedCoord = coord
+            }
 
             createLighthouseObjects()
         }
