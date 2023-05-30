@@ -58,9 +58,7 @@ Page {
                     id: listView
                     currentIndex: useHardCodedPosition ? 1 : 0
                     onCurrentIndexChanged: {
-                        if (currentIndex === 0) {
-                            root.useHardCodedPosition = true
-                        }
+                        root.useHardCodedPosition = currentIndex === 1
                     }
 
                     anchors.fill: parent
