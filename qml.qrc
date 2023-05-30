@@ -5,5 +5,7 @@
         <file>Lighthouse.qml</file>
         <file>images/gear.svg</file>
         <file>ARViewer.qml</file>
+        <file>SettingsView.qml</file>
+        <file>Header.qml</file>
     </qresource>
 </RCC>

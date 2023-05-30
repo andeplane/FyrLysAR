@@ -72,4 +72,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES += \
   Lighthouse.qml \
   Lighthouses.qml \
+  SettingsView.qml \
   resources/gear.avif

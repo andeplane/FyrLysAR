@@ -2,6 +2,7 @@ import QtQuick
 import QtSensors
 import QtMultimedia
 import QtPositioning
+import QtQuick.Controls
 
 import "qrc:/"
 
@@ -11,7 +12,9 @@ Item {
     property var lighthouses
     property var lighthouseComponent
     property var nearbyLighthouses: []
-    property bool hardcodedLocation: false
+    property bool useHardCodedPosition
+    property real hardcodedLongitude
+    property real hardcodedLatitude
 
     Component.onCompleted: {
         lighthouseComponent = Qt.createComponent("qrc:/Lighthouse.qml");
@@ -101,11 +104,12 @@ Item {
 
         onPositionChanged: {
             var coord = src.position.coordinate
-            if (hardcodedLocation) {
-                coord = QtPositioning.coordinate(58.99542454583703, 11.059663925661924)
+            if (useHardCodedPosition) {
+                coord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude)
             }
 
             let shouldScanForNewNearbyLighthouses = lastUpdatedCoord===undefined || calculateDistance(coord.latitude, coord.longitude, lastUpdatedCoord.latitude, lastUpdatedCoord.longitude) > 1852
+
             if (shouldScanForNewNearbyLighthouses) {
                 lighthouses.forEach(lighthouse => {
                     let lighthouseHeight = 1.0
@@ -193,8 +197,8 @@ Item {
 
             nearbyLighthouses.forEach(lighthouse => {
                 if (lighthouse.sprite && lighthouse.sprite.visible) {
-                    if (hardcodedLocation) {
-                        lighthouse.sprite.update(QtPositioning.coordinate(58.99542454583703, 11.059663925661924), R, fovP, fovL, root.width, root.height, Date.now())
+                    if (useHardCodedPosition) {
+                        lighthouse.sprite.update(QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude), R, fovP, fovL, root.width, root.height, Date.now())
                     } else {
                         lighthouse.sprite.update(src.position.coordinate, R, fovP, fovL, root.width, root.height, Date.now())
                     }
@@ -216,5 +220,9 @@ Item {
     Item {
         id: lighthouseContainer
         anchors.fill: parent
+    }
+
+    Header {
+        text: "FyrLysAR"
     }
 }
