@@ -120,14 +120,19 @@ Item {
 
                     var otherCoord = QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouseHeight)
 
-                    let isVisible = false
+                    let isAboveHorizon = false
 
                     if (coord.distanceTo(otherCoord) < visibilityRange(selfHeight) + visibilityRange(lighthouseHeight)) {
-                        isVisible = true
+                        isAboveHorizon = true
                         if (nearbyLighthouses.indexOf(lighthouse) < 0) {
                             nearbyLighthouses.push(lighthouse)
                         }
                     }
+
+                    let isAboveLand = true
+
+
+                    let isVisible = isAboveHorizon && isAboveLand
 
                     const index = nearbyLighthouses.indexOf(lighthouse)
                     if (index >= 0) {

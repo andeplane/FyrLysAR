@@ -1,9 +1,11 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-
+#include <QtQml>
+#include "heightreader.h"
 
 int main(int argc, char *argv[])
 {
+    qmlRegisterType<HeightReader>("HeightReader", 1, 0, "HeightReader");
     QGuiApplication app(argc, argv);
 
     app.setOrganizationName("FyrLysARCompany");

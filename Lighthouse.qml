@@ -222,6 +222,7 @@ Rectangle {
               color = sector.color
             }
         })
+
         if (color == null) {
             visible = false
         } else {
