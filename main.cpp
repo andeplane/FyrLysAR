@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QtQml>
 #include "heightreader.h"
+#include <iostream>
 
 int main(int argc, char *argv[])
 {

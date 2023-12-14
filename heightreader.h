@@ -12,16 +12,16 @@ struct ImageMetadata {
     QSizeF pixelSize;
     QPointF lower;
     QPointF upper;
+    QImage image;
 };
 
 class HeightReader : public QObject
 {
     Q_OBJECT
 private:
-    QVector<QImage> images;
     QVector<ImageMetadata> imageMetadata;
     void parseTfwMetadataFiles();
-    void parseTfwMetadataFile(QString fileName, const QImage &image);
+    void parseTfwMetadataFile(QString fileName, QImage imageFile);
 
     const ImageMetadata* findFile(double x, double y) const;
 

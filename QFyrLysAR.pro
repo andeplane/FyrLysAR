@@ -47,7 +47,7 @@ write_file($$OUT_PWD/Info.plist, INFOPLIST)|error()
 QMAKE_INFO_PLIST = $$OUT_PWD/Info.plist
 
 QT += quick qml multimedia sensors positioning charts \
-    quick
+    quick location
 
 SOURCES += \
         heightreader.cpp \
@@ -57,7 +57,7 @@ resources.files = main.qml
 resources.prefix = /$${TARGET}
 RESOURCES += resources \
   qml.qrc
-
+INCLUDEPATH += tiffreader
 #QMAKE_INFO_PLIST = info.plist
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
@@ -76,157 +76,81 @@ DISTFILES += \
   Lighthouses.qml \
   SettingsView.qml \
   heightdata/6400_50m_33.tfw \
-  heightdata/6400_50m_33.tif \
   heightdata/6401_50m_33.tfw \
-  heightdata/6401_50m_33.tif \
   heightdata/64M1_50m_33.tfw \
-  heightdata/64M1_50m_33.tif \
   heightdata/6500_50m_33.tfw \
-  heightdata/6500_50m_33.tif \
   heightdata/6501_50m_33.tfw \
-  heightdata/6501_50m_33.tif \
   heightdata/6502_50m_33.tfw \
-  heightdata/6502_50m_33.tif \
   heightdata/6503_50m_33.tfw \
-  heightdata/6503_50m_33.tif \
   heightdata/65M1_50m_33.tfw \
-  heightdata/65M1_50m_33.tif \
   heightdata/6600_50m_33.tfw \
-  heightdata/6600_50m_33.tif \
   heightdata/6601_50m_33.tfw \
-  heightdata/6601_50m_33.tif \
   heightdata/6602_50m_33.tfw \
-  heightdata/6602_50m_33.tif \
   heightdata/6603_50m_33.tfw \
-  heightdata/6603_50m_33.tif \
   heightdata/66M1_50m_33.tfw \
-  heightdata/66M1_50m_33.tif \
   heightdata/6700_50m_33.tfw \
-  heightdata/6700_50m_33.tif \
   heightdata/6701_50m_33.tfw \
-  heightdata/6701_50m_33.tif \
   heightdata/6702_50m_33.tfw \
-  heightdata/6702_50m_33.tif \
   heightdata/6703_50m_33.tfw \
-  heightdata/6703_50m_33.tif \
   heightdata/67M1_50m_33.tfw \
-  heightdata/67M1_50m_33.tif \
   heightdata/6800_50m_33.tfw \
-  heightdata/6800_50m_33.tif \
   heightdata/6801_50m_33.tfw \
-  heightdata/6801_50m_33.tif \
   heightdata/6802_50m_33.tfw \
-  heightdata/6802_50m_33.tif \
   heightdata/6803_50m_33.tfw \
-  heightdata/6803_50m_33.tif \
   heightdata/68M1_50m_33.tfw \
-  heightdata/68M1_50m_33.tif \
   heightdata/6900_50m_33.tfw \
-  heightdata/6900_50m_33.tif \
   heightdata/6901_50m_33.tfw \
-  heightdata/6901_50m_33.tif \
   heightdata/6902_50m_33.tfw \
-  heightdata/6902_50m_33.tif \
   heightdata/6903_50m_33.tfw \
-  heightdata/6903_50m_33.tif \
   heightdata/69M1_50m_33.tfw \
-  heightdata/69M1_50m_33.tif \
   heightdata/7000_50m_33.tfw \
-  heightdata/7000_50m_33.tif \
   heightdata/7001_50m_33.tfw \
-  heightdata/7001_50m_33.tif \
   heightdata/7002_50m_33.tfw \
-  heightdata/7002_50m_33.tif \
   heightdata/7003_50m_33.tfw \
-  heightdata/7003_50m_33.tif \
   heightdata/7004_50m_33.tfw \
-  heightdata/7004_50m_33.tif \
   heightdata/7101_50m_33.tfw \
-  heightdata/7101_50m_33.tif \
   heightdata/7102_50m_33.tfw \
-  heightdata/7102_50m_33.tif \
   heightdata/7103_50m_33.tfw \
-  heightdata/7103_50m_33.tif \
   heightdata/7104_50m_33.tfw \
-  heightdata/7104_50m_33.tif \
   heightdata/7202_50m_33.tfw \
-  heightdata/7202_50m_33.tif \
   heightdata/7203_50m_33.tfw \
-  heightdata/7203_50m_33.tif \
   heightdata/7204_50m_33.tfw \
-  heightdata/7204_50m_33.tif \
   heightdata/7303_50m_33.tfw \
-  heightdata/7303_50m_33.tif \
   heightdata/7304_50m_33.tfw \
-  heightdata/7304_50m_33.tif \
   heightdata/7305_50m_33.tfw \
-  heightdata/7305_50m_33.tif \
   heightdata/7403_50m_33.tfw \
-  heightdata/7403_50m_33.tif \
   heightdata/7404_50m_33.tfw \
-  heightdata/7404_50m_33.tif \
   heightdata/7405_50m_33.tfw \
-  heightdata/7405_50m_33.tif \
   heightdata/7503_50m_33.tfw \
-  heightdata/7503_50m_33.tif \
   heightdata/7504_50m_33.tfw \
-  heightdata/7504_50m_33.tif \
   heightdata/7505_50m_33.tfw \
-  heightdata/7505_50m_33.tif \
   heightdata/7506_50m_33.tfw \
-  heightdata/7506_50m_33.tif \
   heightdata/7507_50m_33.tfw \
-  heightdata/7507_50m_33.tif \
   heightdata/7604_50m_33.tfw \
-  heightdata/7604_50m_33.tif \
   heightdata/7605_50m_33.tfw \
-  heightdata/7605_50m_33.tif \
   heightdata/7606_50m_33.tfw \
-  heightdata/7606_50m_33.tif \
   heightdata/7607_50m_33.tfw \
-  heightdata/7607_50m_33.tif \
   heightdata/7608_50m_33.tfw \
-  heightdata/7608_50m_33.tif \
   heightdata/7609_50m_33.tfw \
-  heightdata/7609_50m_33.tif \
   heightdata/7705_50m_33.tfw \
-  heightdata/7705_50m_33.tif \
   heightdata/7706_50m_33.tfw \
-  heightdata/7706_50m_33.tif \
   heightdata/7707_50m_33.tfw \
-  heightdata/7707_50m_33.tif \
   heightdata/7708_50m_33.tfw \
-  heightdata/7708_50m_33.tif \
   heightdata/7709_50m_33.tfw \
-  heightdata/7709_50m_33.tif \
   heightdata/7710_50m_33.tfw \
-  heightdata/7710_50m_33.tif \
   heightdata/7711_50m_33.tfw \
-  heightdata/7711_50m_33.tif \
   heightdata/7806_50m_33.tfw \
-  heightdata/7806_50m_33.tif \
   heightdata/7807_50m_33.tfw \
-  heightdata/7807_50m_33.tif \
   heightdata/7808_50m_33.tfw \
-  heightdata/7808_50m_33.tif \
   heightdata/7809_50m_33.tfw \
-  heightdata/7809_50m_33.tif \
   heightdata/7810_50m_33.tfw \
-  heightdata/7810_50m_33.tif \
   heightdata/7811_50m_33.tfw \
-  heightdata/7811_50m_33.tif \
   heightdata/7906_50m_33.tfw \
-  heightdata/7906_50m_33.tif \
   heightdata/7907_50m_33.tfw \
-  heightdata/7907_50m_33.tif \
   heightdata/7908_50m_33.tfw \
-  heightdata/7908_50m_33.tif \
   heightdata/7909_50m_33.tfw \
-  heightdata/7909_50m_33.tif \
   heightdata/7910_50m_33.tfw \
-  heightdata/7910_50m_33.tif \
   heightdata/7911_50m_33.tfw \
-  heightdata/7911_50m_33.tif \
   resources/gear.avif
 
 HEADERS += \

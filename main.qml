@@ -59,13 +59,17 @@ Window {
     Button {
         id: button
         onClicked: {
-            let source = QtPositioning.coordinate(59.000208, 11.057198, 0)
-            let target = QtPositioning.coordinate(58.994308, 11.075194, 0)
+            let source = QtPositioning.coordinate(59.015247, 10.991599, 2)
+            let target = QtPositioning.coordinate(59.010034, 10.565340, 4)
             console.log("Height source: ", heightReader.findHeight(source))
             console.log("Height target: ", heightReader.findHeight(target))
-            console.log(heightReader.lineIsAboveLand(source, source))
+            console.log(heightReader.lineIsAboveLand(source, target))
+            // source = QtPositioning.coordinate(58.994165, 11.068447, 0)
+            // console.log(heightReader.findHeight(source))
+
         }
     }
+
     HeightReader {
         id: heightReader
     }
