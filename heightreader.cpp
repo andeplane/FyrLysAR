@@ -96,22 +96,18 @@ void HeightReader::parseTfwMetadataFile(QString fileName, QImage image) {
 void HeightReader::parseTfwMetadataFiles() {
     QDir directory(":/heightdata");
     QStringList files = directory.entryList(QStringList() << "*", QDir::Files);
-    qDebug() << "Found some files " << files.length();
     foreach (const QString &fileName, files) {
         if (fileName.endsWith("tfw")) {
             QString imageFilename = fileName;
             imageFilename.replace("tfw", "png");
-            qDebug() << "Trying to read image " << directory.filePath(imageFilename);
 
             QImage image(directory.filePath(imageFilename));
             if (image.isNull()) {
                 qDebug() << "Whops could not open this file";
             }
-            qDebug() << "Got image with width " << image.width() << image.height();
 
             parseTfwMetadataFile(directory.filePath(fileName), image);
         }
-        // qDebug() << fileName;
     }
 }
 
@@ -128,12 +124,10 @@ const ImageMetadata* HeightReader::findFile(double x, double y) const {
 
 double HeightReader::findHeight(const QGeoCoordinate& coordinate) {
     QPointF utmCoords = latlonToUtm33(coordinate);
-    qDebug() << "UTM: " << utmCoords;
 
     const ImageMetadata* file = findFile(utmCoords.x(), utmCoords.y());
 
     if (file) {
-        qDebug() << "Reading file " << file->fileName;
         double x0 = file->lower.x();
         double y0 = file->lower.y();
         QSizeF pixelSize = file->pixelSize;
@@ -147,11 +141,9 @@ double HeightReader::findHeight(const QGeoCoordinate& coordinate) {
 }
 
 bool HeightReader::lineIsAboveLand(const QGeoCoordinate& source, const QGeoCoordinate& target) {
-    qDebug () << "Will calculate line thingies between " << source << " and " << target;
     const double EarthRadius = 6371000.0; // Average radius of Earth in meters
     double distance = source.distanceTo(target);
     double bearing = source.azimuthTo(target);
-    qDebug () << "Distance " << distance;
 
     // Calculate the effective radius of curvature at the midpoint
     double midPointHeight = (source.altitude() + target.altitude()) / 2;
@@ -162,7 +154,6 @@ bool HeightReader::lineIsAboveLand(const QGeoCoordinate& source, const QGeoCoord
     double elevationAngle = std::atan2(heightDifference, distance);
 
     int numberOfSamples = std::ceil(distance / 50.0);
-    qDebug () << "Got num samples " << numberOfSamples;
     for (int i = 1; i < numberOfSamples; ++i) { // Start from 1 to exclude the source point
         QGeoCoordinate samplePoint = source.atDistanceAndAzimuth(i * 50.0, bearing);
 
@@ -175,10 +166,6 @@ bool HeightReader::lineIsAboveLand(const QGeoCoordinate& source, const QGeoCoord
 
         // Actual height from terrain data
         double actualTerrainHeight = findHeight(samplePoint);
-        qDebug() << "Testing point " << samplePoint;
-        qDebug() << "curvedPathHeight: " << curvedPathHeight;
-        qDebug() << "expectedHeight: " << expectedHeight;
-        qDebug() << "actualTerrainHeight" << actualTerrainHeight;
 
         if (actualTerrainHeight + curvedPathHeight > expectedHeight) {
             return false; // Terrain is blocking the line of sight
