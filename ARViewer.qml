@@ -3,6 +3,7 @@ import QtSensors
 import QtMultimedia
 import QtPositioning
 import QtQuick.Controls
+import HeightReader 1.0
 
 import "qrc:/"
 
@@ -103,12 +104,23 @@ Item {
         property var lastUpdatedCoord: undefined
 
         onPositionChanged: {
-            var coord = src.position.coordinate
+            var selfCoord = src.position.coordinate
             if (useHardCodedPosition) {
-                coord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude)
+                selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude)
             }
 
-            let shouldScanForNewNearbyLighthouses = lastUpdatedCoord===undefined || calculateDistance(coord.latitude, coord.longitude, lastUpdatedCoord.latitude, lastUpdatedCoord.longitude) > 1852
+            nearbyLighthouses.forEach(lighthouse => {
+                if (lighthouse.sprite) {
+                    let lighthouseHeight = 1.0
+                    if (lighthouse.height !== null) {
+                        lighthouseHeight = lighthouse.height
+                    }
+                    const lighthouseCoord = QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouseHeight)
+                    lighthouse.sprite.visible = heightReader.lineIsAboveLand(selfCoord, lighthouseCoord)
+                }
+            })
+
+            let shouldScanForNewNearbyLighthouses = lastUpdatedCoord===undefined || calculateDistance(selfCoord.latitude, selfCoord.longitude, lastUpdatedCoord.latitude, lastUpdatedCoord.longitude) > 1852
 
             if (shouldScanForNewNearbyLighthouses) {
                 lighthouses.forEach(lighthouse => {
@@ -118,11 +130,11 @@ Item {
                         lighthouseHeight = lighthouse.height
                     }
 
-                    var otherCoord = QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouseHeight)
+                    var lighthouseCoord = QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouseHeight)
 
                     let isAboveHorizon = false
 
-                    if (coord.distanceTo(otherCoord) < visibilityRange(selfHeight) + visibilityRange(lighthouseHeight)) {
+                    if (selfCoord.distanceTo(lighthouseCoord) < visibilityRange(selfHeight) + visibilityRange(lighthouseHeight)) {
                         isAboveHorizon = true
                         if (nearbyLighthouses.indexOf(lighthouse) < 0) {
                             nearbyLighthouses.push(lighthouse)
@@ -141,7 +153,7 @@ Item {
                        }
                     }
                 })
-                lastUpdatedCoord = coord
+                lastUpdatedCoord = selfCoord
                 createLighthouseObjects()
             }
         }
@@ -202,11 +214,11 @@ Item {
 
             nearbyLighthouses.forEach(lighthouse => {
                 if (lighthouse.sprite && lighthouse.sprite.visible) {
+                    let selfCoord = src.position.coordinate
                     if (useHardCodedPosition) {
-                        lighthouse.sprite.update(QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude), R, fovP, fovL, root.width, root.height, Date.now())
-                    } else {
-                        lighthouse.sprite.update(src.position.coordinate, R, fovP, fovL, root.width, root.height, Date.now())
+                        selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude)
                     }
+                    lighthouse.sprite.update(selfCoord, R, fovP, fovL, root.width, root.height, Date.now())
                 }
             })
         }
@@ -229,5 +241,9 @@ Item {
 
     Header {
         text: "FyrLysAR"
+    }
+
+    HeightReader {
+        id: heightReader
     }
 }
