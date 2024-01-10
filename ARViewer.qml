@@ -142,8 +142,9 @@ Item {
         onPositionChanged: {
             const t0 = Date.now()
             var selfCoord = positionSource.position.coordinate
+            selfCoord.altitude = selfHeight
             if (useHardCodedPosition) {
-                selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude)
+                selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude, selfHeight)
             }
 
             let shouldScanForNewNearbyLighthouses = lastUpdatedCoord===undefined || calculateDistance(selfCoord.latitude, selfCoord.longitude, lastUpdatedCoord.latitude, lastUpdatedCoord.longitude) > 1852
@@ -158,34 +159,21 @@ Item {
 
                     var lighthouseCoord = QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouseHeight)
 
-                    // let isAboveHorizon = false
-
                     if (selfCoord.distanceTo(lighthouseCoord) < visibilityRange(selfHeight) + visibilityRange(lighthouseHeight)) {
-                        // isAboveHorizon = true
                         if (nearbyLighthouses.indexOf(lighthouse) < 0) {
                             nearbyLighthouses.push(lighthouse)
                         }
                     }
-
-                    // let isAboveLand = true
-                    // let isVisible = isAboveHorizon && isAboveLand
-
-                    // const index = nearbyLighthouses.indexOf(lighthouse)
-                    // if (index >= 0) {
-                    //    if (nearbyLighthouses[index].sprite) {
-                    //        nearbyLighthouses[index].sprite.visible = isVisible
-                    //    }
-                    // }
                 })
                 lastUpdatedCoord = selfCoord
                 createLighthouseObjects()
             }
 
-            // if (shouldUpdateBehindLand) {
-            //     updateVisibilityBasedOnBehindLand(selfCoord, nearbyLighthouses)
-            // }
-
+            if (shouldUpdateBehindLand) {
+                updateVisibilityBasedOnLand(selfCoord, selfHeight, nearbyLighthouses)
+            }
             updateVisibilityBasedOnLand(selfCoord, selfHeight, nearbyLighthouses)
+
             const t1 = Date.now()
             accumulatedTime += t1-t0
             numUpdates += 1
@@ -252,8 +240,9 @@ Item {
             nearbyLighthouses.forEach(lighthouse => {
                 if (lighthouse.sprite && !lighthouse.isHiddenByLand && lighthouse.isAboveHorizon) {
                     let selfCoord = positionSource.position.coordinate
+                    selfCoord.altitude = selfHeight
                     if (useHardCodedPosition) {
-                        selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude)
+                        selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude, selfHeight)
                     }
 
                     lighthouse.sprite.update(selfCoord, R, fovP, fovL, root.width, root.height, Date.now())
