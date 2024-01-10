@@ -123,11 +123,10 @@ Item {
             const lighthouseCoord = QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouseHeight)
             lighthouse.isHiddenByLand = !heightReader.lineIsAboveLand(selfCoord, lighthouseCoord)
             lighthouse.isAboveHorizon = selfCoord.distanceTo(lighthouseCoord) < visibilityRange(selfHeight) + visibilityRange(lighthouseHeight)
+
             numLighthousesNotHiddenByLand += !lighthouse.isHiddenByLand ? 1 : 0
             numLighthousesAboveHorizon += lighthouse.isAboveHorizon ? 1 : 0
         })
-        console.log("Now it should be ", numLighthousesNotHiddenByLand, numLighthousesAboveHorizon)
-
     }
 
     PositionSource {
@@ -148,7 +147,7 @@ Item {
             }
 
             let shouldScanForNewNearbyLighthouses = lastUpdatedCoord===undefined || calculateDistance(selfCoord.latitude, selfCoord.longitude, lastUpdatedCoord.latitude, lastUpdatedCoord.longitude) > 1852
-            let shouldUpdateBehindLand = lastUpdatedCoord===undefined || calculateDistance(selfCoord.latitude, selfCoord.longitude, lastUpdatedCoord.latitude, lastUpdatedCoord.longitude) > 20
+            let shouldUpdateVisibilityBasedOnLand = lastUpdatedCoord===undefined || calculateDistance(selfCoord.latitude, selfCoord.longitude, lastUpdatedCoord.latitude, lastUpdatedCoord.longitude) > 20
 
             if (shouldScanForNewNearbyLighthouses) {
                 lighthouses.forEach(lighthouse => {
@@ -169,10 +168,9 @@ Item {
                 createLighthouseObjects()
             }
 
-            if (shouldUpdateBehindLand) {
+            if (shouldUpdateVisibilityBasedOnLand) {
                 updateVisibilityBasedOnLand(selfCoord, selfHeight, nearbyLighthouses)
             }
-            updateVisibilityBasedOnLand(selfCoord, selfHeight, nearbyLighthouses)
 
             const t1 = Date.now()
             accumulatedTime += t1-t0
