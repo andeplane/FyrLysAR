@@ -39,6 +39,13 @@ Item {
         id: lighthousesSource
         Component.onCompleted: {
             root.lighthouses = JSON.parse(jsonString)
+            // Some lighthouses don't have height from source.
+            // Assume 1 meter for calculations
+            lighthouses.forEach(lighthouse => {
+                if (lighthouse.height === undefined) {
+                    lighthouse.height = 1.0
+                }
+            })
         }
     }
 
@@ -86,15 +93,10 @@ Item {
 
     function createLighthouseObjects() {
         nearbyLighthouses.forEach(lighthouse => {
-            let lighthouseHeight = 1.0
-            if (lighthouse.height !== null) {
-                lighthouseHeight = lighthouse.height
-            }
-
             if (lighthouse.sprite === undefined && lighthouseComponent.status === Component.Ready) {
                 lighthouse.sprite = lighthouseComponent.createObject(lighthouseContainer, {
-                    coordinates: QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouseHeight),
-                    heightOverSea: lighthouseHeight,
+                    coordinates: QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouse.height),
+                    heightOverSea: lighthouse.height,
                     pattern: lighthouse.pattern,
                     name: lighthouse.name,
                     maxRange: lighthouse.maxRange,
@@ -111,18 +113,14 @@ Item {
         })
     }
 
-    function updateVisibilityBasedOnLand(selfCoord, selfHeight, lighthouses) {
+    function updateVisibilityBasedOnLand(selfCoord, lighthouses) {
         numLighthousesNotHiddenByLand = 0
         numLighthousesAboveHorizon = 0
         numLighthousesInNearbyList = nearbyLighthouses.length
         lighthouses.forEach(lighthouse => {
-            let lighthouseHeight = 1.0
-            if (lighthouse.height !== null) {
-                lighthouseHeight = lighthouse.height
-            }
-            const lighthouseCoord = QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouseHeight)
+            const lighthouseCoord = QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouse.height)
             lighthouse.isHiddenByLand = !heightReader.lineIsAboveLand(selfCoord, lighthouseCoord)
-            lighthouse.isAboveHorizon = selfCoord.distanceTo(lighthouseCoord) < visibilityRange(selfHeight) + visibilityRange(lighthouseHeight)
+            lighthouse.isAboveHorizon = selfCoord.distanceTo(lighthouseCoord) < visibilityRange(selfCoord.altitude) + visibilityRange(lighthouse.height)
 
             numLighthousesNotHiddenByLand += !lighthouse.isHiddenByLand ? 1 : 0
             numLighthousesAboveHorizon += lighthouse.isAboveHorizon ? 1 : 0
@@ -151,14 +149,9 @@ Item {
 
             if (shouldScanForNewNearbyLighthouses) {
                 lighthouses.forEach(lighthouse => {
-                    let lighthouseHeight = 1.0
-                    if (lighthouse.height !== null) {
-                        lighthouseHeight = lighthouse.height
-                    }
+                    var lighthouseCoord = QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouse.height)
 
-                    var lighthouseCoord = QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouseHeight)
-
-                    if (selfCoord.distanceTo(lighthouseCoord) < visibilityRange(selfHeight) + visibilityRange(lighthouseHeight)) {
+                    if (selfCoord.distanceTo(lighthouseCoord) < visibilityRange(selfCoord.altitude) + visibilityRange(lighthouse.height)) {
                         if (nearbyLighthouses.indexOf(lighthouse) < 0) {
                             nearbyLighthouses.push(lighthouse)
                         }
@@ -169,7 +162,7 @@ Item {
             }
 
             if (shouldUpdateVisibilityBasedOnLand) {
-                updateVisibilityBasedOnLand(selfCoord, selfHeight, nearbyLighthouses)
+                updateVisibilityBasedOnLand(selfCoord, nearbyLighthouses)
             }
 
             const t1 = Date.now()
