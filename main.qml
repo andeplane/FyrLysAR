@@ -12,15 +12,18 @@ Window {
     width: 720
     height: 1280
     visible: true
+    property alias debug: settings.debug
 
     Settings {
         property alias useHardCodedPosition: settings.useHardCodedPosition
         property alias hardcodedLongitude: settings.hardcodedLongitude
         property alias hardcodedLatitude: settings.hardcodedLatitude
+
     }
 
     ARViewer {
         id: mainView
+        debug: root.debug
         useHardCodedPosition: settings.useHardCodedPosition
         hardcodedLongitude: settings.hardcodedLongitude
         hardcodedLatitude: settings.hardcodedLatitude

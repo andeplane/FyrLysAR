@@ -5,6 +5,7 @@ import QtPositioning
 Page {
     id: root
     title: "Settings"
+    property bool debug
     property bool useHardCodedPosition
     property real hardcodedLongitude
     property real hardcodedLatitude
@@ -84,12 +85,16 @@ Page {
                     ListElement {
                         text: "Lauersvelgen"
                     }
+                    ListElement {
+                        text: "Sørenga"
+                    }
                 }
                 onCurrentTextChanged: {
                     const locations = {
                         "Herfølhytta": QtPositioning.coordinate(58.9952381,11.0584886),
                         "Herfølrenna nord": QtPositioning.coordinate(59.006630, 11.057814),
-                        "Lauersvelgen": QtPositioning.coordinate(59.015415, 11.006846)
+                        "Lauersvelgen": QtPositioning.coordinate(59.015415, 11.006846),
+                        "Sørenga": QtPositioning.coordinate(59.901484, 10.751129)
                     }
                     const location = locations[currentText]
                     longitudeText.text = location.longitude
@@ -133,6 +138,12 @@ Page {
                     if (!isNaN(parsedValue)) {
                         root.hardcodedLatitude = parsedValue
                     }
+                }
+            }
+            Switch {
+                text: "Debug"
+                onToggled: {
+                    root.debug = checked
                 }
             }
         }

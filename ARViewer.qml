@@ -3,6 +3,7 @@ import QtSensors
 import QtMultimedia
 import QtPositioning
 import QtQuick.Controls
+import QtQuick.Layouts
 import HeightReader 1.0
 
 import "qrc:/"
@@ -10,12 +11,25 @@ import "qrc:/"
 Item {
     id: root
 
+    property bool debug
     property var lighthouses
     property var lighthouseComponent
     property var nearbyLighthouses: []
+    property real numLighthousesNotHiddenByLand: 0
+    property real numLighthousesAboveHorizon: 0
+    property real numLighthousesInNearbyList: 0
     property bool useHardCodedPosition
     property real hardcodedLongitude
     property real hardcodedLatitude
+    property real selfHeight: 2.0
+
+    onDebugChanged: {
+        // Reset stats
+        accelerometer.accumulatedTime = 0
+        accelerometer.numUpdates = 1
+        positionSource.accumulatedTime = 0
+        positionSource.numUpdates = 1
+    }
 
     Component.onCompleted: {
         lighthouseComponent = Qt.createComponent("qrc:/Lighthouse.qml");
@@ -73,7 +87,7 @@ Item {
     function createLighthouseObjects() {
         nearbyLighthouses.forEach(lighthouse => {
             let lighthouseHeight = 1.0
-            if (lighthouse.height != null) {
+            if (lighthouse.height !== null) {
                 lighthouseHeight = lighthouse.height
             }
 
@@ -97,65 +111,84 @@ Item {
         })
     }
 
+    function updateVisibilityBasedOnLand(selfCoord, selfHeight, lighthouses) {
+        numLighthousesNotHiddenByLand = 0
+        numLighthousesAboveHorizon = 0
+        numLighthousesInNearbyList = nearbyLighthouses.length
+        lighthouses.forEach(lighthouse => {
+            let lighthouseHeight = 1.0
+            if (lighthouse.height !== null) {
+                lighthouseHeight = lighthouse.height
+            }
+            const lighthouseCoord = QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouseHeight)
+            lighthouse.isHiddenByLand = !heightReader.lineIsAboveLand(selfCoord, lighthouseCoord)
+            lighthouse.isAboveHorizon = selfCoord.distanceTo(lighthouseCoord) < visibilityRange(selfHeight) + visibilityRange(lighthouseHeight)
+            numLighthousesNotHiddenByLand += !lighthouse.isHiddenByLand ? 1 : 0
+            numLighthousesAboveHorizon += lighthouse.isAboveHorizon ? 1 : 0
+        })
+        console.log("Now it should be ", numLighthousesNotHiddenByLand, numLighthousesAboveHorizon)
+
+    }
+
     PositionSource {
-        id: src
+        id: positionSource
         updateInterval: 250
         active: true
         property var lastUpdatedCoord: undefined
+        property real accumulatedTime: 0
+        property real numUpdates: 1
+        property real timePerUpdate: accumulatedTime/numUpdates
 
         onPositionChanged: {
-            var selfCoord = src.position.coordinate
+            const t0 = Date.now()
+            var selfCoord = positionSource.position.coordinate
             if (useHardCodedPosition) {
                 selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude)
             }
 
-            nearbyLighthouses.forEach(lighthouse => {
-                if (lighthouse.sprite) {
-                    let lighthouseHeight = 1.0
-                    if (lighthouse.height !== null) {
-                        lighthouseHeight = lighthouse.height
-                    }
-                    const lighthouseCoord = QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouseHeight)
-                    lighthouse.sprite.visible = heightReader.lineIsAboveLand(selfCoord, lighthouseCoord)
-                }
-            })
-
             let shouldScanForNewNearbyLighthouses = lastUpdatedCoord===undefined || calculateDistance(selfCoord.latitude, selfCoord.longitude, lastUpdatedCoord.latitude, lastUpdatedCoord.longitude) > 1852
+            let shouldUpdateBehindLand = lastUpdatedCoord===undefined || calculateDistance(selfCoord.latitude, selfCoord.longitude, lastUpdatedCoord.latitude, lastUpdatedCoord.longitude) > 20
 
             if (shouldScanForNewNearbyLighthouses) {
                 lighthouses.forEach(lighthouse => {
                     let lighthouseHeight = 1.0
-                    const selfHeight = 2.0
                     if (lighthouse.height !== null) {
                         lighthouseHeight = lighthouse.height
                     }
 
                     var lighthouseCoord = QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouseHeight)
 
-                    let isAboveHorizon = false
+                    // let isAboveHorizon = false
 
                     if (selfCoord.distanceTo(lighthouseCoord) < visibilityRange(selfHeight) + visibilityRange(lighthouseHeight)) {
-                        isAboveHorizon = true
+                        // isAboveHorizon = true
                         if (nearbyLighthouses.indexOf(lighthouse) < 0) {
                             nearbyLighthouses.push(lighthouse)
                         }
                     }
 
-                    let isAboveLand = true
+                    // let isAboveLand = true
+                    // let isVisible = isAboveHorizon && isAboveLand
 
-
-                    let isVisible = isAboveHorizon && isAboveLand
-
-                    const index = nearbyLighthouses.indexOf(lighthouse)
-                    if (index >= 0) {
-                       if (nearbyLighthouses[index].sprite) {
-                           nearbyLighthouses[index].sprite.visible = isVisible
-                       }
-                    }
+                    // const index = nearbyLighthouses.indexOf(lighthouse)
+                    // if (index >= 0) {
+                    //    if (nearbyLighthouses[index].sprite) {
+                    //        nearbyLighthouses[index].sprite.visible = isVisible
+                    //    }
+                    // }
                 })
                 lastUpdatedCoord = selfCoord
                 createLighthouseObjects()
             }
+
+            // if (shouldUpdateBehindLand) {
+            //     updateVisibilityBasedOnBehindLand(selfCoord, nearbyLighthouses)
+            // }
+
+            updateVisibilityBasedOnLand(selfCoord, selfHeight, nearbyLighthouses)
+            const t1 = Date.now()
+            accumulatedTime += t1-t0
+            numUpdates += 1
         }
     }
 
@@ -181,6 +214,9 @@ Item {
         active: true
         dataRate: 25
 
+        property real accumulatedTime: 0
+        property real numUpdates: 1
+        property real timePerUpdate: accumulatedTime/numUpdates
         property real x: 0
         property real y: 0
         property real z: 0
@@ -193,6 +229,7 @@ Item {
         property var rotationMatrix
 
         onReadingChanged: {
+            const t0 = Date.now()
             x = reading.x
             y = reading.y
             z = reading.z
@@ -213,14 +250,19 @@ Item {
             const R = V.times(U)
 
             nearbyLighthouses.forEach(lighthouse => {
-                if (lighthouse.sprite && lighthouse.sprite.visible) {
-                    let selfCoord = src.position.coordinate
+                if (lighthouse.sprite && !lighthouse.isHiddenByLand && lighthouse.isAboveHorizon) {
+                    let selfCoord = positionSource.position.coordinate
                     if (useHardCodedPosition) {
                         selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude)
                     }
+
                     lighthouse.sprite.update(selfCoord, R, fovP, fovL, root.width, root.height, Date.now())
                 }
             })
+
+            const t1 = Date.now()
+            accumulatedTime += t1-t0
+            numUpdates += 1
         }
     }
 
@@ -245,5 +287,39 @@ Item {
 
     HeightReader {
         id: heightReader
+    }
+
+    Rectangle {
+        height: 200
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        visible: debug
+        color: Qt.rgba(1.0, 1.0, 1.0, 0.7)
+
+        GridLayout {
+            id: grid
+            columns: 1
+            Label {
+                text: `Position update Δt: ${positionSource.timePerUpdate.toFixed(2)}`
+                color: "red"
+            }
+            Label {
+                text: `Accelerometer update Δt: ${accelerometer.timePerUpdate.toFixed(2)}`
+                color: "red"
+            }
+            Label {
+                text: `Lighthouses above horizon: ${numLighthousesAboveHorizon}`
+                color: "red"
+            }
+            Label {
+                text: `Lighthouses not hidden by land: ${numLighthousesNotHiddenByLand}`
+                color: "red"
+            }
+            Label {
+                text: `Nearby lighthouse length: ${numLighthousesInNearbyList}`
+                color: "red"
+            }
+        }
     }
 }

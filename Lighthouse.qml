@@ -17,6 +17,8 @@ Rectangle {
     property real maxRange
     property var sectors: []
     property var flashValues: []
+    property bool isHiddenByLand: false
+    property bool isAboveHorizon: true
 
     function parseFlash(pattern) {
       let re = /\s[WGR]+\s*/
