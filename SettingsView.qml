@@ -1,5 +1,6 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
+import QtPositioning
 
 Page {
     id: root
@@ -69,11 +70,40 @@ Page {
                 }
             }
 
+            ComboBox {
+                visible: listView.currentIndex === 1
+                model: ListModel {
+                    id: model
+
+                    ListElement {
+                        text: "Herfølhytta"
+                    }
+                    ListElement {
+                        text: "Herfølrenna nord"
+                    }
+                    ListElement {
+                        text: "Lauersvelgen"
+                    }
+                }
+                onCurrentTextChanged: {
+                    const locations = {
+                        "Herfølhytta": QtPositioning.coordinate(58.9952381,11.0584886),
+                        "Herfølrenna nord": QtPositioning.coordinate(59.006630, 11.057814),
+                        "Lauersvelgen": QtPositioning.coordinate(59.015415, 11.006846)
+                    }
+                    const location = locations[currentText]
+                    longitudeText.text = location.longitude
+                    latitudeText.text = location.latitude
+
+                }
+            }
+
             Label {
                 text: "Longitude"
                 visible: listView.currentIndex === 1
             }
             TextField {
+                id: longitudeText
                 visible: listView.currentIndex === 1
                 width: root.width
                 height: 40
@@ -92,6 +122,7 @@ Page {
                 visible: listView.currentIndex === 1
             }
             TextField {
+                id: latitudeText
                 visible: listView.currentIndex === 1
                 width: root.width
                 height: 40
