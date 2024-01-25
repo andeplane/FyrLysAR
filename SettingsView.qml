@@ -129,25 +129,6 @@ Page {
             }
 
             Label {
-                text: "Longitude"
-                visible: listView.currentIndex === 1
-            }
-            TextField {
-                id: longitudeText
-                visible: listView.currentIndex === 1
-                width: root.width
-                height: 40
-                placeholderText: "Enter longitude"
-                text: root.hardcodedLongitude
-                onTextChanged: {
-                    const parsedValue = parseFloat(text)
-                    if (!isNaN(parsedValue)) {
-                        root.hardcodedLongitude = parsedValue
-                    }
-                }
-            }
-
-            Label {
                 text: "Latitude"
                 visible: listView.currentIndex === 1
             }
@@ -162,6 +143,25 @@ Page {
                     const parsedValue = parseFloat(text)
                     if (!isNaN(parsedValue)) {
                         root.hardcodedLatitude = parsedValue
+                    }
+                }
+            }
+
+            Label {
+                text: "Longitude"
+                visible: listView.currentIndex === 1
+            }
+            TextField {
+                id: longitudeText
+                visible: listView.currentIndex === 1
+                width: root.width
+                height: 40
+                placeholderText: "Enter longitude"
+                text: root.hardcodedLongitude
+                onTextChanged: {
+                    const parsedValue = parseFloat(text)
+                    if (!isNaN(parsedValue)) {
+                        root.hardcodedLongitude = parsedValue
                     }
                 }
             }
