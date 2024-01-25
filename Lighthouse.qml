@@ -238,7 +238,10 @@ Rectangle {
         let angle = deviceCoordinate.azimuthTo(coordinates)
         angle *= Math.PI / 180
 
-        const v = Qt.vector3d(Math.sin(angle), Math.cos(angle), 0)
+        const distance = deviceCoordinate.distanceTo(coordinates)
+
+        const v = Qt.vector3d(Math.sin(angle), Math.cos(angle), -4*deviceCoordinate.altitude/distance)
+
         const vPrime = R.times(v)
         xx -= xx / smoothingN
         xx += vPrime.x / smoothingN
@@ -265,7 +268,7 @@ Rectangle {
         }
         maxRange = Math.max(500, maxRange)
 
-        let size = lerp(100, 0, distance/maxRange)
+        let size = lerp(40, 0, distance/maxRange)
         size = Math.max(size, 0)
 
         root.radius = size
