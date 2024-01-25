@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import Qt.labs.settings 1.0
+import QtCore
 import HeightReader 1.0
 import QtPositioning
 
@@ -18,7 +18,6 @@ Window {
         property alias useHardCodedPosition: settings.useHardCodedPosition
         property alias hardcodedLongitude: settings.hardcodedLongitude
         property alias hardcodedLatitude: settings.hardcodedLatitude
-
     }
 
     ARViewer {
