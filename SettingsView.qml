@@ -112,13 +112,17 @@ Page {
                     ListElement {
                         text: "Sørenga"
                     }
+                    ListElement {
+                        text: "Special place"
+                    }
                 }
                 onCurrentTextChanged: {
                     const locations = {
                         "Herfølhytta": QtPositioning.coordinate(58.9952381,11.0584886),
                         "Herfølrenna nord": QtPositioning.coordinate(59.006630, 11.057814),
                         "Lauersvelgen": QtPositioning.coordinate(59.015415, 11.006846),
-                        "Sørenga": QtPositioning.coordinate(59.901484, 10.751129)
+                        "Sørenga": QtPositioning.coordinate(59.901484, 10.751129),
+                        "Special place": QtPositioning.coordinate(59.014167, 11.042647)
                     }
                     const location = locations[currentText]
                     if (location) {
