@@ -77,6 +77,9 @@ Page {
                     id: model
 
                     ListElement {
+                        text: "Custom"
+                    }
+                    ListElement {
                         text: "Herfølhytta"
                     }
                     ListElement {
@@ -97,9 +100,10 @@ Page {
                         "Sørenga": QtPositioning.coordinate(59.901484, 10.751129)
                     }
                     const location = locations[currentText]
-                    longitudeText.text = location.longitude
-                    latitudeText.text = location.latitude
-
+                    if (location) {
+                        longitudeText.text = location.longitude
+                        latitudeText.text = location.latitude
+                    }
                 }
             }
 
