@@ -213,7 +213,7 @@ Rectangle {
         flashValues = convertFlash(flashClass, flashNumber, flashPeriod, flashClassExtra)
     }
 
-    function update(deviceCoordinate, R, fovP, fovL, width, height, time) {
+    function updateColor(deviceCoordinate) {
         var angle = deviceCoordinate.azimuthTo(coordinates)
         distance = deviceCoordinate.distanceTo(coordinates)
 
@@ -230,6 +230,12 @@ Rectangle {
         } else {
             root.color = color
         }
+    }
+
+    function update(deviceCoordinate, R, fovP, fovL, width, height, time) {
+        updateColor(deviceCoordinate)
+
+        let angle = deviceCoordinate.azimuthTo(coordinates)
         angle *= Math.PI / 180
 
         const v = Qt.vector3d(Math.sin(angle), Math.cos(angle), 0)
