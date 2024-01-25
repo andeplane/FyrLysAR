@@ -121,6 +121,11 @@ Item {
             const lighthouseCoord = QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouse.height)
             lighthouse.isHiddenByLand = !heightReader.lineIsAboveLand(selfCoord, lighthouseCoord)
             lighthouse.isAboveHorizon = selfCoord.distanceTo(lighthouseCoord) < visibilityRange(selfCoord.altitude) + visibilityRange(lighthouse.height)
+            if (lighthouse.sprite) {
+                lighthouse.sprite.visible = !lighthouse.isHiddenByLand && lighthouse.isAboveHorizon
+            }
+
+
 
             numLighthousesNotHiddenByLand += !lighthouse.isHiddenByLand ? 1 : 0
             numLighthousesAboveHorizon += lighthouse.isAboveHorizon ? 1 : 0
@@ -153,6 +158,7 @@ Item {
 
                     if (selfCoord.distanceTo(lighthouseCoord) < visibilityRange(selfCoord.altitude) + visibilityRange(lighthouse.height)) {
                         if (nearbyLighthouses.indexOf(lighthouse) < 0) {
+
                             nearbyLighthouses.push(lighthouse)
                         }
                     }

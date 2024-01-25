@@ -59,7 +59,23 @@ Window {
         }
     }
 
-    HeightReader {
-        id: heightReader
-    }
+    // Button {
+    //     id: button
+    //     onClicked: {
+    //         // 59.87493, 10.646793333333333, 3 vs 58.9952381, 11.0584886, NaN
+    //         let source = QtPositioning.coordinate(59.87493, 10.646793333333333, 3)
+    //         let target = QtPositioning.coordinate(58.9952381, 11.0584886, 2)
+    //         console.log(`Checking ${source.latitude}, ${source.longitude}, ${source.altitude} vs ${target.latitude}, ${target.longitude}, ${target.altitude} with distance ${source.distanceTo(target)}. Hidden by land: ${!heightReader.lineIsAboveLand(source, target)}`);
+    //         console.log("Height source: ", heightReader.findHeight(source))
+    //         console.log("Height target: ", heightReader.findHeight(target))
+    //         console.log(heightReader.lineIsAboveLand(source, target))
+    //         // source = QtPositioning.coordinate(58.994165, 11.068447, 0)
+    //         // console.log(heightReader.findHeight(source))
+
+    //     }
+    // }
+
+    // HeightReader {
+    //     id: heightReader
+    // }
 }
