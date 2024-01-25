@@ -22,6 +22,7 @@ Item {
     property real hardcodedLongitude
     property real hardcodedLatitude
     property real selfHeight
+    property var selfCoord
 
     onDebugChanged: {
         // Reset stats
@@ -143,11 +144,14 @@ Item {
 
         onPositionChanged: {
             const t0 = Date.now()
-            var selfCoord = positionSource.position.coordinate
-            selfCoord.altitude = selfHeight
+            root.selfCoord = positionSource.position.coordinate
+
             if (useHardCodedPosition) {
-                selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude, selfHeight)
+                root.selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude, 0)
             }
+
+            const altitude = heightReader.findHeight(root.selfCoord)
+            root.selfCoord = QtPositioning.coordinate(root.selfCoord.latitude, root.selfCoord.longitude, selfHeight + altitude)
 
             let shouldScanForNewNearbyLighthouses = lastUpdatedCoord===undefined || calculateDistance(selfCoord.latitude, selfCoord.longitude, lastUpdatedCoord.latitude, lastUpdatedCoord.longitude) > 1852
             let shouldUpdateVisibilityBasedOnLand = lastUpdatedCoord===undefined || calculateDistance(selfCoord.latitude, selfCoord.longitude, lastUpdatedCoord.latitude, lastUpdatedCoord.longitude) > 20
@@ -236,12 +240,6 @@ Item {
 
             nearbyLighthouses.forEach(lighthouse => {
                 if (lighthouse.sprite && !lighthouse.isHiddenByLand && lighthouse.isAboveHorizon) {
-                    let selfCoord = positionSource.position.coordinate
-                    selfCoord.altitude = selfHeight
-                    if (useHardCodedPosition) {
-                        selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude, selfHeight)
-                    }
-
                     lighthouse.sprite.update(selfCoord, R, fovP, fovL, root.width, root.height, Date.now())
                 }
             })
@@ -286,6 +284,14 @@ Item {
         GridLayout {
             id: grid
             columns: 1
+            Label {
+                text: `Current position: ${root.selfCoord?.latitude.toFixed(4)} ${root.selfCoord?.longitude.toFixed(4)}`
+                color: "red"
+            }
+            Label {
+                text: `Current altitude: ${root.selfCoord?.altitude.toFixed(0.1)}`
+                color: "red"
+            }
             Label {
                 text: `Position update Δt: ${positionSource.timePerUpdate.toFixed(2)}`
                 color: "red"
