@@ -21,7 +21,7 @@ Item {
     property bool useHardCodedPosition
     property real hardcodedLongitude
     property real hardcodedLatitude
-    property real selfHeight: 2.0
+    property real selfHeight
 
     onDebugChanged: {
         // Reset stats

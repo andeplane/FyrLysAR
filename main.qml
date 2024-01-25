@@ -18,6 +18,7 @@ Window {
         property alias useHardCodedPosition: settings.useHardCodedPosition
         property alias hardcodedLongitude: settings.hardcodedLongitude
         property alias hardcodedLatitude: settings.hardcodedLatitude
+        property alias selfHeight: settings.selfHeight
     }
 
     ARViewer {
@@ -26,6 +27,7 @@ Window {
         useHardCodedPosition: settings.useHardCodedPosition
         hardcodedLongitude: settings.hardcodedLongitude
         hardcodedLatitude: settings.hardcodedLatitude
+        selfHeight: settings.selfHeight
     }
 
     SettingsView {

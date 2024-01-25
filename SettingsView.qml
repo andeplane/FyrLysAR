@@ -9,6 +9,7 @@ Page {
     property bool useHardCodedPosition
     property real hardcodedLongitude
     property real hardcodedLatitude
+    property real selfHeight: 2.0
 
     Header {
         id: header
@@ -34,6 +35,26 @@ Page {
 
         Column {
             width: parent.width
+
+            Label {
+                text: "Observer height"
+                onTextChanged: {
+                    const parsedValue = parseFloat(text)
+                    if (!isNaN(parsedValue)) {
+                        root.selfHeight = parsedValue
+                    }
+                }
+            }
+
+            SpinBox {
+                from: 0
+                editable: true
+                stepSize: 1
+                value: root.selfHeight
+                onValueChanged: {
+                    root.selfHeight = value
+                }
+            }
 
             Label {
                 text: "Location"
