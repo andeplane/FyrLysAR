@@ -240,7 +240,8 @@ Rectangle {
 
         const distance = deviceCoordinate.distanceTo(coordinates)
 
-        const v = Qt.vector3d(Math.sin(angle), Math.cos(angle), -4*deviceCoordinate.altitude/distance)
+        const HEIGHT_FACTOR = 4; // Increasing effect of height to improve visuals. - is likely because g is -1.
+        const v = Qt.vector3d(Math.sin(angle), Math.cos(angle), -HEIGHT_FACTOR*deviceCoordinate.altitude/distance)
 
         const vPrime = R.times(v)
         xx -= xx / smoothingN
