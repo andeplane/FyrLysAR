@@ -228,6 +228,19 @@ Rectangle {
         if (color == null) {
             visible = false
         } else {
+            // Research from https://www.iala-aism.org/product/r0201/ and http://colormine.org/convert/rgb-to-yxy
+            // indicate that we should use these colors instead.
+
+            if (color === "red") {
+                color = Qt.rgba(1.0, 0.0, 0.0, 1.0)
+            } else if (color === "green") {
+                color = Qt.rgba(0, 1.0, 0.5, 1.0)
+            } else if (color === "blue") {
+                color = Qt.rgba(0.0, 80/255, 1.0, 1.0)
+            } else if (color === "yellow") {
+                color = Qt.rgba(1.0, 200/255, 0.0, 1.0)
+            }
+
             root.color = color
         }
     }
