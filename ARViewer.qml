@@ -244,7 +244,7 @@ Item {
             nearbyLighthouses.forEach(lighthouse => {
                 if (lighthouse.sprite && !lighthouse.isHiddenByLand && lighthouse.isAboveHorizon) {
                     lighthouse.sprite.update(selfCoord, R, fovP, fovL, root.width, root.height, Date.now())
-                    if (lighthouse.sprite.normalizedDeltaR < nearestCenterOnScreenDistance) {
+                    if (lighthouse.sprite.visible && lighthouse.sprite.normalizedDeltaR < nearestCenterOnScreenDistance) {
                         nearestCenterOnScreenDistance = lighthouse.sprite.normalizedDeltaR
                         lighthouseNearestCenterOnScreen = lighthouse
                     }

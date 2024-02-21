@@ -262,7 +262,14 @@ Rectangle {
         angle = (angle + 2 * 180) % (2 * 180)
         let color = null
         sectors.forEach(sector => {
-            if (sector.start <= angle && angle < sector.stop) {
+            let start = sector.start
+            let stop = sector.stop
+            if (stop < start) {
+                // If we wrap around 0
+                stop += 360
+            }
+
+            if (start <= angle && angle < stop) {
               color = sector.color
             }
         })
