@@ -253,9 +253,7 @@ Item {
 
             if (nearestCenterOnScreenDistance < crosshairRadius) {
                 infoBox.visible = true
-                infoBox.lighthouseName = lighthouseNearestCenterOnScreen.sprite.name
-                infoBox.lighthouseHeight = lighthouseNearestCenterOnScreen.sprite.heightOverSea
-                infoBox.lighthouseDistance = lighthouseNearestCenterOnScreen.sprite.distance
+                infoBox.lighthouse = lighthouseNearestCenterOnScreen.sprite
             } else {
                 infoBox.visible = false
             }
@@ -291,9 +289,7 @@ Item {
 
     Rectangle {
         id: infoBox
-        property string lighthouseName: ""
-        property real lighthouseDistance: 0.0
-        property real lighthouseHeight: 0.0
+        property var lighthouse
 
         height: 90
         anchors.bottom: parent.bottom
@@ -308,7 +304,7 @@ Item {
                     text: "Name: "
                 }
                 Text {
-                    text: infoBox.lighthouseName
+                    text: infoBox.lighthouse ? infoBox.lighthouse.name : ""
                 }
             }
 
@@ -317,7 +313,7 @@ Item {
                     text: "Distance: "
                 }
                 Text {
-                    text: infoBox.lighthouseDistance.toFixed(0.0) + ' m'
+                    text: infoBox.lighthouse ? infoBox.lighthouse.distance.toFixed(0.0) + ' m' : ""
                 }
             }
 
@@ -326,9 +322,21 @@ Item {
                     text: "Height: "
                 }
                 Text {
-                    text: infoBox.lighthouseHeight + ' m'
+                    text: infoBox.lighthouse ? infoBox.lighthouse.heightOverSea + ' m' : ""
                 }
             }
+        }
+
+        Sector {
+            id: sector
+            width: 70
+            height: 70
+
+            anchors.rightMargin: 10
+            anchors.topMargin: 10
+            anchors.right: parent.right
+            anchors.top: parent.top
+            lighthouse: infoBox.lighthouse
         }
     }
 
