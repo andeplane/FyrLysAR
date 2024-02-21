@@ -97,8 +97,8 @@ ios {
 }
 
 DISTFILES += \
-  ../../../kvakkefly/projects/QFyrLysAR/ARViewer.qml \
-  ../../../kvakkefly/projects/QFyrLysAR/Header.qml \
+  ARViewer.qml \
+  Header.qml \
   Lighthouse.qml \
   Lighthouses.qml \
   SettingsView.qml \
