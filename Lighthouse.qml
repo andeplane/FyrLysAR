@@ -10,7 +10,6 @@ Rectangle {
     property real baseSize
     property real sizeScaleFactor: 1.0
     property real normalizedDeltaR
-    property var sprite
     property var coordinates
     property real distance
     property string pattern
@@ -18,6 +17,7 @@ Rectangle {
     property string name
     property real heightOverSea
     property real maxRange
+    property real crosshairRadius
     property var sectors: []
     property var flashValues: []
     property bool isHiddenByLand: false
@@ -25,7 +25,7 @@ Rectangle {
 
     // Binding to adjust size based on normalizedDeltaR
     onNormalizedDeltaRChanged: {
-        if (normalizedDeltaR <= 0.1) {
+        if (normalizedDeltaR <= crosshairRadius) {
             if (!sizeIncreaseAnimation.running && Math.abs(sizeScaleFactor - 2.0) > 1e-6) {
                 if (sizeDecreaseAnimation.running) {
                     sizeDecreaseAnimation.stop()
@@ -293,10 +293,10 @@ Rectangle {
         let angle = deviceCoordinate.azimuthTo(coordinates)
         angle *= Math.PI / 180
 
-        const distance = deviceCoordinate.distanceTo(coordinates)
+        root.distance = deviceCoordinate.distanceTo(coordinates)
 
         const HEIGHT_FACTOR = 4; // Increasing effect of height to improve visuals. - is likely because g is -1.
-        const v = Qt.vector3d(Math.sin(angle), Math.cos(angle), -HEIGHT_FACTOR*deviceCoordinate.altitude/distance)
+        const v = Qt.vector3d(Math.sin(angle), Math.cos(angle), -HEIGHT_FACTOR*deviceCoordinate.altitude/root.distance)
 
         const vPrime = R.times(v)
         xx -= xx / smoothingN
@@ -336,63 +336,5 @@ Rectangle {
 
     function lerp (start, end, amt){
       return (1-amt)*start+amt*end
-    }
-
-    MouseArea {
-        anchors.fill: parent
-        onClicked: {
-            infoBox.visible = !infoBox.visible
-        }
-    }
-
-    Rectangle {
-        id: infoBox
-        width: 170
-        height: 70
-        x: 30
-        y: -50
-        radius: 10
-        opacity: 0.9
-        visible: false
-        rotation: 180 / Math.PI * Math.atan2(accelerometerReading.x, accelerometerReading.y)
-
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                infoBox.visible = false
-            }
-        }
-
-        Column {
-            Row {
-                Text {
-                    text: "Name: "
-                }
-                Text {
-                    text: name
-                }
-            }
-
-            Row {
-                Text {
-                    text: "Distance: "
-                }
-                Text {
-                    text: distance.toFixed(0.0) + ' m'
-                }
-            }
-
-            Row {
-                Text {
-                    text: "Height: "
-                }
-                Text {
-                    text: heightOverSea + ' m'
-                }
-            }
-        }
-
-
-
     }
 }

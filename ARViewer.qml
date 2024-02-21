@@ -22,6 +22,7 @@ Item {
     property real hardcodedLongitude
     property real hardcodedLatitude
     property real selfHeight
+    property real crosshairRadius: 0.1
     property var selfCoord
 
     onDebugChanged: {
@@ -105,6 +106,7 @@ Item {
                     accelerometerReading: accelerometer.reading,
                     x: 100,
                     y: 100,
+                    crosshairRadius: crosshairRadius,
                     radius: 10,
                     width: 10,
                     height: 10,
@@ -125,8 +127,6 @@ Item {
             if (lighthouse.sprite) {
                 lighthouse.sprite.visible = !lighthouse.isHiddenByLand && lighthouse.isAboveHorizon
             }
-
-
 
             numLighthousesNotHiddenByLand += !lighthouse.isHiddenByLand ? 1 : 0
             numLighthousesAboveHorizon += lighthouse.isAboveHorizon ? 1 : 0
@@ -238,11 +238,27 @@ Item {
 
             const R = V.times(U)
 
+            let lighthouseNearestCenterOnScreen = undefined
+            let nearestCenterOnScreenDistance = 1e9
+
             nearbyLighthouses.forEach(lighthouse => {
                 if (lighthouse.sprite && !lighthouse.isHiddenByLand && lighthouse.isAboveHorizon) {
                     lighthouse.sprite.update(selfCoord, R, fovP, fovL, root.width, root.height, Date.now())
+                    if (lighthouse.sprite.normalizedDeltaR < nearestCenterOnScreenDistance) {
+                        nearestCenterOnScreenDistance = lighthouse.sprite.normalizedDeltaR
+                        lighthouseNearestCenterOnScreen = lighthouse
+                    }
                 }
             })
+
+            if (nearestCenterOnScreenDistance < crosshairRadius) {
+                infoBox.visible = true
+                infoBox.lighthouseName = lighthouseNearestCenterOnScreen.sprite.name
+                infoBox.lighthouseHeight = lighthouseNearestCenterOnScreen.sprite.heightOverSea
+                infoBox.lighthouseDistance = lighthouseNearestCenterOnScreen.sprite.distance
+            } else {
+                infoBox.visible = false
+            }
 
             const t1 = Date.now()
             accumulatedTime += t1-t0
@@ -271,6 +287,49 @@ Item {
 
     HeightReader {
         id: heightReader
+    }
+
+    Rectangle {
+        id: infoBox
+        property string lighthouseName: ""
+        property real lighthouseDistance: 0.0
+        property real lighthouseHeight: 0.0
+
+        height: 90
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        color: Qt.rgba(1.0, 1.0, 1.0, 0.7)
+        visible: false
+
+        Column {
+            Row {
+                Text {
+                    text: "Name: "
+                }
+                Text {
+                    text: infoBox.lighthouseName
+                }
+            }
+
+            Row {
+                Text {
+                    text: "Distance: "
+                }
+                Text {
+                    text: infoBox.lighthouseDistance.toFixed(0.0) + ' m'
+                }
+            }
+
+            Row {
+                Text {
+                    text: "Height: "
+                }
+                Text {
+                    text: infoBox.lighthouseHeight + ' m'
+                }
+            }
+        }
     }
 
     Rectangle {
@@ -318,7 +377,7 @@ Item {
     Rectangle {
         anchors.centerIn: parent
         radius: width/2
-        width: root.width * 0.2
+        width: root.width * crosshairRadius * 2
         height: width
         color: "transparent"
         border.color: "white"
