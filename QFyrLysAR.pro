@@ -97,6 +97,7 @@ ios {
 }
 
 DISTFILES += \
+  images/splash.png \
   ARViewer.qml \
   Header.qml \
   Lighthouse.qml \

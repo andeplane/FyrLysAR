@@ -279,9 +279,9 @@ Item {
         anchors.fill: parent
     }
 
-    Header {
-        text: "FyrLysAR"
-    }
+    // Header {
+    //     text: "FyrLysAR"
+    // }
 
     HeightReader {
         id: heightReader

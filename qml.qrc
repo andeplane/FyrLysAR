@@ -160,5 +160,6 @@
         <file>heightdata/6502_50m_33.png</file>
         <file>heightdata/7806_50m_33.png</file>
         <file>heightdata/7002_50m_33.png</file>
+        <file>images/splash.png</file>
     </qresource>
 </RCC>
