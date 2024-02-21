@@ -314,4 +314,22 @@ Item {
             }
         }
     }
+
+    Rectangle {
+        anchors.centerIn: parent
+        radius: width/2
+        width: root.width * 0.2
+        height: width
+        color: "transparent"
+        border.color: "white"
+        border.width: root.width * 0.01
+    }
+
+    Rectangle {
+        anchors.centerIn: parent
+        radius: width/2
+        width: root.width * 0.01
+        height: width
+        color: "white"
+    }
 }

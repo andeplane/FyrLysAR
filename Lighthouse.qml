@@ -7,6 +7,9 @@ Rectangle {
     property real yy: 0
     property real zz: 0
     property var accelerometerReading
+    property real baseSize
+    property real sizeScaleFactor: 1.0
+    property real normalizedDeltaR
     property var sprite
     property var coordinates
     property real distance
@@ -19,6 +22,45 @@ Rectangle {
     property var flashValues: []
     property bool isHiddenByLand: false
     property bool isAboveHorizon: true
+
+    // Binding to adjust size based on normalizedDeltaR
+    onNormalizedDeltaRChanged: {
+        if (normalizedDeltaR <= 0.1) {
+            if (!sizeIncreaseAnimation.running && Math.abs(sizeScaleFactor - 2.0) > 1e-6) {
+                if (sizeDecreaseAnimation.running) {
+                    sizeDecreaseAnimation.stop()
+                }
+
+                sizeIncreaseAnimation.start();
+            }
+        } else {
+            if (!sizeDecreaseAnimation.running && Math.abs(sizeScaleFactor - 1.0) > 1e-6) {
+                if (sizeIncreaseAnimation.running) {
+                    sizeIncreaseAnimation.stop()
+                }
+
+                sizeDecreaseAnimation.start();
+            }
+        }
+    }
+
+    NumberAnimation {
+        id: sizeIncreaseAnimation
+        target: root
+        properties: "sizeScaleFactor"
+        to: 2.0
+        duration: 500 // Animation duration in milliseconds
+        easing.type: Easing.InOutQuad // Easing type for the animation
+    }
+
+    NumberAnimation {
+        id: sizeDecreaseAnimation
+        target: root
+        properties: "sizeScaleFactor"
+        to: 1.0
+        duration: 500 // Animation duration in milliseconds
+        easing.type: Easing.InOutQuad // Easing type for the animation
+    }
 
     function parseFlash(pattern) {
       let re = /\s[WGR]+\s*/
@@ -269,6 +311,11 @@ Rectangle {
         x = 180 / Math.PI * Math.atan2(xx, zz)/fovP * width + width/2 - root.width/2
         y = 180 / Math.PI * Math.atan2(yy, zz)/fovL * height + height/2 - root.height/2
 
+        const deltaX = width/2 - x - root.width/2
+        const deltaY = height/2 - y - root.height/2
+        const deltaR = Math.sqrt(deltaX*deltaX + deltaY*deltaY)
+        normalizedDeltaR = deltaR / width
+
         if (flashValues && flashValues.length > 0 & flashPeriod > 0) {
             let index = Math.floor(((time/1000 % flashPeriod) / flashPeriod) * flashValues.length)
             let lightOn = flashValues[index]
@@ -277,17 +324,18 @@ Rectangle {
             }
         }
 
-        function lerp (start, end, amt){
-          return (1-amt)*start+amt*end
-        }
         maxRange = Math.max(500, maxRange)
 
-        let size = lerp(40, 0, distance/maxRange)
-        size = Math.max(size, 0)
+        baseSize = lerp(30, 0, distance/maxRange)
+        baseSize = Math.max(baseSize, 0)
 
-        root.radius = size
-        root.width = size
-        root.height = size
+        root.radius = baseSize * sizeScaleFactor
+        root.width = baseSize * sizeScaleFactor
+        root.height = baseSize * sizeScaleFactor
+    }
+
+    function lerp (start, end, amt){
+      return (1-amt)*start+amt*end
     }
 
     MouseArea {
