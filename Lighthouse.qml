@@ -9,7 +9,7 @@ Rectangle {
     property var accelerometerReading
     property real baseSize
     property real sizeScaleFactor: 1.0
-    property real normalizedDeltaR
+    property real normalizedDistanceToScreenCenter
     property var coordinates
     property real distance
     property string pattern
@@ -24,8 +24,8 @@ Rectangle {
     property bool isAboveHorizon: true
 
     // Binding to adjust size based on normalizedDeltaR
-    onNormalizedDeltaRChanged: {
-        if (normalizedDeltaR <= crosshairRadius) {
+    onNormalizedDistanceToScreenCenterChanged: {
+        if (normalizedDistanceToScreenCenter <= crosshairRadius) {
             if (!sizeIncreaseAnimation.running && Math.abs(sizeScaleFactor - 2.0) > 1e-6) {
                 if (sizeDecreaseAnimation.running) {
                     sizeDecreaseAnimation.stop()
@@ -256,51 +256,64 @@ Rectangle {
     }
 
     function updateColor(deviceCoordinate) {
+        const time = Date.now()
+
+        let lightOn = true;
+        if (flashValues && flashValues.length > 0 & flashPeriod > 0) {
+            let index = Math.floor(((time/1000 % flashPeriod) / flashPeriod) * flashValues.length)
+            lightOn = flashValues[index]
+        }
+
+        if (!lightOn) {
+            // If light is off, set color to black and return
+            root.color = Qt.rgba(0.0, 0.0, 0.0, 1.0)
+            return;
+        }
+
         var angle = deviceCoordinate.azimuthTo(coordinates)
         distance = deviceCoordinate.distanceTo(coordinates)
 
-        angle = (angle + 2 * 180) % (2 * 180)
-        let color = null
-        sectors.forEach(sector => {
-            let start = sector.start
-            let stop = sector.stop
+        angle = (angle + 2 * 180) % (2 * 180) // Deal with boundary conditions on angles in range [0, 2pi]
+        let sector = null
+
+        // Loop through all sectors to find our position
+        sectors.forEach(sectorCandidate => {
+            let start = sectorCandidate.start
+            let stop = sectorCandidate.stop
             if (stop < start) {
                 // If we wrap around 0
                 stop += 360
             }
 
             if (start <= angle && angle < stop) {
-              color = sector.color
+                sector = sectorCandidate
             }
         })
 
-        if (color == null) {
+        if (sector == null) {
+            // No sector was found which means we don't see any light from the lighthouse
+            color = null;
             visible = false
         } else {
-            // Research from https://www.iala-aism.org/product/r0201/ and http://colormine.org/convert/rgb-to-yxy
-            // indicate that we should use these colors instead.
+            // Make colors more pretty based on research from
+            // https://www.iala-aism.org/product/r0201/ and http://colormine.org/convert/rgb-to-yxy
+            root.color = sector.color;
 
-            if (color === "red") {
-                color = Qt.rgba(1.0, 0.0, 0.0, 1.0)
-            } else if (color === "green") {
-                color = Qt.rgba(0, 1.0, 0.5, 1.0)
-            } else if (color === "blue") {
-                color = Qt.rgba(0.0, 80/255, 1.0, 1.0)
-            } else if (color === "yellow") {
-                color = Qt.rgba(1.0, 200/255, 0.0, 1.0)
+            // We will thus override green, blue and yellow colors, but
+            // keep red and white as they are.
+            if (root.color === "green") {
+                root.color = Qt.rgba(0, 1.0, 0.5, 1.0)
+            } else if (root.color === "blue") {
+                root.color = Qt.rgba(0.0, 80/255, 1.0, 1.0)
+            } else if (root.color === "yellow") {
+                root.color = Qt.rgba(1.0, 200/255, 0.0, 1.0)
             }
-
-            root.color = color
         }
     }
 
-    function update(deviceCoordinate, R, fovP, fovL, width, height, time) {
-        updateColor(deviceCoordinate)
-
+    function updatePositionOnScreen(deviceCoordinate, R, fovP, fovL, screenWidth, screenHeight) {
         let angle = deviceCoordinate.azimuthTo(coordinates)
         angle *= Math.PI / 180
-
-        root.distance = deviceCoordinate.distanceTo(coordinates)
 
         const HEIGHT_FACTOR = 4; // Increasing effect of height to improve visuals. - is likely because g is -1.
         const v = Qt.vector3d(Math.sin(angle), Math.cos(angle), -HEIGHT_FACTOR*deviceCoordinate.altitude/root.distance)
@@ -315,30 +328,38 @@ Rectangle {
         zz -= zz / smoothingN
         zz += vPrime.z / smoothingN
 
-        x = 180 / Math.PI * Math.atan2(xx, zz)/fovP * width + width/2 - root.width/2
-        y = 180 / Math.PI * Math.atan2(yy, zz)/fovL * height + height/2 - root.height/2
+        x = 180 / Math.PI * Math.atan2(xx, zz)/fovP * screenWidth + screenWidth/2 - root.width/2
+        y = 180 / Math.PI * Math.atan2(yy, zz)/fovL * screenHeight + screenHeight/2 - root.height/2
+    }
 
+    function updateDistanceFromScreenCenter(width, height) {
         const deltaX = width/2 - x - root.width/2
         const deltaY = height/2 - y - root.height/2
         const deltaR = Math.sqrt(deltaX*deltaX + deltaY*deltaY)
-        normalizedDeltaR = deltaR / width
+        normalizedDistanceToScreenCenter = deltaR / width
+    }
 
-        if (flashValues && flashValues.length > 0 & flashPeriod > 0) {
-            let index = Math.floor(((time/1000 % flashPeriod) / flashPeriod) * flashValues.length)
-            let lightOn = flashValues[index]
-            if (!lightOn) {
-                root.color = Qt.rgba(0.0, 0.0, 0.0, 1.0)
-            }
-        }
+    function updateCircleSize() {
+        // Max size on screen appears at 500 meter
+        const maxRange = Math.max(500, root.maxRange)
+        // Linear interpolate between 0 and 30 based on distance / maxRange
+        let baseSize = lerp(30, 5, root.distance/maxRange)
+        baseSize = Math.max(baseSize, 5)
 
-        maxRange = Math.max(500, maxRange)
-
-        baseSize = lerp(30, 0, distance/maxRange)
-        baseSize = Math.max(baseSize, 0)
-
+        // sizeScaleFactor will scale if the object is
+        // within the crosshair on the screen
         root.radius = baseSize * sizeScaleFactor
         root.width = baseSize * sizeScaleFactor
         root.height = baseSize * sizeScaleFactor
+    }
+
+    function update(deviceCoordinate, R, fovP, fovL, screenWidth, screenHeight) {
+        root.distance = deviceCoordinate.distanceTo(coordinates)
+
+        updateColor(deviceCoordinate)
+        updatePositionOnScreen(deviceCoordinate, R, fovP, fovL, screenWidth, screenHeight)
+        updateDistanceFromScreenCenter(screenWidth, screenHeight)
+        updateCircleSize()
     }
 
     function lerp (start, end, amt){
