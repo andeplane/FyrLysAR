@@ -273,6 +273,7 @@ Item {
 
     InfoBox {
         id: infoBox
+        deviceCoordinate: root.selfCoord
     }
 
     DebugBox {
