@@ -8,6 +8,10 @@
         <file>SettingsView.qml</file>
         <file>Header.qml</file>
         <file>Sector.qml</file>
+        <file>InfoBox.qml</file>
+        <file>DebugBox.qml</file>
+        <file>SettingsButton.qml</file>
+        <file>Crosshair.qml</file>
         <file>heightdata/6400_50m_33.tfw</file>
         <file>heightdata/6401_50m_33.tfw</file>
         <file>heightdata/64M1_50m_33.tfw</file>
