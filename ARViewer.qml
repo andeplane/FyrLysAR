@@ -279,107 +279,16 @@ Item {
         anchors.fill: parent
     }
 
-    // Header {
-    //     text: "FyrLysAR"
-    // }
-
     HeightReader {
         id: heightReader
     }
 
-    Rectangle {
+    InfoBox {
         id: infoBox
-        property var lighthouse
-
-        height: 90
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
-        color: Qt.rgba(1.0, 1.0, 1.0, 0.7)
-        visible: false
-
-        Column {
-            Row {
-                Text {
-                    text: "Name: "
-                }
-                Text {
-                    text: infoBox.lighthouse ? infoBox.lighthouse.name : ""
-                }
-            }
-
-            Row {
-                Text {
-                    text: "Distance: "
-                }
-                Text {
-                    text: infoBox.lighthouse ? infoBox.lighthouse.distance.toFixed(0.0) + ' m' : ""
-                }
-            }
-
-            Row {
-                Text {
-                    text: "Height: "
-                }
-                Text {
-                    text: infoBox.lighthouse ? infoBox.lighthouse.heightOverSea + ' m' : ""
-                }
-            }
-        }
-
-        Sector {
-            id: sector
-            width: 70
-            height: 70
-
-            anchors.rightMargin: 10
-            anchors.topMargin: 10
-            anchors.right: parent.right
-            anchors.top: parent.top
-            lighthouse: infoBox.lighthouse
-        }
     }
 
-    Rectangle {
-        height: 200
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
+    DebugBox {
         visible: debug
-        color: Qt.rgba(1.0, 1.0, 1.0, 0.7)
-
-        GridLayout {
-            id: grid
-            columns: 1
-            Label {
-                text: `Current position: ${root.selfCoord?.latitude.toFixed(4)} ${root.selfCoord?.longitude.toFixed(4)}`
-                color: "red"
-            }
-            Label {
-                text: `Current altitude: ${root.selfCoord?.altitude.toFixed(0.1)}`
-                color: "red"
-            }
-            Label {
-                text: `Position update Δt: ${positionSource.timePerUpdate.toFixed(2)}`
-                color: "red"
-            }
-            Label {
-                text: `Accelerometer update Δt: ${accelerometer.timePerUpdate.toFixed(2)}`
-                color: "red"
-            }
-            Label {
-                text: `Lighthouses above horizon: ${numLighthousesAboveHorizon}`
-                color: "red"
-            }
-            Label {
-                text: `Lighthouses not hidden by land: ${numLighthousesNotHiddenByLand}`
-                color: "red"
-            }
-            Label {
-                text: `Nearby lighthouse length: ${numLighthousesInNearbyList}`
-                color: "red"
-            }
-        }
     }
 
     Rectangle {
