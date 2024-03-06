@@ -12,9 +12,9 @@ Item {
     id: root
 
     property bool debug
-    property var lighthouses
-    property var lighthouseComponent
-    property var nearbyLighthouses: []
+    property var  lighthouses
+    property var  lighthouseComponent
+    property var  nearbyLighthouses: []
     property real numLighthousesNotHiddenByLand: 0
     property real numLighthousesAboveHorizon: 0
     property real numLighthousesInNearbyList: 0
@@ -23,7 +23,11 @@ Item {
     property real hardcodedLatitude
     property real selfHeight
     property real crosshairRadius: 0.1
-    property var selfCoord
+    property var  selfCoord
+    property real fovL: 69
+    property real fovP: 38
+    property real smoothingN: 3
+    property real earthRadius: 6371009 // meters
 
     onDebugChanged: {
         // Reset stats
@@ -50,11 +54,6 @@ Item {
             })
         }
     }
-
-    property real fovL: 69
-    property real fovP: 38
-    property real smoothingN: 3
-    property real earthRadius: 6371009 // meters
 
     function deg2rad(deg) {
         return deg / 180 * Math.PI
@@ -94,6 +93,8 @@ Item {
     }
 
     function createLighthouseObjects() {
+        // Will create the sprites (aka objects that are rendered on screen)
+        // for all lighthouse objects in nearbyLighthouses
         nearbyLighthouses.forEach(lighthouse => {
             if (lighthouse.sprite === undefined && lighthouseComponent.status === Component.Ready) {
                 lighthouse.sprite = lighthouseComponent.createObject(lighthouseContainer, {
@@ -206,16 +207,6 @@ Item {
         property real accumulatedTime: 0
         property real numUpdates: 1
         property real timePerUpdate: accumulatedTime/numUpdates
-        property real x: 0
-        property real y: 0
-        property real z: 0
-        property real xx: 0
-        property real yy: 0
-        property real zz: 0
-        property real theta: 0
-        property real phi: 0
-        property real xyAngle: 0
-        property var rotationMatrix
 
         onReadingChanged: {
             const t0 = Date.now()
