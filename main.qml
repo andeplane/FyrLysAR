@@ -34,13 +34,13 @@ Window {
         id: settings
     }
 
-    SettingsButton {
-
-    }
-
     StackView {
         id: stack
         initialItem: mainView
         anchors.fill: parent
+    }
+
+    SettingsButton {
+        id: settingsButton
     }
 }
