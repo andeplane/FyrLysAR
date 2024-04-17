@@ -256,6 +256,7 @@ Rectangle {
     }
 
     function updateColor(deviceCoordinate) {
+        let newColor = null
         const time = Date.now()
 
         let lightOn = true;
@@ -292,23 +293,24 @@ Rectangle {
 
         if (sector == null) {
             // No sector was found which means we don't see any light from the lighthouse
-            color = null;
+            newColor = null;
             visible = false
         } else {
             // Make colors more pretty based on research from
             // https://www.iala-aism.org/product/r0201/ and http://colormine.org/convert/rgb-to-yxy
-            root.color = sector.color;
+            newColor = sector.color
 
             // We will thus override green, blue and yellow colors, but
             // keep red and white as they are.
-            if (root.color === "green") {
-                root.color = Qt.rgba(0, 1.0, 0.5, 1.0)
-            } else if (root.color === "blue") {
-                root.color = Qt.rgba(0.0, 80/255, 1.0, 1.0)
-            } else if (root.color === "yellow") {
-                root.color = Qt.rgba(1.0, 200/255, 0.0, 1.0)
+            if (newColor === "green") {
+                newColor = Qt.rgba(0, 1.0, 0.5, 1.0)
+            } else if (newColor === "blue") {
+                newColor = Qt.rgba(0.0, 80/255, 1.0, 1.0)
+            } else if (newColor === "yellow") {
+                newColor = Qt.rgba(1.0, 200/255, 0.0, 1.0)
             }
         }
+        root.color = newColor
     }
 
     function updatePositionOnScreen(deviceCoordinate, R, fovP, fovL, screenWidth, screenHeight) {
