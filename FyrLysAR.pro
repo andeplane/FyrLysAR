@@ -32,11 +32,11 @@ INFOPLIST = \
     "    		</dict>" \
     "    	</dict>" \
     "    <key>CFBundleIdentifier</key>" \
-    "    <string>com.digia.$${LITERAL_DOLLAR}{PRODUCT_NAME:rfc1034identifier}</string>" \
+    "    <string>com.kvakkefly.fyrlysar</string>" \
     "    <key>CFBundleDisplayName</key>" \
     "    <string>$$PRODUCT_NAME</string>" \
     "    <key>CFBundleName</key>" \
-    "    <string>$$PRODUCT_NAME</string>" \
+    "    <string>fyrlysar</string>" \
     "    <key>CFBundleShortVersionString</key>" \
     "    <string>1.0</string>" \
     "    <key>CFBundleVersion</key>" \
@@ -87,13 +87,17 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 ios {
     # QMAKE_INFO_PLIST = Info.plist
-    QMAKE_ASSET_CATALOGS += $$PWD/logo/ios/AppIcon.appiconset
-    ios_icon.files = $$files($$PWD/logo/ios/AppIcon.appiconset/*.png)
-    QMAKE_BUNDLE_DATA += ios_icon
+    #QMAKE_ASSET_CATALOGS += $$PWD/logo/ios/AppIcon.appiconset
+    #ios_icon.files = $$files($$PWD/logo/ios/AppIcon.appiconset/*.png)
+    #QMAKE_BUNDLE_DATA += ios_icon
     # app_launch_images.files = $$PWD/images/ios/launch/Launch.xib
     # QMAKE_BUNDLE_DATA += app_launch_images
     # assets_catalogs.files = $$PWD/images/ios/launch/launch.xcassets
     # QMAKE_BUNDLE_DATA += assets_catalogs
+
+    QT_SUPPORTED_PLATFORM.name = SUPPORTED_PLATFORMS
+    QT_SUPPORTED_PLATFORM.value = "iphonesimulator iphoneos"
+    QMAKE_MAC_XCODE_SETTINGS += QT_SUPPORTED_PLATFORM
 }
 
 DISTFILES += \

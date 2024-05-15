@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     app.setApplicationName("FyrLysAR");
 
     QQmlApplicationEngine engine;
-    const QUrl url(u"qrc:/QFyrLysAR/main.qml"_qs);
+    const QUrl url(u"qrc:/FyrLysAR/main.qml"_qs);
 
     QPixmap pixmap(":/images/splash.png");
     QSplashScreen splash(pixmap);
