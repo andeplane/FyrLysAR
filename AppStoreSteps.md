@@ -7,5 +7,6 @@
 5. Ensure that Bundle Identifier is all lowercase com.kvakkefly.fyrlysar
 6. Click File -> New -> File, choose Asset Catalog and name it AppIcon
 7. Click the plus button -> iOS -> iOS App icon and drag in the non transparent logo
+8. Click the main project root item in file list, go to General and update App Icon to be AppIcon
 
 You should now be able to run Product -> Archive that validates the app bundle.
