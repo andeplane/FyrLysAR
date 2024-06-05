@@ -100,9 +100,9 @@ Page {
                     ListElement {
                         text: "Custom"
                     }
-                    ListElement {
-                        text: "Herfølhytta"
-                    }
+                    // ListElement {
+                    //     text: "Herfølhytta"
+                    // }
                     ListElement {
                         text: "Herfølrenna nord"
                     }
@@ -113,16 +113,20 @@ Page {
                         text: "Sørenga"
                     }
                     ListElement {
-                        text: "Special place"
+                        text: "Ytre Oslofjord"
                     }
+                    // ListElement {
+                    //     text: "Special place"
+                    // }
                 }
                 onCurrentTextChanged: {
                     const locations = {
-                        "Herfølhytta": QtPositioning.coordinate(58.9952381,11.0584886),
+                        // "Herfølhytta": QtPositioning.coordinate(58.9952381,11.0584886),
                         "Herfølrenna nord": QtPositioning.coordinate(59.006630, 11.057814),
-                        "Lauersvelgen": QtPositioning.coordinate(59.015415, 11.006846),
+                        "Lauersvelgen": QtPositioning.coordinate(59.014167, 11.042647),
                         "Sørenga": QtPositioning.coordinate(59.901484, 10.751129),
-                        "Special place": QtPositioning.coordinate(59.014167, 11.042647)
+                        "Ytre Oslofjord": QtPositioning.coordinate(58.982769, 10.763596),
+                        // "Special place": QtPositioning.coordinate(59.014167, 11.042647)
                     }
                     const location = locations[currentText]
                     if (location) {
@@ -169,12 +173,12 @@ Page {
                     }
                 }
             }
-            Switch {
-                text: "Debug"
-                onToggled: {
-                    root.debug = checked
-                }
-            }
+            // Switch {
+            //     text: "Debug"
+            //     onToggled: {
+            //         root.debug = checked
+            //     }
+            // }
         }
     }
 }
