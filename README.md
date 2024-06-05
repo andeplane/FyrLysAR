@@ -9,6 +9,10 @@ FyrLysAR augments the image from the camera with blinking lights representing
 lighthouses. Put a light at the center of the screen to show more information
 about that lighthouse at the bottom of the screen.
 
+## Support
+
+See [SUPPORT.md](support.md).
+
 ## Where are the lighthouses?
 
 The position, height, color and character (blinking pattern) of the
