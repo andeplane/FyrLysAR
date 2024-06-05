@@ -101,6 +101,7 @@ ios {
 }
 
 DISTFILES += \
+  WelcomeScreen.qml \
   images/splash.png \
   ARViewer.qml \
   Header.qml \

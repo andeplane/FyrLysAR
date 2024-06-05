@@ -43,4 +43,10 @@ Window {
     SettingsButton {
         id: settingsButton
     }
+
+    WelcomeScreen {
+        id: welcomeScreen
+        visible: true
+        anchors.fill: parent
+    }
 }

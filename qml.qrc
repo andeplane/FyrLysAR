@@ -165,5 +165,9 @@
         <file>heightdata/7806_50m_33.png</file>
         <file>heightdata/7002_50m_33.png</file>
         <file>images/splash.png</file>
+        <file>WelcomeScreen.qml</file>
+        <file>images/light2.gif</file>
+        <file>images/crosshair.png</file>
+        <file>images/gear-white.svg</file>
     </qresource>
 </RCC>
