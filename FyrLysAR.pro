@@ -86,14 +86,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 ios {
-    # QMAKE_INFO_PLIST = Info.plist
-    #QMAKE_ASSET_CATALOGS += $$PWD/logo/ios/AppIcon.appiconset
-    #ios_icon.files = $$files($$PWD/logo/ios/AppIcon.appiconset/*.png)
-    #QMAKE_BUNDLE_DATA += ios_icon
-    # app_launch_images.files = $$PWD/images/ios/launch/Launch.xib
-    # QMAKE_BUNDLE_DATA += app_launch_images
-    # assets_catalogs.files = $$PWD/images/ios/launch/launch.xcassets
-    # QMAKE_BUNDLE_DATA += assets_catalogs
+    # QMAKE_ASSET_CATALOGS += $$PWD/logo/ios/AppIcon.appiconset
+    # ios_icon.files = $$files($$PWD/logo/ios/AppIcon.appiconset/*.png)
+    # QMAKE_BUNDLE_DATA += ios_icon
 
     QT_SUPPORTED_PLATFORM.name = SUPPORTED_PLATFORMS
     QT_SUPPORTED_PLATFORM.value = "iphonesimulator iphoneos"
