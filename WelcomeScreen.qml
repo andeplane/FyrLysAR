@@ -6,7 +6,8 @@ Rectangle {
     id: root
     anchors.fill: parent
     color: "#000000"
-    property real textFontSize: 20
+    property real scalingFactor: Math.max(width, 320)/430 // Looks good on 430 screen
+    property real textFontSize: 20*scalingFactor
 
       ColumnLayout {
           anchors.fill: parent
@@ -29,7 +30,7 @@ Rectangle {
               }
               Layout.fillWidth: true
               Layout.fillHeight: false
-              Layout.minimumHeight: 200
+              Layout.minimumHeight: 200*scalingFactor
           }
           ColumnLayout {
             Layout.fillWidth: true
@@ -43,11 +44,11 @@ Rectangle {
                     Layout.margins: 10
                     Rectangle {
                         color: "black"
-                        width: 110
+                        width: 110*scalingFactor
                         Layout.fillHeight: true
                         AnimatedImage {
-                            width: 45
-                            height: 75
+                            width: 45*scalingFactor
+                            height: 75*scalingFactor
                             anchors.horizontalCenter: parent.horizontalCenter
                             source: "qrc:///images/light2.gif"
                         }
@@ -82,11 +83,11 @@ Rectangle {
                     Layout.margins: 10
                     Rectangle {
                         color: "black"
-                        width: 110
+                        width: 110*scalingFactor
                         Layout.fillHeight: true
                         AnimatedImage {
-                            width: 75
-                            height: 75
+                            width: 75*scalingFactor
+                            height: 75*scalingFactor
                             anchors.horizontalCenter: parent.horizontalCenter
                             source: "qrc:///images/crosshair.png"
                         }
@@ -121,11 +122,11 @@ Rectangle {
                     Layout.margins: 10
                     Rectangle {
                         color: "black"
-                        width: 110
+                        width: 110*scalingFactor
                         Layout.fillHeight: true
                         AnimatedImage {
-                            width: 75
-                            height: 75
+                            width: 75*scalingFactor
+                            height: 75*scalingFactor
                             anchors.horizontalCenter: parent.horizontalCenter
                             source: "qrc:///images/gear-white.svg"
                         }
