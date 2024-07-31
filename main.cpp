@@ -32,18 +32,17 @@ int main(int argc, char *argv[])
 
     QCameraPermission cameraPermission;
     QLocationPermission locationPermission;
-
-    qApp->requestPermission(cameraPermission, [&engine, &url, &splash](const QPermission &grantedCameraPermission) {
+    
+    qApp->requestPermission(cameraPermission, [&engine, &url, &splash, &locationPermission](const QPermission &grantedCameraPermission) {
         if (grantedCameraPermission.status() != Qt::PermissionStatus::Granted)
             qWarning("Camera permission is not granted!");
-        engine.load(url);
-        splash.hide();
-    });
-
-    qApp->requestPermission(locationPermission, [&engine, &url](const QPermission &grantedLocationPermission) {
-        if (grantedLocationPermission.status() != Qt::PermissionStatus::Granted)
-            qWarning("Camera permission is not granted!");
-
+        
+        qApp->requestPermission(locationPermission, [&engine, &url, &splash](const QPermission &grantedLocationPermission) {
+            if (grantedLocationPermission.status() != Qt::PermissionStatus::Granted)
+                qWarning("Location permission is not granted!");
+            engine.load(url);
+            splash.hide();
+        });
     });
 
     return app.exec();
