@@ -345,7 +345,7 @@ Rectangle {
         // Max size on screen appears at 500 meter
         const maxRange = Math.max(500, root.maxRange)
         // Linear interpolate between 0 and 30 based on distance / maxRange
-        let baseSize = lerp(30, 5, root.distance/maxRange)
+        let baseSize = lerp(15, 5, root.distance/maxRange)
         baseSize = Math.max(baseSize, 5)
 
         // sizeScaleFactor will scale if the object is
