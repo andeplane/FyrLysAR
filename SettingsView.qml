@@ -123,7 +123,7 @@ Page {
                     const locations = {
                         // "Herfølhytta": QtPositioning.coordinate(58.9952381,11.0584886),
                         "Herfølrenna nord": QtPositioning.coordinate(59.006630, 11.057814),
-                        "Lauersvelgen": QtPositioning.coordinate(59.014167, 11.042647),
+                        "Lauersvelgen": QtPositioning.coordinate(59.01487, 11.0295),
                         "Sørenga": QtPositioning.coordinate(59.901484, 10.751129),
                         "Ytre Oslofjord": QtPositioning.coordinate(58.982769, 10.763596),
                         // "Special place": QtPositioning.coordinate(59.014167, 11.042647)
