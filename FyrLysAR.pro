@@ -15,22 +15,6 @@ INFOPLIST = \
     "    <string>????</string>" \
     "    <key>CFBundleExecutable</key>" \
     "    <string>$$TARGET</string>" \
-    "    <key>CFBundleIcons</key>" \
-    "    	<dict>" \
-    "    		<key>CFBundlePrimaryIcon</key>" \
-    "    		<dict>" \
-    "    			<key>CFBundleIconFiles</key>" \
-    "    			<array>" \
-    "    				<string>Icon-App-20x20</string>" \
-    "    				<string>Icon-App-29x29</string>" \
-    "    				<string>Icon-App-40x40</string>" \
-    "    				<string>Icon-App-60x60</string>" \
-    "    				<string>Icon-App-76x76</string>" \
-    "    			</array>" \
-    "                           <key>CFBundleIconName</key>" \
-    "                           <string>AppIcon</string>" \
-    "    		</dict>" \
-    "    	</dict>" \
     "    <key>CFBundleIdentifier</key>" \
     "    <string>com.kvakkefly.fyrlysar</string>" \
     "    <key>CFBundleDisplayName</key>" \
