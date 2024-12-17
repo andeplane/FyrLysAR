@@ -172,6 +172,6 @@ with pdfplumber.open(pdf_path) as pdf:  # type: ignore
         lighthouses.extend(lighthouses_on_page)
 lighthouses_as_dicts = [asdict(lighthouse) for lighthouse in lighthouses]
 with open("lighthouses.json", "w") as f:
-    json.dump(lighthouses_as_dicts, f, indent=2)
+    json.dump(lighthouses_as_dicts, f, indent=2, ensure_ascii=False)
 print("total_number_of_lighthouses: ", total_number_of_lighthouses)
 print("total_real_number_of_lighthouses: ", len(lighthouses))
