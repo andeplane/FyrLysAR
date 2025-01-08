@@ -124,11 +124,12 @@ Rectangle {
                         color: "black"
                         width: 110*scalingFactor
                         Layout.fillHeight: true
-                        AnimatedImage {
-                            width: 75*scalingFactor
-                            height: 75*scalingFactor
+                        Image {
+                            width: 75 * scalingFactor
+                            height: 75 * scalingFactor
                             anchors.horizontalCenter: parent.horizontalCenter
                             source: "qrc:///images/gear-white.svg"
+                            fillMode: Image.PreserveAspectFit
                         }
                     }
 
