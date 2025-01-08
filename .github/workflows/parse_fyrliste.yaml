@@ -60,8 +60,8 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Update generated files
-          branch: update-generated-files-${{ github.run_number }}
-          title: "Update Generated Files"
+          branch: update-fyrliste-${{ github.run_number }}
+          title: "Updated Fyrliste to ${{ format(github.event.repository.updated_at, 'YYYY-MM-DD') }}"
           body: |
             This PR updates the generated files based on the latest run.
           labels: automated-pr
