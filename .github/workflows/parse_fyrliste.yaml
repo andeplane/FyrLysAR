@@ -1,0 +1,69 @@
+name: Run Python Script and Create PR
+
+on:
+  schedule:
+    - cron: "0 0 * * 0" # Runs weekly at midnight UTC on Sunday
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  generate-and-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Needed for creating branches
+          ref: main
+
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11" # Specify your Python version
+
+      # Step 3: Install dependencies (if any)
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r parse_fyrlys/requirements.txt  # If you have dependencies
+
+      # Step 4: Run the Python script
+      - name: Run Script
+        run: |
+          python parse_fyrlys/parse.py  # Update with your script path
+
+      # Step 5: Configure Git
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      # Step 6: Check for changes and commit
+      - name: Commit Changes
+        id: commit_changes
+        run: |
+          git add lighthouses.qml parse_fyrlys/lighthouses.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            echo "::set-output name=changes::false"
+          else
+            git commit -m "Update generated files [skip ci]"
+            echo "::set-output name=changes::true"
+          fi
+
+      # Step 7: Create Pull Request if there are changes
+      - name: Create Pull Request
+        if: steps.commit_changes.outputs.changes == 'true'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Update generated files
+          branch: update-generated-files-${{ github.run_number }}
+          title: "Update Generated Files"
+          body: |
+            This PR updates the generated files based on the latest run.
+          labels: automated-pr
+          # You can specify the base branch if different from the default
+          base: main

@@ -1,5 +1,6 @@
 import json
 import time
+import os
 from tqdm import tqdm
 import pdfplumber
 from parse_utils import color_map, dump_qml,extract_character, merge_text_elements, extract_character, find_text, find_element_containing_point, find_text_element_containing_point, extract_text_elements, perform_text_extraction, SCALING_FACTOR
@@ -153,7 +154,15 @@ def parse_lighthouses(text_elements):
     }
     return lighthouses_on_page.values()
 
-pdf_path = "Fyrliste_HeleLandet.pdf"
+
+pdf_path = "parse_fyrlys/Fyrliste_HeleLandet.pdf"
+if not os.path.exists(pdf_path):
+    print("Downloading Fyrliste_HeleLandet.pdf from https://nfs.kystverket.no/fyrlister/Fyrliste_HeleLandet.pdf")
+    # Download from https://nfs.kystverket.no/fyrlister/Fyrliste_HeleLandet.pdf
+    import requests
+    response = requests.get("https://nfs.kystverket.no/fyrlister/Fyrliste_HeleLandet.pdf")
+    with open(pdf_path, "wb") as f:
+        f.write(response.content)
 
 total_number_of_lighthouses = 0
 lighthouses = []
@@ -170,11 +179,12 @@ with pdfplumber.open(pdf_path) as pdf:  # type: ignore
         text_elements = perform_text_extraction(pdf_page)
         lighthouses_on_page = parse_lighthouses(text_elements)
         lighthouses.extend(lighthouses_on_page)
+
 lighthouses_as_dicts = [asdict(lighthouse) for lighthouse in lighthouses]
-with open("lighthouses.json", "w") as f:
+with open("parse_fyrlys/lighthouses.json", "w") as f:
     json.dump(lighthouses_as_dicts, f, indent=2, ensure_ascii=False)
 qml_string = dump_qml(lighthouses_as_dicts)
-with open("../lighthouses.qml", "w") as f:
+with open("lighthouses.qml", "w") as f:
     f.write(qml_string)
 print("total_number_of_lighthouses: ", total_number_of_lighthouses)
 print("total_real_number_of_lighthouses: ", len(lighthouses))
