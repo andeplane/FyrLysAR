@@ -179,6 +179,8 @@ with pdfplumber.open(pdf_path) as pdf:  # type: ignore
         text_elements = perform_text_extraction(pdf_page)
         lighthouses_on_page = parse_lighthouses(text_elements)
         lighthouses.extend(lighthouses_on_page)
+        if i > 100:
+            break
 lighthouses_as_dicts = [asdict(lighthouse) for lighthouse in lighthouses]
 with open("parse_fyrlys/lighthouses.json", "w") as f:
     json.dump(lighthouses_as_dicts, f, indent=2, ensure_ascii=False)
