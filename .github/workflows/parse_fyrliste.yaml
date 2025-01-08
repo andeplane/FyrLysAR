@@ -1,4 +1,4 @@
-name: Run Python Script and Create PR
+name: Run Parse Fyrliste Script and Create PR
 
 on:
   schedule:
@@ -21,7 +21,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.11" # Specify your Python version
+          python-version: "3.11"
 
       # Step 3: Install dependencies (if any)
       - name: Install Dependencies
@@ -32,7 +32,7 @@ jobs:
       # Step 4: Run the Python script
       - name: Run Script
         run: |
-          python parse_fyrlys/parse.py  # Update with your script path
+          python parse_fyrlys/parse.py
 
       # Step 5: Configure Git
       - name: Configure Git
