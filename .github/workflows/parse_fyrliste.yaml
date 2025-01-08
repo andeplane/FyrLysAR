@@ -2,7 +2,7 @@ name: Run Python Script and Create PR
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Runs daily at midnight UTC
+    - cron: "0 0 * * 0" # Runs weekly at midnight UTC on Sunday
   workflow_dispatch: # Allows manual triggering
 
 jobs:
