@@ -2,7 +2,7 @@ import json
 import time
 from tqdm import tqdm
 import pdfplumber
-from parse_utils import extract_character, merge_text_elements, extract_character, find_text, find_element_containing_point, find_text_element_containing_point, extract_text_elements, perform_text_extraction, SCALING_FACTOR
+from parse_utils import color_map, dump_qml,extract_character, merge_text_elements, extract_character, find_text, find_element_containing_point, find_text_element_containing_point, extract_text_elements, perform_text_extraction, SCALING_FACTOR
 
 from dataclasses import dataclass, asdict, field
 
@@ -18,8 +18,8 @@ def parse_lighthouses(text_elements):
         character: dict | None = None
         pattern: str | None = None
         height: str | None = None
-        max_range: float | None = None
-        sector_colors: list[dict] = field(default_factory=list)
+        maxRange: float | None = None
+        sectors: list[dict] = field(default_factory=list)
         
     lighthouses_on_page = {}
     fyrnr_with_bounding_boxes = []
@@ -103,8 +103,9 @@ def parse_lighthouses(text_elements):
         lysvidde_w = float(lysvidde_w.replace(",", ".")) if lysvidde_w else None
         ranges = [r for r in [lysvidde_r, lysvidde_g, lysvidde_w] if r is not None]
         if ranges:
-            lighthouses_on_page[fyrnr].max_range = max(ranges)
-
+            lighthouses_on_page[fyrnr].maxRange = max(ranges)
+            # Convert to meters
+            lighthouses_on_page[fyrnr].maxRange = lighthouses_on_page[fyrnr].maxRange * 1852
         # Find sectors
         SECTOR_COLOR_X_COORDINATE = 1482/SCALING_FACTOR
         SECTOR_FIRST_COLOR_Y_COORDINATE = lighthouse.bounding_box[0][1] + 9/SCALING_FACTOR
@@ -130,8 +131,8 @@ def parse_lighthouses(text_elements):
                         print(f"WARNING! Sector from is None for {fyrnr} {sector_color['description']} {sector_from}. Choosing 0.0 instead.")
                         sector_from_float = 0.0
                     
-                    lighthouses_on_page[fyrnr].sector_colors.append({
-                        'color': sector_color['description'],
+                    lighthouses_on_page[fyrnr].sectors.append({
+                        'color': color_map[sector_color['description']],
                         'start': sector_from_float,
                         'stop': float(sector_to.replace(",", ".").replace("-", ""))
                     })
@@ -139,7 +140,7 @@ def parse_lighthouses(text_elements):
             current_y_coordinate += SECTOR_COLOR_LINE_HEIGHT
     
     def should_keep_lighthouse(lighthouse):
-        if lighthouse.max_range is None:
+        if lighthouse.maxRange is None:
             return False
         if lighthouse.height is None:
             return False
@@ -159,7 +160,6 @@ lighthouses = []
 with pdfplumber.open(pdf_path) as pdf:  # type: ignore
     i = 0
     for pdf_page in tqdm(pdf.pages, desc="Processing pages"):
-    # for pdf_page in pdf.pages:
         i += 1
         # print(f"Processing page {i} of {len(pdf.pages)}")
         text_on_page = pdf_page.extract_text()
@@ -173,5 +173,8 @@ with pdfplumber.open(pdf_path) as pdf:  # type: ignore
 lighthouses_as_dicts = [asdict(lighthouse) for lighthouse in lighthouses]
 with open("lighthouses.json", "w") as f:
     json.dump(lighthouses_as_dicts, f, indent=2, ensure_ascii=False)
+qml_string = dump_qml(lighthouses_as_dicts)
+with open("lighthouses.qml", "w") as f:
+    f.write(qml_string)
 print("total_number_of_lighthouses: ", total_number_of_lighthouses)
 print("total_real_number_of_lighthouses: ", len(lighthouses))

@@ -231,3 +231,31 @@ def perform_text_extraction(pdf_page):
     # Merge text elements based on proximity
     merged_texts = merge_text_elements(texts_with_bounding_box, max_x_distance=10/SCALING_FACTOR, max_y_distance=5/SCALING_FACTOR)
     return merged_texts
+
+def dump_qml(lighthouses):
+    import json
+    qml = """
+import QtQuick
+
+Rectangle {
+    property var lighthouses
+    property string jsonString: '"""
+    lighthouses_as_json = json.dumps(lighthouses, indent=2, ensure_ascii=False)
+    # Add \ on end of each line
+    lighthouses_as_json = lighthouses_as_json.replace('\n', '\\\n')
+    qml += lighthouses_as_json
+    qml += "'\n"
+    qml += """
+    Component.onCompleted:  {
+        lighthouses = JSON.parse(jsonString)
+    }
+}
+"""
+
+    return qml
+
+color_map = {
+    'W': 'white',
+    'G': 'green',
+    'R': 'red'
+}
