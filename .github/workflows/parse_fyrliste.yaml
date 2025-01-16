@@ -70,7 +70,7 @@ jobs:
         id: quality_report
         run: |
           echo "REPORT<<EOF" >> $GITHUB_ENV
-          cat quality_report.txt >> $GITHUB_ENV
+          cat quality_report.md >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
 
       # Step 8: Create Pull Request if there are changes
@@ -91,9 +91,8 @@ jobs:
             <details>
             <summary>Click to expand quality report</summary>
 
-            ```
             ${{ env.REPORT }}
-            ```
+
             </details>
 
             [View full list of problematic lighthouses](https://github.com/${{ github.repository }}/blob/update-fyrliste-${{ github.run_number }}/scripts/lighthouses_with_problems.csv)
