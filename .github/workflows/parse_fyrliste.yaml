@@ -2,9 +2,8 @@ name: Run Parse Fyrliste Script and Create PR
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
     branches:
-      - "anders/workflow-fix-date"
+      - "main"
 
 jobs:
   generate-and-pr:
@@ -69,4 +68,4 @@ jobs:
             This PR updates the generated files based on the latest run.
           labels: automated-pr
           # You can specify the base branch if different from the default
-          base: main
+          base: anders/workflow-fix-date
