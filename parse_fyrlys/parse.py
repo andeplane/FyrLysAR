@@ -108,6 +108,7 @@ def parse_lighthouses(text_elements):
             # Convert to meters
             lighthouses_on_page[fyrnr].maxRange = lighthouses_on_page[fyrnr].maxRange * 1852
         # Find sectors
+        SECTOR_NUMBER_X_COORDINATE = 1440/SCALING_FACTOR
         SECTOR_COLOR_X_COORDINATE = 1482/SCALING_FACTOR
         SECTOR_FIRST_COLOR_Y_COORDINATE = lighthouse.bounding_box[0][1] + 9/SCALING_FACTOR
         SECTOR_COLOR_LINE_HEIGHT = 5/SCALING_FACTOR
@@ -123,6 +124,10 @@ def parse_lighthouses(text_elements):
             if sector_color and sector_color['description'] != current_color:
                 current_color = sector_color['description']
                 if current_color in ['R', 'G', 'W']:
+                    sector_number = find_element_containing_point(SECTOR_NUMBER_X_COORDINATE, current_y_coordinate, text_elements)
+                    sector_number = sector_number.get('description') if sector_number else None
+                    if sector_number is not None:
+                        sector_number = int(sector_number)
                     mean_y_coordinate = (sector_color['bounding_box'][0][1] + sector_color['bounding_box'][2][1]) / 2
                     sector_from = find_text_element_containing_point(SECTOR_FIRST_ANGLE_X_COORDINATE, mean_y_coordinate, text_elements)
                     sector_to = find_text_element_containing_point(SECTOR_SECOND_ANGLE_X_COORDINATE, mean_y_coordinate, text_elements)
@@ -134,6 +139,7 @@ def parse_lighthouses(text_elements):
                     
                     lighthouses_on_page[fyrnr].sectors.append({
                         'color': color_map[sector_color['description']],
+                        'number': sector_number,
                         'start': sector_from_float,
                         'stop': float(sector_to.replace(",", ".").replace("-", ""))
                     })
