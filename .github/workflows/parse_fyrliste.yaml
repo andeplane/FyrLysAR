@@ -40,6 +40,9 @@ jobs:
       # - name: Run Data Quality Check
       #   run: |
       #     python scripts/check_data_quality.py > quality_report.txt
+      - name: Create file
+        run: |
+          touch hallo.py
 
       # Step 5: Configure Git
       - name: Configure Git
@@ -51,7 +54,7 @@ jobs:
       - name: Commit Changes
         id: commit_changes
         run: |
-          git add lighthouses.qml scripts/lighthouses.json scripts/lighthouses_with_problems.csv
+          git add lighthouses.qml scripts/lighthouses.json scripts/lighthouses_with_problems.csv hallo.py
           if git diff --cached --quiet; then
             echo "No changes to commit."
             echo "::set-output name=changes::false"
