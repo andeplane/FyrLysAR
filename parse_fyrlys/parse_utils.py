@@ -1,7 +1,7 @@
 import re
 from pdfplumber.utils.text import WordExtractor, objects_to_bbox
 
-SCALING_FACTOR = 2.77793494
+SCALING_FACTOR = 2.77793494 # Compared to png exported with 200 dpi 
 
 def merge_text_elements(text_elements, max_x_distance=10/SCALING_FACTOR, max_y_distance=5/SCALING_FACTOR):
     """
