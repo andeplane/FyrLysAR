@@ -52,6 +52,8 @@ jobs:
             git commit -m "Update generated files [skip ci]"
             echo "::set-output name=changes::true"
           fi
+      - name: Store build timestamp
+        run: echo "BUILD_TIME=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
       # Step 7: Create Pull Request if there are changes
       - name: Create Pull Request
@@ -61,7 +63,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Update generated files
           branch: update-fyrliste-${{ github.run_number }}
-          title: "Updated Fyrliste to ${{ format(github.event.repository.updated_at, 'YYYY-MM-DD') }}"
+          title: "Updated Fyrliste to ${{ env.BUILD_TIME }}"
           body: |
             This PR updates the generated files based on the latest run.
           labels: automated-pr
