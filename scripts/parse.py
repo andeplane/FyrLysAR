@@ -190,8 +190,7 @@ with pdfplumber.open(pdf_path) as pdf:  # type: ignore
 lighthouses_as_dicts = [asdict(lighthouse) for lighthouse in lighthouses]
 for lighthouse in lighthouses_as_dicts:
     del lighthouse['bounding_box']
-    del lighthouse['fyrnr']
-
+    
 with open("scripts/lighthouses.json", "w") as f:
     print("Wrote the file")
     json.dump(lighthouses_as_dicts, f, indent=2, ensure_ascii=False)
