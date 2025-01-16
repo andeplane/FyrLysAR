@@ -33,6 +33,7 @@ jobs:
       - name: Run Script
         run: |
           echo "hello" > README.md
+          git commit -am "Update README.md"
 
       # Step 5: Configure Git
       - name: Configure Git
