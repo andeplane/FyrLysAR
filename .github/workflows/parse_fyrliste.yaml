@@ -84,10 +84,6 @@ jobs:
           branch: update-fyrliste-${{ github.run_number }}
           title: "Updated Fyrliste to ${{ env.BUILD_TIME }}"
           body: |
-            This PR updates the generated files based on the latest run.
-
-            ## Data Quality Report
-
             ${{ env.REPORT }}
 
             [View full list of problematic lighthouses](https://github.com/${{ github.repository }}/blob/update-fyrliste-${{ github.run_number }}/scripts/lighthouses_with_problems.csv)
