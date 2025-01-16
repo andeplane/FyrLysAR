@@ -3,6 +3,8 @@ name: Run Parse Fyrliste Script and Create PR
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+    branches:
+      - "anders/workflow-fix-date"
 
 jobs:
   generate-and-pr:
