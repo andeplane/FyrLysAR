@@ -33,7 +33,7 @@ jobs:
       # Step 4: Run the Python script
       - name: Run Script
         run: |
-          touch test.py
+          echo "hello" > README.md
 
       # Step 5: Configure Git
       - name: Configure Git
