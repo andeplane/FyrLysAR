@@ -1,6 +1,7 @@
 import json
 import csv
 from collections import Counter
+from datetime import datetime
 
 with open('scripts/lighthouses.json', 'r') as f:
     lighthouses = json.load(f)
@@ -51,13 +52,36 @@ for lighthouse in lighthouses:
     check_sectors(lighthouse)
 
 # Write to csv file
-with open('lighthouses_with_problems.csv', 'w') as f:
+with open('scripts/lighthouses_with_problems.csv', 'w') as f:
     writer = csv.writer(f)
     writer.writerow(['fyrnr', 'page_number', 'problem'])
     for lighthouse in lighthouses_with_problems:
         for problem in lighthouses_with_problems[lighthouse]:
             writer.writerow([lighthouse, lighthouses_by_fyrnr[lighthouse]['page_number'], problem])
 
-print("\nError type counts:")
+# Generate markdown report
+pages = set(lighthouse['page_number'] for lighthouse in lighthouses)
+total_sectors = sum(len(lighthouse['sectors']) for lighthouse in lighthouses)
+current_date = datetime.now().strftime('%Y-%m-%d')
+
+report = f"""This PR updates the generated files based on the latest run.
+Generated on: {current_date}
+
+# Data Quality Report
+
+## Dataset Overview
+- Total number of lighthouses: {len(lighthouses)}
+- Number of pages covered: {len(pages)}
+- Total number of sectors: {total_sectors}
+
+## Data Quality Issues
+- Number of lighthouses with problems: {len(lighthouses_with_problems)}
+- Percentage of problematic lighthouses: {(len(lighthouses_with_problems)/len(lighthouses))*100:.1f}%
+
+### Error Type Breakdown
+"""
+
 for error_type, count in error_types.items():
-    print(f"{error_type}: {count}")
+    report += f"- {error_type}: {count} occurrences\n"
+
+print(report)
