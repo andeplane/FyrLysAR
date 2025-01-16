@@ -34,6 +34,10 @@ jobs:
         run: |
           python scripts/parse.py
 
+      - name: Run Data Quality Check
+        run: |
+          python scripts/check_data_quality.py > quality_report.md
+
       # Step 5: Configure Git
       - name: Configure Git
         run: |
@@ -44,7 +48,7 @@ jobs:
       - name: Commit Changes
         id: commit_changes
         run: |
-          git add lighthouses.qml scripts/lighthouses.json
+          git add lighthouses.qml scripts/lighthouses.json scripts/lighthouses_with_problems.csv
           if git diff --cached --quiet; then
             echo "No changes to commit."
             echo "::set-output name=changes::false"
@@ -55,8 +59,16 @@ jobs:
       - name: Store build timestamp
         run: echo "BUILD_TIME=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
+      - name: Read Quality Report
+        id: quality_report
+        run: |
+          echo "REPORT<<EOF" >> $GITHUB_ENV
+          cat quality_report.md >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
       # Step 7: Create Pull Request if there are changes
       - name: Create Pull Request
+        id: create_pr
         if: steps.commit_changes.outputs.changes == 'true'
         uses: peter-evans/create-pull-request@v5
         with:
@@ -65,7 +77,8 @@ jobs:
           branch: update-fyrliste-${{ github.run_number }}
           title: "Updated Fyrliste to ${{ env.BUILD_TIME }}"
           body: |
-            This PR updates the generated files based on the latest run.
+            ${{ env.REPORT }}
+
+            [View full list of problematic lighthouses](https://github.com/${{ github.repository }}/blob/update-fyrliste-${{ github.run_number }}/scripts/lighthouses_with_problems.csv)
           labels: automated-pr
-          # You can specify the base branch if different from the default
           base: main
