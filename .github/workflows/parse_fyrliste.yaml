@@ -65,7 +65,15 @@ jobs:
       - name: Store build timestamp
         run: echo "BUILD_TIME=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
-      # Step 7: Create Pull Request if there are changes
+      # Step 7: Read quality report for PR description
+      - name: Read Quality Report
+        id: quality_report
+        run: |
+          echo "REPORT<<EOF" >> $GITHUB_ENV
+          cat quality_report.txt >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      # Step 8: Create Pull Request if there are changes
       - name: Create Pull Request
         id: create_pr
         if: steps.commit_changes.outputs.changes == 'true'
@@ -77,24 +85,7 @@ jobs:
           title: "Updated Fyrliste to ${{ env.BUILD_TIME }}"
           body: |
             This PR updates the generated files based on the latest run.
-          labels: automated-pr
-          # You can specify the base branch if different from the default
-          base: anders/test-dq
 
-      # Step 8: Add quality report as PR comment
-      - name: Read Quality Report
-        id: quality_report
-        run: |
-          echo "REPORT<<EOF" >> $GITHUB_ENV
-          cat quality_report.txt >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-
-      - name: Comment on PR with Quality Report
-        if: steps.commit_changes.outputs.changes == 'true'
-        uses: peter-evans/create-or-update-comment@v3
-        with:
-          issue-number: ${{ steps.create_pr.outputs.pull-request-number }}
-          body: |
             ## Data Quality Report
 
             <details>
@@ -106,4 +97,5 @@ jobs:
             </details>
 
             [View full list of problematic lighthouses](https://github.com/${{ github.repository }}/blob/update-fyrliste-${{ github.run_number }}/scripts/lighthouses_with_problems.csv)
-          token: ${{ secrets.GITHUB_TOKEN }}
+          labels: automated-pr
+          base: anders/test-dq
