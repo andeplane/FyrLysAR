@@ -24,10 +24,10 @@ jobs:
           python-version: "3.11"
 
       # Step 3: Install dependencies (if any)
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r parse_fyrlys/requirements.txt  # If you have dependencies
+      # - name: Install Dependencies
+      #   run: |
+      #     python -m pip install --upgrade pip
+      #     pip install -r parse_fyrlys/requirements.txt  # If you have dependencies
 
       # Step 4: Run the Python script
       - name: Run Script
