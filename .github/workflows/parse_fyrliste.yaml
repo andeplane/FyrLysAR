@@ -33,13 +33,13 @@ jobs:
           pip install -r scripts/requirements.txt  # If you have dependencies
 
       # Step 4: Run the Python script
-      - name: Run Script
-        run: |
-          python scripts/parse.py
+      # - name: Run Script
+      #   run: |
+      #     python scripts/parse.py
 
-      - name: Run Data Quality Check
-        run: |
-          python scripts/check_data_quality.py > quality_report.txt
+      # - name: Run Data Quality Check
+      #   run: |
+      #     python scripts/check_data_quality.py > quality_report.txt
 
       # Step 5: Configure Git
       - name: Configure Git

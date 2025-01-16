@@ -1,0 +1,5 @@
+
+Error type counts:
+Gap in sector numbering: 64
+Missing sector number: 564
+Invalid sector number 0: 16
