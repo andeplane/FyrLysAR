@@ -161,7 +161,7 @@ def parse_lighthouses(text_elements):
     return lighthouses_on_page.values()
 
 
-pdf_path = "parse_fyrlys/Fyrliste_HeleLandet.pdf"
+pdf_path = "scripts/Fyrliste_HeleLandet.pdf"
 if not os.path.exists(pdf_path):
     print("Downloading Fyrliste_HeleLandet.pdf from https://nfs.kystverket.no/fyrlister/Fyrliste_HeleLandet.pdf")
     # Download from https://nfs.kystverket.no/fyrlister/Fyrliste_HeleLandet.pdf
@@ -191,7 +191,7 @@ for lighthouse in lighthouses_as_dicts:
     del lighthouse['bounding_box']
     del lighthouse['fyrnr']
 
-with open("parse_fyrlys/lighthouses.json", "w") as f:
+with open("scripts/lighthouses.json", "w") as f:
     print("Wrote the file")
     json.dump(lighthouses_as_dicts, f, indent=2, ensure_ascii=False)
 qml_string = dump_qml(lighthouses_as_dicts)
