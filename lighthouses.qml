@@ -150,16 +150,6 @@ Rectangle {
       {\
         "color": "red",\
         "start": 212.7,\
-        "stop": 253.1\
-      },\
-      {\
-        "color": "white",\
-        "start": 253.1,\
-        "stop": 299.5\
-      },\
-      {\
-        "color": "red",\
-        "start": 299.5,\
         "stop": 9.5\
       },\
       {\
@@ -270,13 +260,7 @@ Rectangle {
     "pattern": "Oc W 6s",\
     "height": 50.0,\
     "maxRange": 1852.0,\
-    "sectors": [\
-      {\
-        "color": "white",\
-        "start": 53.5,\
-        "stop": 73.5\
-      }\
-    ]\
+    "sectors": []\
   },\
   {\
     "name": "Svinesundsbroen, 2",\
@@ -291,13 +275,7 @@ Rectangle {
     "pattern": "Oc G 6s",\
     "height": 50.0,\
     "maxRange": 1852.0,\
-    "sectors": [\
-      {\
-        "color": "green",\
-        "start": 53.5,\
-        "stop": 73.5\
-      }\
-    ]\
+    "sectors": []\
   },\
   {\
     "name": "Svinesundsbroen, 4",\
@@ -312,13 +290,7 @@ Rectangle {
     "pattern": "Oc R 6s",\
     "height": 50.0,\
     "maxRange": 1852.0,\
-    "sectors": [\
-      {\
-        "color": "red",\
-        "start": 53.5,\
-        "stop": 73.5\
-      }\
-    ]\
+    "sectors": []\
   },\
   {\
     "name": "Svinesundsbroen, 3",\
@@ -333,13 +305,7 @@ Rectangle {
     "pattern": "Oc W 6s",\
     "height": 50.0,\
     "maxRange": 1852.0,\
-    "sectors": [\
-      {\
-        "color": "white",\
-        "start": 236.7,\
-        "stop": 256.7\
-      }\
-    ]\
+    "sectors": []\
   },\
   {\
     "name": "Svinesundsbroen, 5",\
@@ -354,13 +320,7 @@ Rectangle {
     "pattern": "Oc G 6s",\
     "height": 50.0,\
     "maxRange": 1852.0,\
-    "sectors": [\
-      {\
-        "color": "green",\
-        "start": 236.7,\
-        "stop": 256.7\
-      }\
-    ]\
+    "sectors": []\
   },\
   {\
     "name": "Svinesundsbroen, 6",\
@@ -375,13 +335,7 @@ Rectangle {
     "pattern": "Oc R 6s",\
     "height": 50.0,\
     "maxRange": 1852.0,\
-    "sectors": [\
-      {\
-        "color": "red",\
-        "start": 236.7,\
-        "stop": 256.7\
-      }\
-    ]\
+    "sectors": []\
   },\
   {\
     "name": "Rørbek",\
@@ -592,12 +546,12 @@ Rectangle {
     "latitude": 59.112293333333334,\
     "longitude": 11.326071666666667,\
     "character": {\
-      "light_class": "None",\
-      "numflash": 0,\
+      "light_class": "Oc",\
+      "numflash": 2,\
       "extra_class": null,\
-      "period": 0\
+      "period": 8.0\
     },\
-    "pattern": null,\
+    "pattern": "Oc (2) WRG 8s",\
     "height": 8.6,\
     "maxRange": 12964.0,\
     "sectors": [\
@@ -1050,11 +1004,6 @@ Rectangle {
         "color": "white",\
         "start": 32.5,\
         "stop": 34.2\
-      },\
-      {\
-        "color": "green",\
-        "start": 34.2,\
-        "stop": 48.4\
       },\
       {\
         "color": "red",\
@@ -3053,11 +3002,6 @@ Rectangle {
         "stop": 155.8\
       },\
       {\
-        "color": "white",\
-        "start": 155.8,\
-        "stop": 204.8\
-      },\
-      {\
         "color": "red",\
         "start": 204.8,\
         "stop": 219.5\
@@ -3320,11 +3264,6 @@ Rectangle {
         "color": "red",\
         "start": 33.4,\
         "stop": 40.2\
-      },\
-      {\
-        "color": "white",\
-        "start": 40.2,\
-        "stop": 51.3\
       },\
       {\
         "color": "green",\
@@ -3975,11 +3914,6 @@ Rectangle {
         "stop": 12.3\
       },\
       {\
-        "color": "green",\
-        "start": 12.3,\
-        "stop": 32.8\
-      },\
-      {\
         "color": "white",\
         "start": 32.8,\
         "stop": 37.1\
@@ -3998,11 +3932,6 @@ Rectangle {
         "color": "green",\
         "start": 144.8,\
         "stop": 208.2\
-      },\
-      {\
-        "color": "white",\
-        "start": 208.2,\
-        "stop": 208.9\
       },\
       {\
         "color": "red",\
@@ -4377,11 +4306,6 @@ Rectangle {
         "color": "red",\
         "start": 7.9,\
         "stop": 11.9\
-      },\
-      {\
-        "color": "green",\
-        "start": 11.9,\
-        "stop": 15.5\
       }\
     ]\
   },\
@@ -6362,9 +6286,9 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Storeflu, V",\
-    "latitude": 59.835861666666666,\
-    "longitude": 10.725116666666667,\
+    "name": "Storeflu V",\
+    "latitude": 59.83591,\
+    "longitude": 10.725141666666667,\
     "character": {\
       "light_class": "VQ",\
       "numflash": 9,\
@@ -6544,8 +6468,8 @@ Rectangle {
   },\
   {\
     "name": "Søndre Langøyrabbane",\
-    "latitude": 59.87139833333333,\
-    "longitude": 10.729058333333333,\
+    "latitude": 59.871368333333336,\
+    "longitude": 10.72919,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -6554,7 +6478,7 @@ Rectangle {
     },\
     "pattern": "Fl R 2s",\
     "height": 4.5,\
-    "maxRange": 4630.0,\
+    "maxRange": 2037.2000000000003,\
     "sectors": [\
       {\
         "color": "red",\
@@ -6984,6 +6908,69 @@ Rectangle {
     "sectors": [\
       {\
         "color": "white",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Lindøya SØ",\
+    "latitude": 59.88944333333333,\
+    "longitude": 10.721576666666667,\
+    "character": {\
+      "light_class": "Fl",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 2.0\
+    },\
+    "pattern": "Fl R 2s",\
+    "height": 4.5,\
+    "maxRange": 1852.0,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Galteskjæret",\
+    "latitude": 59.894615,\
+    "longitude": 10.70685,\
+    "character": {\
+      "light_class": "Fl",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 2.0\
+    },\
+    "pattern": "Fl G 2s",\
+    "height": 4.5,\
+    "maxRange": 2037.2000000000003,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Lindøya NV",\
+    "latitude": 59.89219333333333,\
+    "longitude": 10.707205,\
+    "character": {\
+      "light_class": "Fl",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 2.0\
+    },\
+    "pattern": "Fl R 2s",\
+    "height": 4.5,\
+    "maxRange": 4815.2,\
+    "sectors": [\
+      {\
+        "color": "red",\
         "start": 0.0,\
         "stop": 360.0\
       }\
@@ -7696,11 +7683,6 @@ Rectangle {
         "color": "red",\
         "start": 157.1,\
         "stop": 172.6\
-      },\
-      {\
-        "color": "white",\
-        "start": 172.6,\
-        "stop": 176.6\
       },\
       {\
         "color": "green",\
@@ -9310,11 +9292,6 @@ Rectangle {
         "color": "red",\
         "start": 274.0,\
         "stop": 305.9\
-      },\
-      {\
-        "color": "white",\
-        "start": 305.9,\
-        "stop": 346.8\
       }\
     ]\
   },\
@@ -9733,11 +9710,6 @@ Rectangle {
         "stop": 279.2\
       },\
       {\
-        "color": "white",\
-        "start": 279.2,\
-        "stop": 281.2\
-      },\
-      {\
         "color": "green",\
         "start": 281.2,\
         "stop": 294.4\
@@ -9913,16 +9885,6 @@ Rectangle {
         "color": "green",\
         "start": 357.6,\
         "stop": 357.9\
-      },\
-      {\
-        "color": "white",\
-        "start": 357.9,\
-        "stop": 173.5\
-      },\
-      {\
-        "color": "red",\
-        "start": 173.5,\
-        "stop": 180.7\
       }\
     ]\
   },\
@@ -11009,11 +10971,6 @@ Rectangle {
         "stop": 281.7\
       },\
       {\
-        "color": "green",\
-        "start": 281.7,\
-        "stop": 288.5\
-      },\
-      {\
         "color": "red",\
         "start": 288.5,\
         "stop": 294.1\
@@ -11413,11 +11370,6 @@ Rectangle {
         "stop": 137.6\
       },\
       {\
-        "color": "green",\
-        "start": 137.6,\
-        "stop": 140.9\
-      },\
-      {\
         "color": "red",\
         "start": 140.9,\
         "stop": 134.7\
@@ -11555,11 +11507,6 @@ Rectangle {
         "color": "red",\
         "start": 181.5,\
         "stop": 249.0\
-      },\
-      {\
-        "color": "green",\
-        "start": 249.0,\
-        "stop": 278.6\
       }\
     ]\
   },\
@@ -11727,11 +11674,6 @@ Rectangle {
         "color": "green",\
         "start": 282.8,\
         "stop": 311.1\
-      },\
-      {\
-        "color": "red",\
-        "start": 311.1,\
-        "stop": 316.8\
       },\
       {\
         "color": "white",\
@@ -12170,11 +12112,6 @@ Rectangle {
         "stop": 141.0\
       },\
       {\
-        "color": "red",\
-        "start": 141.0,\
-        "stop": 159.4\
-      },\
-      {\
         "color": "white",\
         "start": 159.4,\
         "stop": 165.0\
@@ -12340,16 +12277,6 @@ Rectangle {
     "height": 9.0,\
     "maxRange": 11482.4,\
     "sectors": [\
-      {\
-        "color": "red",\
-        "start": 221.6,\
-        "stop": 226.6\
-      },\
-      {\
-        "color": "white",\
-        "start": 226.6,\
-        "stop": 309.5\
-      },\
       {\
         "color": "green",\
         "start": 309.5,\
@@ -12858,42 +12785,6 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Store Fluer",\
-    "latitude": 58.90945,\
-    "longitude": 9.562833333333334,\
-    "character": {\
-      "light_class": "Oc",\
-      "numflash": 1,\
-      "extra_class": null,\
-      "period": 6.0\
-    },\
-    "pattern": "Oc WRG 6s",\
-    "height": 4.0,\
-    "maxRange": 10926.800000000001,\
-    "sectors": [\
-      {\
-        "color": "green",\
-        "start": 69.8,\
-        "stop": 70.2\
-      },\
-      {\
-        "color": "red",\
-        "start": 70.2,\
-        "stop": 234.2\
-      },\
-      {\
-        "color": "white",\
-        "start": 234.2,\
-        "stop": 247.5\
-      },\
-      {\
-        "color": "green",\
-        "start": 247.5,\
-        "stop": 248.3\
-      }\
-    ]\
-  },\
-  {\
     "name": "Tønneholmene",\
     "latitude": 58.88324,\
     "longitude": 9.588601666666667,\
@@ -12979,21 +12870,21 @@ Rectangle {
   },\
   {\
     "name": "Risøy, Ø",\
-    "latitude": 58.91614833333333,\
-    "longitude": 9.531883333333333,\
+    "latitude": 58.91614,\
+    "longitude": 9.531875,\
     "character": {\
-      "light_class": "Iso",\
+      "light_class": "Oc",\
       "numflash": 1,\
       "extra_class": null,\
       "period": 4.0\
     },\
-    "pattern": "Iso WRG 4s",\
-    "height": 4.5,\
-    "maxRange": 10741.6,\
+    "pattern": "Oc WRG 4s",\
+    "height": 8.5,\
+    "maxRange": 10186.0,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 127.6,\
+        "start": 113.8,\
         "stop": 135.4\
       },\
       {\
@@ -13004,17 +12895,22 @@ Rectangle {
       {\
         "color": "red",\
         "start": 146.0,\
-        "stop": 271.2\
-      },\
-      {\
-        "color": "white",\
-        "start": 271.2,\
-        "stop": 280.4\
+        "stop": 168.5\
       },\
       {\
         "color": "green",\
-        "start": 280.4,\
-        "stop": 287.4\
+        "start": 168.5,\
+        "stop": 271.4\
+      },\
+      {\
+        "color": "white",\
+        "start": 271.4,\
+        "stop": 280.6\
+      },\
+      {\
+        "color": "red",\
+        "start": 280.6,\
+        "stop": 287.7\
       }\
     ]\
   },\
@@ -13056,8 +12952,8 @@ Rectangle {
   },\
   {\
     "name": "Skiensund",\
-    "latitude": 58.88554666666667,\
-    "longitude": 9.45962,\
+    "latitude": 58.885545,\
+    "longitude": 9.459623333333333,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -13065,43 +12961,53 @@ Rectangle {
       "period": 6.0\
     },\
     "pattern": "Oc WRG 6s",\
-    "height": 5.3,\
-    "maxRange": 7222.8,\
+    "height": 9.5,\
+    "maxRange": 5370.8,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 218.9,\
-        "stop": 229.9\
+        "start": 202.1,\
+        "stop": 228.0\
       },\
       {\
         "color": "white",\
-        "start": 229.9,\
-        "stop": 249.3\
+        "start": 228.0,\
+        "stop": 249.5\
       },\
       {\
         "color": "red",\
-        "start": 249.3,\
-        "stop": 278.9\
-      },\
-      {\
-        "color": "white",\
-        "start": 278.9,\
-        "stop": 304.2\
+        "start": 249.5,\
+        "stop": 264.8\
       },\
       {\
         "color": "green",\
-        "start": 304.2,\
-        "stop": 69.8\
+        "start": 264.8,\
+        "stop": 279.1\
       },\
       {\
         "color": "white",\
-        "start": 69.8,\
-        "stop": 72.5\
+        "start": 279.1,\
+        "stop": 306.0\
       },\
       {\
         "color": "red",\
-        "start": 72.5,\
-        "stop": 83.9\
+        "start": 306.0,\
+        "stop": 62.7\
+      },\
+      {\
+        "color": "green",\
+        "start": 62.7,\
+        "stop": 70.0\
+      },\
+      {\
+        "color": "white",\
+        "start": 70.0,\
+        "stop": 72.3\
+      },\
+      {\
+        "color": "red",\
+        "start": 72.3,\
+        "stop": 96.2\
       }\
     ]\
   },\
@@ -13262,6 +13168,48 @@ Rectangle {
     "sectors": [\
       {\
         "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Store Fluer",\
+    "latitude": 58.90947666666667,\
+    "longitude": 9.562766666666667,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 2.0\
+    },\
+    "pattern": "Iso G 2s",\
+    "height": 4.0,\
+    "maxRange": 4815.2,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Lille Fluer",\
+    "latitude": 58.90911166666667,\
+    "longitude": 9.559911666666666,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 4.0\
+    },\
+    "pattern": "Iso R 4s",\
+    "height": 4.0,\
+    "maxRange": 4815.2,\
+    "sectors": [\
+      {\
+        "color": "red",\
         "start": 0.0,\
         "stop": 360.0\
       }\
@@ -13734,6 +13682,132 @@ Rectangle {
         "color": "white",\
         "start": 326.2,\
         "stop": 33.1\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Stangbåen",\
+    "latitude": 58.814211666666665,\
+    "longitude": 9.482026666666666,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 2.0\
+    },\
+    "pattern": "Iso G 2s",\
+    "height": 12.0,\
+    "maxRange": 6482.0,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Vestre Fjordbåen",\
+    "latitude": 58.81932166666667,\
+    "longitude": 9.479681666666666,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 4.0\
+    },\
+    "pattern": "Iso G 4s",\
+    "height": 10.0,\
+    "maxRange": 6482.0,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Stangskjæret",\
+    "latitude": 58.820636666666665,\
+    "longitude": 9.475406666666666,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 4.0\
+    },\
+    "pattern": "Iso R 4s",\
+    "height": 10.0,\
+    "maxRange": 6482.0,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Barbaraskjæret",\
+    "latitude": 58.862985,\
+    "longitude": 9.425583333333334,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 2.0\
+    },\
+    "pattern": "Iso G 2s",\
+    "height": 6.0,\
+    "maxRange": 2778.0,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Midfjordskjær",\
+    "latitude": 58.869501666666665,\
+    "longitude": 9.426449999999999,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 4.0\
+    },\
+    "pattern": "Iso G 4s",\
+    "height": 6.0,\
+    "maxRange": 2778.0,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Fengesholmen",\
+    "latitude": 58.819761666666665,\
+    "longitude": 9.454126666666667,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 4.0\
+    },\
+    "pattern": "Iso G 4s",\
+    "height": 4.0,\
+    "maxRange": 4815.2,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
       }\
     ]\
   },\
@@ -14293,7 +14367,7 @@ Rectangle {
     },\
     "pattern": "Fl G 2s",\
     "height": 4.5,\
-    "maxRange": 1666.8,\
+    "maxRange": 4815.2,\
     "sectors": [\
       {\
         "color": "green",\
@@ -14314,7 +14388,7 @@ Rectangle {
     },\
     "pattern": "Fl R 2s",\
     "height": 4.5,\
-    "maxRange": 1666.8,\
+    "maxRange": 4815.2,\
     "sectors": [\
       {\
         "color": "red",\
@@ -14537,27 +14611,6 @@ Rectangle {
         "color": "red",\
         "start": 316.2,\
         "stop": 27.1\
-      }\
-    ]\
-  },\
-  {\
-    "name": "Midtfjordskjær",\
-    "latitude": 58.869211666666665,\
-    "longitude": 9.426663333333334,\
-    "character": {\
-      "light_class": "Iso",\
-      "numflash": 1,\
-      "extra_class": null,\
-      "period": 4.0\
-    },\
-    "pattern": "Iso G 4s",\
-    "height": 6.3,\
-    "maxRange": 3704.0,\
-    "sectors": [\
-      {\
-        "color": "green",\
-        "start": 0.0,\
-        "stop": 360.0\
       }\
     ]\
   },\
@@ -14914,6 +14967,67 @@ Rectangle {
     ]\
   },\
   {\
+    "name": "Østregapet",\
+    "latitude": 58.64463,\
+    "longitude": 9.158085,\
+    "character": {\
+      "light_class": "Oc",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 6.0\
+    },\
+    "pattern": "Oc WRG 6s",\
+    "height": 10.5,\
+    "maxRange": 5926.400000000001,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 70.3,\
+        "stop": 83.0\
+      },\
+      {\
+        "color": "white",\
+        "start": 83.0,\
+        "stop": 86.5\
+      },\
+      {\
+        "color": "red",\
+        "start": 86.5,\
+        "stop": 103.5\
+      },\
+      {\
+        "color": "green",\
+        "start": 103.5,\
+        "stop": 238.9\
+      },\
+      {\
+        "color": "white",\
+        "start": 238.9,\
+        "stop": 240.8\
+      },\
+      {\
+        "color": "red",\
+        "start": 240.8,\
+        "stop": 27.2\
+      },\
+      {\
+        "color": "green",\
+        "start": 27.2,\
+        "stop": 48.0\
+      },\
+      {\
+        "color": "white",\
+        "start": 48.0,\
+        "stop": 49.0\
+      },\
+      {\
+        "color": "red",\
+        "start": 49.0,\
+        "stop": 70.3\
+      }\
+    ]\
+  },\
+  {\
     "name": "Munkene, Ø",\
     "latitude": 58.66419166666667,\
     "longitude": 9.198918333333333,\
@@ -15160,42 +15274,6 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Brenningsholmen",\
-    "latitude": 58.63999833333333,\
-    "longitude": 9.11985,\
-    "character": {\
-      "light_class": "Oc",\
-      "numflash": 1,\
-      "extra_class": null,\
-      "period": 6.0\
-    },\
-    "pattern": "Oc WRG 6s",\
-    "height": 11.4,\
-    "maxRange": 19075.600000000002,\
-    "sectors": [\
-      {\
-        "color": "red",\
-        "start": 236.6,\
-        "stop": 237.2\
-      },\
-      {\
-        "color": "white",\
-        "start": 237.2,\
-        "stop": 342.0\
-      },\
-      {\
-        "color": "green",\
-        "start": 342.0,\
-        "stop": 45.1\
-      },\
-      {\
-        "color": "red",\
-        "start": 45.1,\
-        "stop": 55.7\
-      }\
-    ]\
-  },\
-  {\
     "name": "Steinsodden",\
     "latitude": 58.63561333333333,\
     "longitude": 9.121856666666666,\
@@ -15339,27 +15417,6 @@ Rectangle {
         "color": "red",\
         "start": 0.0,\
         "stop": 360.0\
-      }\
-    ]\
-  },\
-  {\
-    "name": "Tøkersfjell",\
-    "latitude": 58.63803166666667,\
-    "longitude": 9.108833333333333,\
-    "character": {\
-      "light_class": "Oc",\
-      "numflash": 2,\
-      "extra_class": null,\
-      "period": 8.0\
-    },\
-    "pattern": "Oc (2) W 8s",\
-    "height": 21.4,\
-    "maxRange": 10556.4,\
-    "sectors": [\
-      {\
-        "color": "white",\
-        "start": 247.8,\
-        "stop": 253.7\
       }\
     ]\
   },\
@@ -17228,19 +17285,19 @@ Rectangle {
     "latitude": 58.34245666666666,\
     "longitude": 8.65287,\
     "character": {\
-      "light_class": "Oc",\
-      "numflash": 2,\
+      "light_class": "Iso",\
+      "numflash": 1,\
       "extra_class": null,\
-      "period": 8.0\
+      "period": 2.0\
     },\
-    "pattern": "Oc (2) WRG 8s",\
+    "pattern": "Iso G 2s",\
     "height": 3.8,\
-    "maxRange": 8519.199999999999,\
+    "maxRange": 5000.400000000001,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 46.7,\
-        "stop": 226.1\
+        "start": 0.0,\
+        "stop": 360.0\
       }\
     ]\
   },\
@@ -24791,7 +24848,7 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 8.5,\
-    "maxRange": 9630.4,\
+    "maxRange": 9074.800000000001,\
     "sectors": [\
       {\
         "color": "red",\
@@ -25702,8 +25759,8 @@ Rectangle {
   },\
   {\
     "name": "Kåløysund, øvre",\
-    "latitude": 58.212826666666665,\
-    "longitude": 6.562546666666667,\
+    "latitude": 58.212825,\
+    "longitude": 6.562556666666667,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -25711,8 +25768,8 @@ Rectangle {
       "period": 4.0\
     },\
     "pattern": "Iso W 4s",\
-    "height": 10.0,\
-    "maxRange": 10556.4,\
+    "height": 13.5,\
+    "maxRange": 4815.2,\
     "sectors": [\
       {\
         "color": "white",\
@@ -25723,8 +25780,8 @@ Rectangle {
   },\
   {\
     "name": "Kåløysund, nedre",\
-    "latitude": 58.21184,\
-    "longitude": 6.558731666666667,\
+    "latitude": 58.211848333333336,\
+    "longitude": 6.558736666666666,\
     "character": {\
       "light_class": "Q",\
       "numflash": 1,\
@@ -25733,7 +25790,7 @@ Rectangle {
     },\
     "pattern": "Q W",\
     "height": 6.0,\
-    "maxRange": 6667.2,\
+    "maxRange": 4815.2,\
     "sectors": [\
       {\
         "color": "white",\
@@ -26110,8 +26167,8 @@ Rectangle {
   },\
   {\
     "name": "Risholmsund, Ø",\
-    "latitude": 58.23430833333333,\
-    "longitude": 6.667611666666667,\
+    "latitude": 58.234315,\
+    "longitude": 6.667626666666667,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -26315,6 +26372,27 @@ Rectangle {
         "color": "red",\
         "start": 337.3,\
         "stop": 340.6\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Kjeøy",\
+    "latitude": 58.26019333333333,\
+    "longitude": 6.65686,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 2.0\
+    },\
+    "pattern": "Iso G 2s",\
+    "height": 6.0,\
+    "maxRange": 7593.199999999999,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
       }\
     ]\
   },\
@@ -26559,6 +26637,37 @@ Rectangle {
         "color": "red",\
         "start": 96.0,\
         "stop": 100.1\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Rørvik",\
+    "latitude": 59.14669,\
+    "longitude": 10.956963333333332,\
+    "character": {\
+      "light_class": "Fast",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 1.0\
+    },\
+    "pattern": "Fast WRG lys",\
+    "height": 10.0,\
+    "maxRange": 3704.0,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 172.6,\
+        "stop": 176.2\
+      },\
+      {\
+        "color": "white",\
+        "start": 176.7,\
+        "stop": 177.2\
+      },\
+      {\
+        "color": "red",\
+        "start": 177.2,\
+        "stop": 177.7\
       }\
     ]\
   },\
@@ -32723,18 +32832,24 @@ Rectangle {
   },\
   {\
     "name": "Kovaholmen",\
-    "latitude": 59.08672166666667,\
-    "longitude": 5.79455,\
+    "latitude": 59.08674166666667,\
+    "longitude": 5.794523333333333,\
     "character": {\
-      "light_class": "Fast",\
+      "light_class": "Iso",\
       "numflash": 1,\
       "extra_class": null,\
-      "period": 1.0\
+      "period": 2.0\
     },\
-    "pattern": "Fast G lys",\
-    "height": 8.1,\
+    "pattern": "Iso G 2s",\
+    "height": 8.0,\
     "maxRange": 5370.8,\
-    "sectors": []\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
   },\
   {\
     "name": "Skallen",\
@@ -37405,27 +37520,6 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Søra Flatskjeret",\
-    "latitude": 59.333018333333335,\
-    "longitude": 5.315685,\
-    "character": {\
-      "light_class": "Iso",\
-      "numflash": 1,\
-      "extra_class": null,\
-      "period": 4.0\
-    },\
-    "pattern": "Iso G 4s",\
-    "height": 9.4,\
-    "maxRange": 4074.4000000000005,\
-    "sectors": [\
-      {\
-        "color": "green",\
-        "start": 0.0,\
-        "stop": 360.0\
-      }\
-    ]\
-  },\
-  {\
     "name": "Kolstø",\
     "latitude": 59.330441666666665,\
     "longitude": 5.299316666666667,\
@@ -37736,7 +37830,7 @@ Rectangle {
   {\
     "name": "Storasundskjer",\
     "latitude": 59.40105833333333,\
-    "longitude": 5.275603333333334,\
+    "longitude": 5.275638333333333,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -37745,7 +37839,7 @@ Rectangle {
     },\
     "pattern": "Iso R 2s",\
     "height": 7.4,\
-    "maxRange": 1852.0,\
+    "maxRange": 1296.3999999999999,\
     "sectors": [\
       {\
         "color": "red",\
@@ -37756,8 +37850,8 @@ Rectangle {
   },\
   {\
     "name": "Risøyskjer",\
-    "latitude": 59.40276,\
-    "longitude": 5.270661666666666,\
+    "latitude": 59.40276333333333,\
+    "longitude": 5.2706583333333334,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -37766,7 +37860,7 @@ Rectangle {
     },\
     "pattern": "Iso G 6s",\
     "height": 7.0,\
-    "maxRange": 5556.0,\
+    "maxRange": 4630.0,\
     "sectors": [\
       {\
         "color": "green",\
@@ -37777,8 +37871,8 @@ Rectangle {
   },\
   {\
     "name": "Austra Storasundflua",\
-    "latitude": 59.403935,\
-    "longitude": 5.275398333333333,\
+    "latitude": 59.40394166666667,\
+    "longitude": 5.2754916666666665,\
     "character": {\
       "light_class": "Fast",\
       "numflash": 1,\
@@ -37787,7 +37881,7 @@ Rectangle {
     },\
     "pattern": "Fast R lys",\
     "height": 6.4,\
-    "maxRange": 1852.0,\
+    "maxRange": 1296.3999999999999,\
     "sectors": [\
       {\
         "color": "red",\
@@ -41496,8 +41590,8 @@ Rectangle {
   },\
   {\
     "name": "Mjåsundflu",\
-    "latitude": 59.60808333333333,\
-    "longitude": 5.2322983333333335,\
+    "latitude": 59.608085,\
+    "longitude": 5.2323,\
     "character": {\
       "light_class": "Fast",\
       "numflash": 1,\
@@ -41506,7 +41600,7 @@ Rectangle {
     },\
     "pattern": "Fast G lys",\
     "height": 5.1,\
-    "maxRange": 8334.0,\
+    "maxRange": 4630.0,\
     "sectors": [\
       {\
         "color": "green",\
@@ -43260,8 +43354,8 @@ Rectangle {
   },\
   {\
     "name": "Trettholmen",\
-    "latitude": 59.834485,\
-    "longitude": 5.070401666666666,\
+    "latitude": 59.834491666666665,\
+    "longitude": 5.07042,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -43270,21 +43364,21 @@ Rectangle {
     },\
     "pattern": "Iso WRG 6s",\
     "height": 17.2,\
-    "maxRange": 10371.199999999999,\
+    "maxRange": 8704.4,\
     "sectors": [\
       {\
         "color": "green",\
         "start": 123.0,\
-        "stop": 125.2\
+        "stop": 125.3\
       },\
       {\
         "color": "white",\
-        "start": 125.2,\
-        "stop": 135.0\
+        "start": 125.3,\
+        "stop": 134.7\
       },\
       {\
         "color": "red",\
-        "start": 135.0,\
+        "start": 134.7,\
         "stop": 330.1\
       },\
       {\
@@ -44912,7 +45006,7 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Skorpen",\
+    "name": "Skorpo",\
     "latitude": 59.93353666666667,\
     "longitude": 5.792745,\
     "character": {\
@@ -46581,6 +46675,27 @@ Rectangle {
     ]\
   },\
   {\
+    "name": "Os bølgebryter øst",\
+    "latitude": 60.18036,\
+    "longitude": 5.471935,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 4.0\
+    },\
+    "pattern": "Iso G 4s",\
+    "height": 3.0,\
+    "maxRange": 2778.0,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
     "name": "Sponaholmen",\
     "latitude": 59.77494166666666,\
     "longitude": 5.52008,\
@@ -47592,8 +47707,8 @@ Rectangle {
   },\
   {\
     "name": "Røtingtangen",\
-    "latitude": 60.13088666666667,\
-    "longitude": 5.358933333333334,\
+    "latitude": 60.13088833333333,\
+    "longitude": 5.358931666666667,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -47602,27 +47717,57 @@ Rectangle {
     },\
     "pattern": "Iso WRG 6s",\
     "height": 14.2,\
-    "maxRange": 10000.800000000001,\
+    "maxRange": 14260.4,\
     "sectors": [\
       {\
         "color": "red",\
-        "start": 274.7,\
-        "stop": 290.8\
+        "start": 274.6,\
+        "stop": 291.0\
       },\
       {\
         "color": "green",\
-        "start": 290.8,\
-        "stop": 6.1\
+        "start": 291.0,\
+        "stop": 6.4\
       },\
       {\
         "color": "white",\
-        "start": 6.1,\
-        "stop": 122.9\
+        "start": 6.4,\
+        "stop": 16.4\
       },\
       {\
         "color": "red",\
-        "start": 122.9,\
-        "stop": 125.3\
+        "start": 16.4,\
+        "stop": 61.2\
+      },\
+      {\
+        "color": "green",\
+        "start": 61.2,\
+        "stop": 79.1\
+      },\
+      {\
+        "color": "white",\
+        "start": 79.1,\
+        "stop": 85.0\
+      },\
+      {\
+        "color": "red",\
+        "start": 85.0,\
+        "stop": 103.3\
+      },\
+      {\
+        "color": "green",\
+        "start": 103.3,\
+        "stop": 116.6\
+      },\
+      {\
+        "color": "white",\
+        "start": 116.6,\
+        "stop": 121.6\
+      },\
+      {\
+        "color": "red",\
+        "start": 121.6,\
+        "stop": 123.9\
       }\
     ]\
   },\
@@ -47884,8 +48029,8 @@ Rectangle {
   },\
   {\
     "name": "Litle Laugarøy",\
-    "latitude": 60.14991666666667,\
-    "longitude": 5.248986666666666,\
+    "latitude": 60.149915,\
+    "longitude": 5.248998333333334,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -47894,36 +48039,51 @@ Rectangle {
     },\
     "pattern": "Iso WRG 6s",\
     "height": 16.0,\
-    "maxRange": 12223.199999999999,\
+    "maxRange": 12408.4,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 122.9,\
-        "stop": 131.2\
+        "start": 122.5,\
+        "stop": 140.6\
       },\
       {\
         "color": "white",\
-        "start": 131.2,\
-        "stop": 176.4\
+        "start": 140.6,\
+        "stop": 176.1\
       },\
       {\
         "color": "red",\
-        "start": 176.4,\
-        "stop": 206.3\
+        "start": 176.1,\
+        "stop": 189.3\
       },\
       {\
         "color": "green",\
-        "start": 206.3,\
-        "stop": 290.9\
+        "start": 189.3,\
+        "stop": 202.3\
       },\
       {\
         "color": "white",\
-        "start": 290.9,\
-        "stop": 335.7\
+        "start": 202.3,\
+        "stop": 211.0\
       },\
       {\
         "color": "red",\
-        "start": 335.7,\
+        "start": 211.0,\
+        "stop": 248.0\
+      },\
+      {\
+        "color": "green",\
+        "start": 248.0,\
+        "stop": 291.5\
+      },\
+      {\
+        "color": "white",\
+        "start": 291.5,\
+        "stop": 335.2\
+      },\
+      {\
+        "color": "red",\
+        "start": 335.2,\
         "stop": 345.7\
       }\
     ]\
@@ -48170,8 +48330,8 @@ Rectangle {
   },\
   {\
     "name": "Stokkbleikjene",\
-    "latitude": 59.78481,\
-    "longitude": 5.334545,\
+    "latitude": 59.78481166666667,\
+    "longitude": 5.33455,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -48180,37 +48340,37 @@ Rectangle {
     },\
     "pattern": "Iso WRG 4s",\
     "height": 8.5,\
-    "maxRange": 12038.0,\
+    "maxRange": 13519.6,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 323.0,\
-        "stop": 334.1\
+        "start": 322.7,\
+        "stop": 334.2\
       },\
       {\
         "color": "white",\
-        "start": 334.1,\
-        "stop": 335.8\
+        "start": 334.2,\
+        "stop": 335.6\
       },\
       {\
         "color": "red",\
-        "start": 335.8,\
-        "stop": 135.3\
+        "start": 335.6,\
+        "stop": 135.4\
       },\
       {\
         "color": "green",\
-        "start": 135.3,\
-        "stop": 151.2\
+        "start": 135.4,\
+        "stop": 151.6\
       },\
       {\
         "color": "white",\
-        "start": 151.2,\
-        "stop": 160.7\
+        "start": 151.6,\
+        "stop": 160.2\
       },\
       {\
         "color": "red",\
-        "start": 160.7,\
-        "stop": 167.2\
+        "start": 160.2,\
+        "stop": 167.1\
       }\
     ]\
   },\
@@ -48828,6 +48988,42 @@ Rectangle {
     ]\
   },\
   {\
+    "name": "Dovane, nedre",\
+    "latitude": 59.88993,\
+    "longitude": 5.2946816666666665,\
+    "character": {\
+      "light_class": "Fast",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 1.0\
+    },\
+    "pattern": "Fast R lys",\
+    "height": 4.0,\
+    "maxRange": 13704.800000000001,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 12.5,\
+        "stop": 18.5\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Dovane, øvre",\
+    "latitude": 59.89002833333333,\
+    "longitude": 5.294736666666667,\
+    "character": {\
+      "light_class": "Fast",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 1.0\
+    },\
+    "pattern": "Fast R lys",\
+    "height": 6.0,\
+    "maxRange": 13704.800000000001,\
+    "sectors": []\
+  },\
+  {\
     "name": "Gassatåa",\
     "latitude": 59.91382,\
     "longitude": 5.26197,\
@@ -49018,8 +49214,8 @@ Rectangle {
   },\
   {\
     "name": "Selsøy",\
-    "latitude": 59.890975,\
-    "longitude": 5.094738333333333,\
+    "latitude": 59.89098,\
+    "longitude": 5.094718333333334,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -49028,32 +49224,37 @@ Rectangle {
     },\
     "pattern": "Iso WRG 2s",\
     "height": 12.8,\
-    "maxRange": 9815.6,\
+    "maxRange": 8148.800000000001,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 326.3,\
-        "stop": 32.6\
-      },\
-      {\
-        "color": "red",\
-        "start": 32.6,\
-        "stop": 44.5\
-      },\
-      {\
-        "color": "green",\
-        "start": 44.5,\
-        "stop": 168.4\
+        "start": 326.1,\
+        "stop": 33.6\
       },\
       {\
         "color": "white",\
-        "start": 168.4,\
+        "start": 33.6,\
+        "stop": 39.1\
+      },\
+      {\
+        "color": "red",\
+        "start": 39.1,\
+        "stop": 60.9\
+      },\
+      {\
+        "color": "green",\
+        "start": 60.9,\
+        "stop": 168.6\
+      },\
+      {\
+        "color": "white",\
+        "start": 168.6,\
         "stop": 169.4\
       },\
       {\
         "color": "red",\
         "start": 169.4,\
-        "stop": 170.7\
+        "stop": 170.8\
       }\
     ]\
   },\
@@ -49417,7 +49618,7 @@ Rectangle {
       "period": 1.0\
     },\
     "pattern": "Fast G lys",\
-    "height": 625.0,\
+    "height": 6.5,\
     "maxRange": 6482.0,\
     "sectors": [\
       {\
@@ -51723,8 +51924,8 @@ Rectangle {
   },\
   {\
     "name": "Bakkasund",\
-    "latitude": 60.13258833333333,\
-    "longitude": 5.100996666666667,\
+    "latitude": 60.13259,\
+    "longitude": 5.101005,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -51733,27 +51934,27 @@ Rectangle {
     },\
     "pattern": "Iso WRG 6s",\
     "height": 9.0,\
-    "maxRange": 4259.599999999999,\
+    "maxRange": 8519.199999999999,\
     "sectors": [\
       {\
         "color": "red",\
-        "start": 357.3,\
+        "start": 357.7,\
         "stop": 50.9\
       },\
       {\
         "color": "green",\
         "start": 50.9,\
-        "stop": 175.9\
+        "stop": 176.1\
       },\
       {\
         "color": "white",\
-        "start": 175.9,\
-        "stop": 183.3\
+        "start": 176.1,\
+        "stop": 183.0\
       },\
       {\
         "color": "red",\
-        "start": 183.3,\
-        "stop": 197.1\
+        "start": 183.0,\
+        "stop": 196.7\
       }\
     ]\
   },\
@@ -52027,8 +52228,8 @@ Rectangle {
   },\
   {\
     "name": "Austefjorden",\
-    "latitude": 60.17462833333333,\
-    "longitude": 5.085323333333333,\
+    "latitude": 60.17462333333334,\
+    "longitude": 5.08533,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -52037,27 +52238,32 @@ Rectangle {
     },\
     "pattern": "Iso WRG 2s",\
     "height": 9.0,\
-    "maxRange": 9815.6,\
+    "maxRange": 8148.800000000001,\
     "sectors": [\
       {\
-        "color": "red",\
+        "color": "green",\
         "start": 163.2,\
-        "stop": 168.4\
+        "stop": 168.5\
+      },\
+      {\
+        "color": "red",\
+        "start": 168.5,\
+        "stop": 316.4\
       },\
       {\
         "color": "green",\
-        "start": 168.4,\
-        "stop": 340.6\
+        "start": 316.4,\
+        "stop": 342.6\
       },\
       {\
         "color": "white",\
-        "start": 340.6,\
+        "start": 342.6,\
         "stop": 355.7\
       },\
       {\
         "color": "red",\
         "start": 355.7,\
-        "stop": 9.6\
+        "stop": 9.8\
       }\
     ]\
   },\
@@ -52206,6 +52412,27 @@ Rectangle {
         "color": "red",\
         "start": 17.3,\
         "stop": 27.1\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Rundesterten molo",\
+    "latitude": 60.26146,\
+    "longitude": 5.3167583333333335,\
+    "character": {\
+      "light_class": "Fast",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 1.0\
+    },\
+    "pattern": "Fast R lys",\
+    "height": 2.5,\
+    "maxRange": 2222.4,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
       }\
     ]\
   },\
@@ -52463,8 +52690,8 @@ Rectangle {
   },\
   {\
     "name": "Buarøyna",\
-    "latitude": 60.233495,\
-    "longitude": 5.220293333333333,\
+    "latitude": 60.23350333333333,\
+    "longitude": 5.220303333333334,\
     "character": {\
       "light_class": "Q",\
       "numflash": 1,\
@@ -52814,8 +53041,8 @@ Rectangle {
   },\
   {\
     "name": "Saltvikneset",\
-    "latitude": 60.29031166666667,\
-    "longitude": 5.200988333333333,\
+    "latitude": 60.290315,\
+    "longitude": 5.201,\
     "character": {\
       "light_class": "Fast",\
       "numflash": 1,\
@@ -53284,7 +53511,7 @@ Rectangle {
   {\
     "name": "Vestre Steinsundholmen",\
     "latitude": 60.32856833333334,\
-    "longitude": 5.154448333333334,\
+    "longitude": 5.154513333333333,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -53293,13 +53520,19 @@ Rectangle {
     },\
     "pattern": "Iso G 2s",\
     "height": 6.2,\
-    "maxRange": 4185.5199999999995,\
-    "sectors": []\
+    "maxRange": 4259.599999999999,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
   },\
   {\
     "name": "Kjerringholmen",\
-    "latitude": 60.33039,\
-    "longitude": 5.155026666666667,\
+    "latitude": 60.33040666666667,\
+    "longitude": 5.155038333333334,\
     "character": {\
       "light_class": "Fast",\
       "numflash": 1,\
@@ -53319,8 +53552,8 @@ Rectangle {
   },\
   {\
     "name": "Vonfluholmen",\
-    "latitude": 60.33752,\
-    "longitude": 5.164306666666667,\
+    "latitude": 60.33753166666666,\
+    "longitude": 5.164335,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -53786,8 +54019,8 @@ Rectangle {
   },\
   {\
     "name": "Nordhordalandsbrua småbåtled",\
-    "latitude": 60.52827666666666,\
-    "longitude": 5.259413333333334,\
+    "latitude": 60.527786666666664,\
+    "longitude": 5.259705,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -53878,8 +54111,8 @@ Rectangle {
   },\
   {\
     "name": "Hagelsund",\
-    "latitude": 60.54156,\
-    "longitude": 5.277791666666666,\
+    "latitude": 60.541565,\
+    "longitude": 5.277863333333333,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -53888,36 +54121,51 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 20.5,\
-    "maxRange": 11482.4,\
+    "maxRange": 10371.199999999999,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 300.0,\
-        "stop": 300.8\
+        "start": 301.0,\
+        "stop": 301.9\
       },\
       {\
         "color": "white",\
-        "start": 300.8,\
+        "start": 301.9,\
         "stop": 304.2\
       },\
       {\
         "color": "red",\
         "start": 304.2,\
-        "stop": 8.0\
+        "stop": 327.5\
       },\
       {\
         "color": "green",\
-        "start": 8.0,\
-        "stop": 131.1\
+        "start": 327.5,\
+        "stop": 7.5\
       },\
       {\
         "color": "white",\
-        "start": 131.1,\
-        "stop": 134.4\
+        "start": 7.5,\
+        "stop": 8.5\
       },\
       {\
         "color": "red",\
-        "start": 134.4,\
+        "start": 8.5,\
+        "stop": 17.7\
+      },\
+      {\
+        "color": "green",\
+        "start": 17.7,\
+        "stop": 131.5\
+      },\
+      {\
+        "color": "white",\
+        "start": 131.5,\
+        "stop": 134.2\
+      },\
+      {\
+        "color": "red",\
+        "start": 134.2,\
         "stop": 141.5\
       }\
     ]\
@@ -56174,8 +56422,8 @@ Rectangle {
   },\
   {\
     "name": "Herdlesundet",\
-    "latitude": 60.562266666666666,\
-    "longitude": 4.961671666666667,\
+    "latitude": 60.56226,\
+    "longitude": 4.961808333333334,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 2,\
@@ -56184,37 +56432,37 @@ Rectangle {
     },\
     "pattern": "Oc (2) WRG 8s",\
     "height": 5.0,\
-    "maxRange": 12223.199999999999,\
+    "maxRange": 3704.0,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 18.0,\
-        "stop": 31.5\
+        "start": 18.3,\
+        "stop": 31.9\
       },\
       {\
         "color": "white",\
-        "start": 31.5,\
-        "stop": 36.1\
+        "start": 31.9,\
+        "stop": 36.0\
       },\
       {\
         "color": "red",\
-        "start": 36.1,\
-        "stop": 59.1\
+        "start": 36.0,\
+        "stop": 59.3\
       },\
       {\
         "color": "green",\
-        "start": 59.1,\
-        "stop": 213.0\
+        "start": 59.3,\
+        "stop": 213.2\
       },\
       {\
         "color": "white",\
-        "start": 213.0,\
-        "stop": 225.8\
+        "start": 213.2,\
+        "stop": 225.5\
       },\
       {\
         "color": "red",\
-        "start": 225.8,\
-        "stop": 253.1\
+        "start": 225.5,\
+        "stop": 252.0\
       }\
     ]\
   },\
@@ -56313,8 +56561,8 @@ Rectangle {
   },\
   {\
     "name": "Ringholmsundet",\
-    "latitude": 60.59617333333333,\
-    "longitude": 4.969023333333333,\
+    "latitude": 60.596183333333336,\
+    "longitude": 4.969038333333334,\
     "character": {\
       "light_class": "Q",\
       "numflash": 1,\
@@ -56641,9 +56889,30 @@ Rectangle {
     ]\
   },\
   {\
+    "name": "Store Langøy",\
+    "latitude": 60.59692666666667,\
+    "longitude": 5.127611666666667,\
+    "character": {\
+      "light_class": "Fl",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 3.0\
+    },\
+    "pattern": "Fl R 3s",\
+    "height": 3.8,\
+    "maxRange": 4444.8,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
     "name": "Sæbøflua",\
-    "latitude": 60.59919333333333,\
-    "longitude": 5.136763333333334,\
+    "latitude": 60.599221666666665,\
+    "longitude": 5.136801666666667,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -56652,7 +56921,7 @@ Rectangle {
     },\
     "pattern": "Fl W 3s",\
     "height": 7.3,\
-    "maxRange": 7037.599999999999,\
+    "maxRange": 6482.0,\
     "sectors": [\
       {\
         "color": "white",\
@@ -56845,7 +57114,7 @@ Rectangle {
   },\
   {\
     "name": "Vågeneståni",\
-    "latitude": 60.67422333333333,\
+    "latitude": 60.67422666666667,\
     "longitude": 4.939578333333333,\
     "character": {\
       "light_class": "Oc",\
@@ -56855,27 +57124,27 @@ Rectangle {
     },\
     "pattern": "Oc (3) WRG 10s",\
     "height": 8.3,\
-    "maxRange": 18520.0,\
+    "maxRange": 10000.800000000001,\
     "sectors": [\
       {\
         "color": "red",\
-        "start": 311.8,\
-        "stop": 319.6\
+        "start": 312.1,\
+        "stop": 319.7\
       },\
       {\
         "color": "green",\
-        "start": 319.6,\
-        "stop": 99.8\
+        "start": 319.7,\
+        "stop": 100.1\
       },\
       {\
         "color": "white",\
-        "start": 99.8,\
-        "stop": 124.2\
+        "start": 100.1,\
+        "stop": 124.0\
       },\
       {\
         "color": "red",\
-        "start": 124.2,\
-        "stop": 140.6\
+        "start": 124.0,\
+        "stop": 140.7\
       }\
     ]\
   },\
@@ -57998,8 +58267,8 @@ Rectangle {
   },\
   {\
     "name": "Bleikskjeri",\
-    "latitude": 60.33411666666667,\
-    "longitude": 4.987278333333333,\
+    "latitude": 60.33412166666667,\
+    "longitude": 4.987298333333333,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -58008,8 +58277,39 @@ Rectangle {
     },\
     "pattern": "Oc RG 6s",\
     "height": 4.0,\
-    "maxRange": 6111.599999999999,\
-    "sectors": []\
+    "maxRange": 7222.8,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 160.2,\
+        "stop": 170.4\
+      },\
+      {\
+        "color": "red",\
+        "start": 170.4,\
+        "stop": 189.9\
+      },\
+      {\
+        "color": "green",\
+        "start": 189.9,\
+        "stop": 205.8\
+      },\
+      {\
+        "color": "red",\
+        "start": 205.8,\
+        "stop": 353.2\
+      },\
+      {\
+        "color": "green",\
+        "start": 353.2,\
+        "stop": 11.8\
+      },\
+      {\
+        "color": "red",\
+        "start": 11.8,\
+        "stop": 97.6\
+      }\
+    ]\
   },\
   {\
     "name": "Tjørnøyna",\
@@ -58328,8 +58628,8 @@ Rectangle {
   },\
   {\
     "name": "Skåragavlen",\
-    "latitude": 60.45995666666666,\
-    "longitude": 4.922453333333333,\
+    "latitude": 60.459955,\
+    "longitude": 4.922466666666667,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -58338,39 +58638,39 @@ Rectangle {
     },\
     "pattern": "Iso WRG 4s",\
     "height": 22.0,\
-    "maxRange": 12038.0,\
+    "maxRange": 10186.0,\
     "sectors": [\
       {\
         "color": "red",\
-        "start": 332.6,\
-        "stop": 347.2\
+        "start": 323.1,\
+        "stop": 347.5\
       },\
       {\
         "color": "green",\
-        "start": 347.2,\
-        "stop": 71.7\
+        "start": 347.5,\
+        "stop": 71.9\
       },\
       {\
         "color": "white",\
-        "start": 71.7,\
-        "stop": 95.1\
+        "start": 71.9,\
+        "stop": 94.8\
       },\
       {\
         "color": "red",\
-        "start": 95.1,\
-        "stop": 119.3\
+        "start": 94.8,\
+        "stop": 119.4\
       },\
       {\
         "color": "green",\
-        "start": 119.3,\
-        "stop": 161.6\
+        "start": 119.4,\
+        "stop": 158.7\
       }\
     ]\
   },\
   {\
     "name": "Misjeholmane",\
-    "latitude": 60.45178166666667,\
-    "longitude": 4.973033333333333,\
+    "latitude": 60.45178666666666,\
+    "longitude": 4.973041666666667,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -58379,32 +58679,32 @@ Rectangle {
     },\
     "pattern": "Iso WRG 4s",\
     "height": 5.0,\
-    "maxRange": 8889.6,\
+    "maxRange": 8334.0,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 12.6,\
-        "stop": 19.7\
+        "start": 13.6,\
+        "stop": 19.8\
       },\
       {\
         "color": "red",\
-        "start": 19.7,\
-        "stop": 161.9\
+        "start": 19.8,\
+        "stop": 163.5\
       },\
       {\
         "color": "green",\
-        "start": 161.9,\
-        "stop": 176.7\
+        "start": 163.5,\
+        "stop": 177.6\
       },\
       {\
         "color": "white",\
-        "start": 176.7,\
-        "stop": 184.7\
+        "start": 177.6,\
+        "stop": 184.3\
       },\
       {\
         "color": "red",\
-        "start": 184.7,\
-        "stop": 216.1\
+        "start": 184.3,\
+        "stop": 216.0\
       }\
     ]\
   },\
@@ -59611,8 +59911,8 @@ Rectangle {
   },\
   {\
     "name": "Skoddeskjera",\
-    "latitude": 60.664875,\
-    "longitude": 4.758675,\
+    "latitude": 60.664901666666665,\
+    "longitude": 4.758723333333333,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -60313,8 +60613,8 @@ Rectangle {
   },\
   {\
     "name": "Vestra Mågøy",\
-    "latitude": 60.79123666666667,\
-    "longitude": 4.669045,\
+    "latitude": 60.791241666666664,\
+    "longitude": 4.669056666666666,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -60323,21 +60623,21 @@ Rectangle {
     },\
     "pattern": "Iso WRG 6s",\
     "height": 23.0,\
-    "maxRange": 10000.800000000001,\
+    "maxRange": 10371.199999999999,\
     "sectors": [\
       {\
         "color": "red",\
-        "start": 272.5,\
-        "stop": 1.2\
+        "start": 272.6,\
+        "stop": 1.4\
       },\
       {\
         "color": "green",\
-        "start": 1.2,\
-        "stop": 30.1\
+        "start": 1.4,\
+        "stop": 30.3\
       },\
       {\
         "color": "white",\
-        "start": 30.1,\
+        "start": 30.3,\
         "stop": 84.9\
       },\
       {\
@@ -60936,8 +61236,8 @@ Rectangle {
   },\
   {\
     "name": "Vardholmen",\
-    "latitude": 60.760655,\
-    "longitude": 4.868221666666667,\
+    "latitude": 60.76065166666667,\
+    "longitude": 4.8682099999999995,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -60946,52 +61246,52 @@ Rectangle {
     },\
     "pattern": "Iso WRG 2s",\
     "height": 5.0,\
-    "maxRange": 9815.6,\
+    "maxRange": 12038.0,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 171.0,\
-        "stop": 298.8\
+        "start": 170.6,\
+        "stop": 298.9\
       },\
       {\
         "color": "white",\
-        "start": 298.8,\
-        "stop": 300.4\
+        "start": 298.9,\
+        "stop": 300.2\
       },\
       {\
         "color": "red",\
-        "start": 300.4,\
-        "stop": 314.7\
+        "start": 300.2,\
+        "stop": 314.8\
       },\
       {\
         "color": "green",\
-        "start": 314.7,\
-        "stop": 6.2\
+        "start": 314.8,\
+        "stop": 7.8\
       },\
       {\
         "color": "white",\
-        "start": 6.2,\
-        "stop": 20.3\
+        "start": 7.8,\
+        "stop": 18.4\
       },\
       {\
         "color": "red",\
-        "start": 20.3,\
-        "stop": 68.6\
+        "start": 18.4,\
+        "stop": 68.7\
       },\
       {\
         "color": "green",\
-        "start": 68.6,\
-        "stop": 77.0\
+        "start": 68.7,\
+        "stop": 77.1\
       },\
       {\
         "color": "white",\
-        "start": 77.0,\
-        "stop": 80.0\
+        "start": 77.1,\
+        "stop": 79.8\
       },\
       {\
         "color": "red",\
-        "start": 80.0,\
-        "stop": 88.5\
+        "start": 79.8,\
+        "stop": 88.2\
       }\
     ]\
   },\
@@ -61249,8 +61549,8 @@ Rectangle {
   },\
   {\
     "name": "Senoksen",\
-    "latitude": 60.785905,\
-    "longitude": 4.7975916666666665,\
+    "latitude": 60.78590666666667,\
+    "longitude": 4.797605,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -61259,47 +61559,47 @@ Rectangle {
     },\
     "pattern": "Iso WRG 4s",\
     "height": 16.0,\
-    "maxRange": 12038.0,\
+    "maxRange": 11297.199999999999,\
     "sectors": [\
       {\
         "color": "red",\
-        "start": 230.1,\
+        "start": 229.5,\
         "stop": 292.0\
       },\
       {\
         "color": "green",\
         "start": 292.0,\
-        "stop": 301.4\
+        "stop": 301.2\
       },\
       {\
         "color": "red",\
-        "start": 301.4,\
-        "stop": 346.8\
+        "start": 301.2,\
+        "stop": 346.5\
       },\
       {\
         "color": "green",\
-        "start": 346.8,\
-        "stop": 354.6\
+        "start": 346.5,\
+        "stop": 354.7\
       },\
       {\
         "color": "white",\
-        "start": 354.6,\
-        "stop": 121.3\
+        "start": 354.7,\
+        "stop": 120.9\
       },\
       {\
         "color": "red",\
-        "start": 121.3,\
-        "stop": 170.8\
+        "start": 120.9,\
+        "stop": 170.6\
       },\
       {\
         "color": "green",\
-        "start": 170.8,\
-        "stop": 221.4\
+        "start": 170.6,\
+        "stop": 221.2\
       },\
       {\
         "color": "white",\
-        "start": 221.4,\
-        "stop": 230.1\
+        "start": 221.2,\
+        "stop": 229.5\
       }\
     ]\
   },\
@@ -61899,6 +62199,48 @@ Rectangle {
     ]\
   },\
   {\
+    "name": "Måøyna S",\
+    "latitude": 60.874988333333334,\
+    "longitude": 4.816493333333334,\
+    "character": {\
+      "light_class": "Fl",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 3.0\
+    },\
+    "pattern": "Fl R 3s",\
+    "height": 6.0,\
+    "maxRange": 5926.400000000001,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Måøyna Ø",\
+    "latitude": 60.87963333333333,\
+    "longitude": 4.824516666666667,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 2.0\
+    },\
+    "pattern": "Iso R 2s",\
+    "height": 6.0,\
+    "maxRange": 4630.0,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
     "name": "Kyrkjeholmane",\
     "latitude": 60.884143333333334,\
     "longitude": 4.82853,\
@@ -61962,6 +62304,27 @@ Rectangle {
     ]\
   },\
   {\
+    "name": "Krabbeneset",\
+    "latitude": 60.89600333333333,\
+    "longitude": 4.821366666666666,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 4.0\
+    },\
+    "pattern": "Iso R 4s",\
+    "height": 5.0,\
+    "maxRange": 4630.0,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
     "name": "Nedgardsvika",\
     "latitude": 60.899073333333334,\
     "longitude": 4.82576,\
@@ -61984,8 +62347,8 @@ Rectangle {
   },\
   {\
     "name": "Ærholmen",\
-    "latitude": 60.874948333333336,\
-    "longitude": 4.863215,\
+    "latitude": 60.87496,\
+    "longitude": 4.863218333333333,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -61994,27 +62357,27 @@ Rectangle {
     },\
     "pattern": "Iso WRG 2s",\
     "height": 5.2,\
-    "maxRange": 8889.6,\
+    "maxRange": 8519.199999999999,\
     "sectors": [\
       {\
         "color": "red",\
-        "start": 322.1,\
-        "stop": 332.0\
+        "start": 321.7,\
+        "stop": 331.8\
       },\
       {\
         "color": "green",\
-        "start": 332.0,\
-        "stop": 148.2\
+        "start": 331.8,\
+        "stop": 148.5\
       },\
       {\
         "color": "white",\
-        "start": 148.2,\
-        "stop": 152.6\
+        "start": 148.5,\
+        "stop": 152.1\
       },\
       {\
         "color": "red",\
-        "start": 152.6,\
-        "stop": 158.3\
+        "start": 152.1,\
+        "stop": 158.1\
       }\
     ]\
   },\
@@ -62084,7 +62447,7 @@ Rectangle {
   {\
     "name": "Bardvågen",\
     "latitude": 60.89749666666667,\
-    "longitude": 4.830238333333334,\
+    "longitude": 4.830253333333333,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 2,\
@@ -62093,32 +62456,32 @@ Rectangle {
     },\
     "pattern": "Oc (2) WRG 8s",\
     "height": 7.4,\
-    "maxRange": 10852.720000000001,\
+    "maxRange": 11112.0,\
     "sectors": [\
       {\
         "color": "red",\
-        "start": 356.0,\
-        "stop": 7.2\
+        "start": 0.2,\
+        "stop": 7.0\
       },\
       {\
         "color": "green",\
-        "start": 7.2,\
-        "stop": 96.4\
+        "start": 7.0,\
+        "stop": 96.6\
       },\
       {\
         "color": "white",\
-        "start": 96.4,\
-        "stop": 97.7\
+        "start": 96.6,\
+        "stop": 97.5\
       },\
       {\
         "color": "red",\
-        "start": 97.7,\
-        "stop": 161.7\
+        "start": 97.5,\
+        "stop": 161.8\
       },\
       {\
         "color": "green",\
-        "start": 161.7,\
-        "stop": 177.3\
+        "start": 161.8,\
+        "stop": 182.7\
       }\
     ]\
   },\
@@ -62856,7 +63219,7 @@ Rectangle {
   {\
     "name": "Halsvikklubben",\
     "latitude": 60.83197666666667,\
-    "longitude": 5.096361666666667,\
+    "longitude": 5.0963666666666665,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 3,\
@@ -62865,57 +63228,57 @@ Rectangle {
     },\
     "pattern": "Oc (3) WRG 10s",\
     "height": 24.6,\
-    "maxRange": 19631.2,\
+    "maxRange": 17223.600000000002,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 304.7,\
-        "stop": 316.5\
+        "start": 304.8,\
+        "stop": 317.2\
       },\
       {\
         "color": "white",\
-        "start": 316.5,\
-        "stop": 321.1\
+        "start": 317.2,\
+        "stop": 321.3\
       },\
       {\
         "color": "red",\
-        "start": 321.1,\
-        "stop": 326.6\
+        "start": 321.3,\
+        "stop": 327.6\
       },\
       {\
         "color": "green",\
-        "start": 326.6,\
-        "stop": 8.8\
+        "start": 327.6,\
+        "stop": 9.2\
       },\
       {\
         "color": "white",\
-        "start": 8.8,\
-        "stop": 16.2\
+        "start": 9.2,\
+        "stop": 16.1\
       },\
       {\
         "color": "red",\
-        "start": 16.2,\
-        "stop": 86.5\
+        "start": 16.1,\
+        "stop": 86.9\
       },\
       {\
         "color": "green",\
-        "start": 86.5,\
-        "stop": 95.8\
+        "start": 86.9,\
+        "stop": 95.9\
       },\
       {\
         "color": "white",\
-        "start": 95.8,\
-        "stop": 103.0\
+        "start": 95.9,\
+        "stop": 102.6\
       },\
       {\
         "color": "red",\
-        "start": 103.0,\
-        "stop": 179.1\
+        "start": 102.6,\
+        "stop": 179.2\
       },\
       {\
         "color": "green",\
-        "start": 179.1,\
-        "stop": 189.6\
+        "start": 179.2,\
+        "stop": 190.0\
       }\
     ]\
   },\
@@ -65533,7 +65896,7 @@ Rectangle {
     },\
     "pattern": "Iso G 4s",\
     "height": 7.4,\
-    "maxRange": 6945.0,\
+    "maxRange": 6852.400000000001,\
     "sectors": [\
       {\
         "color": "green",\
@@ -65554,7 +65917,7 @@ Rectangle {
     },\
     "pattern": "Iso R 4s",\
     "height": 8.0,\
-    "maxRange": 6945.0,\
+    "maxRange": 6852.400000000001,\
     "sectors": [\
       {\
         "color": "red",\
@@ -65575,7 +65938,7 @@ Rectangle {
     },\
     "pattern": "Fast G lys",\
     "height": 7.6,\
-    "maxRange": 6537.5599999999995,\
+    "maxRange": 6482.0,\
     "sectors": [\
       {\
         "color": "green",\
@@ -65596,7 +65959,7 @@ Rectangle {
     },\
     "pattern": "Fast R lys",\
     "height": 7.6,\
-    "maxRange": 3685.48,\
+    "maxRange": 4630.0,\
     "sectors": [\
       {\
         "color": "red",\
@@ -65638,7 +66001,7 @@ Rectangle {
     },\
     "pattern": "Q G",\
     "height": 4.4,\
-    "maxRange": 3518.7999999999997,\
+    "maxRange": 4630.0,\
     "sectors": [\
       {\
         "color": "green",\
@@ -65659,7 +66022,7 @@ Rectangle {
     },\
     "pattern": "Q R",\
     "height": 4.6,\
-    "maxRange": 4259.599999999999,\
+    "maxRange": 4630.0,\
     "sectors": [\
       {\
         "color": "red",\
@@ -65722,7 +66085,7 @@ Rectangle {
     },\
     "pattern": "Iso W 2s",\
     "height": 8.4,\
-    "maxRange": 6630.16,\
+    "maxRange": 6667.2,\
     "sectors": [\
       {\
         "color": "white",\
@@ -65743,7 +66106,7 @@ Rectangle {
     },\
     "pattern": "Oc (2) WRG 8s",\
     "height": 4.5,\
-    "maxRange": 6482.0,\
+    "maxRange": 5556.0,\
     "sectors": [\
       {\
         "color": "green",\
@@ -66003,7 +66366,7 @@ Rectangle {
     },\
     "pattern": "Iso WRG 2s",\
     "height": 18.6,\
-    "maxRange": 13704.800000000001,\
+    "maxRange": 14630.800000000001,\
     "sectors": [\
       {\
         "color": "red",\
@@ -66489,7 +66852,7 @@ Rectangle {
     },\
     "pattern": "Q R",\
     "height": 5.7,\
-    "maxRange": 3333.6,\
+    "maxRange": 4444.8,\
     "sectors": [\
       {\
         "color": "red",\
@@ -66727,8 +67090,8 @@ Rectangle {
   },\
   {\
     "name": "Holmagrunnen",\
-    "latitude": 60.92145,\
-    "longitude": 6.873606666666666,\
+    "latitude": 60.92144666666667,\
+    "longitude": 6.8736049999999995,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -66736,7 +67099,7 @@ Rectangle {
       "period": 2.0\
     },\
     "pattern": "Iso R 2s",\
-    "height": 6.8,\
+    "height": 6.5,\
     "maxRange": 4444.8,\
     "sectors": [\
       {\
@@ -66748,8 +67111,8 @@ Rectangle {
   },\
   {\
     "name": "Bakkagrunnen",\
-    "latitude": 60.916765,\
-    "longitude": 6.872763333333333,\
+    "latitude": 60.91676833333333,\
+    "longitude": 6.872788333333333,\
     "character": {\
       "light_class": "Q",\
       "numflash": 1,\
@@ -66757,8 +67120,8 @@ Rectangle {
       "period": 1.0\
     },\
     "pattern": "Q G",\
-    "height": 6.3,\
-    "maxRange": 4074.4000000000005,\
+    "height": 6.5,\
+    "maxRange": 4630.0,\
     "sectors": [\
       {\
         "color": "green",\
@@ -66779,7 +67142,7 @@ Rectangle {
     },\
     "pattern": "Q R",\
     "height": 6.5,\
-    "maxRange": 3704.0,\
+    "maxRange": 4444.8,\
     "sectors": [\
       {\
         "color": "red",\
@@ -66832,8 +67195,8 @@ Rectangle {
   },\
   {\
     "name": "Fretheim",\
-    "latitude": 60.86423833333333,\
-    "longitude": 7.128725,\
+    "latitude": 60.86424,\
+    "longitude": 7.128738333333334,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -66842,22 +67205,22 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 6.5,\
-    "maxRange": 10556.4,\
+    "maxRange": 11852.800000000001,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 52.1,\
-        "stop": 196.5\
+        "start": 53.7,\
+        "stop": 196.9\
       },\
       {\
         "color": "white",\
-        "start": 196.5,\
-        "stop": 203.1\
+        "start": 196.9,\
+        "stop": 202.8\
       },\
       {\
         "color": "red",\
-        "start": 203.1,\
-        "stop": 243.2\
+        "start": 202.8,\
+        "stop": 240.0\
       }\
     ]\
   },\
@@ -67301,7 +67664,7 @@ Rectangle {
     },\
     "pattern": "Iso G 4s",\
     "height": 7.8,\
-    "maxRange": 8019.16,\
+    "maxRange": 7963.599999999999,\
     "sectors": [\
       {\
         "color": "green",\
@@ -67406,7 +67769,7 @@ Rectangle {
     },\
     "pattern": "Iso R 4s",\
     "height": 7.0,\
-    "maxRange": 8019.16,\
+    "maxRange": 7963.599999999999,\
     "sectors": [\
       {\
         "color": "red",\
@@ -67690,8 +68053,8 @@ Rectangle {
   },\
   {\
     "name": "Legøyna",\
-    "latitude": 61.013685,\
-    "longitude": 4.647753333333333,\
+    "latitude": 61.013688333333334,\
+    "longitude": 4.647763333333334,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -67700,47 +68063,47 @@ Rectangle {
     },\
     "pattern": "Iso WRG 6s",\
     "height": 13.7,\
-    "maxRange": 10000.800000000001,\
+    "maxRange": 12964.0,\
     "sectors": [\
       {\
         "color": "red",\
         "start": 350.3,\
-        "stop": 359.8\
+        "stop": 360.0\
       },\
       {\
         "color": "green",\
-        "start": 359.8,\
+        "start": 360.0,\
         "stop": 20.1\
       },\
       {\
         "color": "red",\
         "start": 20.1,\
-        "stop": 29.8\
+        "stop": 29.5\
       },\
       {\
         "color": "green",\
-        "start": 29.8,\
-        "stop": 43.3\
+        "start": 29.5,\
+        "stop": 43.6\
       },\
       {\
         "color": "red",\
-        "start": 43.3,\
-        "stop": 47.1\
+        "start": 43.6,\
+        "stop": 47.0\
       },\
       {\
         "color": "green",\
-        "start": 47.1,\
-        "stop": 147.9\
+        "start": 47.0,\
+        "stop": 148.0\
       },\
       {\
         "color": "white",\
-        "start": 147.9,\
-        "stop": 154.5\
+        "start": 148.0,\
+        "stop": 154.4\
       },\
       {\
         "color": "red",\
-        "start": 154.5,\
-        "stop": 163.5\
+        "start": 154.4,\
+        "stop": 163.4\
       }\
     ]\
   },\
@@ -67809,8 +68172,8 @@ Rectangle {
   },\
   {\
     "name": "Søre Nosa",\
-    "latitude": 60.99944333333333,\
-    "longitude": 4.657221666666667,\
+    "latitude": 60.99961833333333,\
+    "longitude": 4.657413333333333,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -67819,36 +68182,36 @@ Rectangle {
     },\
     "pattern": "Fl WRG 5s",\
     "height": 20.5,\
-    "maxRange": 11297.199999999999,\
+    "maxRange": 11482.4,\
     "sectors": [\
       {\
         "color": "red",\
-        "start": 181.8,\
-        "stop": 184.1\
+        "start": 181.6,\
+        "stop": 183.9\
       },\
       {\
         "color": "green",\
-        "start": 184.1,\
-        "stop": 326.5\
+        "start": 183.9,\
+        "stop": 326.7\
       },\
       {\
         "color": "red",\
-        "start": 326.5,\
+        "start": 326.7,\
         "stop": 5.8\
       },\
       {\
         "color": "green",\
         "start": 5.8,\
-        "stop": 36.9\
+        "stop": 37.0\
       },\
       {\
         "color": "white",\
-        "start": 36.9,\
-        "stop": 47.7\
+        "start": 37.0,\
+        "stop": 47.4\
       },\
       {\
         "color": "red",\
-        "start": 47.7,\
+        "start": 47.4,\
         "stop": 87.3\
       }\
     ]\
@@ -68012,7 +68375,7 @@ Rectangle {
     },\
     "pattern": "Fast G lys",\
     "height": 7.3,\
-    "maxRange": 6630.16,\
+    "maxRange": 6667.2,\
     "sectors": [\
       {\
         "color": "green",\
@@ -68117,7 +68480,7 @@ Rectangle {
     },\
     "pattern": "Fast R lys",\
     "height": 6.9,\
-    "maxRange": 6630.16,\
+    "maxRange": 6667.2,\
     "sectors": [\
       {\
         "color": "red",\
@@ -68138,7 +68501,7 @@ Rectangle {
     },\
     "pattern": "Fast G lys",\
     "height": 7.0,\
-    "maxRange": 6630.16,\
+    "maxRange": 6667.2,\
     "sectors": [\
       {\
         "color": "green",\
@@ -68159,7 +68522,7 @@ Rectangle {
     },\
     "pattern": "Fast R lys",\
     "height": 7.2,\
-    "maxRange": 6630.16,\
+    "maxRange": 6667.2,\
     "sectors": [\
       {\
         "color": "red",\
@@ -68180,7 +68543,7 @@ Rectangle {
     },\
     "pattern": "Fast R lys",\
     "height": 6.3,\
-    "maxRange": 6630.16,\
+    "maxRange": 6667.2,\
     "sectors": [\
       {\
         "color": "red",\
@@ -68201,7 +68564,7 @@ Rectangle {
     },\
     "pattern": "Fast G lys",\
     "height": 5.6,\
-    "maxRange": 6630.16,\
+    "maxRange": 6667.2,\
     "sectors": [\
       {\
         "color": "green",\
@@ -68222,7 +68585,7 @@ Rectangle {
     },\
     "pattern": "Fast R lys",\
     "height": 5.6,\
-    "maxRange": 6630.16,\
+    "maxRange": 6667.2,\
     "sectors": [\
       {\
         "color": "red",\
@@ -68243,7 +68606,7 @@ Rectangle {
     },\
     "pattern": "Fast G lys",\
     "height": 5.4,\
-    "maxRange": 6630.16,\
+    "maxRange": 6667.2,\
     "sectors": [\
       {\
         "color": "green",\
@@ -68264,7 +68627,7 @@ Rectangle {
     },\
     "pattern": "Fast R lys",\
     "height": 5.3,\
-    "maxRange": 6630.16,\
+    "maxRange": 6667.2,\
     "sectors": [\
       {\
         "color": "red",\
@@ -68285,7 +68648,7 @@ Rectangle {
     },\
     "pattern": "Fast G lys",\
     "height": 5.8,\
-    "maxRange": 6630.16,\
+    "maxRange": 6667.2,\
     "sectors": [\
       {\
         "color": "green",\
@@ -68306,7 +68669,7 @@ Rectangle {
     },\
     "pattern": "Fast R lys",\
     "height": 5.5,\
-    "maxRange": 6630.16,\
+    "maxRange": 6667.2,\
     "sectors": [\
       {\
         "color": "red",\
@@ -68327,7 +68690,7 @@ Rectangle {
     },\
     "pattern": "Fast G lys",\
     "height": 5.9,\
-    "maxRange": 6630.16,\
+    "maxRange": 6667.2,\
     "sectors": [\
       {\
         "color": "green",\
@@ -68348,7 +68711,7 @@ Rectangle {
     },\
     "pattern": "Fast R lys",\
     "height": 5.8,\
-    "maxRange": 6630.16,\
+    "maxRange": 6667.2,\
     "sectors": [\
       {\
         "color": "red",\
@@ -68431,8 +68794,8 @@ Rectangle {
   },\
   {\
     "name": "Øyasundet",\
-    "latitude": 61.091881666666666,\
-    "longitude": 4.683421666666667,\
+    "latitude": 61.09188,\
+    "longitude": 4.683426666666667,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -68441,16 +68804,16 @@ Rectangle {
     },\
     "pattern": "Fl WRG 5s",\
     "height": 14.0,\
-    "maxRange": 11852.800000000001,\
+    "maxRange": 13704.800000000001,\
     "sectors": [\
       {\
         "color": "red",\
-        "start": 338.4,\
-        "stop": 47.8\
+        "start": 330.3,\
+        "stop": 47.9\
       },\
       {\
         "color": "green",\
-        "start": 47.8,\
+        "start": 47.9,\
         "stop": 80.7\
       },\
       {\
@@ -68525,7 +68888,13 @@ Rectangle {
     "pattern": "Iso R 2s",\
     "height": 5.3,\
     "maxRange": 5926.400000000001,\
-    "sectors": []\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
   },\
   {\
     "name": "Storøysundet V",\
@@ -68540,7 +68909,13 @@ Rectangle {
     "pattern": "Fast R lys",\
     "height": 4.7,\
     "maxRange": 5370.8,\
-    "sectors": []\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
   },\
   {\
     "name": "Storøysundet Ø",\
@@ -68555,7 +68930,13 @@ Rectangle {
     "pattern": "Fast G lys",\
     "height": 4.1,\
     "maxRange": 5370.8,\
-    "sectors": []\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
   },\
   {\
     "name": "Kverknappen",\
@@ -68655,7 +69036,7 @@ Rectangle {
     },\
     "pattern": "Iso R 2s",\
     "height": 8.2,\
-    "maxRange": 6870.92,\
+    "maxRange": 6852.400000000001,\
     "sectors": [\
       {\
         "color": "red",\
@@ -68678,21 +69059,6 @@ Rectangle {
     "height": 12.0,\
     "maxRange": 12223.199999999999,\
     "sectors": [\
-      {\
-        "color": "green",\
-        "start": 159.6,\
-        "stop": 164.6\
-      },\
-      {\
-        "color": "white",\
-        "start": 164.6,\
-        "stop": 168.9\
-      },\
-      {\
-        "color": "red",\
-        "start": 168.9,\
-        "stop": 311.3\
-      },\
       {\
         "color": "green",\
         "start": 311.3,\
@@ -68743,7 +69109,7 @@ Rectangle {
     },\
     "pattern": "Iso G 4s",\
     "height": 8.2,\
-    "maxRange": 7093.16,\
+    "maxRange": 7037.599999999999,\
     "sectors": [\
       {\
         "color": "green",\
@@ -68785,7 +69151,7 @@ Rectangle {
     },\
     "pattern": "Iso G 2s",\
     "height": 8.2,\
-    "maxRange": 6870.92,\
+    "maxRange": 6852.400000000001,\
     "sectors": [\
       {\
         "color": "green",\
@@ -68852,7 +69218,7 @@ Rectangle {
     },\
     "pattern": "Iso R 4s",\
     "height": 9.0,\
-    "maxRange": 7093.16,\
+    "maxRange": 7037.599999999999,\
     "sectors": [\
       {\
         "color": "red",\
@@ -68895,7 +69261,13 @@ Rectangle {
     "pattern": "Iso W 2s",\
     "height": 5.5,\
     "maxRange": 5926.400000000001,\
-    "sectors": []\
+    "sectors": [\
+      {\
+        "color": "white",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
   },\
   {\
     "name": "Fanturdnesflu",\
@@ -68910,7 +69282,13 @@ Rectangle {
     "pattern": "Iso R 2s",\
     "height": 3.7,\
     "maxRange": 5185.599999999999,\
-    "sectors": []\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
   },\
   {\
     "name": "Søre Samsonholmtå",\
@@ -69051,7 +69429,13 @@ Rectangle {
     "pattern": "Fast R lys",\
     "height": 5.0,\
     "maxRange": 5370.8,\
-    "sectors": []\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
   },\
   {\
     "name": "Håneset",\
@@ -69066,7 +69450,13 @@ Rectangle {
     "pattern": "Fast G lys",\
     "height": 6.0,\
     "maxRange": 5370.8,\
-    "sectors": []\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
   },\
   {\
     "name": "Taskholmen",\
@@ -69278,7 +69668,13 @@ Rectangle {
     "pattern": "Iso G 4s",\
     "height": 5.4,\
     "maxRange": 5185.599999999999,\
-    "sectors": []\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
   },\
   {\
     "name": "Medstraumen SØ",\
@@ -69293,7 +69689,13 @@ Rectangle {
     "pattern": "Fast G lys",\
     "height": 5.7,\
     "maxRange": 5370.8,\
-    "sectors": []\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
   },\
   {\
     "name": "Medstraumen V",\
@@ -69329,7 +69731,13 @@ Rectangle {
     "pattern": "Fast G lys",\
     "height": 5.3,\
     "maxRange": 5370.8,\
-    "sectors": []\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
   },\
   {\
     "name": "Litlefærøyna",\
@@ -69344,7 +69752,13 @@ Rectangle {
     "pattern": "Iso R 2s",\
     "height": 5.3,\
     "maxRange": 5926.400000000001,\
-    "sectors": []\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
   },\
   {\
     "name": "Søre Helgeholmen",\
@@ -70433,7 +70847,7 @@ Rectangle {
     },\
     "pattern": "Iso G 4s",\
     "height": 6.0,\
-    "maxRange": 6945.0,\
+    "maxRange": 6852.400000000001,\
     "sectors": [\
       {\
         "color": "green",\
@@ -70454,7 +70868,7 @@ Rectangle {
     },\
     "pattern": "Iso W 4s",\
     "height": 8.0,\
-    "maxRange": 6796.84,\
+    "maxRange": 6667.2,\
     "sectors": [\
       {\
         "color": "white",\
@@ -70475,7 +70889,7 @@ Rectangle {
     },\
     "pattern": "Fast R lys",\
     "height": 8.0,\
-    "maxRange": 6537.5599999999995,\
+    "maxRange": 6482.0,\
     "sectors": [\
       {\
         "color": "red",\
@@ -70486,8 +70900,8 @@ Rectangle {
   },\
   {\
     "name": "Klauva",\
-    "latitude": 61.12190666666667,\
-    "longitude": 5.030485,\
+    "latitude": 61.12191,\
+    "longitude": 5.030475,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -70496,7 +70910,7 @@ Rectangle {
     },\
     "pattern": "Iso WRG 2s",\
     "height": 5.7,\
-    "maxRange": 12223.199999999999,\
+    "maxRange": 10371.199999999999,\
     "sectors": [\
       {\
         "color": "green",\
@@ -70506,27 +70920,27 @@ Rectangle {
       {\
         "color": "white",\
         "start": 325.9,\
-        "stop": 11.2\
+        "stop": 10.8\
       },\
       {\
         "color": "red",\
-        "start": 11.2,\
+        "start": 10.8,\
         "stop": 158.1\
       },\
       {\
         "color": "green",\
         "start": 158.1,\
-        "stop": 168.3\
+        "stop": 168.5\
       },\
       {\
         "color": "white",\
-        "start": 168.3,\
-        "stop": 171.5\
+        "start": 168.5,\
+        "stop": 171.4\
       },\
       {\
         "color": "red",\
-        "start": 171.5,\
-        "stop": 178.4\
+        "start": 171.4,\
+        "stop": 178.5\
       }\
     ]\
   },\
@@ -70542,7 +70956,7 @@ Rectangle {
     },\
     "pattern": "Iso R 4s",\
     "height": 6.0,\
-    "maxRange": 6945.0,\
+    "maxRange": 6852.400000000001,\
     "sectors": [\
       {\
         "color": "red",\
@@ -70595,8 +71009,8 @@ Rectangle {
   },\
   {\
     "name": "Seglsteinen",\
-    "latitude": 61.155606666666664,\
-    "longitude": 5.018491666666667,\
+    "latitude": 61.15562833333333,\
+    "longitude": 5.018513333333333,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -70605,37 +71019,37 @@ Rectangle {
     },\
     "pattern": "Iso WRG 6s",\
     "height": 10.5,\
-    "maxRange": 12223.199999999999,\
+    "maxRange": 10371.199999999999,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 148.5,\
-        "stop": 171.5\
+        "start": 148.6,\
+        "stop": 171.9\
       },\
       {\
         "color": "white",\
-        "start": 171.5,\
+        "start": 171.9,\
         "stop": 178.5\
       },\
       {\
         "color": "red",\
         "start": 178.5,\
-        "stop": 185.2\
+        "stop": 185.3\
       },\
       {\
         "color": "green",\
-        "start": 185.2,\
-        "stop": 351.1\
+        "start": 185.3,\
+        "stop": 351.5\
       },\
       {\
         "color": "white",\
-        "start": 351.1,\
-        "stop": 353.7\
+        "start": 351.5,\
+        "stop": 353.6\
       },\
       {\
         "color": "red",\
-        "start": 353.7,\
-        "stop": 11.0\
+        "start": 353.6,\
+        "stop": 12.3\
       }\
     ]\
   },\
@@ -74355,7 +74769,7 @@ Rectangle {
   {\
     "name": "Sandøy",\
     "latitude": 61.55072666666667,\
-    "longitude": 4.763573333333333,\
+    "longitude": 4.7636183333333335,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 3,\
@@ -74364,37 +74778,37 @@ Rectangle {
     },\
     "pattern": "Oc (3) WRG 10s",\
     "height": 16.0,\
-    "maxRange": 23335.2,\
+    "maxRange": 17223.600000000002,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 221.8,\
-        "stop": 257.4\
+        "start": 221.9,\
+        "stop": 257.6\
       },\
       {\
         "color": "white",\
-        "start": 257.4,\
-        "stop": 264.1\
+        "start": 257.6,\
+        "stop": 264.2\
       },\
       {\
         "color": "red",\
-        "start": 264.1,\
-        "stop": 8.1\
+        "start": 264.2,\
+        "stop": 8.3\
       },\
       {\
         "color": "green",\
-        "start": 8.1,\
-        "stop": 57.0\
+        "start": 8.3,\
+        "stop": 66.6\
       },\
       {\
         "color": "white",\
-        "start": 66.7,\
-        "stop": 69.6\
+        "start": 66.6,\
+        "stop": 69.5\
       },\
       {\
-        "color": "green",\
-        "start": 69.6,\
-        "stop": 104.3\
+        "color": "red",\
+        "start": 69.5,\
+        "stop": 104.4\
       }\
     ]\
   },\
@@ -74435,32 +74849,32 @@ Rectangle {
     "sectors": [\
       {\
         "color": "green",\
-        "start": 141.8,\
-        "stop": 157.6\
+        "start": 141.7,\
+        "stop": 157.9\
       },\
       {\
         "color": "white",\
-        "start": 157.6,\
-        "stop": 164.7\
+        "start": 157.9,\
+        "stop": 164.6\
       },\
       {\
         "color": "red",\
-        "start": 164.7,\
-        "stop": 203.7\
+        "start": 164.6,\
+        "stop": 203.9\
       },\
       {\
         "color": "green",\
-        "start": 203.7,\
-        "stop": 325.2\
+        "start": 203.9,\
+        "stop": 326.2\
       },\
       {\
         "color": "white",\
-        "start": 325.2,\
-        "stop": 331.3\
+        "start": 326.2,\
+        "stop": 331.4\
       },\
       {\
         "color": "red",\
-        "start": 331.3,\
+        "start": 331.4,\
         "stop": 352.1\
       }\
     ]\
@@ -75484,27 +75898,6 @@ Rectangle {
     "sectors": [\
       {\
         "color": "white",\
-        "start": 0.0,\
-        "stop": 360.0\
-      }\
-    ]\
-  },\
-  {\
-    "name": "Florø",\
-    "latitude": 61.603245,\
-    "longitude": 5.010185,\
-    "character": {\
-      "light_class": "Fast",\
-      "numflash": 1,\
-      "extra_class": null,\
-      "period": 1.0\
-    },\
-    "pattern": "Fast R lys",\
-    "height": 8.0,\
-    "maxRange": 4259.599999999999,\
-    "sectors": [\
-      {\
-        "color": "red",\
         "start": 0.0,\
         "stop": 360.0\
       }\
@@ -78423,8 +78816,8 @@ Rectangle {
   },\
   {\
     "name": "Øksaneset",\
-    "latitude": 61.87560333333333,\
-    "longitude": 4.8668016666666665,\
+    "latitude": 61.87559,\
+    "longitude": 4.866836666666667,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 2,\
@@ -78433,37 +78826,37 @@ Rectangle {
     },\
     "pattern": "Fl (2) WRG 10s",\
     "height": 87.5,\
-    "maxRange": 11852.800000000001,\
+    "maxRange": 13149.199999999999,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 55.1,\
-        "stop": 63.7\
+        "start": 55.4,\
+        "stop": 64.0\
       },\
       {\
         "color": "white",\
-        "start": 63.7,\
-        "stop": 110.4\
+        "start": 64.0,\
+        "stop": 110.5\
       },\
       {\
         "color": "red",\
-        "start": 110.4,\
-        "stop": 190.2\
+        "start": 110.5,\
+        "stop": 190.3\
       },\
       {\
         "color": "green",\
-        "start": 190.2,\
+        "start": 190.3,\
         "stop": 200.2\
       },\
       {\
         "color": "white",\
         "start": 200.2,\
-        "stop": 206.1\
+        "stop": 205.2\
       },\
       {\
         "color": "red",\
-        "start": 206.1,\
-        "stop": 237.2\
+        "start": 205.2,\
+        "stop": 237.3\
       }\
     ]\
   },\
@@ -78662,8 +79055,8 @@ Rectangle {
   },\
   {\
     "name": "Berlepollen, NØ",\
-    "latitude": 61.83141,\
-    "longitude": 5.123335,\
+    "latitude": 61.831381666666665,\
+    "longitude": 5.12339,\
     "character": {\
       "light_class": "Q",\
       "numflash": 1,\
@@ -79204,8 +79597,8 @@ Rectangle {
   },\
   {\
     "name": "Sveneset",\
-    "latitude": 61.863566666666664,\
-    "longitude": 5.303773333333333,\
+    "latitude": 61.863571666666665,\
+    "longitude": 5.303775,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -79214,7 +79607,7 @@ Rectangle {
     },\
     "pattern": "Iso G 2s",\
     "height": 7.8,\
-    "maxRange": 8148.800000000001,\
+    "maxRange": 7037.599999999999,\
     "sectors": [\
       {\
         "color": "green",\
@@ -79246,8 +79639,8 @@ Rectangle {
   },\
   {\
     "name": "Grommeholmen, V",\
-    "latitude": 61.87566833333333,\
-    "longitude": 5.31711,\
+    "latitude": 61.87567,\
+    "longitude": 5.317115,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -79256,7 +79649,7 @@ Rectangle {
     },\
     "pattern": "Iso G 2s",\
     "height": 6.2,\
-    "maxRange": 6667.2,\
+    "maxRange": 6111.599999999999,\
     "sectors": [\
       {\
         "color": "green",\
@@ -82843,47 +83236,6 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Leitet",\
-    "latitude": 62.07538,\
-    "longitude": 6.314556666666666,\
-    "character": {\
-      "light_class": "Oc",\
-      "numflash": 1,\
-      "extra_class": null,\
-      "period": 6.0\
-    },\
-    "pattern": "Oc WRG 6s",\
-    "height": 5.0,\
-    "maxRange": 10926.800000000001,\
-    "sectors": [\
-      {\
-        "color": "green",\
-        "start": 336.4,\
-        "stop": 9.6\
-      },\
-      {\
-        "color": "white",\
-        "start": 9.6,\
-        "stop": 40.9\
-      },\
-      {\
-        "color": "red",\
-        "start": 40.9,\
-        "stop": 108.7\
-      },\
-      {\
-        "color": "white",\
-        "start": 108.7,\
-        "stop": 115.4\
-      },\
-      {\
-        "color": "green",\
-        "start": 115.4,\
-        "stop": 138.6\
-      }\
-    ]\
-  },\
-  {\
     "name": "Ytre Steinneset",\
     "latitude": 62.23067666666667,\
     "longitude": 5.966901666666667,\
@@ -84270,7 +84622,7 @@ Rectangle {
     },\
     "pattern": "Fl R 3s",\
     "height": 11.7,\
-    "maxRange": 3704.0,\
+    "maxRange": 2778.0,\
     "sectors": [\
       {\
         "color": "red",\
@@ -84570,7 +84922,7 @@ Rectangle {
   {\
     "name": "Grønnholmflu",\
     "latitude": 62.32096166666667,\
-    "longitude": 5.664046666666667,\
+    "longitude": 5.664045,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -87380,7 +87732,7 @@ Rectangle {
   {\
     "name": "Giske molo",\
     "latitude": 62.49634833333333,\
-    "longitude": 6.05166,\
+    "longitude": 6.051666666666667,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -87388,8 +87740,8 @@ Rectangle {
       "period": 3.0\
     },\
     "pattern": "Fl R 3s",\
-    "height": 7.0,\
-    "maxRange": 1111.2,\
+    "height": 8.0,\
+    "maxRange": 1481.6000000000001,\
     "sectors": [\
       {\
         "color": "red",\
@@ -87452,7 +87804,7 @@ Rectangle {
     },\
     "pattern": "Fast R lys",\
     "height": 3.3,\
-    "maxRange": 2037.2000000000003,\
+    "maxRange": 1852.0,\
     "sectors": [\
       {\
         "color": "red",\
@@ -87951,6 +88303,48 @@ Rectangle {
     ]\
   },\
   {\
+    "name": "Tyskholmbåane",\
+    "latitude": 62.46475,\
+    "longitude": 6.194818333333333,\
+    "character": {\
+      "light_class": "Fl",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 3.0\
+    },\
+    "pattern": "Fl G 3s",\
+    "height": 5.0,\
+    "maxRange": 1852.0,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Lampeholmbåane",\
+    "latitude": 62.46635166666667,\
+    "longitude": 6.193971666666666,\
+    "character": {\
+      "light_class": "Fl",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 3.0\
+    },\
+    "pattern": "Fl R 3s",\
+    "height": 5.0,\
+    "maxRange": 1852.0,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
     "name": "Kolvikflaket, V.",\
     "latitude": 62.468695,\
     "longitude": 6.21449,\
@@ -87962,7 +88356,7 @@ Rectangle {
     },\
     "pattern": "Iso R 2s",\
     "height": 6.1,\
-    "maxRange": 2963.2000000000003,\
+    "maxRange": 1852.0,\
     "sectors": [\
       {\
         "color": "red",\
@@ -88552,6 +88946,27 @@ Rectangle {
     "sectors": [\
       {\
         "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Flatholmen V",\
+    "latitude": 62.48374,\
+    "longitude": 6.186046666666667,\
+    "character": {\
+      "light_class": "Fl",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 3.0\
+    },\
+    "pattern": "Fl G 3s",\
+    "height": 1.5,\
+    "maxRange": 3704.0,\
+    "sectors": [\
+      {\
+        "color": "green",\
         "start": 0.0,\
         "stop": 360.0\
       }\
@@ -89158,8 +89573,8 @@ Rectangle {
   },\
   {\
     "name": "Oksebåsen",\
-    "latitude": 62.51007166666667,\
-    "longitude": 6.150051666666666,\
+    "latitude": 62.51006666666667,\
+    "longitude": 6.150041666666667,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 2,\
@@ -89168,68 +89583,52 @@ Rectangle {
     },\
     "pattern": "Oc (2) WRG 8s",\
     "height": 10.2,\
-    "maxRange": 5370.8,\
+    "maxRange": 4815.2,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 294.1,\
-        "stop": 296.1\
+        "start": 295.7,\
+        "stop": 296.3\
       },\
       {\
         "color": "white",\
-        "start": 296.1,\
-        "stop": 335.2\
+        "start": 296.3,\
+        "stop": 335.3\
       },\
       {\
         "color": "red",\
-        "start": 335.2,\
+        "start": 335.3,\
         "stop": 18.8\
       },\
       {\
         "color": "green",\
         "start": 18.8,\
-        "stop": 177.2\
+        "stop": 177.9\
       },\
       {\
         "color": "white",\
-        "start": 177.2,\
-        "stop": 198.7\
+        "start": 177.9,\
+        "stop": 198.5\
       },\
       {\
         "color": "red",\
-        "start": 198.7,\
-        "stop": 215.9\
+        "start": 198.5,\
+        "stop": 214.3\
+      },\
+      {\
+        "color": "green",\
+        "start": 214.3,\
+        "stop": 215.6\
       },\
       {\
         "color": "white",\
-        "start": 215.9,\
-        "stop": 216.8\
+        "start": 215.6,\
+        "stop": 216.6\
       },\
       {\
-        "color": "green",\
-        "start": 216.8,\
-        "stop": 221.5\
-      }\
-    ]\
-  },\
-  {\
-    "name": "Hanen",\
-    "latitude": 62.552881666666664,\
-    "longitude": 6.184285,\
-    "character": {\
-      "light_class": "Fl",\
-      "numflash": 1,\
-      "extra_class": null,\
-      "period": 3.0\
-    },\
-    "pattern": "Fl G 3s",\
-    "height": 5.0,\
-    "maxRange": 4815.2,\
-    "sectors": [\
-      {\
-        "color": "green",\
-        "start": 0.0,\
-        "stop": 360.0\
+        "color": "red",\
+        "start": 216.6,\
+        "stop": 226.8\
       }\
     ]\
   },\
@@ -90615,32 +91014,32 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Rosholmen",\
-    "latitude": 62.60245,\
+    "name": "Rossholmen",\
+    "latitude": 62.602448333333335,\
     "longitude": 6.054701666666666,\
     "character": {\
-      "light_class": "Fl",\
-      "numflash": 1,\
+      "light_class": "Oc",\
+      "numflash": 3,\
       "extra_class": null,\
-      "period": 5.0\
+      "period": 12.0\
     },\
-    "pattern": "Fl WRG 5s",\
+    "pattern": "Oc (3) WRG 12s",\
     "height": 14.4,\
-    "maxRange": 14630.800000000001,\
+    "maxRange": 10186.0,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 348.4,\
-        "stop": 354.8\
+        "start": 348.2,\
+        "stop": 354.7\
       },\
       {\
         "color": "white",\
-        "start": 354.8,\
-        "stop": 359.0\
+        "start": 354.7,\
+        "stop": 358.7\
       },\
       {\
         "color": "red",\
-        "start": 359.0,\
+        "start": 358.7,\
         "stop": 66.5\
       },\
       {\
@@ -90651,11 +91050,11 @@ Rectangle {
       {\
         "color": "white",\
         "start": 72.2,\
-        "stop": 75.3\
+        "stop": 75.1\
       },\
       {\
         "color": "red",\
-        "start": 75.3,\
+        "start": 75.1,\
         "stop": 90.3\
       },\
       {\
@@ -90666,72 +91065,72 @@ Rectangle {
       {\
         "color": "white",\
         "start": 96.3,\
-        "stop": 98.9\
+        "stop": 98.7\
       },\
       {\
         "color": "red",\
-        "start": 98.9,\
+        "start": 98.7,\
         "stop": 106.8\
       },\
       {\
         "color": "green",\
         "start": 106.8,\
-        "stop": 111.5\
+        "stop": 111.4\
       },\
       {\
         "color": "white",\
-        "start": 111.5,\
-        "stop": 112.7\
+        "start": 111.4,\
+        "stop": 112.6\
       },\
       {\
         "color": "red",\
-        "start": 112.7,\
-        "stop": 121.2\
+        "start": 112.6,\
+        "stop": 121.1\
       },\
       {\
         "color": "green",\
-        "start": 121.2,\
-        "stop": 136.5\
+        "start": 121.1,\
+        "stop": 136.3\
       },\
       {\
         "color": "white",\
-        "start": 136.5,\
-        "stop": 138.2\
+        "start": 136.3,\
+        "stop": 138.0\
       },\
       {\
         "color": "red",\
-        "start": 138.2,\
-        "stop": 208.1\
+        "start": 138.0,\
+        "stop": 207.8\
       },\
       {\
         "color": "green",\
-        "start": 208.1,\
-        "stop": 211.6\
+        "start": 207.8,\
+        "stop": 211.4\
       },\
       {\
         "color": "white",\
-        "start": 211.6,\
-        "stop": 221.1\
+        "start": 211.4,\
+        "stop": 220.7\
       },\
       {\
         "color": "red",\
-        "start": 221.1,\
-        "stop": 258.8\
+        "start": 220.7,\
+        "stop": 258.5\
       },\
       {\
         "color": "green",\
-        "start": 258.8,\
-        "stop": 265.1\
+        "start": 258.5,\
+        "stop": 264.8\
       },\
       {\
         "color": "white",\
-        "start": 265.1,\
-        "stop": 282.7\
+        "start": 264.8,\
+        "stop": 282.4\
       },\
       {\
         "color": "red",\
-        "start": 282.7,\
-        "stop": 291.1\
+        "start": 282.4,\
+        "stop": 290.2\
       }\
     ]\
   },\
@@ -90780,7 +91179,7 @@ Rectangle {
   {\
     "name": "Innholmen",\
     "latitude": 62.62746666666666,\
-    "longitude": 6.117486666666666,\
+    "longitude": 6.117491666666667,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 2,\
@@ -90789,74 +91188,89 @@ Rectangle {
     },\
     "pattern": "Oc (2) WRG 8s",\
     "height": 18.0,\
-    "maxRange": 10556.4,\
+    "maxRange": 9815.6,\
     "sectors": [\
       {\
-        "color": "red",\
+        "color": "green",\
         "start": 297.9,\
-        "stop": 318.3\
+        "stop": 318.5\
       },\
       {\
         "color": "white",\
-        "start": 318.3,\
-        "stop": 327.6\
-      },\
-      {\
-        "color": "green",\
-        "start": 327.6,\
-        "stop": 337.2\
-      },\
-      {\
-        "color": "white",\
-        "start": 337.2,\
-        "stop": 349.1\
+        "start": 318.5,\
+        "stop": 327.8\
       },\
       {\
         "color": "red",\
-        "start": 349.1,\
-        "stop": 356.3\
+        "start": 327.8,\
+        "stop": 333.7\
       },\
       {\
         "color": "green",\
-        "start": 356.3,\
-        "stop": 70.8\
+        "start": 333.7,\
+        "stop": 337.5\
       },\
       {\
         "color": "white",\
-        "start": 70.8,\
-        "stop": 72.9\
+        "start": 337.5,\
+        "stop": 349.3\
       },\
       {\
         "color": "red",\
-        "start": 72.9,\
-        "stop": 88.9\
+        "start": 349.3,\
+        "stop": 356.5\
+      },\
+      {\
+        "color": "green",\
+        "start": 356.5,\
+        "stop": 70.9\
       },\
       {\
         "color": "white",\
-        "start": 88.9,\
+        "start": 70.9,\
+        "stop": 73.0\
+      },\
+      {\
+        "color": "red",\
+        "start": 73.0,\
+        "stop": 83.1\
+      },\
+      {\
+        "color": "green",\
+        "start": 83.1,\
+        "stop": 89.0\
+      },\
+      {\
+        "color": "white",\
+        "start": 89.0,\
         "stop": 93.4\
       },\
       {\
-        "color": "green",\
+        "color": "red",\
         "start": 93.4,\
+        "stop": 139.6\
+      },\
+      {\
+        "color": "green",\
+        "start": 139.6,\
         "stop": 191.5\
       },\
       {\
         "color": "white",\
         "start": 191.5,\
-        "stop": 202.3\
+        "stop": 202.2\
       },\
       {\
         "color": "red",\
-        "start": 202.3,\
-        "stop": 225.9\
+        "start": 202.2,\
+        "stop": 226.3\
       }\
     ]\
   },\
   {\
     "name": "Hellevik",\
-    "latitude": 62.63726833333333,\
-    "longitude": 6.17149,\
+    "latitude": 62.63727166666666,\
+    "longitude": 6.171498333333333,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -90865,49 +91279,54 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 13.0,\
-    "maxRange": 16112.399999999998,\
+    "maxRange": 15371.600000000002,\
     "sectors": [\
       {\
-        "color": "red",\
-        "start": 93.5,\
-        "stop": 113.5\
+        "color": "green",\
+        "start": 93.3,\
+        "stop": 113.3\
       },\
       {\
         "color": "white",\
-        "start": 113.5,\
-        "stop": 115.7\
+        "start": 113.3,\
+        "stop": 115.6\
+      },\
+      {\
+        "color": "red",\
+        "start": 115.6,\
+        "stop": 141.4\
       },\
       {\
         "color": "green",\
-        "start": 115.7,\
-        "stop": 144.6\
+        "start": 141.4,\
+        "stop": 144.5\
       },\
       {\
         "color": "white",\
-        "start": 144.6,\
-        "stop": 149.3\
+        "start": 144.5,\
+        "stop": 149.2\
       },\
       {\
         "color": "red",\
-        "start": 149.3,\
-        "stop": 160.6\
+        "start": 149.2,\
+        "stop": 160.5\
       },\
       {\
         "color": "green",\
-        "start": 160.6,\
-        "stop": 210.1\
+        "start": 160.5,\
+        "stop": 209.9\
       },\
       {\
         "color": "red",\
-        "start": 210.1,\
-        "stop": 316.5\
+        "start": 209.9,\
+        "stop": 280.2\
       }\
     ]\
   },\
   {\
     "name": "Haramsneset",\
-    "latitude": 62.655031666666666,\
-    "longitude": 6.171761666666667,\
+    "latitude": 62.655035,\
+    "longitude": 6.171763333333334,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 3,\
@@ -90920,22 +91339,22 @@ Rectangle {
     "sectors": [\
       {\
         "color": "green",\
-        "start": 300.0,\
-        "stop": 307.8\
+        "start": 299.7,\
+        "stop": 307.7\
       },\
       {\
         "color": "white",\
-        "start": 307.8,\
+        "start": 307.7,\
         "stop": 312.8\
       },\
       {\
         "color": "red",\
         "start": 312.8,\
-        "stop": 314.7\
+        "stop": 314.8\
       },\
       {\
         "color": "green",\
-        "start": 314.7,\
+        "start": 314.8,\
         "stop": 316.1\
       },\
       {\
@@ -90946,37 +91365,37 @@ Rectangle {
       {\
         "color": "red",\
         "start": 318.7,\
-        "stop": 51.0\
+        "stop": 50.9\
       },\
       {\
         "color": "green",\
-        "start": 51.0,\
-        "stop": 55.1\
+        "start": 50.9,\
+        "stop": 55.0\
       },\
       {\
         "color": "white",\
-        "start": 55.1,\
-        "stop": 62.2\
+        "start": 55.0,\
+        "stop": 62.0\
       },\
       {\
         "color": "red",\
-        "start": 62.2,\
-        "stop": 81.4\
+        "start": 62.0,\
+        "stop": 81.3\
       },\
       {\
         "color": "green",\
-        "start": 81.4,\
-        "stop": 123.2\
+        "start": 81.3,\
+        "stop": 123.1\
       },\
       {\
         "color": "white",\
-        "start": 123.2,\
-        "stop": 127.8\
+        "start": 123.1,\
+        "stop": 127.7\
       },\
       {\
         "color": "red",\
-        "start": 127.8,\
-        "stop": 154.4\
+        "start": 127.7,\
+        "stop": 154.5\
       }\
     ]\
   },\
@@ -92258,8 +92677,8 @@ Rectangle {
   },\
   {\
     "name": "Håværfallet",\
-    "latitude": 62.82680833333333,\
-    "longitude": 6.562298333333334,\
+    "latitude": 62.826708333333336,\
+    "longitude": 6.562731666666666,\
     "character": {\
       "light_class": "Q",\
       "numflash": 1,\
@@ -92268,7 +92687,7 @@ Rectangle {
     },\
     "pattern": "Q W",\
     "height": 7.8,\
-    "maxRange": 1852.0,\
+    "maxRange": 2037.2000000000003,\
     "sectors": [\
       {\
         "color": "white",\
@@ -93170,7 +93589,7 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Nøsteholmen",\
+    "name": "Nørdsteøya",\
     "latitude": 62.81512,\
     "longitude": 6.71955,\
     "character": {\
@@ -95642,7 +96061,7 @@ Rectangle {
     },\
     "pattern": "Iso R 6s",\
     "height": 5.0,\
-    "maxRange": 4074.4000000000005,\
+    "maxRange": 4815.2,\
     "sectors": [\
       {\
         "color": "red",\
@@ -98750,24 +99169,9 @@ Rectangle {
         "stop": 74.8\
       },\
       {\
-        "color": "white",\
-        "start": 74.8,\
-        "stop": 91.0\
-      },\
-      {\
         "color": "green",\
         "start": 91.0,\
         "stop": 226.5\
-      },\
-      {\
-        "color": "white",\
-        "start": 226.5,\
-        "stop": 237.6\
-      },\
-      {\
-        "color": "red",\
-        "start": 237.6,\
-        "stop": 238.1\
       }\
     ]\
   },\
@@ -100410,27 +100814,6 @@ Rectangle {
     "sectors": [\
       {\
         "color": "red",\
-        "start": 0.0,\
-        "stop": 360.0\
-      }\
-    ]\
-  },\
-  {\
-    "name": "Skarvskjæret",\
-    "latitude": 63.143051666666665,\
-    "longitude": 8.49548,\
-    "character": {\
-      "light_class": "Fl",\
-      "numflash": 1,\
-      "extra_class": null,\
-      "period": 3.0\
-    },\
-    "pattern": "Fl G 3s",\
-    "height": 5.0,\
-    "maxRange": 2037.2000000000003,\
-    "sectors": [\
-      {\
-        "color": "green",\
         "start": 0.0,\
         "stop": 360.0\
       }\
@@ -103127,7 +103510,7 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 17.8,\
-    "maxRange": 17964.399999999998,\
+    "maxRange": 27965.2,\
     "sectors": [\
       {\
         "color": "green",\
@@ -105674,6 +106057,48 @@ Rectangle {
     ]\
   },\
   {\
+    "name": "Nesseskjær",\
+    "latitude": 63.75326,\
+    "longitude": 11.292961666666667,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 4.0\
+    },\
+    "pattern": "Iso G 4s",\
+    "height": 6.0,\
+    "maxRange": 2222.4,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Kjøbmannsdauen",\
+    "latitude": 63.750735,\
+    "longitude": 11.295766666666667,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 4.0\
+    },\
+    "pattern": "Iso G 4s",\
+    "height": 6.0,\
+    "maxRange": 1852.0,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
     "name": "Staupnes, nedre",\
     "latitude": 63.75089,\
     "longitude": 11.29451,\
@@ -106213,7 +106638,7 @@ Rectangle {
     },\
     "pattern": "Fl G 3s",\
     "height": 5.0,\
-    "maxRange": 4444.8,\
+    "maxRange": 4259.599999999999,\
     "sectors": [\
       {\
         "color": "green",\
@@ -107573,7 +107998,7 @@ Rectangle {
   {\
     "name": "Veiholmen, NV",\
     "latitude": 63.518535,\
-    "longitude": 7.9469,\
+    "longitude": 7.946915,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -107582,7 +108007,7 @@ Rectangle {
     },\
     "pattern": "Fl R 3s",\
     "height": 4.0,\
-    "maxRange": 1537.1599999999999,\
+    "maxRange": 1481.6000000000001,\
     "sectors": [\
       {\
         "color": "red",\
@@ -107614,8 +108039,8 @@ Rectangle {
   },\
   {\
     "name": "Veiholmen, SØ",\
-    "latitude": 63.520088333333334,\
-    "longitude": 7.955146666666667,\
+    "latitude": 63.520085,\
+    "longitude": 7.9551533333333335,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -107624,7 +108049,7 @@ Rectangle {
     },\
     "pattern": "Fl G 3s",\
     "height": 3.6,\
-    "maxRange": 1481.6000000000001,\
+    "maxRange": 1296.3999999999999,\
     "sectors": [\
       {\
         "color": "green",\
@@ -107759,8 +108184,8 @@ Rectangle {
   },\
   {\
     "name": "Bruraknappen",\
-    "latitude": 63.50602166666667,\
-    "longitude": 7.980731666666666,\
+    "latitude": 63.50603666666667,\
+    "longitude": 7.9807483333333336,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -107769,7 +108194,7 @@ Rectangle {
     },\
     "pattern": "Fl G 3s",\
     "height": 4.7,\
-    "maxRange": 1481.6000000000001,\
+    "maxRange": 1852.0,\
     "sectors": [\
       {\
         "color": "green",\
@@ -107779,9 +108204,9 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Ranværene",\
-    "latitude": 63.50354166666666,\
-    "longitude": 7.984506666666666,\
+    "name": "Rannværene",\
+    "latitude": 63.50356166666667,\
+    "longitude": 7.984496666666667,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -107790,7 +108215,7 @@ Rectangle {
     },\
     "pattern": "Fl G 3s",\
     "height": 5.0,\
-    "maxRange": 1481.6000000000001,\
+    "maxRange": 1852.0,\
     "sectors": [\
       {\
         "color": "green",\
@@ -107800,7 +108225,7 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Ranværsund",\
+    "name": "Rannværsund",\
     "latitude": 63.50037833333333,\
     "longitude": 7.982375,\
     "character": {\
@@ -107823,7 +108248,7 @@ Rectangle {
   {\
     "name": "Kråkungen",\
     "latitude": 63.50616333333333,\
-    "longitude": 7.953131666666667,\
+    "longitude": 7.953151666666667,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -107832,49 +108257,22 @@ Rectangle {
     },\
     "pattern": "Fl R 3s",\
     "height": 5.5,\
-    "maxRange": 1481.6000000000001,\
-    "sectors": [\
-      {\
-        "color": "red",\
-        "start": 0.0,\
-        "stop": 360.0\
-      }\
-    ]\
-  },\
-  {\
-    "name": "Likdraget",\
-    "latitude": 63.49796666666667,\
-    "longitude": 7.981826666666667,\
-    "character": {\
-      "light_class": "Fl",\
-      "numflash": 1,\
-      "extra_class": null,\
-      "period": 3.0\
-    },\
-    "pattern": "Fl R 3s",\
-    "height": 4.7,\
-    "maxRange": 1481.6000000000001,\
-    "sectors": [\
-      {\
-        "color": "red",\
-        "start": 0.0,\
-        "stop": 360.0\
-      }\
-    ]\
+    "maxRange": 1852.0,\
+    "sectors": []\
   },\
   {\
     "name": "Innveisnaget, SV",\
-    "latitude": 63.504553333333334,\
-    "longitude": 7.959068333333334,\
+    "latitude": 63.50456333333333,\
+    "longitude": 7.959101666666667,\
     "character": {\
-      "light_class": "None",\
-      "numflash": 0,\
+      "light_class": "Q",\
+      "numflash": 1,\
       "extra_class": null,\
-      "period": 0\
+      "period": 1.0\
     },\
-    "pattern": null,\
+    "pattern": "Q R",\
     "height": 6.3,\
-    "maxRange": 1481.6000000000001,\
+    "maxRange": 1666.8,\
     "sectors": [\
       {\
         "color": "red",\
@@ -107885,8 +108283,8 @@ Rectangle {
   },\
   {\
     "name": "Kaggholmtaren",\
-    "latitude": 63.50196833333333,\
-    "longitude": 7.965143333333334,\
+    "latitude": 63.50197333333333,\
+    "longitude": 7.9651716666666665,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -107895,7 +108293,7 @@ Rectangle {
     },\
     "pattern": "Fl G 3s",\
     "height": 4.6,\
-    "maxRange": 1481.6000000000001,\
+    "maxRange": 1296.3999999999999,\
     "sectors": [\
       {\
         "color": "green",\
@@ -107926,9 +108324,30 @@ Rectangle {
     ]\
   },\
   {\
+    "name": "Kulstøtta",\
+    "latitude": 63.500638333333335,\
+    "longitude": 7.974635,\
+    "character": {\
+      "light_class": "Fl",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 3.0\
+    },\
+    "pattern": "Fl R 3s",\
+    "height": 5.0,\
+    "maxRange": 2222.4,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
     "name": "Østre Strømsund",\
-    "latitude": 63.49904166666666,\
-    "longitude": 7.979546666666667,\
+    "latitude": 63.499053333333336,\
+    "longitude": 7.979551666666667,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -107937,7 +108356,7 @@ Rectangle {
     },\
     "pattern": "Fl G 3s",\
     "height": 3.7,\
-    "maxRange": 15556.800000000001,\
+    "maxRange": 1852.0,\
     "sectors": [\
       {\
         "color": "green",\
@@ -107947,9 +108366,30 @@ Rectangle {
     ]\
   },\
   {\
+    "name": "Likdraget",\
+    "latitude": 63.49796333333333,\
+    "longitude": 7.981841666666667,\
+    "character": {\
+      "light_class": "Fl",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 3.0\
+    },\
+    "pattern": "Fl R 3s",\
+    "height": 4.7,\
+    "maxRange": 1852.0,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
     "name": "Vestre Hårkallen",\
-    "latitude": 63.49587833333333,\
-    "longitude": 7.987263333333333,\
+    "latitude": 63.495873333333336,\
+    "longitude": 7.987285,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -107958,7 +108398,7 @@ Rectangle {
     },\
     "pattern": "Fl R 3s",\
     "height": 4.6,\
-    "maxRange": 1481.6000000000001,\
+    "maxRange": 1852.0,\
     "sectors": [\
       {\
         "color": "red",\
@@ -108000,8 +108440,8 @@ Rectangle {
   },\
   {\
     "name": "Landego",\
-    "latitude": 63.493045,\
-    "longitude": 7.992546666666667,\
+    "latitude": 63.49303333333334,\
+    "longitude": 7.992568333333333,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -108010,7 +108450,7 @@ Rectangle {
     },\
     "pattern": "Fl G 3s",\
     "height": 4.5,\
-    "maxRange": 1759.3999999999999,\
+    "maxRange": 1852.0,\
     "sectors": [\
       {\
         "color": "green",\
@@ -108021,8 +108461,8 @@ Rectangle {
   },\
   {\
     "name": "Nørdre Kattholmen",\
-    "latitude": 63.49037666666667,\
-    "longitude": 8.000791666666666,\
+    "latitude": 63.490381666666664,\
+    "longitude": 8.000781666666667,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -108031,7 +108471,7 @@ Rectangle {
     },\
     "pattern": "Fl R 3s",\
     "height": 5.0,\
-    "maxRange": 1481.6000000000001,\
+    "maxRange": 1852.0,\
     "sectors": [\
       {\
         "color": "red",\
@@ -108042,8 +108482,8 @@ Rectangle {
   },\
   {\
     "name": "Sandholmtaren",\
-    "latitude": 63.48584833333334,\
-    "longitude": 8.005453333333334,\
+    "latitude": 63.48586,\
+    "longitude": 8.005466666666667,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -108052,7 +108492,7 @@ Rectangle {
     },\
     "pattern": "Fl G 3s",\
     "height": 4.0,\
-    "maxRange": 1481.6000000000001,\
+    "maxRange": 1852.0,\
     "sectors": [\
       {\
         "color": "green",\
@@ -108105,7 +108545,7 @@ Rectangle {
   },\
   {\
     "name": "Kaggholmen, NØ",\
-    "latitude": 63.499541666666666,\
+    "latitude": 63.499538333333334,\
     "longitude": 7.973385,\
     "character": {\
       "light_class": "Q",\
@@ -108115,7 +108555,7 @@ Rectangle {
     },\
     "pattern": "Q G",\
     "height": 5.3,\
-    "maxRange": 6296.8,\
+    "maxRange": 1666.8,\
     "sectors": [\
       {\
         "color": "green",\
@@ -108126,8 +108566,8 @@ Rectangle {
   },\
   {\
     "name": "Kaggholmen, SØ",\
-    "latitude": 63.497545,\
-    "longitude": 7.976865,\
+    "latitude": 63.49755666666667,\
+    "longitude": 7.9768799999999995,\
     "character": {\
       "light_class": "Q",\
       "numflash": 1,\
@@ -108136,7 +108576,7 @@ Rectangle {
     },\
     "pattern": "Q R",\
     "height": 4.8,\
-    "maxRange": 6296.8,\
+    "maxRange": 1666.8,\
     "sectors": [\
       {\
         "color": "red",\
@@ -108147,17 +108587,17 @@ Rectangle {
   },\
   {\
     "name": "Hammarøy, N",\
-    "latitude": 63.49473666666667,\
-    "longitude": 7.9782383333333335,\
+    "latitude": 63.494746666666664,\
+    "longitude": 7.978258333333334,\
     "character": {\
-      "light_class": "None",\
-      "numflash": 0,\
+      "light_class": "Q",\
+      "numflash": 1,\
       "extra_class": null,\
-      "period": 0\
+      "period": 1.0\
     },\
-    "pattern": null,\
+    "pattern": "Q R",\
     "height": 4.8,\
-    "maxRange": 6667.2,\
+    "maxRange": 1666.8,\
     "sectors": [\
       {\
         "color": "red",\
@@ -108167,9 +108607,30 @@ Rectangle {
     ]\
   },\
   {\
+    "name": "Hammarøysundet, S",\
+    "latitude": 63.48815833333333,\
+    "longitude": 7.971948333333334,\
+    "character": {\
+      "light_class": "Q",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 1.0\
+    },\
+    "pattern": "Q G",\
+    "height": 4.1,\
+    "maxRange": 5370.8,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
     "name": "Hammarøy, V",\
     "latitude": 63.49119833333334,\
-    "longitude": 7.974521666666667,\
+    "longitude": 7.974528333333334,\
     "character": {\
       "light_class": "Q",\
       "numflash": 1,\
@@ -108178,7 +108639,7 @@ Rectangle {
     },\
     "pattern": "Q R",\
     "height": 4.6,\
-    "maxRange": 6296.8,\
+    "maxRange": 1666.8,\
     "sectors": [\
       {\
         "color": "red",\
@@ -108189,8 +108650,8 @@ Rectangle {
   },\
   {\
     "name": "Hammarøysundet, V",\
-    "latitude": 63.49136,\
-    "longitude": 7.9733583333333335,\
+    "latitude": 63.491366666666664,\
+    "longitude": 7.973363333333333,\
     "character": {\
       "light_class": "Q",\
       "numflash": 1,\
@@ -108199,28 +108660,7 @@ Rectangle {
     },\
     "pattern": "Q G",\
     "height": 3.8,\
-    "maxRange": 6667.2,\
-    "sectors": [\
-      {\
-        "color": "green",\
-        "start": 0.0,\
-        "stop": 360.0\
-      }\
-    ]\
-  },\
-  {\
-    "name": "Hammarøysundet, S",\
-    "latitude": 63.488141666666664,\
-    "longitude": 7.97195,\
-    "character": {\
-      "light_class": "Q",\
-      "numflash": 1,\
-      "extra_class": null,\
-      "period": 1.0\
-    },\
-    "pattern": "Q G",\
-    "height": 4.1,\
-    "maxRange": 6296.8,\
+    "maxRange": 5370.8,\
     "sectors": [\
       {\
         "color": "green",\
@@ -108231,17 +108671,17 @@ Rectangle {
   },\
   {\
     "name": "Hammarøy, S",\
-    "latitude": 63.485411666666664,\
-    "longitude": 7.9717649999999995,\
+    "latitude": 63.485413333333334,\
+    "longitude": 7.97179,\
     "character": {\
-      "light_class": "None",\
-      "numflash": 0,\
+      "light_class": "Q",\
+      "numflash": 1,\
       "extra_class": null,\
-      "period": 0\
+      "period": 1.0\
     },\
-    "pattern": null,\
+    "pattern": "Q R",\
     "height": 4.4,\
-    "maxRange": 6667.2,\
+    "maxRange": 4259.599999999999,\
     "sectors": [\
       {\
         "color": "red",\
@@ -108252,8 +108692,8 @@ Rectangle {
   },\
   {\
     "name": "Vestre Håholmen",\
-    "latitude": 63.48029833333333,\
-    "longitude": 7.965953333333333,\
+    "latitude": 63.48030833333333,\
+    "longitude": 7.9659466666666665,\
     "character": {\
       "light_class": "Q",\
       "numflash": 1,\
@@ -108262,7 +108702,7 @@ Rectangle {
     },\
     "pattern": "Q G",\
     "height": 4.0,\
-    "maxRange": 6667.2,\
+    "maxRange": 2222.4,\
     "sectors": [\
       {\
         "color": "green",\
@@ -108273,8 +108713,8 @@ Rectangle {
   },\
   {\
     "name": "Håholmen",\
-    "latitude": 63.479405,\
-    "longitude": 7.96864,\
+    "latitude": 63.47941,\
+    "longitude": 7.968651666666666,\
     "character": {\
       "light_class": "Q",\
       "numflash": 1,\
@@ -108283,28 +108723,7 @@ Rectangle {
     },\
     "pattern": "Q R",\
     "height": 4.7,\
-    "maxRange": 6296.8,\
-    "sectors": [\
-      {\
-        "color": "red",\
-        "start": 0.0,\
-        "stop": 360.0\
-      }\
-    ]\
-  },\
-  {\
-    "name": "Verjeskiftet, V",\
-    "latitude": 63.479031666666664,\
-    "longitude": 7.978655,\
-    "character": {\
-      "light_class": "Q",\
-      "numflash": 1,\
-      "extra_class": null,\
-      "period": 1.0\
-    },\
-    "pattern": "Q R",\
-    "height": 4.0,\
-    "maxRange": 6667.2,\
+    "maxRange": 1666.8,\
     "sectors": [\
       {\
         "color": "red",\
@@ -108315,8 +108734,8 @@ Rectangle {
   },\
   {\
     "name": "Verjeskiftet, Ø",\
-    "latitude": 63.478185,\
-    "longitude": 7.9849499999999995,\
+    "latitude": 63.47818,\
+    "longitude": 7.984946666666667,\
     "character": {\
       "light_class": "Q",\
       "numflash": 1,\
@@ -108325,7 +108744,7 @@ Rectangle {
     },\
     "pattern": "Q G",\
     "height": 4.3,\
-    "maxRange": 6667.2,\
+    "maxRange": 2222.4,\
     "sectors": [\
       {\
         "color": "green",\
@@ -108335,9 +108754,9 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Gullklakken",\
-    "latitude": 63.47841,\
-    "longitude": 8.002603333333333,\
+    "name": "Verjeskiftet, V",\
+    "latitude": 63.479033333333334,\
+    "longitude": 7.97865,\
     "character": {\
       "light_class": "Q",\
       "numflash": 1,\
@@ -108345,8 +108764,8 @@ Rectangle {
       "period": 1.0\
     },\
     "pattern": "Q R",\
-    "height": 4.2,\
-    "maxRange": 6667.2,\
+    "height": 4.0,\
+    "maxRange": 1666.8,\
     "sectors": [\
       {\
         "color": "red",\
@@ -108377,9 +108796,30 @@ Rectangle {
     ]\
   },\
   {\
+    "name": "Gullklakken",\
+    "latitude": 63.47841666666667,\
+    "longitude": 8.002631666666666,\
+    "character": {\
+      "light_class": "Q",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 1.0\
+    },\
+    "pattern": "Q R",\
+    "height": 4.2,\
+    "maxRange": 1666.8,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
     "name": "Kvitholmskaget",\
-    "latitude": 63.47223833333334,\
-    "longitude": 8.019786666666667,\
+    "latitude": 63.47224333333333,\
+    "longitude": 8.019803333333334,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -108388,7 +108828,7 @@ Rectangle {
     },\
     "pattern": "Fl G 3s",\
     "height": 3.6,\
-    "maxRange": 1481.6000000000001,\
+    "maxRange": 1852.0,\
     "sectors": [\
       {\
         "color": "green",\
@@ -108399,8 +108839,8 @@ Rectangle {
   },\
   {\
     "name": "Kvalen",\
-    "latitude": 63.46874666666667,\
-    "longitude": 8.014241666666667,\
+    "latitude": 63.468741666666666,\
+    "longitude": 8.01426,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -108409,7 +108849,7 @@ Rectangle {
     },\
     "pattern": "Fl R 3s",\
     "height": 3.5,\
-    "maxRange": 1481.6000000000001,\
+    "maxRange": 1852.0,\
     "sectors": [\
       {\
         "color": "red",\
@@ -108420,8 +108860,8 @@ Rectangle {
   },\
   {\
     "name": "Nessaskaget",\
-    "latitude": 63.467535,\
-    "longitude": 8.008495,\
+    "latitude": 63.46752333333333,\
+    "longitude": 8.008535,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -108430,7 +108870,7 @@ Rectangle {
     },\
     "pattern": "Fl G 3s",\
     "height": 0.0,\
-    "maxRange": 1481.6000000000001,\
+    "maxRange": 1852.0,\
     "sectors": [\
       {\
         "color": "green",\
@@ -111674,82 +112114,6 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Humlingsværet",\
-    "latitude": 63.75790833333333,\
-    "longitude": 8.417308333333333,\
-    "character": {\
-      "light_class": "Oc",\
-      "numflash": 2,\
-      "extra_class": null,\
-      "period": 8.0\
-    },\
-    "pattern": "Oc (2) WRG 8s",\
-    "height": 7.0,\
-    "maxRange": 11852.800000000001,\
-    "sectors": [\
-      {\
-        "color": "green",\
-        "start": 30.9,\
-        "stop": 56.7\
-      },\
-      {\
-        "color": "white",\
-        "start": 56.7,\
-        "stop": 67.0\
-      },\
-      {\
-        "color": "red",\
-        "start": 67.0,\
-        "stop": 105.1\
-      },\
-      {\
-        "color": "green",\
-        "start": 105.1,\
-        "stop": 112.7\
-      },\
-      {\
-        "color": "red",\
-        "start": 112.7,\
-        "stop": 177.5\
-      },\
-      {\
-        "color": "green",\
-        "start": 177.5,\
-        "stop": 188.9\
-      },\
-      {\
-        "color": "white",\
-        "start": 188.9,\
-        "stop": 191.3\
-      },\
-      {\
-        "color": "red",\
-        "start": 191.3,\
-        "stop": 200.9\
-      },\
-      {\
-        "color": "green",\
-        "start": 200.9,\
-        "stop": 248.5\
-      },\
-      {\
-        "color": "red",\
-        "start": 248.5,\
-        "stop": 313.3\
-      },\
-      {\
-        "color": "white",\
-        "start": 313.3,\
-        "stop": 319.9\
-      },\
-      {\
-        "color": "green",\
-        "start": 319.9,\
-        "stop": 5.0\
-      }\
-    ]\
-  },\
-  {\
     "name": "Synnkya",\
     "latitude": 63.760688333333334,\
     "longitude": 8.313131666666667,\
@@ -112190,7 +112554,7 @@ Rectangle {
     },\
     "pattern": "Q R",\
     "height": 5.0,\
-    "maxRange": 5000.400000000001,\
+    "maxRange": 4074.4000000000005,\
     "sectors": [\
       {\
         "color": "red",\
@@ -112406,14 +112770,14 @@ Rectangle {
     "latitude": 63.806443333333334,\
     "longitude": 8.618798333333332,\
     "character": {\
-      "light_class": "None",\
-      "numflash": 0,\
+      "light_class": "Q",\
+      "numflash": 1,\
       "extra_class": null,\
-      "period": 0\
+      "period": 1.0\
     },\
-    "pattern": null,\
+    "pattern": "Q G",\
     "height": 5.2,\
-    "maxRange": 7408.0,\
+    "maxRange": 3889.2000000000003,\
     "sectors": [\
       {\
         "color": "green",\
@@ -113157,52 +113521,6 @@ Rectangle {
         "color": "green",\
         "start": 249.0,\
         "stop": 259.6\
-      }\
-    ]\
-  },\
-  {\
-    "name": "Maltsekken",\
-    "latitude": 63.85322166666667,\
-    "longitude": 8.45622,\
-    "character": {\
-      "light_class": "Iso",\
-      "numflash": 1,\
-      "extra_class": null,\
-      "period": 6.0\
-    },\
-    "pattern": "Iso WRG 6s",\
-    "height": 4.8,\
-    "maxRange": 11112.0,\
-    "sectors": [\
-      {\
-        "color": "green",\
-        "start": 79.1,\
-        "stop": 87.2\
-      },\
-      {\
-        "color": "white",\
-        "start": 87.2,\
-        "stop": 92.2\
-      },\
-      {\
-        "color": "red",\
-        "start": 92.2,\
-        "stop": 237.6\
-      },\
-      {\
-        "color": "white",\
-        "start": 237.6,\
-        "stop": 239.1\
-      },\
-      {\
-        "color": "green",\
-        "start": 239.1,\
-        "stop": 243.5\
-      },\
-      {\
-        "color": "red",\
-        "start": 243.5,\
-        "stop": 257.5\
       }\
     ]\
   },\
@@ -116741,7 +117059,7 @@ Rectangle {
     },\
     "pattern": "Oc (2) WRG 8s",\
     "height": 16.0,\
-    "maxRange": 8334.0,\
+    "maxRange": 7593.199999999999,\
     "sectors": [\
       {\
         "color": "green",\
@@ -119292,7 +119610,7 @@ Rectangle {
     },\
     "pattern": "Iso G 2s",\
     "height": 7.0,\
-    "maxRange": 5000.400000000001,\
+    "maxRange": 4074.4000000000005,\
     "sectors": [\
       {\
         "color": "green",\
@@ -119313,7 +119631,7 @@ Rectangle {
     },\
     "pattern": "Iso G 2s",\
     "height": 7.0,\
-    "maxRange": 4815.2,\
+    "maxRange": 4074.4000000000005,\
     "sectors": [\
       {\
         "color": "green",\
@@ -119474,7 +119792,7 @@ Rectangle {
     },\
     "pattern": "Fl R 3s",\
     "height": 7.0,\
-    "maxRange": 2135.356,\
+    "maxRange": 1111.2,\
     "sectors": [\
       {\
         "color": "red",\
@@ -119516,7 +119834,7 @@ Rectangle {
     },\
     "pattern": "Iso WRG 2s",\
     "height": 14.5,\
-    "maxRange": 10371.199999999999,\
+    "maxRange": 9630.4,\
     "sectors": [\
       {\
         "color": "red",\
@@ -119596,14 +119914,14 @@ Rectangle {
     "latitude": 64.36876666666667,\
     "longitude": 10.456235,\
     "character": {\
-      "light_class": "None",\
-      "numflash": 0,\
+      "light_class": "Q",\
+      "numflash": 1,\
       "extra_class": null,\
-      "period": 0\
+      "period": 1.0\
     },\
-    "pattern": null,\
+    "pattern": "Q R",\
     "height": 10.0,\
-    "maxRange": 1974.2320000000002,\
+    "maxRange": 3518.7999999999997,\
     "sectors": [\
       {\
         "color": "red",\
@@ -119624,7 +119942,7 @@ Rectangle {
     },\
     "pattern": "Oc (2) WRG 8s",\
     "height": 7.6,\
-    "maxRange": 9445.199999999999,\
+    "maxRange": 9074.800000000001,\
     "sectors": [\
       {\
         "color": "green",\
@@ -122295,7 +122613,7 @@ Rectangle {
     },\
     "pattern": "Q R",\
     "height": 5.0,\
-    "maxRange": 2592.7999999999997,\
+    "maxRange": 4815.2,\
     "sectors": [\
       {\
         "color": "red",\
@@ -123690,7 +124008,7 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 23.0,\
-    "maxRange": 25872.440000000002,\
+    "maxRange": 17594.0,\
     "sectors": [\
       {\
         "color": "green",\
@@ -124007,7 +124325,7 @@ Rectangle {
     },\
     "pattern": "Q G",\
     "height": 5.3,\
-    "maxRange": 5370.8,\
+    "maxRange": 4630.0,\
     "sectors": [\
       {\
         "color": "green",\
@@ -129140,7 +129458,7 @@ Rectangle {
   {\
     "name": "Melsteinen",\
     "latitude": 65.187545,\
-    "longitude": 11.849786666666667,\
+    "longitude": 11.849788333333333,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 2,\
@@ -129148,8 +129466,8 @@ Rectangle {
       "period": 10.0\
     },\
     "pattern": "Fl (2) WRG 10s",\
-    "height": 15.0,\
-    "maxRange": 15001.199999999999,\
+    "height": 18.0,\
+    "maxRange": 15742.0,\
     "sectors": [\
       {\
         "color": "green",\
@@ -129519,7 +129837,7 @@ Rectangle {
     },\
     "pattern": "Iso R 4s",\
     "height": 7.4,\
-    "maxRange": 2592.7999999999997,\
+    "maxRange": 1852.0,\
     "sectors": [\
       {\
         "color": "red",\
@@ -137629,6 +137947,27 @@ Rectangle {
     },\
     "pattern": "Iso R 2s",\
     "height": 10.9,\
+    "maxRange": 3704.0,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Stokkvågen, indre",\
+    "latitude": 66.34160833333334,\
+    "longitude": 12.999748333333333,\
+    "character": {\
+      "light_class": "Q",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 1.0\
+    },\
+    "pattern": "Q R",\
+    "height": 6.0,\
     "maxRange": 3704.0,\
     "sectors": [\
       {\
@@ -157183,8 +157522,8 @@ Rectangle {
   },\
   {\
     "name": "Skollerøysundet, Ø",\
-    "latitude": 67.37671166666667,\
-    "longitude": 14.214815,\
+    "latitude": 67.37671333333333,\
+    "longitude": 14.21482,\
     "character": {\
       "light_class": "Q",\
       "numflash": 1,\
@@ -157193,7 +157532,7 @@ Rectangle {
     },\
     "pattern": "Q G",\
     "height": 9.1,\
-    "maxRange": 7037.599999999999,\
+    "maxRange": 5370.8,\
     "sectors": [\
       {\
         "color": "green",\
@@ -157215,27 +157554,21 @@ Rectangle {
     "pattern": "Q R",\
     "height": 7.2,\
     "maxRange": 4259.599999999999,\
-    "sectors": [\
-      {\
-        "color": "red",\
-        "start": 0.0,\
-        "stop": 360.0\
-      }\
-    ]\
+    "sectors": []\
   },\
   {\
     "name": "Skollerøya, S",\
     "latitude": 67.374785,\
-    "longitude": 14.208308333333333,\
+    "longitude": 14.208313333333333,\
     "character": {\
-      "light_class": "Iso",\
+      "light_class": "Q",\
       "numflash": 1,\
       "extra_class": null,\
-      "period": 2.0\
+      "period": 1.0\
     },\
-    "pattern": "Iso R 2s",\
+    "pattern": "Q R",\
     "height": 9.4,\
-    "maxRange": 7593.199999999999,\
+    "maxRange": 4259.599999999999,\
     "sectors": [\
       {\
         "color": "red",\
@@ -157246,8 +157579,8 @@ Rectangle {
   },\
   {\
     "name": "Fenesvågen, V",\
-    "latitude": 67.39376333333334,\
-    "longitude": 14.234965,\
+    "latitude": 67.393765,\
+    "longitude": 14.234981666666666,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -157256,7 +157589,28 @@ Rectangle {
     },\
     "pattern": "Iso G 2s",\
     "height": 8.6,\
-    "maxRange": 7037.599999999999,\
+    "maxRange": 3148.4,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Fenesodden Ø",\
+    "latitude": 67.39132166666667,\
+    "longitude": 14.24314,\
+    "character": {\
+      "light_class": "Q",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 1.0\
+    },\
+    "pattern": "Q G",\
+    "height": 6.8,\
+    "maxRange": 2592.7999999999997,\
     "sectors": [\
       {\
         "color": "green",\
@@ -157268,7 +157622,7 @@ Rectangle {
   {\
     "name": "Østre Tjeldskjæret",\
     "latitude": 67.39069333333333,\
-    "longitude": 14.243118333333333,\
+    "longitude": 14.243128333333333,\
     "character": {\
       "light_class": "Q",\
       "numflash": 1,\
@@ -157277,13 +157631,19 @@ Rectangle {
     },\
     "pattern": "Q R",\
     "height": 6.9,\
-    "maxRange": 7593.199999999999,\
-    "sectors": []\
+    "maxRange": 2037.2000000000003,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
   },\
   {\
     "name": "Draugholmsundet",\
-    "latitude": 67.38746166666667,\
-    "longitude": 14.233716666666666,\
+    "latitude": 67.38746,\
+    "longitude": 14.23368,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -157292,7 +157652,7 @@ Rectangle {
     },\
     "pattern": "Iso G 2s",\
     "height": 8.9,\
-    "maxRange": 7037.599999999999,\
+    "maxRange": 7222.8,\
     "sectors": [\
       {\
         "color": "green",\
@@ -157335,13 +157695,7 @@ Rectangle {
     "pattern": null,\
     "height": 7.2,\
     "maxRange": 7037.599999999999,\
-    "sectors": [\
-      {\
-        "color": "green",\
-        "start": 0.0,\
-        "stop": 360.0\
-      }\
-    ]\
+    "sectors": []\
   },\
   {\
     "name": "Skollerøysundet, midtre",\
@@ -158753,43 +159107,65 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Steinsholmen, nedre",\
-    "latitude": 67.73738166666666,\
-    "longitude": 14.713958333333334,\
+    "name": "Utgrunnflesa",\
+    "latitude": 67.72868666666666,\
+    "longitude": 14.702915,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 4.0\
+    },\
+    "pattern": "Iso R 4s",\
+    "height": 7.0,\
+    "maxRange": 5556.0,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Ytre Leibåen",\
+    "latitude": 67.767415,\
+    "longitude": 14.710018333333334,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
       "extra_class": null,\
       "period": 2.0\
     },\
-    "pattern": "Iso WRG 2s",\
-    "height": 10.2,\
-    "maxRange": 8704.4,\
+    "pattern": "Iso R 2s",\
+    "height": 8.0,\
+    "maxRange": 5556.0,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Indre Leibåen",\
+    "latitude": 67.76566166666667,\
+    "longitude": 14.718085,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 2.0\
+    },\
+    "pattern": "Iso G 2s",\
+    "height": 7.0,\
+    "maxRange": 5556.0,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 23.0,\
-        "stop": 31.4\
-      },\
-      {\
-        "color": "red",\
-        "start": 31.4,\
-        "stop": 94.9\
-      },\
-      {\
-        "color": "green",\
-        "start": 94.9,\
-        "stop": 180.4\
-      },\
-      {\
-        "color": "white",\
-        "start": 180.4,\
-        "stop": 197.6\
-      },\
-      {\
-        "color": "red",\
-        "start": 197.6,\
-        "stop": 209.8\
+        "start": 0.0,\
+        "stop": 360.0\
       }\
     ]\
   },\
@@ -158912,27 +159288,6 @@ Rectangle {
     "sectors": [\
       {\
         "color": "red",\
-        "start": 0.0,\
-        "stop": 360.0\
-      }\
-    ]\
-  },\
-  {\
-    "name": "Leiskjær",\
-    "latitude": 67.76544333333334,\
-    "longitude": 14.723401666666666,\
-    "character": {\
-      "light_class": "None",\
-      "numflash": 0,\
-      "extra_class": null,\
-      "period": 0\
-    },\
-    "pattern": null,\
-    "height": 11.5,\
-    "maxRange": 3518.7999999999997,\
-    "sectors": [\
-      {\
-        "color": "green",\
         "start": 0.0,\
         "stop": 360.0\
       }\
@@ -159989,7 +160344,7 @@ Rectangle {
       "extra_class": null,\
       "period": 5.0\
     },\
-    "pattern": "Fl WR 5s",\
+    "pattern": "Fl WRG 5s",\
     "height": 44.0,\
     "maxRange": 14445.6,\
     "sectors": [\
@@ -160559,35 +160914,40 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Buvåg",\
-    "latitude": 68.14822833333334,\
-    "longitude": 15.44771,\
+    "name": "Kufiskholmen",\
+    "latitude": 68.14851666666667,\
+    "longitude": 15.447361666666666,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
       "extra_class": null,\
-      "period": 4.0\
+      "period": 2.0\
     },\
-    "pattern": "Iso WRG 4s",\
-    "height": 7.3,\
-    "maxRange": 12223.199999999999,\
+    "pattern": "Iso G 2s",\
+    "height": 5.0,\
+    "maxRange": 4074.4000000000005,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 69.7,\
-        "stop": 84.6\
-      },\
-      {\
-        "color": "white",\
-        "start": 84.6,\
-        "stop": 101.2\
-      },\
-      {\
-        "color": "red",\
-        "start": 101.2,\
-        "stop": 253.7\
+        "start": 0.0,\
+        "stop": 360.0\
       }\
     ]\
+  },\
+  {\
+    "name": "Litlskreingen",\
+    "latitude": 68.14940166666666,\
+    "longitude": 15.44185,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 2.0\
+    },\
+    "pattern": "Iso R 2s",\
+    "height": 6.5,\
+    "maxRange": 4074.4000000000005,\
+    "sectors": []\
   },\
   {\
     "name": "Hamsundpollen",\
@@ -160601,37 +160961,42 @@ Rectangle {
     },\
     "pattern": "Iso WRG 4s",\
     "height": 6.5,\
-    "maxRange": 8889.6,\
+    "maxRange": 12964.0,\
     "sectors": [\
       {\
-        "color": "red",\
-        "start": 53.5,\
-        "stop": 74.1\
+        "color": "green",\
+        "start": 53.3,\
+        "stop": 74.5\
       },\
       {\
         "color": "white",\
-        "start": 74.1,\
-        "stop": 89.6\
+        "start": 74.5,\
+        "stop": 89.3\
+      },\
+      {\
+        "color": "red",\
+        "start": 89.3,\
+        "stop": 175.4\
       },\
       {\
         "color": "green",\
-        "start": 89.6,\
-        "stop": 182.8\
+        "start": 175.4,\
+        "stop": 182.9\
       },\
       {\
         "color": "white",\
-        "start": 182.8,\
-        "stop": 187.3\
+        "start": 182.9,\
+        "stop": 187.0\
       },\
       {\
         "color": "red",\
-        "start": 187.3,\
+        "start": 187.0,\
         "stop": 212.9\
       },\
       {\
         "color": "green",\
         "start": 212.9,\
-        "stop": 227.3\
+        "stop": 241.9\
       }\
     ]\
   },\
@@ -160885,8 +161250,8 @@ Rectangle {
   },\
   {\
     "name": "Tannøya",\
-    "latitude": 68.15122333333333,\
-    "longitude": 15.764105,\
+    "latitude": 68.15121666666667,\
+    "longitude": 15.764108333333333,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 2,\
@@ -160895,21 +161260,21 @@ Rectangle {
     },\
     "pattern": "Oc (2) WRG 8s",\
     "height": 11.3,\
-    "maxRange": 9815.6,\
+    "maxRange": 13149.199999999999,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 53.0,\
-        "stop": 148.0\
+        "start": 53.7,\
+        "stop": 148.2\
       },\
       {\
         "color": "white",\
-        "start": 148.0,\
-        "stop": 167.0\
+        "start": 148.2,\
+        "stop": 166.7\
       },\
       {\
         "color": "red",\
-        "start": 167.0,\
+        "start": 166.7,\
         "stop": 210.8\
       },\
       {\
@@ -160931,6 +161296,27 @@ Rectangle {
     },\
     "pattern": "Fl R 3s",\
     "height": 9.3,\
+    "maxRange": 4074.4000000000005,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Holmgrunnen V",\
+    "latitude": 68.12752333333333,\
+    "longitude": 15.745213333333334,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 2.0\
+    },\
+    "pattern": "Iso R 2s",\
+    "height": 4.5,\
     "maxRange": 4074.4000000000005,\
     "sectors": [\
       {\
@@ -161026,8 +161412,8 @@ Rectangle {
   },\
   {\
     "name": "Nordkilklubben",\
-    "latitude": 68.16153666666666,\
-    "longitude": 15.87149,\
+    "latitude": 68.16154166666666,\
+    "longitude": 15.871476666666666,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -161036,31 +161422,36 @@ Rectangle {
     },\
     "pattern": "Iso WRG 6s",\
     "height": 10.4,\
-    "maxRange": 9148.880000000001,\
+    "maxRange": 12964.0,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 342.0,\
-        "stop": 6.6\
+        "start": 342.1,\
+        "stop": 7.3\
       },\
       {\
         "color": "white",\
-        "start": 6.6,\
-        "stop": 19.9\
+        "start": 7.3,\
+        "stop": 19.5\
       },\
       {\
         "color": "red",\
-        "start": 19.9,\
-        "stop": 146.2\
-      },\
-      {\
-        "color": "white",\
-        "start": 146.2,\
-        "stop": 152.7\
+        "start": 19.5,\
+        "stop": 51.4\
       },\
       {\
         "color": "green",\
-        "start": 152.7,\
+        "start": 51.4,\
+        "stop": 146.5\
+      },\
+      {\
+        "color": "white",\
+        "start": 146.5,\
+        "stop": 152.3\
+      },\
+      {\
+        "color": "red",\
+        "start": 152.3,\
         "stop": 159.5\
       }\
     ]\
@@ -161068,7 +161459,7 @@ Rectangle {
   {\
     "name": "Korsnes",\
     "latitude": 68.25390333333333,\
-    "longitude": 16.06570333333333,\
+    "longitude": 16.065696666666668,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -161077,52 +161468,73 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 8.1,\
-    "maxRange": 11297.199999999999,\
+    "maxRange": 15371.600000000002,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 143.6,\
-        "stop": 145.2\
+        "start": 143.9,\
+        "stop": 145.5\
       },\
       {\
         "color": "white",\
-        "start": 145.2,\
-        "stop": 163.8\
+        "start": 145.5,\
+        "stop": 163.1\
       },\
       {\
         "color": "red",\
-        "start": 163.8,\
-        "stop": 267.5\
+        "start": 163.1,\
+        "stop": 269.9\
       },\
       {\
         "color": "green",\
-        "start": 273.1,\
-        "stop": 282.1\
+        "start": 269.9,\
+        "stop": 280.0\
       },\
       {\
         "color": "white",\
-        "start": 282.1,\
-        "stop": 283.8\
+        "start": 280.0,\
+        "stop": 283.3\
       },\
       {\
         "color": "red",\
-        "start": 283.8,\
-        "stop": 313.4\
+        "start": 283.3,\
+        "stop": 314.8\
       },\
       {\
         "color": "green",\
-        "start": 316.8,\
+        "start": 314.8,\
         "stop": 320.4\
       },\
       {\
         "color": "white",\
         "start": 320.4,\
-        "stop": 333.4\
+        "stop": 332.9\
       },\
       {\
         "color": "red",\
-        "start": 333.4,\
-        "stop": 347.4\
+        "start": 332.9,\
+        "stop": 347.1\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Leiknesskjær",\
+    "latitude": 68.23667333333333,\
+    "longitude": 16.079601666666665,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 2.0\
+    },\
+    "pattern": "Iso G 2s",\
+    "height": 7.0,\
+    "maxRange": 5556.0,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
       }\
     ]\
   },\
@@ -161191,8 +161603,8 @@ Rectangle {
   },\
   {\
     "name": "Hundholmen",\
-    "latitude": 68.14515666666667,\
-    "longitude": 16.226631666666666,\
+    "latitude": 68.14515333333334,\
+    "longitude": 16.226641666666666,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -161201,39 +161613,44 @@ Rectangle {
     },\
     "pattern": "Iso WRG 6s",\
     "height": 12.5,\
-    "maxRange": 10000.800000000001,\
+    "maxRange": 16112.399999999998,\
     "sectors": [\
       {\
-        "color": "red",\
-        "start": 82.9,\
+        "color": "green",\
+        "start": 82.4,\
         "stop": 150.1\
       },\
       {\
         "color": "white",\
         "start": 150.1,\
-        "stop": 200.0\
-      },\
-      {\
-        "color": "green",\
-        "start": 200.0,\
-        "stop": 247.6\
+        "stop": 199.8\
       },\
       {\
         "color": "red",\
-        "start": 247.6,\
+        "start": 199.8,\
+        "stop": 247.7\
+      },\
+      {\
+        "color": "green",\
+        "start": 247.7,\
         "stop": 331.0\
       },\
       {\
         "color": "white",\
         "start": 331.0,\
-        "stop": 15.1\
+        "stop": 14.9\
+      },\
+      {\
+        "color": "red",\
+        "start": 14.9,\
+        "stop": 16.2\
       }\
     ]\
   },\
   {\
     "name": "Drag",\
-    "latitude": 68.04833833333333,\
-    "longitude": 16.08384,\
+    "latitude": 68.04834,\
+    "longitude": 16.083851666666668,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 2,\
@@ -161242,32 +161659,37 @@ Rectangle {
     },\
     "pattern": "Oc (2) WRG 8s",\
     "height": 10.9,\
-    "maxRange": 10926.800000000001,\
+    "maxRange": 8148.800000000001,\
     "sectors": [\
       {\
         "color": "green",\
         "start": 108.6,\
-        "stop": 199.2\
+        "stop": 199.3\
       },\
       {\
         "color": "white",\
-        "start": 199.2,\
-        "stop": 233.1\
+        "start": 199.3,\
+        "stop": 232.7\
       },\
       {\
         "color": "red",\
-        "start": 233.1,\
-        "stop": 279.5\
-      },\
-      {\
-        "color": "white",\
-        "start": 279.5,\
-        "stop": 305.1\
+        "start": 232.7,\
+        "stop": 257.4\
       },\
       {\
         "color": "green",\
-        "start": 305.1,\
-        "stop": 308.2\
+        "start": 257.4,\
+        "stop": 280.2\
+      },\
+      {\
+        "color": "white",\
+        "start": 280.2,\
+        "stop": 304.7\
+      },\
+      {\
+        "color": "red",\
+        "start": 304.7,\
+        "stop": 308.1\
       }\
     ]\
   },\
@@ -161399,8 +161821,8 @@ Rectangle {
   },\
   {\
     "name": "Barøya",\
-    "latitude": 68.35385333333333,\
-    "longitude": 16.08038,\
+    "latitude": 68.353855,\
+    "longitude": 16.080376666666666,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 2,\
@@ -161409,64 +161831,74 @@ Rectangle {
     },\
     "pattern": "Oc (2) WRG 8s",\
     "height": 27.5,\
-    "maxRange": 23335.2,\
+    "maxRange": 17779.2,\
     "sectors": [\
       {\
-        "color": "red",\
+        "color": "green",\
         "start": 43.7,\
-        "stop": 46.7\
+        "stop": 47.1\
       },\
       {\
         "color": "white",\
-        "start": 46.7,\
-        "stop": 55.5\
-      },\
-      {\
-        "color": "green",\
-        "start": 55.5,\
-        "stop": 66.3\
-      },\
-      {\
-        "color": "white",\
-        "start": 66.3,\
-        "stop": 94.6\
+        "start": 47.1,\
+        "stop": 55.2\
       },\
       {\
         "color": "red",\
-        "start": 94.6,\
-        "stop": 160.7\
-      },\
-      {\
-        "color": "white",\
-        "start": 160.7,\
-        "stop": 174.0\
+        "start": 55.2,\
+        "stop": 60.1\
       },\
       {\
         "color": "green",\
-        "start": 174.0,\
-        "stop": 230.3\
+        "start": 60.1,\
+        "stop": 66.9\
+      },\
+      {\
+        "color": "white",\
+        "start": 66.9,\
+        "stop": 93.9\
       },\
       {\
         "color": "red",\
-        "start": 237.7,\
-        "stop": 241.6\
-      },\
-      {\
-        "color": "white",\
-        "start": 241.6,\
-        "stop": 248.7\
+        "start": 93.9,\
+        "stop": 118.2\
       },\
       {\
         "color": "green",\
-        "start": 248.7,\
-        "stop": 249.3\
+        "start": 118.2,\
+        "stop": 161.1\
+      },\
+      {\
+        "color": "white",\
+        "start": 161.1,\
+        "stop": 173.6\
+      },\
+      {\
+        "color": "red",\
+        "start": 173.6,\
+        "stop": 229.8\
+      },\
+      {\
+        "color": "green",\
+        "start": 229.8,\
+        "stop": 241.9\
+      },\
+      {\
+        "color": "white",\
+        "start": 241.9,\
+        "stop": 248.1\
+      },\
+      {\
+        "color": "red",\
+        "start": 248.1,\
+        "stop": 248.8\
       }\
     ]\
   },\
   {\
     "name": "Revlsøy",\
     "latitude": 68.33913833333334,\
-    "longitude": 16.217691666666667,\
+    "longitude": 16.217693333333333,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -161475,37 +161907,42 @@ Rectangle {
     },\
     "pattern": "Iso WRG 6s",\
     "height": 6.0,\
-    "maxRange": 8889.6,\
+    "maxRange": 8519.199999999999,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 177.1,\
-        "stop": 190.9\
+        "start": 177.0,\
+        "stop": 191.2\
       },\
       {\
         "color": "white",\
-        "start": 190.9,\
-        "stop": 194.6\
+        "start": 191.2,\
+        "stop": 194.4\
       },\
       {\
         "color": "red",\
-        "start": 194.6,\
-        "stop": 253.0\
-      },\
-      {\
-        "color": "white",\
-        "start": 253.0,\
-        "stop": 259.8\
+        "start": 194.4,\
+        "stop": 249.9\
       },\
       {\
         "color": "green",\
-        "start": 259.8,\
-        "stop": 261.1\
+        "start": 249.9,\
+        "stop": 253.2\
+      },\
+      {\
+        "color": "white",\
+        "start": 253.2,\
+        "stop": 259.4\
+      },\
+      {\
+        "color": "red",\
+        "start": 259.4,\
+        "stop": 68.5\
       }\
     ]\
   },\
   {\
-    "name": "Engelsøy varde",\
+    "name": "Engelsøyvarden",\
     "latitude": 68.35588166666666,\
     "longitude": 16.22398,\
     "character": {\
@@ -161527,8 +161964,8 @@ Rectangle {
   },\
   {\
     "name": "Hamnholmen",\
-    "latitude": 68.362685,\
-    "longitude": 16.265973333333335,\
+    "latitude": 68.36268333333334,\
+    "longitude": 16.265966666666667,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -161537,32 +161974,37 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 5.5,\
-    "maxRange": 17594.0,\
+    "maxRange": 13704.800000000001,\
     "sectors": [\
       {\
+        "color": "green",\
+        "start": 344.9,\
+        "stop": 357.1\
+      },\
+      {\
         "color": "red",\
-        "start": 344.7,\
-        "stop": 357.0\
+        "start": 357.1,\
+        "stop": 72.4\
       },\
       {\
         "color": "green",\
-        "start": 357.0,\
-        "stop": 72.2\
-      },\
-      {\
-        "color": "red",\
-        "start": 72.2,\
-        "stop": 87.3\
+        "start": 72.4,\
+        "stop": 87.8\
       },\
       {\
         "color": "white",\
-        "start": 87.3,\
-        "stop": 112.8\
+        "start": 87.8,\
+        "stop": 112.7\
+      },\
+      {\
+        "color": "red",\
+        "start": 112.7,\
+        "stop": 164.5\
       },\
       {\
         "color": "green",\
-        "start": 112.8,\
-        "stop": 127.9\
+        "start": 164.5,\
+        "stop": 188.4\
       }\
     ]\
   },\
@@ -161609,9 +162051,9 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Forrneset",\
-    "latitude": 68.314605,\
-    "longitude": 16.368138333333334,\
+    "name": "Forneset",\
+    "latitude": 68.31461,\
+    "longitude": 16.368141666666666,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 2,\
@@ -161620,85 +162062,90 @@ Rectangle {
     },\
     "pattern": "Oc (2) WRG 8s",\
     "height": 3.5,\
-    "maxRange": 8704.4,\
+    "maxRange": 10000.800000000001,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 105.2,\
-        "stop": 112.8\
+        "start": 105.4,\
+        "stop": 112.9\
       },\
       {\
         "color": "white",\
-        "start": 112.8,\
-        "stop": 116.0\
+        "start": 112.9,\
+        "stop": 115.7\
       },\
       {\
         "color": "red",\
-        "start": 116.0,\
-        "stop": 128.4\
+        "start": 115.7,\
+        "stop": 128.3\
       },\
       {\
         "color": "green",\
-        "start": 128.4,\
-        "stop": 293.7\
+        "start": 128.3,\
+        "stop": 294.2\
       },\
       {\
         "color": "white",\
-        "start": 293.7,\
-        "stop": 297.1\
+        "start": 294.2,\
+        "stop": 296.9\
       },\
       {\
         "color": "red",\
-        "start": 297.1,\
-        "stop": 300.3\
+        "start": 296.9,\
+        "stop": 299.7\
       }\
     ]\
   },\
   {\
     "name": "Hamnnesholmen",\
-    "latitude": 68.4214,\
-    "longitude": 16.580963333333333,\
+    "latitude": 68.42139833333333,\
+    "longitude": 16.58102,\
     "character": {\
-      "light_class": "None",\
-      "numflash": 0,\
+      "light_class": "Oc",\
+      "numflash": 3,\
       "extra_class": null,\
-      "period": 0\
+      "period": 10.0\
     },\
-    "pattern": null,\
+    "pattern": "Oc (3) WRG 10s",\
     "height": 11.5,\
-    "maxRange": 19446.0,\
+    "maxRange": 15001.199999999999,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 57.5,\
-        "stop": 73.2\
+        "start": 58.3,\
+        "stop": 73.5\
       },\
       {\
         "color": "white",\
-        "start": 73.2,\
-        "stop": 126.2\
+        "start": 73.5,\
+        "stop": 124.8\
       },\
       {\
         "color": "red",\
-        "start": 126.2,\
-        "stop": 255.1\
-      },\
-      {\
-        "color": "white",\
-        "start": 255.1,\
-        "stop": 262.4\
+        "start": 124.8,\
+        "stop": 248.1\
       },\
       {\
         "color": "green",\
-        "start": 262.4,\
-        "stop": 267.0\
+        "start": 248.1,\
+        "stop": 255.3\
+      },\
+      {\
+        "color": "white",\
+        "start": 255.3,\
+        "stop": 262.2\
+      },\
+      {\
+        "color": "red",\
+        "start": 262.2,\
+        "stop": 263.1\
       }\
     ]\
   },\
   {\
     "name": "Kjeldebotn",\
-    "latitude": 68.41322333333333,\
-    "longitude": 16.673813333333335,\
+    "latitude": 68.413225,\
+    "longitude": 16.673811666666666,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -161707,85 +162154,116 @@ Rectangle {
     },\
     "pattern": "Iso WR 6s",\
     "height": 4.3,\
-    "maxRange": 8889.6,\
+    "maxRange": 12408.4,\
     "sectors": [\
       {\
-        "color": "white",\
-        "start": 347.5,\
-        "stop": 75.0\
-      },\
-      {\
-        "color": "red",\
-        "start": 75.0,\
-        "stop": 151.1\
+        "color": "green",\
+        "start": 340.2,\
+        "stop": 0.3\
       },\
       {\
         "color": "white",\
-        "start": 151.1,\
-        "stop": 191.1\
+        "start": 0.3,\
+        "stop": 38.3\
       },\
       {\
         "color": "red",\
-        "start": 191.1,\
-        "stop": 237.9\
+        "start": 38.3,\
+        "stop": 79.9\
+      },\
+      {\
+        "color": "green",\
+        "start": 79.9,\
+        "stop": 151.0\
+      },\
+      {\
+        "color": "white",\
+        "start": 151.0,\
+        "stop": 190.8\
+      },\
+      {\
+        "color": "red",\
+        "start": 190.8,\
+        "stop": 234.8\
       }\
     ]\
   },\
   {\
     "name": "Liland",\
-    "latitude": 68.465015,\
-    "longitude": 16.909066666666668,\
+    "latitude": 68.46513833333333,\
+    "longitude": 16.909191666666665,\
+    "character": {\
+      "light_class": "Oc",\
+      "numflash": 2,\
+      "extra_class": null,\
+      "period": 8.0\
+    },\
+    "pattern": "Oc (2) WRG 8s",\
+    "height": 9.0,\
+    "maxRange": 12593.6,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 283.6,\
+        "stop": 290.3\
+      },\
+      {\
+        "color": "white",\
+        "start": 290.3,\
+        "stop": 53.4\
+      },\
+      {\
+        "color": "red",\
+        "start": 53.4,\
+        "stop": 65.7\
+      },\
+      {\
+        "color": "green",\
+        "start": 65.7,\
+        "stop": 76.1\
+      },\
+      {\
+        "color": "white",\
+        "start": 76.1,\
+        "stop": 86.7\
+      },\
+      {\
+        "color": "red",\
+        "start": 86.7,\
+        "stop": 160.0\
+      },\
+      {\
+        "color": "green",\
+        "start": 160.0,\
+        "stop": 179.1\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Lilandsgrunnen",\
+    "latitude": 68.447275,\
+    "longitude": 16.831985,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
       "extra_class": null,\
-      "period": 6.0\
+      "period": 4.0\
     },\
-    "pattern": "Iso WRG 6s",\
-    "height": 6.5,\
-    "maxRange": 10000.800000000001,\
+    "pattern": "Iso R 4s",\
+    "height": 8.0,\
+    "maxRange": 5556.0,\
     "sectors": [\
       {\
-        "color": "green",\
-        "start": 284.4,\
-        "stop": 290.8\
-      },\
-      {\
-        "color": "white",\
-        "start": 290.8,\
-        "stop": 54.2\
-      },\
-      {\
         "color": "red",\
-        "start": 54.2,\
-        "stop": 65.6\
-      },\
-      {\
-        "color": "green",\
-        "start": 70.1,\
-        "stop": 76.9\
-      },\
-      {\
-        "color": "white",\
-        "start": 76.9,\
-        "stop": 89.4\
-      },\
-      {\
-        "color": "red",\
-        "start": 89.4,\
-        "stop": 152.1\
-      },\
-      {\
-        "color": "green",\
-        "start": 162.1,\
-        "stop": 179.3\
+        "start": 0.0,\
+        "stop": 360.0\
       }\
     ]\
   },\
   {\
     "name": "Skogøya",\
-    "latitude": 68.49375333333333,\
-    "longitude": 16.972888333333334,\
+    "latitude": 68.4937,\
+    "longitude": 16.972871666666666,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -161794,44 +162272,44 @@ Rectangle {
     },\
     "pattern": "Iso WRG 6s",\
     "height": 5.5,\
-    "maxRange": 8889.6,\
+    "maxRange": 12223.199999999999,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 162.5,\
+        "start": 162.4,\
         "stop": 176.7\
       },\
       {\
         "color": "white",\
         "start": 176.7,\
-        "stop": 193.4\
+        "stop": 193.3\
       },\
       {\
         "color": "red",\
-        "start": 193.4,\
-        "stop": 221.9\
+        "start": 193.3,\
+        "stop": 224.9\
       },\
       {\
         "color": "green",\
-        "start": 230.9,\
-        "stop": 344.0\
+        "start": 224.9,\
+        "stop": 344.1\
       },\
       {\
         "color": "white",\
-        "start": 344.0,\
+        "start": 344.1,\
         "stop": 353.0\
       },\
       {\
         "color": "red",\
         "start": 353.0,\
-        "stop": 5.1\
+        "stop": 5.3\
       }\
     ]\
   },\
   {\
-    "name": "Sletbakken",\
-    "latitude": 68.51931666666667,\
-    "longitude": 16.965213333333335,\
+    "name": "Slettebakken",\
+    "latitude": 68.51932666666667,\
+    "longitude": 16.965226666666666,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -161840,21 +162318,26 @@ Rectangle {
     },\
     "pattern": "Iso WRG 2s",\
     "height": 7.6,\
-    "maxRange": 14260.4,\
+    "maxRange": 12964.0,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 255.2,\
+        "start": 254.3,\
         "stop": 303.0\
       },\
       {\
         "color": "white",\
         "start": 303.0,\
-        "stop": 322.0\
+        "stop": 320.0\
       },\
       {\
         "color": "red",\
-        "start": 322.0,\
+        "start": 320.0,\
+        "stop": 325.4\
+      },\
+      {\
+        "color": "green",\
+        "start": 325.4,\
         "stop": 344.8\
       },\
       {\
@@ -161863,67 +162346,109 @@ Rectangle {
         "stop": 349.9\
       },\
       {\
-        "color": "green",\
+        "color": "red",\
         "start": 349.9,\
-        "stop": 28.9\
+        "stop": 28.8\
       },\
       {\
+        "color": "green",\
+        "start": 28.8,\
+        "stop": 52.1\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Kvannholmflu",\
+    "latitude": 68.49209666666667,\
+    "longitude": 17.00997,\
+    "character": {\
+      "light_class": "Q",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 1.0\
+    },\
+    "pattern": "Q R",\
+    "height": 9.0,\
+    "maxRange": 4074.4000000000005,\
+    "sectors": [\
+      {\
         "color": "red",\
-        "start": 28.9,\
-        "stop": 51.8\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Kvannholmgrunnen",\
+    "latitude": 68.49779833333334,\
+    "longitude": 17.010605,\
+    "character": {\
+      "light_class": "Fl",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 3.0\
+    },\
+    "pattern": "Fl R 3s",\
+    "height": 3.0,\
+    "maxRange": 4074.4000000000005,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
       }\
     ]\
   },\
   {\
     "name": "Østervik",\
     "latitude": 68.50222166666667,\
-    "longitude": 17.069725,\
+    "longitude": 17.069728333333334,\
     "character": {\
       "light_class": "Oc",\
-      "numflash": 2,\
+      "numflash": 1,\
       "extra_class": null,\
-      "period": 8.0\
+      "period": 6.0\
     },\
-    "pattern": "Oc (2) WRG 8s",\
+    "pattern": "Oc WRG 6s",\
     "height": 5.8,\
-    "maxRange": 18520.0,\
+    "maxRange": 12223.199999999999,\
     "sectors": [\
       {\
-        "color": "red",\
-        "start": 24.4,\
-        "stop": 33.1\
+        "color": "green",\
+        "start": 24.0,\
+        "stop": 32.9\
       },\
       {\
         "color": "white",\
-        "start": 33.1,\
-        "stop": 45.1\
-      },\
-      {\
-        "color": "green",\
-        "start": 45.1,\
-        "stop": 78.8\
+        "start": 32.9,\
+        "stop": 44.8\
       },\
       {\
         "color": "red",\
-        "start": 78.8,\
-        "stop": 97.9\
-      },\
-      {\
-        "color": "white",\
-        "start": 97.9,\
-        "stop": 108.6\
+        "start": 44.8,\
+        "stop": 78.7\
       },\
       {\
         "color": "green",\
-        "start": 108.6,\
-        "stop": 109.7\
+        "start": 78.7,\
+        "stop": 97.8\
+      },\
+      {\
+        "color": "white",\
+        "start": 97.8,\
+        "stop": 109.9\
+      },\
+      {\
+        "color": "red",\
+        "start": 109.9,\
+        "stop": 114.2\
       }\
     ]\
   },\
   {\
     "name": "Kårholmen",\
     "latitude": 68.37340166666667,\
-    "longitude": 16.912768333333332,\
+    "longitude": 16.912771666666668,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -161932,54 +162457,54 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 11.2,\
-    "maxRange": 19075.600000000002,\
+    "maxRange": 13149.199999999999,\
     "sectors": [\
       {\
         "color": "red",\
-        "start": 163.7,\
-        "stop": 187.9\
+        "start": 139.4,\
+        "stop": 194.4\
       },\
       {\
         "color": "green",\
-        "start": 202.7,\
-        "stop": 224.4\
+        "start": 194.4,\
+        "stop": 224.7\
       },\
       {\
         "color": "white",\
-        "start": 224.4,\
-        "stop": 247.2\
+        "start": 224.7,\
+        "stop": 246.5\
       },\
       {\
         "color": "red",\
-        "start": 247.2,\
-        "stop": 278.6\
+        "start": 246.5,\
+        "stop": 278.2\
       },\
       {\
         "color": "green",\
-        "start": 278.6,\
-        "stop": 289.8\
+        "start": 278.2,\
+        "stop": 289.9\
       },\
       {\
         "color": "white",\
-        "start": 289.8,\
-        "stop": 297.6\
+        "start": 289.9,\
+        "stop": 297.3\
       },\
       {\
         "color": "red",\
-        "start": 297.6,\
-        "stop": 5.2\
+        "start": 297.3,\
+        "stop": 4.8\
       },\
       {\
         "color": "green",\
-        "start": 5.2,\
-        "stop": 30.2\
+        "start": 4.8,\
+        "stop": 29.8\
       }\
     ]\
   },\
   {\
     "name": "Fornes",\
     "latitude": 68.45031666666667,\
-    "longitude": 17.048105,\
+    "longitude": 17.048111666666667,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -161988,27 +162513,27 @@ Rectangle {
     },\
     "pattern": "Iso WRG 6s",\
     "height": 21.5,\
-    "maxRange": 10000.800000000001,\
+    "maxRange": 12964.0,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 265.2,\
-        "stop": 265.9\
+        "start": 265.3,\
+        "stop": 266.4\
       },\
       {\
         "color": "white",\
-        "start": 265.9,\
-        "stop": 86.1\
+        "start": 266.4,\
+        "stop": 85.7\
       },\
       {\
         "color": "red",\
-        "start": 86.1,\
-        "stop": 90.8\
+        "start": 85.7,\
+        "stop": 92.8\
       },\
       {\
         "color": "green",\
-        "start": 94.4,\
-        "stop": 96.4\
+        "start": 92.8,\
+        "stop": 95.2\
       }\
     ]\
   },\
@@ -162035,8 +162560,8 @@ Rectangle {
   },\
   {\
     "name": "Trong-Skjomneset",\
-    "latitude": 68.370925,\
-    "longitude": 17.247605,\
+    "latitude": 68.37093,\
+    "longitude": 17.247628333333335,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -162045,32 +162570,37 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 7.4,\
-    "maxRange": 16297.600000000002,\
+    "maxRange": 13149.199999999999,\
     "sectors": [\
       {\
-        "color": "red",\
-        "start": 342.4,\
-        "stop": 346.2\
+        "color": "green",\
+        "start": 342.6,\
+        "stop": 346.5\
       },\
       {\
         "color": "white",\
-        "start": 346.2,\
-        "stop": 358.7\
+        "start": 346.5,\
+        "stop": 358.5\
+      },\
+      {\
+        "color": "red",\
+        "start": 358.5,\
+        "stop": 115.2\
       },\
       {\
         "color": "green",\
-        "start": 358.7,\
-        "stop": 136.4\
+        "start": 115.2,\
+        "stop": 136.8\
       },\
       {\
         "color": "white",\
-        "start": 136.4,\
-        "stop": 157.5\
+        "start": 136.8,\
+        "stop": 157.2\
       },\
       {\
         "color": "red",\
-        "start": 157.5,\
-        "stop": 167.1\
+        "start": 157.2,\
+        "stop": 167.0\
       }\
     ]\
   },\
@@ -162097,49 +162627,54 @@ Rectangle {
   },\
   {\
     "name": "Aspelund",\
-    "latitude": 68.28409,\
-    "longitude": 17.373543333333334,\
+    "latitude": 68.2841,\
+    "longitude": 17.373548333333332,\
     "character": {\
-      "light_class": "None",\
-      "numflash": 0,\
+      "light_class": "Oc",\
+      "numflash": 2,\
       "extra_class": null,\
-      "period": 0\
+      "period": 8.0\
     },\
-    "pattern": null,\
+    "pattern": "Oc (2) WRG 8s",\
     "height": 6.0,\
-    "maxRange": 12964.0,\
+    "maxRange": 11112.0,\
     "sectors": [\
       {\
-        "color": "red",\
+        "color": "green",\
         "start": 334.1,\
-        "stop": 15.3\
+        "stop": 15.4\
       },\
       {\
         "color": "white",\
-        "start": 15.3,\
-        "stop": 20.4\
+        "start": 15.4,\
+        "stop": 19.9\
+      },\
+      {\
+        "color": "red",\
+        "start": 19.9,\
+        "stop": 75.9\
       },\
       {\
         "color": "green",\
-        "start": 20.4,\
-        "stop": 117.0\
+        "start": 75.9,\
+        "stop": 120.5\
       },\
       {\
         "color": "white",\
-        "start": 117.0,\
-        "stop": 129.6\
+        "start": 120.5,\
+        "stop": 129.1\
       },\
       {\
         "color": "red",\
-        "start": 129.6,\
-        "stop": 135.1\
+        "start": 129.1,\
+        "stop": 135.2\
       }\
     ]\
   },\
   {\
     "name": "Narvik",\
-    "latitude": 68.42623833333333,\
-    "longitude": 17.356395,\
+    "latitude": 68.426245,\
+    "longitude": 17.356413333333332,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -162148,32 +162683,37 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 7.3,\
-    "maxRange": 5926.400000000001,\
+    "maxRange": 5185.599999999999,\
     "sectors": [\
       {\
-        "color": "red",\
-        "start": 77.0,\
-        "stop": 82.8\
+        "color": "green",\
+        "start": 80.2,\
+        "stop": 83.9\
       },\
       {\
         "color": "white",\
-        "start": 82.8,\
-        "stop": 100.8\
+        "start": 83.9,\
+        "stop": 208.3\
       },\
       {\
         "color": "red",\
-        "start": 208.5,\
-        "stop": 256.7\
-      },\
-      {\
-        "color": "white",\
-        "start": 256.7,\
-        "stop": 266.4\
+        "start": 208.3,\
+        "stop": 231.6\
       },\
       {\
         "color": "green",\
-        "start": 266.4,\
-        "stop": 295.7\
+        "start": 231.6,\
+        "stop": 257.8\
+      },\
+      {\
+        "color": "white",\
+        "start": 257.8,\
+        "stop": 266.8\
+      },\
+      {\
+        "color": "red",\
+        "start": 266.8,\
+        "stop": 290.1\
       }\
     ]\
   },\
@@ -162308,9 +162848,30 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Søre Rambøeskjæret",\
+    "name": "Vargnesøra",\
+    "latitude": 68.46157833333334,\
+    "longitude": 16.510463333333334,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 2.0\
+    },\
+    "pattern": "Iso R 2s",\
+    "height": 7.0,\
+    "maxRange": 4074.4000000000005,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Søre Rambøskjæret",\
     "latitude": 68.49774,\
-    "longitude": 16.477215,\
+    "longitude": 16.477216666666667,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 2,\
@@ -162319,27 +162880,32 @@ Rectangle {
     },\
     "pattern": "Oc (2) WRG 8s",\
     "height": 4.0,\
-    "maxRange": 8704.4,\
+    "maxRange": 6111.599999999999,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 112.0,\
+        "start": 112.1,\
         "stop": 125.0\
       },\
       {\
         "color": "red",\
         "start": 125.0,\
-        "stop": 296.8\
-      },\
-      {\
-        "color": "white",\
-        "start": 296.8,\
-        "stop": 311.8\
+        "stop": 289.7\
       },\
       {\
         "color": "green",\
-        "start": 311.8,\
-        "stop": 333.4\
+        "start": 289.7,\
+        "stop": 296.1\
+      },\
+      {\
+        "color": "white",\
+        "start": 296.1,\
+        "stop": 311.6\
+      },\
+      {\
+        "color": "red",\
+        "start": 311.6,\
+        "stop": 333.0\
       }\
     ]\
   },\
@@ -162553,48 +163119,6 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Stokkerenna, nedre",\
-    "latitude": 68.53892,\
-    "longitude": 16.420296666666665,\
-    "character": {\
-      "light_class": "Iso",\
-      "numflash": 1,\
-      "extra_class": null,\
-      "period": 2.0\
-    },\
-    "pattern": "Iso W 2s",\
-    "height": 5.0,\
-    "maxRange": 15186.399999999998,\
-    "sectors": [\
-      {\
-        "color": "white",\
-        "start": 189.0,\
-        "stop": 197.0\
-      }\
-    ]\
-  },\
-  {\
-    "name": "Stokkerenna, øvre",\
-    "latitude": 68.53810833333333,\
-    "longitude": 16.41979,\
-    "character": {\
-      "light_class": "Oc",\
-      "numflash": 1,\
-      "extra_class": null,\
-      "period": 6.0\
-    },\
-    "pattern": "Oc W 6s",\
-    "height": 8.5,\
-    "maxRange": 15742.0,\
-    "sectors": [\
-      {\
-        "color": "white",\
-        "start": 189.0,\
-        "stop": 197.0\
-      }\
-    ]\
-  },\
-  {\
     "name": "Stokkerenna, SV",\
     "latitude": 68.54242,\
     "longitude": 16.421741666666666,\
@@ -162631,6 +163155,27 @@ Rectangle {
     "sectors": [\
       {\
         "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Stokkerenna, NØ",\
+    "latitude": 68.543565,\
+    "longitude": 16.423646666666667,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 4.0\
+    },\
+    "pattern": "Iso G 4s",\
+    "height": 6.0,\
+    "maxRange": 4630.0,\
+    "sectors": [\
+      {\
+        "color": "green",\
         "start": 0.0,\
         "stop": 360.0\
       }\
@@ -162701,8 +163246,8 @@ Rectangle {
   },\
   {\
     "name": "Lødingen",\
-    "latitude": 68.411945,\
-    "longitude": 16.009363333333333,\
+    "latitude": 68.41195166666667,\
+    "longitude": 16.009376666666668,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -162711,52 +163256,52 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 22.0,\
-    "maxRange": 20186.8,\
+    "maxRange": 17779.2,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 165.4,\
-        "stop": 207.5\
+        "start": 166.1,\
+        "stop": 207.8\
       },\
       {\
         "color": "white",\
-        "start": 207.5,\
-        "stop": 215.0\
+        "start": 207.8,\
+        "stop": 214.7\
       },\
       {\
         "color": "red",\
-        "start": 215.0,\
-        "stop": 234.0\
+        "start": 214.7,\
+        "stop": 234.1\
       },\
       {\
         "color": "green",\
-        "start": 234.0,\
-        "stop": 306.8\
+        "start": 234.1,\
+        "stop": 307.1\
       },\
       {\
         "color": "white",\
-        "start": 306.8,\
-        "stop": 345.1\
+        "start": 307.1,\
+        "stop": 344.7\
       },\
       {\
         "color": "red",\
-        "start": 345.1,\
-        "stop": 354.9\
+        "start": 344.7,\
+        "stop": 354.8\
       },\
       {\
         "color": "green",\
-        "start": 354.9,\
-        "stop": 356.7\
+        "start": 354.8,\
+        "stop": 356.9\
       },\
       {\
         "color": "white",\
-        "start": 356.7,\
-        "stop": 24.5\
+        "start": 356.9,\
+        "stop": 24.0\
       },\
       {\
         "color": "red",\
-        "start": 24.5,\
-        "stop": 43.6\
+        "start": 24.0,\
+        "stop": 43.3\
       }\
     ]\
   },\
@@ -163969,17 +164514,17 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Trongstraumen",\
-    "latitude": 68.41401833333333,\
-    "longitude": 15.133688333333334,\
+    "name": "Trongstraumen NØ",\
+    "latitude": 68.41411,\
+    "longitude": 15.133683333333334,\
     "character": {\
-      "light_class": "Iso",\
+      "light_class": "Q",\
       "numflash": 1,\
       "extra_class": null,\
-      "period": 2.0\
+      "period": 1.0\
     },\
-    "pattern": "Iso G 2s",\
-    "height": 6.5,\
+    "pattern": "Q G",\
+    "height": 7.0,\
     "maxRange": 5000.400000000001,\
     "sectors": [\
       {\
@@ -164254,7 +164799,38 @@ Rectangle {
     "pattern": "Oc WRG 6s",\
     "height": 11.0,\
     "maxRange": 16112.399999999998,\
-    "sectors": []\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 198.0,\
+        "stop": 199.3\
+      },\
+      {\
+        "color": "white",\
+        "start": 199.3,\
+        "stop": 203.1\
+      },\
+      {\
+        "color": "red",\
+        "start": 203.1,\
+        "stop": 18.6\
+      },\
+      {\
+        "color": "green",\
+        "start": 18.6,\
+        "stop": 30.7\
+      },\
+      {\
+        "color": "white",\
+        "start": 30.7,\
+        "stop": 32.9\
+      },\
+      {\
+        "color": "red",\
+        "start": 32.9,\
+        "stop": 39.5\
+      }\
+    ]\
   },\
   {\
     "name": "Steinbakken",\
@@ -165295,18 +165871,18 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Kvalbaken",\
-    "latitude": 68.22559333333334,\
-    "longitude": 14.634515,\
+    "name": "Kvalbaken Østside",\
+    "latitude": 68.22549333333333,\
+    "longitude": 14.635798333333334,\
     "character": {\
-      "light_class": "Fl",\
-      "numflash": 1,\
+      "light_class": "Q",\
+      "numflash": 3,\
       "extra_class": null,\
-      "period": 3.0\
+      "period": 10.0\
     },\
-    "pattern": "Fl W 3s",\
-    "height": 10.0,\
-    "maxRange": 9630.4,\
+    "pattern": "Q (3) W 10s",\
+    "height": 2.0,\
+    "maxRange": 5556.0,\
     "sectors": [\
       {\
         "color": "white",\
@@ -166575,6 +167151,90 @@ Rectangle {
     ]\
   },\
   {\
+    "name": "Kvitvaren Ø",\
+    "latitude": 68.14651166666667,\
+    "longitude": 14.201168333333333,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 2.0\
+    },\
+    "pattern": "Iso R 2s",\
+    "height": 11.0,\
+    "maxRange": 3704.0,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Flatholmen V",\
+    "latitude": 68.14739666666667,\
+    "longitude": 14.206305,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 2.0\
+    },\
+    "pattern": "Iso G 2s",\
+    "height": 6.0,\
+    "maxRange": 3704.0,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Saltværsholmen Ø",\
+    "latitude": 68.15011833333334,\
+    "longitude": 14.210106666666666,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 2.0\
+    },\
+    "pattern": "Iso R 2s",\
+    "height": 6.0,\
+    "maxRange": 3704.0,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Banhammerskjæret",\
+    "latitude": 68.154075,\
+    "longitude": 14.21422,\
+    "character": {\
+      "light_class": "Q",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 1.0\
+    },\
+    "pattern": "Q G",\
+    "height": 6.0,\
+    "maxRange": 3518.7999999999997,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
     "name": "Stampen",\
     "latitude": 68.13744,\
     "longitude": 14.135866666666667,\
@@ -166608,6 +167268,27 @@ Rectangle {
     "pattern": "Q W",\
     "height": 15.0,\
     "maxRange": 7408.0,\
+    "sectors": [\
+      {\
+        "color": "white",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Innerholmen",\
+    "latitude": 68.15624833333334,\
+    "longitude": 14.211815,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 2.0\
+    },\
+    "pattern": "Iso W 2s",\
+    "height": 6.0,\
+    "maxRange": 1852.0,\
     "sectors": [\
       {\
         "color": "white",\
@@ -166762,7 +167443,7 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Gimsøystraumen bru",\
+    "name": "Gimsøystraumbrua",\
     "latitude": 68.262975,\
     "longitude": 14.247835,\
     "character": {\
@@ -168430,8 +169111,8 @@ Rectangle {
   },\
   {\
     "name": "Brandsholmbåen",\
-    "latitude": 68.05207166666666,\
-    "longitude": 13.662753333333333,\
+    "latitude": 68.05150166666667,\
+    "longitude": 13.669841666666667,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -168439,7 +169120,7 @@ Rectangle {
       "period": 2.0\
     },\
     "pattern": "Iso W 2s",\
-    "height": 14.3,\
+    "height": 17.5,\
     "maxRange": 8334.0,\
     "sectors": [\
       {\
@@ -174021,9 +174702,9 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Hanøyvekka",\
-    "latitude": 68.48564666666667,\
-    "longitude": 15.212753333333334,\
+    "name": "Brattholmen",\
+    "latitude": 68.48568333333333,\
+    "longitude": 15.212728333333333,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -174031,57 +174712,57 @@ Rectangle {
       "period": 6.0\
     },\
     "pattern": "Oc WRG 6s",\
-    "height": 18.5,\
-    "maxRange": 13704.800000000001,\
+    "height": 17.0,\
+    "maxRange": 15001.199999999999,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 112.5,\
-        "stop": 137.1\
+        "start": 100.4,\
+        "stop": 137.6\
       },\
       {\
         "color": "white",\
-        "start": 137.1,\
-        "stop": 143.3\
+        "start": 137.6,\
+        "stop": 142.4\
       },\
       {\
         "color": "red",\
-        "start": 143.3,\
-        "stop": 302.0\
+        "start": 142.4,\
+        "stop": 355.0\
       },\
       {\
         "color": "green",\
-        "start": 302.0,\
-        "stop": 12.1\
+        "start": 355.0,\
+        "stop": 13.6\
       },\
       {\
         "color": "white",\
-        "start": 12.1,\
-        "stop": 13.8\
+        "start": 13.6,\
+        "stop": 14.9\
       },\
       {\
         "color": "red",\
-        "start": 13.8,\
-        "stop": 31.1\
+        "start": 14.9,\
+        "stop": 49.8\
       }\
     ]\
   },\
   {\
-    "name": "Skallen",\
-    "latitude": 68.48714333333334,\
-    "longitude": 15.215453333333333,\
+    "name": "Brattholmen N",\
+    "latitude": 68.48601833333333,\
+    "longitude": 15.2128,\
     "character": {\
       "light_class": "Q",\
       "numflash": 1,\
       "extra_class": null,\
       "period": 1.0\
     },\
-    "pattern": "Q G",\
-    "height": 3.5,\
-    "maxRange": 4259.599999999999,\
+    "pattern": "Q R",\
+    "height": 8.0,\
+    "maxRange": 5556.0,\
     "sectors": [\
       {\
-        "color": "green",\
+        "color": "red",\
         "start": 0.0,\
         "stop": 360.0\
       }\
@@ -174110,8 +174791,8 @@ Rectangle {
   },\
   {\
     "name": "Vedøyskallen",\
-    "latitude": 68.48708833333333,\
-    "longitude": 15.212355,\
+    "latitude": 68.48697833333334,\
+    "longitude": 15.212055,\
     "character": {\
       "light_class": "Q",\
       "numflash": 1,\
@@ -174121,6 +174802,27 @@ Rectangle {
     "pattern": "Q G",\
     "height": 2.0,\
     "maxRange": 4259.599999999999,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Vedøyskallen M1",\
+    "latitude": 68.486825,\
+    "longitude": 15.215445,\
+    "character": {\
+      "light_class": "Q",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 1.0\
+    },\
+    "pattern": "Q G",\
+    "height": 2.0,\
+    "maxRange": 4074.4000000000005,\
     "sectors": [\
       {\
         "color": "green",\
@@ -175755,6 +176457,27 @@ Rectangle {
     ]\
   },\
   {\
+    "name": "Søre Husfallan",\
+    "latitude": 68.65554333333333,\
+    "longitude": 14.378558333333334,\
+    "character": {\
+      "light_class": "Fl",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 3.0\
+    },\
+    "pattern": "Fl G 3s",\
+    "height": 2.0,\
+    "maxRange": 5556.0,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
     "name": "Skårvågen molo",\
     "latitude": 68.67902333333333,\
     "longitude": 14.409941666666667,\
@@ -176495,82 +177218,6 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Hovden",\
-    "latitude": 68.81844333333333,\
-    "longitude": 14.55691,\
-    "character": {\
-      "light_class": "Oc",\
-      "numflash": 1,\
-      "extra_class": null,\
-      "period": 6.0\
-    },\
-    "pattern": "Oc WRG 6s",\
-    "height": 9.0,\
-    "maxRange": 16482.8,\
-    "sectors": [\
-      {\
-        "color": "green",\
-        "start": 115.5,\
-        "stop": 127.6\
-      },\
-      {\
-        "color": "white",\
-        "start": 127.6,\
-        "stop": 133.3\
-      },\
-      {\
-        "color": "red",\
-        "start": 133.3,\
-        "stop": 135.1\
-      },\
-      {\
-        "color": "green",\
-        "start": 135.1,\
-        "stop": 162.2\
-      },\
-      {\
-        "color": "white",\
-        "start": 162.2,\
-        "stop": 163.9\
-      },\
-      {\
-        "color": "red",\
-        "start": 163.9,\
-        "stop": 214.6\
-      },\
-      {\
-        "color": "green",\
-        "start": 214.6,\
-        "stop": 216.2\
-      },\
-      {\
-        "color": "white",\
-        "start": 216.2,\
-        "stop": 236.1\
-      },\
-      {\
-        "color": "red",\
-        "start": 236.1,\
-        "stop": 268.6\
-      },\
-      {\
-        "color": "green",\
-        "start": 268.6,\
-        "stop": 270.8\
-      },\
-      {\
-        "color": "white",\
-        "start": 270.8,\
-        "stop": 286.5\
-      },\
-      {\
-        "color": "red",\
-        "start": 286.5,\
-        "stop": 309.4\
-      }\
-    ]\
-  },\
-  {\
     "name": "Buholmen",\
     "latitude": 68.81775833333333,\
     "longitude": 14.554806666666666,\
@@ -176763,8 +177410,8 @@ Rectangle {
   },\
   {\
     "name": "Chefsgrunnen",\
-    "latitude": 68.78422833333333,\
-    "longitude": 14.63266,\
+    "latitude": 68.78423666666667,\
+    "longitude": 14.632681666666667,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -176773,7 +177420,7 @@ Rectangle {
     },\
     "pattern": "Fl G 3s",\
     "height": 3.7,\
-    "maxRange": 3889.2000000000003,\
+    "maxRange": 5741.2,\
     "sectors": [\
       {\
         "color": "green",\
@@ -178969,17 +179616,17 @@ Rectangle {
   },\
   {\
     "name": "Skiplingskjæran",\
-    "latitude": 68.91259166666667,\
-    "longitude": 15.344896666666667,\
+    "latitude": 68.91258833333333,\
+    "longitude": 15.345158333333334,\
     "character": {\
-      "light_class": "Fl",\
+      "light_class": "Iso",\
       "numflash": 1,\
       "extra_class": null,\
-      "period": 3.0\
+      "period": 2.0\
     },\
-    "pattern": "Fl R 3s",\
-    "height": 7.5,\
-    "maxRange": 4444.8,\
+    "pattern": "Iso R 2s",\
+    "height": 11.0,\
+    "maxRange": 6667.2,\
     "sectors": [\
       {\
         "color": "red",\
@@ -179477,7 +180124,7 @@ Rectangle {
     },\
     "pattern": "Iso G 4s",\
     "height": 7.5,\
-    "maxRange": 3333.6,\
+    "maxRange": 2037.2000000000003,\
     "sectors": [\
       {\
         "color": "green",\
@@ -179541,13 +180188,7 @@ Rectangle {
     "pattern": "Iso R 4s",\
     "height": 7.5,\
     "maxRange": 3704.0,\
-    "sectors": [\
-      {\
-        "color": "red",\
-        "start": 0.0,\
-        "stop": 360.0\
-      }\
-    ]\
+    "sectors": []\
   },\
   {\
     "name": "Risøyrenna, 22",\
@@ -179561,7 +180202,7 @@ Rectangle {
     },\
     "pattern": "Iso G 4s",\
     "height": 7.5,\
-    "maxRange": 3333.6,\
+    "maxRange": 2037.2000000000003,\
     "sectors": [\
       {\
         "color": "green",\
@@ -179583,13 +180224,7 @@ Rectangle {
     "pattern": "Iso R 4s",\
     "height": 7.5,\
     "maxRange": 3704.0,\
-    "sectors": [\
-      {\
-        "color": "red",\
-        "start": 0.0,\
-        "stop": 360.0\
-      }\
-    ]\
+    "sectors": []\
   },\
   {\
     "name": "Risøyrenna, 24",\
@@ -179625,13 +180260,7 @@ Rectangle {
     "pattern": "Iso R 4s",\
     "height": 7.5,\
     "maxRange": 2222.4,\
-    "sectors": [\
-      {\
-        "color": "red",\
-        "start": 0.0,\
-        "stop": 360.0\
-      }\
-    ]\
+    "sectors": []\
   },\
   {\
     "name": "Flesaflaket",\
@@ -180325,8 +180954,8 @@ Rectangle {
   },\
   {\
     "name": "Nordstrandskjær",\
-    "latitude": 68.49405666666667,\
-    "longitude": 16.14198,\
+    "latitude": 68.49405833333333,\
+    "longitude": 16.141973333333333,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -180335,37 +180964,37 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 5.3,\
-    "maxRange": 19446.0,\
+    "maxRange": 15742.0,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 11.5,\
+        "start": 13.6,\
         "stop": 18.4\
       },\
       {\
         "color": "white",\
         "start": 18.4,\
-        "stop": 34.1\
+        "stop": 34.0\
       },\
       {\
         "color": "red",\
-        "start": 34.1,\
-        "stop": 83.5\
+        "start": 34.0,\
+        "stop": 42.0\
       },\
       {\
         "color": "green",\
-        "start": 83.5,\
-        "stop": 185.3\
+        "start": 42.0,\
+        "stop": 185.9\
       },\
       {\
         "color": "white",\
-        "start": 185.3,\
-        "stop": 208.6\
+        "start": 185.9,\
+        "stop": 208.4\
       },\
       {\
         "color": "red",\
-        "start": 208.6,\
-        "stop": 211.5\
+        "start": 208.4,\
+        "stop": 212.8\
       }\
     ]\
   },\
@@ -180434,8 +181063,8 @@ Rectangle {
   },\
   {\
     "name": "Staksvollholmen",\
-    "latitude": 68.55635166666667,\
-    "longitude": 16.232578333333333,\
+    "latitude": 68.55635333333333,\
+    "longitude": 16.232583333333334,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 2,\
@@ -180444,42 +181073,42 @@ Rectangle {
     },\
     "pattern": "Oc (2) WRG 8s",\
     "height": 22.3,\
-    "maxRange": 18520.0,\
+    "maxRange": 8148.800000000001,\
     "sectors": [\
       {\
-        "color": "red",\
-        "start": 264.5,\
-        "stop": 275.2\
+        "color": "green",\
+        "start": 263.8,\
+        "stop": 275.3\
       },\
       {\
         "color": "white",\
-        "start": 275.2,\
+        "start": 275.3,\
         "stop": 323.3\
       },\
       {\
-        "color": "green",\
+        "color": "red",\
         "start": 323.3,\
-        "stop": 20.6\
+        "stop": 20.7\
       },\
       {\
-        "color": "red",\
-        "start": 20.6,\
-        "stop": 29.9\
+        "color": "green",\
+        "start": 20.7,\
+        "stop": 30.0\
       },\
       {\
         "color": "white",\
-        "start": 29.9,\
+        "start": 30.0,\
         "stop": 33.9\
       },\
       {\
-        "color": "green",\
+        "color": "red",\
         "start": 33.9,\
-        "stop": 44.4\
+        "stop": 44.9\
       }\
     ]\
   },\
   {\
-    "name": "Ballastadgrunnen",\
+    "name": "Ballastadskallen",\
     "latitude": 68.554835,\
     "longitude": 16.291755,\
     "character": {\
@@ -180502,7 +181131,7 @@ Rectangle {
   {\
     "name": "Ballstadstraumen",\
     "latitude": 68.55664833333333,\
-    "longitude": 16.329393333333332,\
+    "longitude": 16.329395,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -180511,37 +181140,37 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 5.1,\
-    "maxRange": 17408.8,\
+    "maxRange": 13149.199999999999,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 69.0,\
+        "start": 68.9,\
         "stop": 75.9\
       },\
       {\
         "color": "white",\
         "start": 75.9,\
-        "stop": 79.2\
+        "stop": 78.6\
       },\
       {\
         "color": "red",\
-        "start": 79.2,\
-        "stop": 166.7\
+        "start": 78.6,\
+        "stop": 83.8\
       },\
       {\
         "color": "green",\
-        "start": 166.7,\
-        "stop": 237.6\
+        "start": 83.8,\
+        "stop": 239.8\
       },\
       {\
         "color": "white",\
-        "start": 237.6,\
-        "stop": 261.1\
+        "start": 239.8,\
+        "stop": 262.8\
       },\
       {\
         "color": "red",\
-        "start": 261.1,\
-        "stop": 274.3\
+        "start": 262.8,\
+        "stop": 267.8\
       }\
     ]\
   },\
@@ -180590,7 +181219,7 @@ Rectangle {
   {\
     "name": "Hol, nedre",\
     "latitude": 68.54324,\
-    "longitude": 16.41413,\
+    "longitude": 16.41414333333333,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 2,\
@@ -180599,37 +181228,42 @@ Rectangle {
     },\
     "pattern": "Oc (2) WRG 8s",\
     "height": 4.1,\
-    "maxRange": 14075.199999999999,\
+    "maxRange": 12593.6,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 142.0,\
-        "stop": 166.2\
+        "start": 141.7,\
+        "stop": 163.1\
       },\
       {\
         "color": "white",\
-        "start": 166.2,\
-        "stop": 199.8\
+        "start": 163.1,\
+        "stop": 193.6\
       },\
       {\
         "color": "red",\
-        "start": 199.8,\
-        "stop": 236.4\
-      },\
-      {\
-        "color": "white",\
-        "start": 236.4,\
-        "stop": 253.2\
+        "start": 193.6,\
+        "stop": 200.5\
       },\
       {\
         "color": "green",\
-        "start": 253.2,\
-        "stop": 315.5\
+        "start": 200.5,\
+        "stop": 242.9\
+      },\
+      {\
+        "color": "white",\
+        "start": 242.9,\
+        "stop": 246.1\
       },\
       {\
         "color": "red",\
-        "start": 315.5,\
-        "stop": 319.3\
+        "start": 246.1,\
+        "stop": 315.3\
+      },\
+      {\
+        "color": "green",\
+        "start": 315.3,\
+        "stop": 319.0\
       }\
     ]\
   },\
@@ -180761,8 +181395,8 @@ Rectangle {
   },\
   {\
     "name": "Nordøygrunnen",\
-    "latitude": 68.55146666666667,\
-    "longitude": 16.481051666666666,\
+    "latitude": 68.55147333333333,\
+    "longitude": 16.481068333333333,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -180771,32 +181405,37 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 5.8,\
-    "maxRange": 12038.0,\
+    "maxRange": 8889.6,\
     "sectors": [\
       {\
         "color": "green",\
         "start": 76.9,\
-        "stop": 100.6\
+        "stop": 100.7\
       },\
       {\
         "color": "white",\
-        "start": 100.6,\
+        "start": 100.7,\
         "stop": 102.6\
       },\
       {\
         "color": "red",\
         "start": 102.6,\
-        "stop": 224.8\
-      },\
-      {\
-        "color": "white",\
-        "start": 224.8,\
-        "stop": 225.6\
+        "stop": 104.0\
       },\
       {\
         "color": "green",\
-        "start": 225.6,\
-        "stop": 228.6\
+        "start": 104.0,\
+        "stop": 224.6\
+      },\
+      {\
+        "color": "white",\
+        "start": 224.6,\
+        "stop": 225.4\
+      },\
+      {\
+        "color": "red",\
+        "start": 225.4,\
+        "stop": 230.3\
       }\
     ]\
   },\
@@ -180907,8 +181546,8 @@ Rectangle {
   },\
   {\
     "name": "Storbåen",\
-    "latitude": 68.57265666666666,\
-    "longitude": 16.536628333333333,\
+    "latitude": 68.57266,\
+    "longitude": 16.536635,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -180917,37 +181556,42 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 3.2,\
-    "maxRange": 11297.199999999999,\
+    "maxRange": 8519.199999999999,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 34.2,\
-        "stop": 39.3\
+        "start": 32.2,\
+        "stop": 39.4\
       },\
       {\
         "color": "white",\
-        "start": 39.3,\
-        "stop": 42.7\
+        "start": 39.4,\
+        "stop": 42.8\
       },\
       {\
         "color": "red",\
-        "start": 42.7,\
-        "stop": 173.3\
-      },\
-      {\
-        "color": "white",\
-        "start": 173.3,\
-        "stop": 194.0\
+        "start": 42.8,\
+        "stop": 47.9\
       },\
       {\
         "color": "green",\
-        "start": 194.0,\
-        "stop": 279.3\
+        "start": 47.9,\
+        "stop": 173.2\
+      },\
+      {\
+        "color": "white",\
+        "start": 173.2,\
+        "stop": 194.0\
       },\
       {\
         "color": "red",\
-        "start": 279.3,\
-        "stop": 329.9\
+        "start": 194.0,\
+        "stop": 282.5\
+      },\
+      {\
+        "color": "green",\
+        "start": 282.5,\
+        "stop": 332.6\
       }\
     ]\
   },\
@@ -180995,8 +181639,8 @@ Rectangle {
   },\
   {\
     "name": "Fjelldalsholmen",\
-    "latitude": 68.56605333333333,\
-    "longitude": 16.555688333333332,\
+    "latitude": 68.56605833333333,\
+    "longitude": 16.555698333333332,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 2,\
@@ -181004,12 +181648,12 @@ Rectangle {
       "period": 8.0\
     },\
     "pattern": "Oc (2) WRG 8s",\
-    "height": 6.0,\
-    "maxRange": 17779.2,\
+    "height": 7.5,\
+    "maxRange": 8148.800000000001,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 54.9,\
+        "start": 61.0,\
         "stop": 64.5\
       },\
       {\
@@ -181020,21 +181664,21 @@ Rectangle {
       {\
         "color": "red",\
         "start": 67.5,\
-        "stop": 81.5\
+        "stop": 71.4\
       },\
       {\
         "color": "green",\
-        "start": 111.3,\
+        "start": 110.6,\
         "stop": 144.6\
       },\
       {\
         "color": "white",\
         "start": 144.6,\
-        "stop": 174.1\
+        "stop": 173.9\
       },\
       {\
         "color": "red",\
-        "start": 174.1,\
+        "start": 173.9,\
         "stop": 199.4\
       },\
       {\
@@ -181045,12 +181689,12 @@ Rectangle {
       {\
         "color": "white",\
         "start": 301.0,\
-        "stop": 335.3\
+        "stop": 335.4\
       },\
       {\
         "color": "red",\
-        "start": 335.3,\
-        "stop": 346.2\
+        "start": 335.4,\
+        "stop": 346.6\
       }\
     ]\
   },\
@@ -181097,9 +181741,51 @@ Rectangle {
     ]\
   },\
   {\
+    "name": "Tjeldsundbrua, N",\
+    "latitude": 68.628,\
+    "longitude": 16.582811666666668,\
+    "character": {\
+      "light_class": "Fast",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 1.0\
+    },\
+    "pattern": "Fast W lys",\
+    "height": 0.0,\
+    "maxRange": 5556.0,\
+    "sectors": [\
+      {\
+        "color": "white",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Tjeldsundbrua, S",\
+    "latitude": 68.627875,\
+    "longitude": 16.582813333333334,\
+    "character": {\
+      "light_class": "Fast",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 1.0\
+    },\
+    "pattern": "Fast W lys",\
+    "height": 40.0,\
+    "maxRange": 5556.0,\
+    "sectors": [\
+      {\
+        "color": "white",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
     "name": "Langkvitneset",\
-    "latitude": 68.63153,\
-    "longitude": 16.589768333333332,\
+    "latitude": 68.63153166666666,\
+    "longitude": 16.589778333333335,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -181108,31 +181794,36 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 4.7,\
-    "maxRange": 19075.600000000002,\
+    "maxRange": 15371.600000000002,\
     "sectors": [\
       {\
         "color": "green",\
         "start": 22.2,\
-        "stop": 28.3\
+        "stop": 27.5\
       },\
       {\
         "color": "white",\
-        "start": 28.3,\
-        "stop": 35.5\
+        "start": 27.5,\
+        "stop": 35.4\
       },\
       {\
         "color": "red",\
-        "start": 35.5,\
-        "stop": 171.1\
-      },\
-      {\
-        "color": "white",\
-        "start": 206.8,\
-        "stop": 209.2\
+        "start": 35.4,\
+        "stop": 38.0\
       },\
       {\
         "color": "green",\
-        "start": 209.2,\
+        "start": 38.0,\
+        "stop": 206.5\
+      },\
+      {\
+        "color": "white",\
+        "start": 206.5,\
+        "stop": 208.9\
+      },\
+      {\
+        "color": "red",\
+        "start": 208.9,\
         "stop": 216.3\
       }\
     ]\
@@ -181265,8 +181956,8 @@ Rectangle {
   },\
   {\
     "name": "Grasholmen",\
-    "latitude": 68.66973,\
-    "longitude": 16.636053333333333,\
+    "latitude": 68.66974333333333,\
+    "longitude": 16.636098333333333,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 2,\
@@ -181275,42 +181966,52 @@ Rectangle {
     },\
     "pattern": "Oc (2) WRG 8s",\
     "height": 6.4,\
-    "maxRange": 19371.920000000002,\
+    "maxRange": 15001.199999999999,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 174.7,\
-        "stop": 193.6\
+        "start": 174.6,\
+        "stop": 194.8\
       },\
       {\
         "color": "white",\
-        "start": 193.6,\
-        "stop": 213.1\
+        "start": 194.8,\
+        "stop": 213.2\
       },\
       {\
         "color": "red",\
-        "start": 213.1,\
-        "stop": 235.1\
+        "start": 213.2,\
+        "stop": 235.3\
+      },\
+      {\
+        "color": "green",\
+        "start": 235.3,\
+        "stop": 240.9\
       },\
       {\
         "color": "white",\
-        "start": 235.1,\
+        "start": 240.9,\
         "stop": 251.1\
       },\
       {\
         "color": "red",\
         "start": 251.1,\
-        "stop": 16.8\
-      },\
-      {\
-        "color": "white",\
-        "start": 16.8,\
-        "stop": 24.5\
+        "stop": 302.0\
       },\
       {\
         "color": "green",\
-        "start": 24.5,\
-        "stop": 37.5\
+        "start": 302.0,\
+        "stop": 17.1\
+      },\
+      {\
+        "color": "white",\
+        "start": 17.1,\
+        "stop": 24.7\
+      },\
+      {\
+        "color": "red",\
+        "start": 24.7,\
+        "stop": 49.0\
       }\
     ]\
   },\
@@ -184190,14 +184891,14 @@ Rectangle {
     "latitude": 69.22321833333334,\
     "longitude": 17.956806666666665,\
     "character": {\
-      "light_class": "Q",\
+      "light_class": "Fl",\
       "numflash": 1,\
       "extra_class": null,\
-      "period": 1.0\
+      "period": 3.0\
     },\
-    "pattern": "Q G",\
+    "pattern": "Fl G 3s",\
     "height": 6.3,\
-    "maxRange": 4074.4000000000005,\
+    "maxRange": 5741.2,\
     "sectors": [\
       {\
         "color": "green",\
@@ -190599,7 +191300,7 @@ Rectangle {
   },\
   {\
     "name": "Vestre Skarvegrunnen",\
-    "latitude": 69.67040166666666,\
+    "latitude": 69.67040333333334,\
     "longitude": 18.86107,\
     "character": {\
       "light_class": "Iso",\
@@ -190609,32 +191310,52 @@ Rectangle {
     },\
     "pattern": "Iso WRG 6s",\
     "height": 7.9,\
-    "maxRange": 11667.6,\
+    "maxRange": 8704.4,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 337.2,\
-        "stop": 342.4\
+        "start": 337.3,\
+        "stop": 342.6\
       },\
       {\
         "color": "white",\
-        "start": 342.4,\
-        "stop": 349.5\
+        "start": 342.6,\
+        "stop": 349.7\
       },\
       {\
         "color": "red",\
-        "start": 349.5,\
-        "stop": 21.6\
+        "start": 349.7,\
+        "stop": 21.7\
+      },\
+      {\
+        "color": "green",\
+        "start": 21.7,\
+        "stop": 110.4\
       },\
       {\
         "color": "white",\
-        "start": 21.6,\
-        "stop": 199.1\
+        "start": 110.4,\
+        "stop": 112.9\
       },\
       {\
         "color": "red",\
-        "start": 199.1,\
-        "stop": 209.7\
+        "start": 112.9,\
+        "stop": 142.0\
+      },\
+      {\
+        "color": "green",\
+        "start": 142.0,\
+        "stop": 181.9\
+      },\
+      {\
+        "color": "white",\
+        "start": 181.9,\
+        "stop": 199.3\
+      },\
+      {\
+        "color": "red",\
+        "start": 199.3,\
+        "stop": 209.9\
       }\
     ]\
   },\
@@ -190908,6 +191629,27 @@ Rectangle {
     "sectors": [\
       {\
         "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Reinnesøra",\
+    "latitude": 69.63347666666667,\
+    "longitude": 18.949183333333334,\
+    "character": {\
+      "light_class": "Fl",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 3.0\
+    },\
+    "pattern": "Fl G 3s",\
+    "height": 2.0,\
+    "maxRange": 3704.0,\
+    "sectors": [\
+      {\
+        "color": "green",\
         "start": 0.0,\
         "stop": 360.0\
       }\
@@ -191714,13 +192456,7 @@ Rectangle {
     "pattern": "Fl W 5s",\
     "height": 8.3,\
     "maxRange": 11482.4,\
-    "sectors": [\
-      {\
-        "color": "white",\
-        "start": 217.0,\
-        "stop": 68.6\
-      }\
-    ]\
+    "sectors": []\
   },\
   {\
     "name": "Nordeidet molo",\
@@ -192148,8 +192884,44 @@ Rectangle {
   },\
   {\
     "name": "Torsvåg molo",\
-    "latitude": 70.23973333333333,\
-    "longitude": 19.498671666666667,\
+    "latitude": 70.239725,\
+    "longitude": 19.498745,\
+    "character": {\
+      "light_class": "Fast",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 1.0\
+    },\
+    "pattern": "Fast lys yellow",\
+    "height": 8.2,\
+    "maxRange": 3518.7999999999997,\
+    "sectors": []\
+  },\
+  {\
+    "name": "Skarvbarden molo",\
+    "latitude": 70.23911833333334,\
+    "longitude": 19.501223333333332,\
+    "character": {\
+      "light_class": "Iso",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 2.0\
+    },\
+    "pattern": "Iso G 2s",\
+    "height": 7.0,\
+    "maxRange": 3704.0,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Torsvåg molo",\
+    "latitude": 70.239725,\
+    "longitude": 19.498745,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -192158,10 +192930,73 @@ Rectangle {
     },\
     "pattern": "Iso R 2s",\
     "height": 8.2,\
-    "maxRange": 2778.0,\
+    "maxRange": 3704.0,\
     "sectors": [\
       {\
         "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Skibsbåen",\
+    "latitude": 70.23242166666667,\
+    "longitude": 19.484526666666667,\
+    "character": {\
+      "light_class": "Fl",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 3.0\
+    },\
+    "pattern": "Fl G 3s",\
+    "height": 7.2,\
+    "maxRange": 4630.0,\
+    "sectors": [\
+      {\
+        "color": "green",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Andreasbåen",\
+    "latitude": 70.23773,\
+    "longitude": 19.488081666666666,\
+    "character": {\
+      "light_class": "Fl",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 3.0\
+    },\
+    "pattern": "Fl R 3s",\
+    "height": 7.2,\
+    "maxRange": 4630.0,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Torbeinsund",\
+    "latitude": 70.2292,\
+    "longitude": 19.497295,\
+    "character": {\
+      "light_class": "Fl",\
+      "numflash": 2,\
+      "extra_class": null,\
+      "period": 5.0\
+    },\
+    "pattern": "Fl (2) G 5s",\
+    "height": 7.2,\
+    "maxRange": 3704.0,\
+    "sectors": [\
+      {\
+        "color": "green",\
         "start": 0.0,\
         "stop": 360.0\
       }\
@@ -193151,102 +193986,117 @@ Rectangle {
   {\
     "name": "Kuberget",\
     "latitude": 69.63804166666667,\
-    "longitude": 19.738336666666665,\
+    "longitude": 19.738343333333333,\
     "character": {\
       "light_class": "Fl",\
-      "numflash": 1,\
+      "numflash": 2,\
       "extra_class": null,\
-      "period": 5.0\
+      "period": 10.0\
     },\
-    "pattern": "Fl WRG 5s",\
+    "pattern": "Fl (2) WRG 10s",\
     "height": 5.5,\
-    "maxRange": 9630.4,\
+    "maxRange": 10926.800000000001,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 182.2,\
-        "stop": 184.0\
+        "start": 182.4,\
+        "stop": 183.9\
       },\
       {\
         "color": "white",\
-        "start": 184.0,\
-        "stop": 191.0\
+        "start": 183.9,\
+        "stop": 191.3\
       },\
       {\
         "color": "red",\
-        "start": 191.0,\
-        "stop": 301.3\
-      },\
-      {\
-        "color": "white",\
-        "start": 301.3,\
-        "stop": 304.1\
+        "start": 191.3,\
+        "stop": 252.8\
       },\
       {\
         "color": "green",\
-        "start": 304.1,\
-        "stop": 9.3\
+        "start": 252.8,\
+        "stop": 301.0\
       },\
       {\
         "color": "white",\
-        "start": 9.3,\
-        "stop": 11.6\
+        "start": 301.0,\
+        "stop": 304.4\
       },\
       {\
         "color": "red",\
-        "start": 11.6,\
-        "stop": 17.3\
+        "start": 304.4,\
+        "stop": 343.1\
+      },\
+      {\
+        "color": "green",\
+        "start": 343.1,\
+        "stop": 9.7\
+      },\
+      {\
+        "color": "white",\
+        "start": 9.7,\
+        "stop": 11.8\
+      },\
+      {\
+        "color": "red",\
+        "start": 11.8,\
+        "stop": 15.8\
       }\
     ]\
   },\
   {\
     "name": "Klubbskjær",\
-    "latitude": 69.53900166666666,\
-    "longitude": 19.656221666666667,\
+    "latitude": 69.53900333333333,\
+    "longitude": 19.656231666666667,\
     "character": {\
-      "light_class": "Iso",\
-      "numflash": 1,\
+      "light_class": "Fl",\
+      "numflash": 2,\
       "extra_class": null,\
-      "period": 6.0\
+      "period": 5.0\
     },\
-    "pattern": "Iso WRG 6s",\
+    "pattern": "Fl (2) WRG 5s",\
     "height": 5.5,\
-    "maxRange": 5000.400000000001,\
+    "maxRange": 5741.2,\
     "sectors": [\
       {\
-        "color": "red",\
-        "start": 198.8,\
-        "stop": 205.1\
+        "color": "green",\
+        "start": 198.6,\
+        "stop": 207.3\
       },\
       {\
         "color": "white",\
-        "start": 205.1,\
-        "stop": 223.9\
+        "start": 207.3,\
+        "stop": 223.7\
+      },\
+      {\
+        "color": "red",\
+        "start": 223.7,\
+        "stop": 291.8\
       },\
       {\
         "color": "green",\
-        "start": 223.9,\
+        "start": 291.8,\
         "stop": 343.0\
       },\
       {\
         "color": "white",\
         "start": 343.0,\
-        "stop": 351.3\
+        "stop": 351.2\
       },\
       {\
         "color": "red",\
-        "start": 351.3,\
-        "stop": 4.5\
+        "start": 351.2,\
+        "stop": 4.6\
       },\
       {\
         "color": "green",\
-        "start": 4.5,\
+        "start": 4.6,\
         "stop": 25.7\
       },\
       {\
         "color": "red",\
         "start": 25.7,\
-        "stop": 38.8\
+        "stop": 39.2\
       }\
     ]\
   },\
@@ -193273,8 +194123,8 @@ Rectangle {
   },\
   {\
     "name": "Sørlenangen",\
-    "latitude": 69.84674,\
-    "longitude": 19.992841666666667,\
+    "latitude": 69.84673833333333,\
+    "longitude": 19.992836666666665,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 2,\
@@ -193283,32 +194133,37 @@ Rectangle {
     },\
     "pattern": "Oc (2) WRG 8s",\
     "height": 7.0,\
-    "maxRange": 9815.6,\
+    "maxRange": 15001.199999999999,\
     "sectors": [\
       {\
-        "color": "red",\
+        "color": "green",\
         "start": 72.3,\
-        "stop": 76.8\
+        "stop": 76.9\
       },\
       {\
         "color": "white",\
-        "start": 76.8,\
-        "stop": 206.0\
+        "start": 76.9,\
+        "stop": 206.1\
       },\
       {\
         "color": "red",\
-        "start": 206.0,\
+        "start": 206.1,\
         "stop": 218.6\
       },\
       {\
-        "color": "white",\
+        "color": "green",\
         "start": 218.6,\
+        "stop": 233.5\
+      },\
+      {\
+        "color": "white",\
+        "start": 233.5,\
         "stop": 349.1\
       },\
       {\
         "color": "red",\
         "start": 349.1,\
-        "stop": 354.0\
+        "stop": 354.1\
       }\
     ]\
   },\
@@ -193378,7 +194233,7 @@ Rectangle {
   {\
     "name": "Nordlenangen",\
     "latitude": 69.91164333333333,\
-    "longitude": 20.167096666666666,\
+    "longitude": 20.167103333333333,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -193387,32 +194242,37 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 5.3,\
-    "maxRange": 19446.0,\
+    "maxRange": 15742.0,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 168.3,\
-        "stop": 189.3\
+        "start": 168.5,\
+        "stop": 189.7\
       },\
       {\
         "color": "white",\
-        "start": 189.3,\
-        "stop": 194.2\
+        "start": 189.7,\
+        "stop": 194.3\
       },\
       {\
         "color": "red",\
-        "start": 194.2,\
-        "stop": 331.0\
-      },\
-      {\
-        "color": "white",\
-        "start": 331.0,\
-        "stop": 351.9\
+        "start": 194.3,\
+        "stop": 269.8\
       },\
       {\
         "color": "green",\
+        "start": 269.8,\
+        "stop": 330.9\
+      },\
+      {\
+        "color": "white",\
+        "start": 330.9,\
+        "stop": 351.9\
+      },\
+      {\
+        "color": "red",\
         "start": 351.9,\
-        "stop": 6.8\
+        "stop": 7.0\
       }\
     ]\
   },\
@@ -193491,8 +194351,8 @@ Rectangle {
   },\
   {\
     "name": "Karlsøya",\
-    "latitude": 69.995315,\
-    "longitude": 19.964236666666668,\
+    "latitude": 69.99531666666667,\
+    "longitude": 19.964235,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 2,\
@@ -193501,93 +194361,103 @@ Rectangle {
     },\
     "pattern": "Fl (2) WRG 10s",\
     "height": 15.0,\
-    "maxRange": 11852.800000000001,\
+    "maxRange": 15001.199999999999,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 207.3,\
+        "start": 206.9,\
         "stop": 212.9\
       },\
       {\
         "color": "white",\
         "start": 212.9,\
-        "stop": 31.7\
+        "stop": 31.5\
       },\
       {\
         "color": "red",\
-        "start": 31.7,\
-        "stop": 64.2\
+        "start": 31.5,\
+        "stop": 64.1\
       },\
       {\
         "color": "green",\
-        "start": 80.4,\
-        "stop": 83.7\
+        "start": 64.1,\
+        "stop": 83.8\
       }\
     ]\
   },\
   {\
     "name": "Arnøya",\
-    "latitude": 70.03401166666667,\
+    "latitude": 70.03401333333333,\
     "longitude": 20.536986666666667,\
     "character": {\
-      "light_class": "Oc",\
-      "numflash": 2,\
+      "light_class": "Fl",\
+      "numflash": 1,\
       "extra_class": null,\
-      "period": 8.0\
+      "period": 5.0\
     },\
-    "pattern": "Oc (2) WRG 8s",\
+    "pattern": "Fl WRG 5s",\
     "height": 7.0,\
-    "maxRange": 18520.0,\
+    "maxRange": 15001.199999999999,\
     "sectors": [\
       {\
-        "color": "red",\
-        "start": 303.0,\
+        "color": "green",\
+        "start": 302.9,\
         "stop": 309.5\
       },\
       {\
         "color": "white",\
         "start": 309.5,\
-        "stop": 319.3\
-      },\
-      {\
-        "color": "green",\
-        "start": 319.3,\
-        "stop": 344.1\
-      },\
-      {\
-        "color": "white",\
-        "start": 344.1,\
-        "stop": 4.2\
+        "stop": 319.7\
       },\
       {\
         "color": "red",\
-        "start": 4.2,\
-        "stop": 8.7\
+        "start": 319.7,\
+        "stop": 325.2\
       },\
       {\
         "color": "green",\
-        "start": 17.2,\
-        "stop": 61.6\
+        "start": 325.2,\
+        "stop": 344.7\
       },\
       {\
         "color": "white",\
-        "start": 61.6,\
-        "stop": 108.0\
+        "start": 344.7,\
+        "stop": 2.3\
       },\
       {\
         "color": "red",\
-        "start": 108.0,\
-        "stop": 157.4\
-      },\
-      {\
-        "color": "white",\
-        "start": 157.4,\
-        "stop": 163.7\
+        "start": 2.3,\
+        "stop": 10.5\
       },\
       {\
         "color": "green",\
-        "start": 163.7,\
-        "stop": 179.2\
+        "start": 10.5,\
+        "stop": 61.5\
+      },\
+      {\
+        "color": "white",\
+        "start": 61.5,\
+        "stop": 108.1\
+      },\
+      {\
+        "color": "red",\
+        "start": 108.1,\
+        "stop": 137.5\
+      },\
+      {\
+        "color": "green",\
+        "start": 137.5,\
+        "stop": 155.3\
+      },\
+      {\
+        "color": "white",\
+        "start": 155.3,\
+        "stop": 163.8\
+      },\
+      {\
+        "color": "red",\
+        "start": 163.8,\
+        "stop": 179.5\
       }\
     ]\
   },\
@@ -193614,62 +194484,62 @@ Rectangle {
   },\
   {\
     "name": "Vorterøy",\
-    "latitude": 69.99119166666667,\
-    "longitude": 20.636846666666667,\
+    "latitude": 69.99119333333333,\
+    "longitude": 20.63685,\
     "character": {\
       "light_class": "Oc",\
-      "numflash": 1,\
+      "numflash": 2,\
       "extra_class": null,\
-      "period": 6.0\
+      "period": 8.0\
     },\
-    "pattern": "Oc WRG 6s",\
+    "pattern": "Oc (2) WRG 8s",\
     "height": 18.2,\
-    "maxRange": 19075.600000000002,\
+    "maxRange": 15001.199999999999,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 115.2,\
-        "stop": 116.5\
+        "start": 114.9,\
+        "stop": 116.4\
       },\
       {\
         "color": "white",\
-        "start": 116.5,\
-        "stop": 128.0\
+        "start": 116.4,\
+        "stop": 127.9\
       },\
       {\
         "color": "red",\
-        "start": 128.0,\
+        "start": 127.9,\
         "stop": 137.8\
       },\
       {\
         "color": "green",\
         "start": 137.8,\
-        "stop": 180.6\
+        "stop": 180.5\
       },\
       {\
         "color": "white",\
-        "start": 180.6,\
-        "stop": 182.6\
+        "start": 180.5,\
+        "stop": 182.5\
       },\
       {\
         "color": "red",\
-        "start": 182.6,\
-        "stop": 220.2\
+        "start": 182.5,\
+        "stop": 220.1\
       },\
       {\
         "color": "green",\
-        "start": 220.2,\
-        "stop": 320.0\
+        "start": 220.1,\
+        "stop": 320.2\
       },\
       {\
         "color": "white",\
-        "start": 320.0,\
-        "stop": 320.9\
+        "start": 320.2,\
+        "stop": 320.8\
       },\
       {\
         "color": "red",\
-        "start": 320.9,\
-        "stop": 321.2\
+        "start": 320.8,\
+        "stop": 321.0\
       }\
     ]\
   },\
@@ -193695,60 +194565,70 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Maursund",\
-    "latitude": 69.91915,\
-    "longitude": 20.871593333333333,\
+    "name": "Maursundet",\
+    "latitude": 69.91915166666666,\
+    "longitude": 20.871601666666667,\
     "character": {\
-      "light_class": "Iso",\
-      "numflash": 1,\
+      "light_class": "Fl",\
+      "numflash": 2,\
       "extra_class": null,\
-      "period": 6.0\
+      "period": 5.0\
     },\
-    "pattern": "Iso WRG 6s",\
+    "pattern": "Fl (2) WRG 5s",\
     "height": 6.3,\
-    "maxRange": 10000.800000000001,\
+    "maxRange": 10741.6,\
     "sectors": [\
       {\
-        "color": "red",\
-        "start": 46.3,\
-        "stop": 56.1\
-      },\
-      {\
-        "color": "white",\
-        "start": 56.1,\
-        "stop": 92.3\
-      },\
-      {\
         "color": "green",\
-        "start": 92.3,\
-        "stop": 98.6\
+        "start": 46.2,\
+        "stop": 56.0\
       },\
       {\
         "color": "white",\
-        "start": 98.6,\
-        "stop": 100.6\
+        "start": 56.0,\
+        "stop": 59.9\
       },\
       {\
         "color": "red",\
-        "start": 100.6,\
-        "stop": 225.5\
-      },\
-      {\
-        "color": "white",\
-        "start": 225.5,\
-        "stop": 233.9\
+        "start": 59.9,\
+        "stop": 92.4\
       },\
       {\
         "color": "green",\
-        "start": 233.9,\
-        "stop": 240.0\
+        "start": 92.4,\
+        "stop": 98.7\
+      },\
+      {\
+        "color": "white",\
+        "start": 98.7,\
+        "stop": 100.7\
+      },\
+      {\
+        "color": "red",\
+        "start": 100.7,\
+        "stop": 169.3\
+      },\
+      {\
+        "color": "green",\
+        "start": 169.3,\
+        "stop": 225.3\
+      },\
+      {\
+        "color": "white",\
+        "start": 225.3,\
+        "stop": 233.7\
+      },\
+      {\
+        "color": "red",\
+        "start": 233.7,\
+        "stop": 240.1\
       }\
     ]\
   },\
   {\
     "name": "Spåkenes",\
-    "latitude": 69.76236,\
-    "longitude": 20.45999,\
+    "latitude": 69.76236333333334,\
+    "longitude": 20.459985,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -193762,17 +194642,32 @@ Rectangle {
       {\
         "color": "green",\
         "start": 347.9,\
-        "stop": 351.8\
+        "stop": 352.0\
       },\
       {\
         "color": "white",\
-        "start": 351.8,\
+        "start": 352.0,\
+        "stop": 15.0\
+      },\
+      {\
+        "color": "red",\
+        "start": 15.0,\
+        "stop": 92.3\
+      },\
+      {\
+        "color": "green",\
+        "start": 92.3,\
+        "stop": 172.1\
+      },\
+      {\
+        "color": "white",\
+        "start": 172.1,\
         "stop": 185.9\
       },\
       {\
         "color": "red",\
         "start": 185.9,\
-        "stop": 206.7\
+        "stop": 206.5\
       }\
     ]\
   },\
@@ -193800,7 +194695,7 @@ Rectangle {
   {\
     "name": "Olderdalen",\
     "latitude": 69.60290166666667,\
-    "longitude": 20.53162,\
+    "longitude": 20.531618333333334,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -193809,39 +194704,44 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 5.5,\
-    "maxRange": 5741.2,\
+    "maxRange": 3889.2000000000003,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 322.4,\
+        "start": 322.3,\
         "stop": 337.4\
       },\
       {\
         "color": "white",\
         "start": 337.4,\
-        "stop": 357.1\
+        "stop": 357.3\
       },\
       {\
         "color": "red",\
-        "start": 357.1,\
+        "start": 357.3,\
+        "stop": 39.9\
+      },\
+      {\
+        "color": "green",\
+        "start": 39.9,\
         "stop": 76.3\
       },\
       {\
         "color": "white",\
         "start": 76.3,\
-        "stop": 108.2\
+        "stop": 108.3\
       },\
       {\
-        "color": "green",\
-        "start": 108.2,\
-        "stop": 140.6\
+        "color": "red",\
+        "start": 108.3,\
+        "stop": 119.6\
       }\
     ]\
   },\
   {\
     "name": "Manndalsklubben",\
-    "latitude": 69.54558666666667,\
-    "longitude": 20.584965,\
+    "latitude": 69.54558333333334,\
+    "longitude": 20.584966666666666,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 2,\
@@ -193850,16 +194750,16 @@ Rectangle {
     },\
     "pattern": "Oc (2) WRG 8s",\
     "height": 5.0,\
-    "maxRange": 9815.6,\
+    "maxRange": 10000.800000000001,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 132.7,\
-        "stop": 145.8\
+        "start": 133.6,\
+        "stop": 145.7\
       },\
       {\
         "color": "white",\
-        "start": 145.8,\
+        "start": 145.7,\
         "stop": 151.4\
       },\
       {\
@@ -193868,21 +194768,26 @@ Rectangle {
         "stop": 174.9\
       },\
       {\
-        "color": "white",\
-        "start": 225.5,\
-        "stop": 263.0\
+        "color": "green",\
+        "start": 174.9,\
+        "stop": 303.3\
       },\
       {\
-        "color": "green",\
+        "color": "white",\
+        "start": 303.3,\
+        "stop": 316.1\
+      },\
+      {\
+        "color": "red",\
         "start": 316.1,\
-        "stop": 317.5\
+        "stop": 317.7\
       }\
     ]\
   },\
   {\
     "name": "Pertenga",\
-    "latitude": 69.513875,\
-    "longitude": 20.785098333333334,\
+    "latitude": 69.51387833333334,\
+    "longitude": 20.785085,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 2,\
@@ -193895,22 +194800,22 @@ Rectangle {
     "sectors": [\
       {\
         "color": "green",\
-        "start": 332.1,\
-        "stop": 336.9\
+        "start": 331.9,\
+        "stop": 336.7\
       },\
       {\
         "color": "white",\
-        "start": 336.9,\
-        "stop": 346.7\
+        "start": 336.7,\
+        "stop": 346.8\
       },\
       {\
         "color": "red",\
-        "start": 346.7,\
-        "stop": 58.2\
+        "start": 346.8,\
+        "stop": 58.0\
       },\
       {\
         "color": "green",\
-        "start": 58.2,\
+        "start": 58.0,\
         "stop": 94.1\
       },\
       {\
@@ -193921,7 +194826,7 @@ Rectangle {
       {\
         "color": "red",\
         "start": 101.5,\
-        "stop": 132.7\
+        "stop": 132.8\
       }\
     ]\
   },\
@@ -193949,7 +194854,7 @@ Rectangle {
   {\
     "name": "Ytre Nortasholmen",\
     "latitude": 69.56418666666667,\
-    "longitude": 20.304508333333334,\
+    "longitude": 20.30451,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -193968,36 +194873,36 @@ Rectangle {
       {\
         "color": "white",\
         "start": 85.6,\
-        "stop": 87.5\
+        "stop": 87.6\
       },\
       {\
         "color": "red",\
-        "start": 87.5,\
-        "stop": 93.5\
+        "start": 87.6,\
+        "stop": 93.6\
       },\
       {\
         "color": "green",\
-        "start": 93.5,\
-        "stop": 100.3\
+        "start": 93.6,\
+        "stop": 100.2\
       },\
       {\
         "color": "white",\
-        "start": 100.3,\
-        "stop": 117.4\
+        "start": 100.2,\
+        "stop": 117.5\
       },\
       {\
         "color": "red",\
-        "start": 117.4,\
-        "stop": 153.1\
+        "start": 117.5,\
+        "stop": 153.2\
       },\
       {\
         "color": "green",\
-        "start": 153.1,\
-        "stop": 197.5\
+        "start": 153.2,\
+        "stop": 197.4\
       },\
       {\
         "color": "white",\
-        "start": 197.5,\
+        "start": 197.4,\
         "stop": 233.9\
       },\
       {\
@@ -194008,11 +194913,11 @@ Rectangle {
       {\
         "color": "green",\
         "start": 248.0,\
-        "stop": 258.6\
+        "stop": 258.4\
       },\
       {\
         "color": "white",\
-        "start": 258.6,\
+        "start": 258.4,\
         "stop": 11.7\
       },\
       {\
@@ -194045,8 +194950,8 @@ Rectangle {
   },\
   {\
     "name": "Lyngsdaløra",\
-    "latitude": 69.4413,\
-    "longitude": 20.164066666666667,\
+    "latitude": 69.441305,\
+    "longitude": 20.16408,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -194055,29 +194960,29 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 2.5,\
-    "maxRange": 5741.2,\
+    "maxRange": 3889.2000000000003,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 216.5,\
-        "stop": 230.5\
+        "start": 216.0,\
+        "stop": 230.2\
       },\
       {\
         "color": "white",\
-        "start": 230.5,\
-        "stop": 353.4\
+        "start": 230.2,\
+        "stop": 353.5\
       },\
       {\
         "color": "red",\
-        "start": 353.4,\
-        "stop": 359.2\
+        "start": 353.5,\
+        "stop": 359.6\
       }\
     ]\
   },\
   {\
-    "name": "Salmenes",\
-    "latitude": 69.33420833333334,\
-    "longitude": 20.02417,\
+    "name": "Salmeneset",\
+    "latitude": 69.33419333333333,\
+    "longitude": 20.024161666666668,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -194086,7 +194991,7 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 6.8,\
-    "maxRange": 18705.2,\
+    "maxRange": 15371.600000000002,\
     "sectors": [\
       {\
         "color": "green",\
@@ -194101,29 +195006,29 @@ Rectangle {
       {\
         "color": "red",\
         "start": 40.5,\
-        "stop": 92.5\
+        "stop": 197.4\
       },\
       {\
         "color": "green",\
         "start": 197.4,\
-        "stop": 214.3\
+        "stop": 214.2\
       },\
       {\
         "color": "white",\
-        "start": 214.3,\
+        "start": 214.2,\
         "stop": 216.6\
       },\
       {\
         "color": "red",\
         "start": 216.6,\
-        "stop": 222.2\
+        "stop": 222.4\
       }\
     ]\
   },\
   {\
     "name": "Rotsundet",\
-    "latitude": 69.78048333333334,\
-    "longitude": 20.600123333333332,\
+    "latitude": 69.78048666666666,\
+    "longitude": 20.600131666666666,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -194132,39 +195037,44 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 6.5,\
-    "maxRange": 10186.0,\
+    "maxRange": 8519.199999999999,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 70.3,\
-        "stop": 92.7\
+        "start": 69.8,\
+        "stop": 92.6\
       },\
       {\
         "color": "white",\
-        "start": 92.7,\
-        "stop": 103.2\
+        "start": 92.6,\
+        "stop": 101.4\
       },\
       {\
         "color": "red",\
-        "start": 103.2,\
+        "start": 101.4,\
+        "stop": 163.8\
+      },\
+      {\
+        "color": "green",\
+        "start": 163.8,\
         "stop": 230.9\
       },\
       {\
         "color": "white",\
         "start": 230.9,\
-        "stop": 233.6\
+        "stop": 233.7\
       },\
       {\
-        "color": "green",\
-        "start": 233.6,\
-        "stop": 237.7\
+        "color": "red",\
+        "start": 233.7,\
+        "stop": 237.8\
       }\
     ]\
   },\
   {\
     "name": "Kågsundet",\
     "latitude": 70.05179333333334,\
-    "longitude": 20.791854999999998,\
+    "longitude": 20.791853333333332,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -194173,16 +195083,16 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 10.0,\
-    "maxRange": 19075.600000000002,\
+    "maxRange": 15371.600000000002,\
     "sectors": [\
       {\
         "color": "red",\
-        "start": 238.3,\
-        "stop": 244.8\
+        "start": 238.4,\
+        "stop": 244.9\
       },\
       {\
         "color": "green",\
-        "start": 244.8,\
+        "start": 244.9,\
         "stop": 253.5\
       },\
       {\
@@ -194193,21 +195103,21 @@ Rectangle {
       {\
         "color": "red",\
         "start": 259.2,\
-        "stop": 312.1\
+        "stop": 311.9\
       },\
       {\
         "color": "green",\
-        "start": 312.1,\
+        "start": 311.9,\
         "stop": 48.8\
       },\
       {\
         "color": "white",\
         "start": 48.8,\
-        "stop": 66.5\
+        "stop": 66.6\
       },\
       {\
         "color": "red",\
-        "start": 66.5,\
+        "start": 66.6,\
         "stop": 71.1\
       }\
     ]\
@@ -194364,118 +195274,123 @@ Rectangle {
   },\
   {\
     "name": "Taskebyneset",\
-    "latitude": 69.99918333333333,\
-    "longitude": 21.067811666666667,\
+    "latitude": 69.99918666666667,\
+    "longitude": 21.067846666666668,\
     "character": {\
-      "light_class": "None",\
-      "numflash": 0,\
+      "light_class": "Oc",\
+      "numflash": 2,\
       "extra_class": null,\
-      "period": 0\
+      "period": 8.0\
     },\
-    "pattern": null,\
+    "pattern": "Oc (2) WRG 8s",\
     "height": 8.6,\
-    "maxRange": 15371.600000000002,\
+    "maxRange": 12593.6,\
     "sectors": [\
       {\
-        "color": "red",\
-        "start": 155.0,\
-        "stop": 170.1\
+        "color": "green",\
+        "start": 154.8,\
+        "stop": 169.9\
       },\
       {\
         "color": "white",\
-        "start": 170.1,\
-        "stop": 179.4\
+        "start": 169.9,\
+        "stop": 179.2\
+      },\
+      {\
+        "color": "red",\
+        "start": 179.2,\
+        "stop": 209.8\
       },\
       {\
         "color": "green",\
-        "start": 179.4,\
-        "stop": 209.9\
+        "start": 209.8,\
+        "stop": 246.5\
       },\
       {\
         "color": "white",\
-        "start": 209.9,\
-        "stop": 214.8\
+        "start": 246.5,\
+        "stop": 249.5\
       },\
       {\
         "color": "red",\
-        "start": 214.8,\
-        "stop": 246.6\
-      },\
-      {\
-        "color": "white",\
-        "start": 246.6,\
-        "stop": 249.3\
+        "start": 249.5,\
+        "stop": 295.7\
       },\
       {\
         "color": "green",\
-        "start": 249.3,\
-        "stop": 329.7\
+        "start": 295.7,\
+        "stop": 329.5\
       },\
       {\
         "color": "white",\
-        "start": 329.7,\
-        "stop": 351.2\
+        "start": 329.5,\
+        "stop": 351.4\
       },\
       {\
         "color": "red",\
-        "start": 351.2,\
-        "stop": 353.2\
+        "start": 351.4,\
+        "stop": 353.1\
       }\
     ]\
   },\
   {\
     "name": "Stornes",\
-    "latitude": 69.873555,\
-    "longitude": 21.03377,\
+    "latitude": 69.87355833333334,\
+    "longitude": 21.033766666666665,\
     "character": {\
-      "light_class": "Iso",\
-      "numflash": 1,\
+      "light_class": "Fl",\
+      "numflash": 2,\
       "extra_class": null,\
-      "period": 6.0\
+      "period": 10.0\
     },\
-    "pattern": "Iso WRG 6s",\
+    "pattern": "Fl (2) WRG 10s",\
     "height": 6.7,\
-    "maxRange": 12223.199999999999,\
+    "maxRange": 12038.0,\
     "sectors": [\
       {\
-        "color": "red",\
-        "start": 7.4,\
+        "color": "green",\
+        "start": 7.0,\
         "stop": 21.2\
       },\
       {\
         "color": "white",\
         "start": 21.2,\
-        "stop": 37.7\
-      },\
-      {\
-        "color": "green",\
-        "start": 37.7,\
-        "stop": 69.4\
-      },\
-      {\
-        "color": "white",\
-        "start": 69.4,\
-        "stop": 75.0\
+        "stop": 37.2\
       },\
       {\
         "color": "red",\
-        "start": 75.0,\
-        "stop": 192.3\
-      },\
-      {\
-        "color": "white",\
-        "start": 192.3,\
-        "stop": 204.0\
+        "start": 37.2,\
+        "stop": 50.5\
       },\
       {\
         "color": "green",\
-        "start": 204.0,\
+        "start": 50.5,\
+        "stop": 69.3\
+      },\
+      {\
+        "color": "white",\
+        "start": 69.3,\
+        "stop": 75.2\
+      },\
+      {\
+        "color": "red",\
+        "start": 75.2,\
+        "stop": 174.1\
+      },\
+      {\
+        "color": "green",\
+        "start": 174.1,\
+        "stop": 193.5\
+      },\
+      {\
+        "color": "white",\
+        "start": 193.5,\
         "stop": 215.2\
       },\
       {\
         "color": "red",\
         "start": 215.2,\
-        "stop": 240.2\
+        "stop": 240.6\
       }\
     ]\
   },\
@@ -194501,9 +195416,9 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Lille Haukøy",\
-    "latitude": 70.02442,\
-    "longitude": 21.286805,\
+    "name": "Lille Haukøya",\
+    "latitude": 70.02442166666667,\
+    "longitude": 21.286811666666665,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 2,\
@@ -194516,40 +195431,40 @@ Rectangle {
     "sectors": [\
       {\
         "color": "green",\
-        "start": 46.4,\
-        "stop": 64.8\
+        "start": 46.2,\
+        "stop": 64.7\
       },\
       {\
         "color": "white",\
-        "start": 64.8,\
+        "start": 64.7,\
         "stop": 85.0\
       },\
       {\
         "color": "red",\
         "start": 85.0,\
-        "stop": 136.8\
+        "stop": 136.9\
       },\
       {\
         "color": "green",\
-        "start": 136.8,\
-        "stop": 178.3\
+        "start": 136.9,\
+        "stop": 178.0\
       },\
       {\
         "color": "white",\
-        "start": 178.3,\
-        "stop": 258.6\
+        "start": 178.0,\
+        "stop": 258.7\
       },\
       {\
         "color": "red",\
-        "start": 258.6,\
-        "stop": 276.1\
+        "start": 258.7,\
+        "stop": 276.2\
       }\
     ]\
   },\
   {\
     "name": "Skagklubben",\
-    "latitude": 70.01800833333333,\
-    "longitude": 21.548470000000002,\
+    "latitude": 70.01801,\
+    "longitude": 21.548476666666666,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -194562,49 +195477,49 @@ Rectangle {
     "sectors": [\
       {\
         "color": "green",\
-        "start": 304.6,\
-        "stop": 310.0\
+        "start": 303.9,\
+        "stop": 309.7\
       },\
       {\
         "color": "white",\
-        "start": 310.0,\
-        "stop": 352.1\
+        "start": 309.7,\
+        "stop": 352.0\
       },\
       {\
         "color": "red",\
-        "start": 352.1,\
-        "stop": 3.2\
+        "start": 352.0,\
+        "stop": 3.0\
       },\
       {\
         "color": "green",\
-        "start": 3.2,\
-        "stop": 102.4\
+        "start": 3.0,\
+        "stop": 102.0\
       },\
       {\
         "color": "white",\
-        "start": 102.4,\
-        "stop": 145.6\
+        "start": 102.0,\
+        "stop": 145.5\
       },\
       {\
         "color": "red",\
-        "start": 145.6,\
-        "stop": 196.6\
+        "start": 145.5,\
+        "stop": 196.3\
       }\
     ]\
   },\
   {\
     "name": "Dunvik molo",\
-    "latitude": 69.99483666666667,\
-    "longitude": 21.67965,\
+    "latitude": 69.99483333333333,\
+    "longitude": 21.679653333333334,\
     "character": {\
-      "light_class": "Iso",\
+      "light_class": "Fl",\
       "numflash": 1,\
       "extra_class": null,\
-      "period": 2.0\
+      "period": 3.0\
     },\
-    "pattern": "Iso R 2s",\
+    "pattern": "Fl R 3s",\
     "height": 7.0,\
-    "maxRange": 4074.4000000000005,\
+    "maxRange": 3704.0,\
     "sectors": [\
       {\
         "color": "red",\
@@ -194615,8 +195530,8 @@ Rectangle {
   },\
   {\
     "name": "Spildra",\
-    "latitude": 69.99139666666667,\
-    "longitude": 21.685095,\
+    "latitude": 69.9914,\
+    "longitude": 21.685096666666666,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 2,\
@@ -194629,52 +195544,52 @@ Rectangle {
     "sectors": [\
       {\
         "color": "green",\
-        "start": 252.3,\
-        "stop": 255.9\
+        "start": 252.1,\
+        "stop": 256.1\
       },\
       {\
         "color": "white",\
-        "start": 255.9,\
-        "stop": 268.2\
+        "start": 256.1,\
+        "stop": 268.6\
       },\
       {\
         "color": "red",\
-        "start": 268.2,\
-        "stop": 291.0\
+        "start": 268.6,\
+        "stop": 290.9\
       },\
       {\
         "color": "green",\
-        "start": 291.0,\
-        "stop": 324.0\
+        "start": 290.9,\
+        "stop": 324.1\
       },\
       {\
         "color": "white",\
-        "start": 324.0,\
-        "stop": 342.7\
+        "start": 324.1,\
+        "stop": 343.0\
       },\
       {\
         "color": "red",\
-        "start": 342.7,\
-        "stop": 349.8\
+        "start": 343.0,\
+        "stop": 350.1\
       },\
       {\
         "color": "green",\
-        "start": 349.8,\
+        "start": 350.1,\
         "stop": 19.5\
       },\
       {\
         "color": "white",\
         "start": 19.5,\
-        "stop": 35.2\
+        "stop": 35.3\
       },\
       {\
         "color": "red",\
-        "start": 35.2,\
-        "stop": 61.5\
+        "start": 35.3,\
+        "stop": 61.6\
       },\
       {\
         "color": "green",\
-        "start": 61.5,\
+        "start": 61.6,\
         "stop": 110.8\
       },\
       {\
@@ -194685,7 +195600,7 @@ Rectangle {
       {\
         "color": "red",\
         "start": 114.4,\
-        "stop": 123.6\
+        "stop": 123.9\
       }\
     ]\
   },\
@@ -194754,49 +195669,54 @@ Rectangle {
   },\
   {\
     "name": "Storengneset",\
-    "latitude": 70.0132,\
-    "longitude": 22.007743333333334,\
+    "latitude": 70.01317833333333,\
+    "longitude": 22.007721666666665,\
     "character": {\
-      "light_class": "Iso",\
-      "numflash": 1,\
+      "light_class": "Fl",\
+      "numflash": 2,\
       "extra_class": null,\
-      "period": 6.0\
+      "period": 5.0\
     },\
-    "pattern": "Iso WRG 6s",\
+    "pattern": "Fl (2) WRG 5s",\
     "height": 11.5,\
     "maxRange": 10000.800000000001,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 333.2,\
-        "stop": 352.2\
+        "start": 332.9,\
+        "stop": 352.1\
       },\
       {\
         "color": "white",\
-        "start": 352.2,\
+        "start": 352.1,\
         "stop": 355.7\
       },\
       {\
         "color": "red",\
         "start": 355.7,\
+        "stop": 23.6\
+      },\
+      {\
+        "color": "green",\
+        "start": 23.6,\
         "stop": 57.4\
       },\
       {\
         "color": "white",\
         "start": 57.4,\
-        "stop": 83.9\
+        "stop": 84.1\
       },\
       {\
-        "color": "green",\
-        "start": 83.9,\
-        "stop": 229.1\
+        "color": "red",\
+        "start": 84.1,\
+        "stop": 229.3\
       }\
     ]\
   },\
   {\
     "name": "Røholmen",\
-    "latitude": 69.94057833333333,\
-    "longitude": 21.84937,\
+    "latitude": 69.94057666666667,\
+    "longitude": 21.849371666666666,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 2,\
@@ -194805,43 +195725,43 @@ Rectangle {
     },\
     "pattern": "Oc (2) WRG 8s",\
     "height": 9.7,\
-    "maxRange": 9815.6,\
+    "maxRange": 10000.800000000001,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 345.2,\
+        "start": 343.1,\
         "stop": 349.8\
       },\
       {\
         "color": "white",\
         "start": 349.8,\
-        "stop": 0.9\
+        "stop": 0.7\
       },\
       {\
         "color": "red",\
-        "start": 0.9,\
-        "stop": 62.0\
+        "start": 0.7,\
+        "stop": 79.1\
       },\
       {\
         "color": "green",\
-        "start": 90.9,\
+        "start": 79.1,\
         "stop": 159.5\
       },\
       {\
         "color": "white",\
         "start": 159.5,\
-        "stop": 189.5\
+        "stop": 189.7\
       },\
       {\
         "color": "red",\
-        "start": 189.5,\
-        "stop": 192.4\
+        "start": 189.7,\
+        "stop": 192.8\
       }\
     ]\
   },\
   {\
     "name": "Kvænangstraumen",\
-    "latitude": 69.84253,\
+    "latitude": 69.84253333333334,\
     "longitude": 21.880436666666668,\
     "character": {\
       "light_class": "Oc",\
@@ -194851,37 +195771,42 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 4.5,\
-    "maxRange": 11297.199999999999,\
+    "maxRange": 8519.199999999999,\
     "sectors": [\
       {\
-        "color": "red",\
-        "start": 109.3,\
-        "stop": 134.1\
+        "color": "green",\
+        "start": 112.7,\
+        "stop": 134.0\
       },\
       {\
         "color": "white",\
-        "start": 134.1,\
-        "stop": 155.5\
+        "start": 134.0,\
+        "stop": 155.7\
+      },\
+      {\
+        "color": "red",\
+        "start": 155.7,\
+        "stop": 161.4\
       },\
       {\
         "color": "green",\
-        "start": 155.5,\
+        "start": 161.4,\
         "stop": 168.4\
       },\
       {\
         "color": "white",\
         "start": 168.4,\
-        "stop": 175.4\
+        "stop": 175.9\
       },\
       {\
         "color": "red",\
-        "start": 175.4,\
-        "stop": 193.0\
+        "start": 175.9,\
+        "stop": 193.2\
       },\
       {\
         "color": "green",\
-        "start": 193.0,\
-        "stop": 352.7\
+        "start": 193.2,\
+        "stop": 215.8\
       }\
     ]\
   },\
@@ -194928,48 +195853,48 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Jøkelfjord",\
-    "latitude": 70.06103166666666,\
-    "longitude": 21.861745,\
+    "name": "Jøkelfjorden",\
+    "latitude": 70.061035,\
+    "longitude": 21.861751666666667,\
     "character": {\
-      "light_class": "Oc",\
-      "numflash": 1,\
+      "light_class": "Fl",\
+      "numflash": 2,\
       "extra_class": null,\
-      "period": 6.0\
+      "period": 10.0\
     },\
-    "pattern": "Oc WRG 6s",\
+    "pattern": "Fl (2) WRG 10s",\
     "height": 9.8,\
-    "maxRange": 19446.0,\
+    "maxRange": 10371.199999999999,\
     "sectors": [\
       {\
         "color": "green",\
         "start": 47.3,\
-        "stop": 63.4\
+        "stop": 63.7\
       },\
       {\
         "color": "white",\
-        "start": 63.4,\
-        "stop": 77.3\
+        "start": 63.7,\
+        "stop": 77.5\
       },\
       {\
         "color": "red",\
-        "start": 77.3,\
-        "stop": 133.0\
+        "start": 77.5,\
+        "stop": 133.2\
       },\
       {\
         "color": "green",\
-        "start": 133.0,\
-        "stop": 242.0\
+        "start": 133.2,\
+        "stop": 241.9\
       },\
       {\
         "color": "white",\
-        "start": 242.0,\
-        "stop": 253.0\
+        "start": 241.9,\
+        "stop": 253.1\
       },\
       {\
         "color": "red",\
-        "start": 253.0,\
-        "stop": 255.2\
+        "start": 253.1,\
+        "stop": 255.4\
       }\
     ]\
   },\
@@ -194996,8 +195921,8 @@ Rectangle {
   },\
   {\
     "name": "Søre Lauksund",\
-    "latitude": 70.10448666666667,\
-    "longitude": 20.749928333333333,\
+    "latitude": 70.10448833333334,\
+    "longitude": 20.749926666666667,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 2,\
@@ -195006,44 +195931,44 @@ Rectangle {
     },\
     "pattern": "Oc (2) WRG 8s",\
     "height": 6.5,\
-    "maxRange": 10926.800000000001,\
+    "maxRange": 8148.800000000001,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 194.5,\
-        "stop": 198.0\
+        "start": 193.4,\
+        "stop": 198.6\
       },\
       {\
         "color": "white",\
-        "start": 198.0,\
-        "stop": 204.3\
+        "start": 198.6,\
+        "stop": 204.7\
       },\
       {\
         "color": "red",\
-        "start": 204.3,\
-        "stop": 229.7\
+        "start": 204.7,\
+        "stop": 265.3\
       },\
       {\
         "color": "green",\
-        "start": 301.6,\
-        "stop": 326.7\
+        "start": 265.3,\
+        "stop": 326.8\
       },\
       {\
         "color": "white",\
-        "start": 326.7,\
-        "stop": 334.6\
+        "start": 326.8,\
+        "stop": 334.8\
       },\
       {\
         "color": "red",\
-        "start": 334.6,\
-        "stop": 345.1\
+        "start": 334.8,\
+        "stop": 347.1\
       }\
     ]\
   },\
   {\
     "name": "Nordre Lauksund",\
-    "latitude": 70.15314666666667,\
-    "longitude": 20.782723333333333,\
+    "latitude": 70.153145,\
+    "longitude": 20.782728333333335,\
     "character": {\
       "light_class": "Oc",\
       "numflash": 1,\
@@ -195052,32 +195977,37 @@ Rectangle {
     },\
     "pattern": "Oc WRG 6s",\
     "height": 6.7,\
-    "maxRange": 19446.0,\
+    "maxRange": 11852.800000000001,\
     "sectors": [\
       {\
         "color": "green",\
-        "start": 193.8,\
-        "stop": 197.9\
+        "start": 194.8,\
+        "stop": 197.1\
       },\
       {\
         "color": "white",\
-        "start": 197.9,\
-        "stop": 252.0\
+        "start": 197.1,\
+        "stop": 250.1\
       },\
       {\
         "color": "red",\
-        "start": 252.0,\
-        "stop": 8.5\
-      },\
-      {\
-        "color": "white",\
-        "start": 8.5,\
-        "stop": 10.6\
+        "start": 250.1,\
+        "stop": 290.0\
       },\
       {\
         "color": "green",\
+        "start": 290.0,\
+        "stop": 7.6\
+      },\
+      {\
+        "color": "white",\
+        "start": 7.6,\
+        "stop": 10.6\
+      },\
+      {\
+        "color": "red",\
         "start": 10.6,\
-        "stop": 16.9\
+        "stop": 16.7\
       }\
     ]\
   },\
@@ -195247,45 +196177,19 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Andsnes",\
-    "latitude": 70.239795,\
-    "longitude": 21.234516666666668,\
+    "name": "Svartskjæret",\
+    "latitude": 70.26540166666666,\
+    "longitude": 21.211556666666667,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
       "extra_class": null,\
       "period": 6.0\
     },\
-    "pattern": "Iso WRG 6s",\
-    "height": 17.9,\
-    "maxRange": 8889.6,\
-    "sectors": [\
-      {\
-        "color": "green",\
-        "start": 65.5,\
-        "stop": 69.6\
-      },\
-      {\
-        "color": "white",\
-        "start": 69.6,\
-        "stop": 139.2\
-      },\
-      {\
-        "color": "red",\
-        "start": 139.2,\
-        "stop": 169.0\
-      },\
-      {\
-        "color": "white",\
-        "start": 169.0,\
-        "stop": 225.2\
-      },\
-      {\
-        "color": "green",\
-        "start": 225.2,\
-        "stop": 244.2\
-      }\
-    ]\
+    "pattern": "Iso W 6s",\
+    "height": 15.0,\
+    "maxRange": 11112.0,\
+    "sectors": []\
   },\
   {\
     "name": "Sildmylingen",\
@@ -196458,47 +197362,6 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Sørvær, nedre",\
-    "latitude": 70.63113333333334,\
-    "longitude": 21.970641666666666,\
-    "character": {\
-      "light_class": "Oc",\
-      "numflash": 3,\
-      "extra_class": null,\
-      "period": 10.0\
-    },\
-    "pattern": "Oc (3) WRG 10s",\
-    "height": 7.0,\
-    "maxRange": 17038.399999999998,\
-    "sectors": [\
-      {\
-        "color": "green",\
-        "start": 359.7,\
-        "stop": 3.0\
-      },\
-      {\
-        "color": "white",\
-        "start": 3.0,\
-        "stop": 36.8\
-      },\
-      {\
-        "color": "red",\
-        "start": 36.8,\
-        "stop": 71.4\
-      },\
-      {\
-        "color": "green",\
-        "start": 71.4,\
-        "stop": 108.1\
-      },\
-      {\
-        "color": "red",\
-        "start": 108.1,\
-        "stop": 112.1\
-      }\
-    ]\
-  },\
-  {\
     "name": "Ramnskjæret",\
     "latitude": 70.576905,\
     "longitude": 22.09492,\
@@ -196649,7 +197512,7 @@ Rectangle {
     },\
     "pattern": "Iso R 2s",\
     "height": 11.0,\
-    "maxRange": 926.0,\
+    "maxRange": 1852.0,\
     "sectors": [\
       {\
         "color": "red",\
@@ -196917,18 +197780,18 @@ Rectangle {
     "sectors": [\
       {\
         "color": "green",\
-        "start": 152.4,\
-        "stop": 166.9\
+        "start": 150.9,\
+        "stop": 166.4\
       },\
       {\
         "color": "white",\
-        "start": 166.9,\
-        "stop": 240.0\
+        "start": 166.4,\
+        "stop": 239.8\
       },\
       {\
         "color": "red",\
-        "start": 240.0,\
-        "stop": 270.0\
+        "start": 239.8,\
+        "stop": 272.3\
       }\
     ]\
   },\
@@ -201776,7 +202639,7 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Hjellneset",\
+    "name": "Jelliniemi",\
     "latitude": 70.48873333333333,\
     "longitude": 25.663196666666668,\
     "character": {\
@@ -203080,6 +203943,27 @@ Rectangle {
     ]\
   },\
   {\
+    "name": "Beritbuktneset",\
+    "latitude": 71.05983666666667,\
+    "longitude": 28.257448333333333,\
+    "character": {\
+      "light_class": "Fl",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 3.0\
+    },\
+    "pattern": "Fl R 3s",\
+    "height": 7.0,\
+    "maxRange": 1852.0,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 0.0,\
+        "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
     "name": "Beritbukta",\
     "latitude": 71.06128666666666,\
     "longitude": 28.256913333333333,\
@@ -203123,8 +204007,8 @@ Rectangle {
   },\
   {\
     "name": "Ringskjær molo 2",\
-    "latitude": 71.06003833333334,\
-    "longitude": 28.260823333333335,\
+    "latitude": 71.06014666666667,\
+    "longitude": 28.260835,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -203916,7 +204800,7 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Skardholmen",\
+    "name": "Skardholme",\
     "latitude": 70.60564666666667,\
     "longitude": 28.375261666666667,\
     "character": {\
@@ -205251,9 +206135,9 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Vadsø, indre havn, NV",\
-    "latitude": 70.07341333333333,\
-    "longitude": 29.730713333333334,\
+    "name": "Vadsø midlertidig",\
+    "latitude": 70.07326,\
+    "longitude": 29.731363333333334,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -205261,8 +206145,8 @@ Rectangle {
       "period": 3.0\
     },\
     "pattern": "Fl R 3s",\
-    "height": 4.0,\
-    "maxRange": 2963.2000000000003,\
+    "height": 2.0,\
+    "maxRange": 926.0,\
     "sectors": [\
       {\
         "color": "red",\
@@ -205511,27 +206395,6 @@ Rectangle {
     ]\
   },\
   {\
-    "name": "Beritbuktneset",\
-    "latitude": 71.05983666666667,\
-    "longitude": 28.257448333333333,\
-    "character": {\
-      "light_class": "Fl",\
-      "numflash": 1,\
-      "extra_class": null,\
-      "period": 3.0\
-    },\
-    "pattern": "Fl R 3s",\
-    "height": 7.0,\
-    "maxRange": 1852.0,\
-    "sectors": [\
-      {\
-        "color": "red",\
-        "start": 0.0,\
-        "stop": 360.0\
-      }\
-    ]\
-  },\
-  {\
     "name": "Veidneset",\
     "latitude": 70.087485,\
     "longitude": 28.826135,\
@@ -205676,8 +206539,8 @@ Rectangle {
   },\
   {\
     "name": "Bugøy molo, S",\
-    "latitude": 69.96779166666667,\
-    "longitude": 29.661365,\
+    "latitude": 69.96778833333333,\
+    "longitude": 29.661348333333333,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -205697,8 +206560,8 @@ Rectangle {
   },\
   {\
     "name": "Bugøynes molo, S",\
-    "latitude": 69.967095,\
-    "longitude": 29.659376666666667,\
+    "latitude": 69.96710166666666,\
+    "longitude": 29.659436666666668,\
     "character": {\
       "light_class": "Iso",\
       "numflash": 1,\
@@ -206592,54 +207455,59 @@ Rectangle {
     },\
     "pattern": "Fl WRG 5s",\
     "height": 20.0,\
-    "maxRange": 17223.600000000002,\
+    "maxRange": 13704.800000000001,\
     "sectors": [\
       {\
-        "color": "red",\
-        "start": 22.6,\
-        "stop": 43.2\
+        "color": "green",\
+        "start": 22.7,\
+        "stop": 43.0\
       },\
       {\
         "color": "white",\
-        "start": 43.2,\
-        "stop": 45.6\
+        "start": 43.0,\
+        "stop": 45.4\
+      },\
+      {\
+        "color": "red",\
+        "start": 45.4,\
+        "stop": 47.4\
       },\
       {\
         "color": "green",\
-        "start": 45.6,\
-        "stop": 50.3\
+        "start": 47.4,\
+        "stop": 50.2\
       },\
       {\
         "color": "white",\
-        "start": 50.3,\
-        "stop": 57.8\
+        "start": 50.2,\
+        "stop": 57.6\
       },\
       {\
         "color": "red",\
-        "start": 57.8,\
-        "stop": 75.2\
+        "start": 57.6,\
+        "stop": 75.1\
       },\
       {\
         "color": "green",\
-        "start": 75.2,\
-        "stop": 157.4\
+        "start": 75.1,\
+        "stop": 157.2\
       },\
       {\
         "color": "white",\
-        "start": 157.4,\
-        "stop": 179.0\
+        "start": 157.2,\
+        "stop": 178.7\
       },\
       {\
         "color": "red",\
-        "start": 179.0,\
-        "stop": 211.9\
+        "start": 178.7,\
+        "stop": 212.1\
       }\
     ]\
   },\
   {\
     "name": "Rudmosepynten",\
-    "latitude": 78.67091833333333,\
-    "longitude": 16.64687,\
+    "latitude": 78.670935,\
+    "longitude": 16.646876666666667,\
     "character": {\
       "light_class": "Fl",\
       "numflash": 1,\
@@ -206648,7 +207516,7 @@ Rectangle {
     },\
     "pattern": "Fl W 5s",\
     "height": 17.5,\
-    "maxRange": 14816.0,\
+    "maxRange": 15001.199999999999,\
     "sectors": [\
       {\
         "color": "white",\
@@ -206921,32 +207789,37 @@ Rectangle {
     },\
     "pattern": "Fl WRG 5s",\
     "height": 15.0,\
-    "maxRange": 15001.199999999999,\
+    "maxRange": 7037.599999999999,\
     "sectors": [\
       {\
-        "color": "red",\
-        "start": 255.0,\
-        "stop": 287.7\
+        "color": "green",\
+        "start": 268.6,\
+        "stop": 287.5\
       },\
       {\
         "color": "white",\
-        "start": 287.7,\
-        "stop": 301.5\
+        "start": 287.5,\
+        "stop": 301.2\
+      },\
+      {\
+        "color": "red",\
+        "start": 301.2,\
+        "stop": 341.6\
       },\
       {\
         "color": "green",\
-        "start": 301.5,\
-        "stop": 15.2\
+        "start": 341.6,\
+        "stop": 15.0\
       },\
       {\
         "color": "white",\
-        "start": 15.2,\
-        "stop": 38.1\
+        "start": 15.0,\
+        "stop": 37.8\
       },\
       {\
         "color": "red",\
-        "start": 38.1,\
-        "stop": 76.0\
+        "start": 37.8,\
+        "stop": 76.1\
       }\
     ]\
   },\
@@ -206968,6 +207841,47 @@ Rectangle {
         "color": "white",\
         "start": 0.0,\
         "stop": 360.0\
+      }\
+    ]\
+  },\
+  {\
+    "name": "Danskøya",\
+    "latitude": 79.65149,\
+    "longitude": 10.932585,\
+    "character": {\
+      "light_class": "Fl",\
+      "numflash": 1,\
+      "extra_class": null,\
+      "period": 5.0\
+    },\
+    "pattern": "Fl WRG 5s",\
+    "height": 9.5,\
+    "maxRange": 7037.599999999999,\
+    "sectors": [\
+      {\
+        "color": "red",\
+        "start": 239.4,\
+        "stop": 256.4\
+      },\
+      {\
+        "color": "green",\
+        "start": 256.4,\
+        "stop": 259.8\
+      },\
+      {\
+        "color": "white",\
+        "start": 259.8,\
+        "stop": 266.1\
+      },\
+      {\
+        "color": "red",\
+        "start": 266.1,\
+        "stop": 273.7\
+      },\
+      {\
+        "color": "green",\
+        "start": 273.7,\
+        "stop": 17.8\
       }\
     ]\
   },\
