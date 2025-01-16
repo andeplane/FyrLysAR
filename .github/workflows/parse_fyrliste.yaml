@@ -33,13 +33,13 @@ jobs:
       - name: Run Script
         run: |
           echo "hello" > README.md
-          git commit -am "Update README.md"
 
       # Step 5: Configure Git
       - name: Configure Git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -am "Update README.md"
 
       # Step 6: Check for changes and commit
       - name: Commit Changes
