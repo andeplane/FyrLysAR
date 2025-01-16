@@ -31,7 +31,7 @@ jobs:
       # Step 4: Run the Python script
       - name: Run Script
         run: |
-          python parse_fyrlys/parse.py
+          touch test.py
 
       # Step 5: Configure Git
       - name: Configure Git
