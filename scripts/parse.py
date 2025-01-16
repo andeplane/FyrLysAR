@@ -7,11 +7,12 @@ from parse_utils import color_map, dump_qml,extract_character, merge_text_elemen
 
 from dataclasses import dataclass, asdict, field
 
-def parse_lighthouses(text_elements):
+def parse_lighthouses(text_elements, page_number):
     global total_number_of_lighthouses
     @dataclass
     class Lighthouse:
         fyrnr: str
+        page_number: int
         bounding_box: list[tuple[int, int]]
         name: str | None = None
         latitude: str | None = None
@@ -54,7 +55,7 @@ def parse_lighthouses(text_elements):
             bounding_box = fyrnr_with_bounding_box['bounding_box']
             full_bounding_box = [bounding_box[0], (X_MAX_FOR_LIGHTHOUSE_BOUNDING_BOX, Y_FOR_LAST_LIGHTHOUSE)]
         
-        lighthouses_on_page[fyrnr] = Lighthouse(fyrnr, full_bounding_box)
+        lighthouses_on_page[fyrnr] = Lighthouse(fyrnr, page_number, full_bounding_box)
     for fyrnr, lighthouse in lighthouses_on_page.items():
         total_number_of_lighthouses += 1
         NAME_X_COORDINATE = 220/SCALING_FACTOR
@@ -173,9 +174,9 @@ if not os.path.exists(pdf_path):
 total_number_of_lighthouses = 0
 lighthouses = []
 with pdfplumber.open(pdf_path) as pdf:  # type: ignore
-    i = 0
+    page_number = 0
     for pdf_page in tqdm(pdf.pages, desc="Processing pages"):
-        i += 1
+        page_number += 1
         # print(f"Processing page {i} of {len(pdf.pages)}")
         text_on_page = pdf_page.extract_text()
         search_text = ["Lysvidde", "Fyrnr.", "Kartnr."]
@@ -183,7 +184,7 @@ with pdfplumber.open(pdf_path) as pdf:  # type: ignore
         if not should_parse_page:
             continue
         text_elements = perform_text_extraction(pdf_page)
-        lighthouses_on_page = parse_lighthouses(text_elements)
+        lighthouses_on_page = parse_lighthouses(text_elements, page_number)
         lighthouses.extend(lighthouses_on_page)
 
 lighthouses_as_dicts = [asdict(lighthouse) for lighthouse in lighthouses]
