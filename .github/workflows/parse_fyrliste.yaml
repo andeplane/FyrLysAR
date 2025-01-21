@@ -73,7 +73,6 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: Update generated files
           branch: update-fyrliste-${{ github.run_number }}
           title: "Updated Fyrliste to ${{ env.BUILD_TIME }}"
           body: |
