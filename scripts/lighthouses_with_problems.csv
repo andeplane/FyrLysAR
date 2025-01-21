@@ -1,27 +1,33 @@
 fyrnr,page_number,problem
-000700,30,Missing sector number 4
-000700,30,Missing sector number 5
+000700,30,Gap in sector numbering. Missing sector number 4
+000700,30,Gap in sector numbering. Missing sector number 5
 001910,31,No sector number for sector white (0.0 - 360.0)
 001911,31,No sector number for sector green (0.0 - 360.0)
 001912,31,No sector number for sector red (0.0 - 360.0)
 001920,31,No sector number for sector white (0.0 - 360.0)
 001921,31,No sector number for sector green (0.0 - 360.0)
 001922,31,No sector number for sector red (0.0 - 360.0)
-003600,33,Missing sector number 1
-004900,34,Missing sector number 6
+003600,33,Gap in sector numbering. Missing sector number 1
+004900,34,Gap in sector numbering. Missing sector number 6
+004900,34,Non sequential sector has a non-continuous angle. 34.2 != 48.4
 005101,34,No sector number for sector green (0.0 - 360.0)
-007800,36,Missing sector number 1
-007900,36,Missing sector number 1
-011500,42,Missing sector number 7
-011900,43,Missing sector number 5
-017100,46,Missing sector number 3
+007800,36,Gap in sector numbering. Missing sector number 1
+007900,36,Gap in sector numbering. Missing sector number 1
+011500,42,Gap in sector numbering. Missing sector number 7
+011500,42,Non sequential sector has a non-continuous angle. 155.8 != 204.8
+011900,43,Gap in sector numbering. Missing sector number 5
+011900,43,Non sequential sector has a non-continuous angle. 40.2 != 51.3
+017100,46,Gap in sector numbering. Missing sector number 3
+017100,46,Non sequential sector has a non-continuous angle. 12.3 != 32.8
+017100,46,Non sequential sector has a non-continuous angle. 208.2 != 208.9
 019222,48,No sector number for sector red (0.0 - 360.0)
 019430,48,No sector number for sector white (0.0 - 360.0)
 019437,49,No sector number for sector green (0.0 - 360.0)
 0242AP,58,No sector number for sector red (0.0 - 360.0)
 0242BP,59,No sector number for sector red (0.0 - 360.0)
 0257P,60,No sector number for sector green (0.0 - 360.0)
-026900,61,Missing sector number 6
+026900,61,Gap in sector numbering. Missing sector number 6
+026900,61,Non sequential sector has a non-continuous angle. 172.6 != 176.6
 027010,61,Invalid sector number 0 for sector red (0.0 - 360.0)
 027020,61,Invalid sector number 0 for sector green (0.0 - 360.0)
 027130,61,Invalid sector number 0 for sector red (0.0 - 360.0)
@@ -37,15 +43,20 @@ fyrnr,page_number,problem
 031014,64,No sector number for sector red (0.0 - 360.0)
 035051,68,No sector number for sector green (0.0 - 360.0)
 035071,68,No sector number for sector green (0.0 - 360.0)
-036500,70,Missing sector number 10
+036500,70,Gap in sector numbering. Missing sector number 10
+036500,70,Non sequential sector has a non-continuous angle. 279.2 != 281.2
 040601,73,Invalid sector number 0 for sector green (0.0 - 360.0)
 042901,75,No sector number for sector green (0.0 - 360.0)
-043600,75,Missing sector number 5
-044600,77,Missing sector number 2
-044950,77,Missing sector number 2
+043600,75,Gap in sector numbering. Missing sector number 5
+043600,75,Non sequential sector has a non-continuous angle. 281.7 != 288.5
+044600,77,Gap in sector numbering. Missing sector number 2
+044600,77,Non sequential sector has a non-continuous angle. 137.6 != 140.9
+044950,77,Gap in sector numbering. Missing sector number 2
+044950,77,Non sequential sector has a non-continuous angle. 351.8 != 352.8
 045282,78,No sector number for sector red (0.3 - 8.3)
 045284,78,No sector number for sector red (0.3 - 8.3)
-045500,78,Missing sector number 2
+045500,78,Gap in sector numbering. Missing sector number 2
+045500,78,Non sequential sector has a non-continuous angle. 311.1 != 316.8
 046500,80,Invalid sector number 0 for sector red (0.0 - 360.0)
 046611,80,No sector number for sector green (0.0 - 360.0)
 046800,80,Invalid sector number 0 for sector red (0.0 - 360.0)
@@ -53,25 +64,31 @@ fyrnr,page_number,problem
 047132,81,No sector number for sector red (144.6 - 152.6)
 047134,81,No sector number for sector red (144.6 - 152.6)
 047321,81,No sector number for sector green (0.0 - 360.0)
-047600,81,Missing sector number 2
-048000,82,Missing sector number 1
-048000,82,Missing sector number 2
+047600,81,Gap in sector numbering. Missing sector number 2
+047600,81,Non sequential sector has a non-continuous angle. 141.0 != 159.4
+048000,82,Gap in sector numbering. Missing sector number 1
+048000,82,Gap in sector numbering. Missing sector number 2
 052103,85,No sector number for sector green (0.0 - 360.0)
 052114,85,No sector number for sector red (0.0 - 360.0)
 052127,85,No sector number for sector green (0.0 - 360.0)
 052153,86,No sector number for sector green (0.0 - 360.0)
-053100,89,Missing sector number 1
-053210,90,Missing sector number 2
-055450,92,Missing sector number 2
-060200,98,Missing sector number 9
+053210,90,Gap in sector numbering. Missing sector number 2
+053210,90,Non sequential sector has a non-continuous angle. 345.6 != 346.1
+055450,92,Gap in sector numbering. Missing sector number 2
+055450,92,Non sequential sector has a non-continuous angle. 349.8 != 350.7
+060200,98,Gap in sector numbering. Missing sector number 9
 061400,99,No sector number for sector white (0.0 - 360.0)
 063150,101,No sector number for sector white (0.0 - 360.0)
-065030,103,Missing sector number 2
-066600,105,Missing sector number 2
-068200,107,Missing sector number 2
-068400,107,Missing sector number 4
-068400,107,Missing sector number 5
-068600,107,Missing sector number 2
+065030,103,Gap in sector numbering. Missing sector number 2
+065030,103,Non sequential sector has a non-continuous angle. 339.4 != 340.3
+066600,105,Gap in sector numbering. Missing sector number 2
+068200,107,Gap in sector numbering. Missing sector number 2
+068200,107,Non sequential sector has a non-continuous angle. 5.7 != 6.7
+068400,107,Gap in sector numbering. Missing sector number 4
+068400,107,Gap in sector numbering. Missing sector number 5
+068400,107,Non sequential sector has a non-continuous angle. 247.9 != 46.9
+068600,107,Gap in sector numbering. Missing sector number 2
+068600,107,Non sequential sector has a non-continuous angle. 115.2 != 287.5
 072401,112,No sector number for sector green (0.0 - 360.0)
 072402,112,No sector number for sector red (0.0 - 360.0)
 074112,115,No sector number for sector red (0.0 - 360.0)
@@ -83,10 +100,13 @@ fyrnr,page_number,problem
 087628,134,No sector number for sector red (0.0 - 360.0)
 087629,134,No sector number for sector green (0.0 - 360.0)
 087630,134,No sector number for sector white (0.0 - 360.0)
-09400,136,Missing sector number 2
-09700,136,Missing sector number 2
+09400,136,Gap in sector numbering. Missing sector number 2
+09400,136,Non sequential sector has a non-continuous angle. 176.2 != 176.7
+09700,136,Gap in sector numbering. Missing sector number 2
+09700,136,Non sequential sector has a non-continuous angle. 333.3 != 334.8
 093507,140,No sector number for sector green (0.0 - 360.0)
-102100,147,Missing sector number 4
+102100,147,Gap in sector numbering. Missing sector number 4
+102100,147,Non sequential sector has a non-continuous angle. 45.4 != 165.2
 102821,147,No sector number for sector green (0.0 - 360.0)
 102822,147,No sector number for sector red (0.0 - 360.0)
 106336,151,No sector number for sector red (0.0 - 360.0)
@@ -115,11 +135,7 @@ fyrnr,page_number,problem
 135105,196,No sector number for sector green (0.0 - 360.0)
 135109,197,No sector number for sector green (0.0 - 360.0)
 135411,197,No sector number for sector green (0.0 - 360.0)
-140532,202,No sector number for sector red (0.0 - 360.0)
-140534,202,No sector number for sector red (0.0 - 360.0)
 140535,202,No sector number for sector green (0.0 - 360.0)
-140736,203,No sector number for sector red (0.0 - 360.0)
-141050,203,No sector number for sector red (0.0 - 360.0)
 141051,203,No sector number for sector green (0.0 - 360.0)
 141053,203,No sector number for sector green (0.0 - 360.0)
 141056,204,No sector number for sector red (0.0 - 360.0)
@@ -145,11 +161,12 @@ fyrnr,page_number,problem
 143291,208,No sector number for sector green (0.0 - 360.0)
 143294,208,No sector number for sector red (0.0 - 360.0)
 143569,208,No sector number for sector white (0.0 - 360.0)
-144521,210,No sector number for sector green (0.0 - 360.0)
 145201,211,No sector number for sector green (0.0 - 360.0)
 145202,211,No sector number for sector red (0.0 - 360.0)
 145206,211,No sector number for sector red (0.0 - 360.0)
-147400,213,Missing sector number 5
+147400,213,Gap in sector numbering. Missing sector number 5
+147400,213,Non sequential sector has a non-continuous angle. 183.7 != 183.4
+147400,213,Non sequential sector has a non-continuous angle. 188.9 != 188.7
 147534,213,No sector number for sector red (0.0 - 360.0)
 147535,213,No sector number for sector green (0.0 - 360.0)
 147903,214,No sector number for sector green (0.0 - 360.0)
@@ -258,8 +275,10 @@ fyrnr,page_number,problem
 215810,285,No sector number for sector white (0.0 - 360.0)
 220042,289,No sector number for sector red (0.0 - 360.0)
 220044,289,No sector number for sector red (0.0 - 360.0)
-224802,294,Missing sector number 2
-224802,294,Missing sector number 3
+224802,294,Gap in sector numbering. Missing sector number 2
+224802,294,Gap in sector numbering. Missing sector number 3
+224802,294,Non sequential sector has a non-continuous angle. 238.7 != 0.0
+224802,294,Non sequential sector has a non-continuous angle. 360.0 != 69.7
 226607,296,No sector number for sector green (0.0 - 360.0)
 226611,296,No sector number for sector green (0.0 - 360.0)
 226617,296,No sector number for sector green (0.0 - 360.0)
@@ -277,9 +296,9 @@ fyrnr,page_number,problem
 227663,298,No sector number for sector green (0.0 - 360.0)
 227664,298,No sector number for sector red (0.0 - 360.0)
 227665,298,No sector number for sector green (0.0 - 360.0)
-228800,301,Missing sector number 1
-228800,301,Missing sector number 2
-228800,301,Missing sector number 3
+228800,301,Gap in sector numbering. Missing sector number 1
+228800,301,Gap in sector numbering. Missing sector number 2
+228800,301,Gap in sector numbering. Missing sector number 3
 229236,301,No sector number for sector red (0.0 - 360.0)
 230500,302,No sector number for sector red (0.0 - 360.0)
 243101,315,No sector number for sector green (0.0 - 360.0)
@@ -329,7 +348,8 @@ fyrnr,page_number,problem
 351057,398,No sector number for sector green (0.0 - 360.0)
 351661,399,No sector number for sector green (0.0 - 360.0)
 353651,401,No sector number for sector green (0.0 - 360.0)
-354000,402,Missing sector number 15
+354000,402,Gap in sector numbering. Missing sector number 15
+354000,402,Non sequential sector has a non-continuous angle. 192.1 != 259.4
 356711,404,No sector number for sector green (0.0 - 360.0)
 356712,404,No sector number for sector red (0.0 - 360.0)
 356715,404,No sector number for sector green (0.0 - 360.0)
@@ -349,7 +369,8 @@ fyrnr,page_number,problem
 372907,418,No sector number for sector green (0.0 - 360.0)
 372909,418,No sector number for sector green (0.0 - 360.0)
 378513,424,No sector number for sector green (0.0 - 360.0)
-379000,424,Missing sector number 4
+379000,424,Gap in sector numbering. Missing sector number 4
+379000,424,Non sequential sector has a non-continuous angle. 74.8 != 91.0
 387521,430,No sector number for sector green (0.0 - 360.0)
 387522,430,No sector number for sector red (0.0 - 360.0)
 387611,430,No sector number for sector green (0.0 - 360.0)
@@ -424,8 +445,10 @@ fyrnr,page_number,problem
 570702,544,No sector number for sector red (0.0 - 360.0)
 581321,549,No sector number for sector green (0.0 - 360.0)
 589601,554,No sector number for sector green (0.0 - 360.0)
-600010,555,Missing sector number 4
-600100,556,Missing sector number 8
+600010,555,Gap in sector numbering. Missing sector number 4
+600010,555,Non sequential sector has a non-continuous angle. 31.7 != 200.9
+600100,556,Gap in sector numbering. Missing sector number 8
+600100,556,Non sequential sector has a non-continuous angle. 164.6 != 224.4
 618201,572,No sector number for sector green (0.0 - 360.0)
 619110,572,No sector number for sector white (0.0 - 360.0)
 619704,572,No sector number for sector red (0.0 - 360.0)
@@ -533,8 +556,9 @@ fyrnr,page_number,problem
 669673,620,No sector number for sector green (0.0 - 360.0)
 669776,620,No sector number for sector red (0.0 - 360.0)
 669878,620,No sector number for sector red (0.0 - 360.0)
-670000,620,Missing sector number 8
-670000,620,Missing sector number 7
+670000,620,Gap in sector numbering. Missing sector number 8
+670000,620,Gap in sector numbering. Missing sector number 7
+670000,620,Non sequential sector has a non-continuous angle. 257.9 != 292.7
 670704,620,No sector number for sector red (0.0 - 360.0)
 671505,621,No sector number for sector green (0.0 - 360.0)
 672011,621,No sector number for sector green (0.0 - 360.0)
@@ -575,7 +599,8 @@ fyrnr,page_number,problem
 680900,630,No sector number for sector white (0.0 - 360.0)
 680902,630,No sector number for sector red (0.0 - 360.0)
 694200,641,No sector number for sector green (0.0 - 360.0)
-700500,645,Missing sector number 10
+700500,645,Gap in sector numbering. Missing sector number 10
+700500,645,Non sequential sector has a non-continuous angle. 217.3 != 240.8
 709301,654,No sector number for sector green (0.0 - 360.0)
 724003,664,No sector number for sector green (0.0 - 360.0)
 724005,664,No sector number for sector green (0.0 - 360.0)
@@ -583,27 +608,33 @@ fyrnr,page_number,problem
 7297CP,667,No sector number for sector red (0.0 - 360.0)
 7300AP,667,No sector number for sector red (0.0 - 360.0)
 7300BP,668,No sector number for sector red (0.0 - 360.0)
-735500,670,Missing sector number 1
-735500,670,Missing sector number 2
-738600,671,Missing sector number 5
-738600,671,Missing sector number 7
+735500,670,Gap in sector numbering. Missing sector number 1
+735500,670,Gap in sector numbering. Missing sector number 2
+738600,671,Gap in sector numbering. Missing sector number 5
+738600,671,Gap in sector numbering. Missing sector number 7
+738600,671,Non sequential sector has a non-continuous angle. 158.7 != 161.1
+738600,671,Non sequential sector has a non-continuous angle. 209.5 != 214.1
 738700,671,No sector number for sector red (0.0 - 360.0)
-739400,672,Missing sector number 3
-747000,678,Missing sector number 6
-747500,678,Missing sector number 2
+739400,672,Gap in sector numbering. Missing sector number 3
+739400,672,Non sequential sector has a non-continuous angle. 350.2 != 353.7
+747000,678,Gap in sector numbering. Missing sector number 6
+747000,678,Non sequential sector has a non-continuous angle. 117.5 != 120.7
+747500,678,Gap in sector numbering. Missing sector number 2
+747500,678,Non sequential sector has a non-continuous angle. 193.5 != 194.0
 750401,681,No sector number for sector green (0.0 - 360.0)
 750601,681,No sector number for sector green (0.0 - 360.0)
 757140,689,No sector number for sector white (0.0 - 360.0)
 757802,689,No sector number for sector red (2.6 - 10.6)
 757804,689,No sector number for sector red (2.6 - 10.6)
-759700,692,Missing sector number 1
+759700,692,Gap in sector numbering. Missing sector number 1
 768101,699,No sector number for sector green (345.7 - 170.0)
 768302,700,No sector number for sector red (0.0 - 360.0)
 770605,702,No sector number for sector green (0.0 - 360.0)
 770606,703,No sector number for sector red (0.0 - 360.0)
 771235,703,No sector number for sector green (0.0 - 360.0)
 771240,703,No sector number for sector white (0.0 - 360.0)
-779200,711,Missing sector number 3
+779200,711,Gap in sector numbering. Missing sector number 3
+779200,711,Non sequential sector has a non-continuous angle. 140.8 != 71.7
 785501,714,No sector number for sector green (0.0 - 360.0)
 785502,714,No sector number for sector red (0.0 - 360.0)
 794002,719,No sector number for sector red (0.0 - 360.0)
@@ -624,22 +655,30 @@ fyrnr,page_number,problem
 825501,745,No sector number for sector green (0.0 - 360.0)
 825802,745,No sector number for sector red (0.0 - 360.0)
 834500,754,No sector number for sector white (0.0 - 360.0)
-835102,756,Missing sector number 2
+835102,756,Gap in sector numbering. Missing sector number 2
+835102,756,Non sequential sector has a non-continuous angle. 360.0 != 0.0
 835401,756,No sector number for sector green (0.0 - 360.0)
 8356CP,757,No sector number for sector green (0.0 - 360.0)
 8360AP,757,No sector number for sector red (0.0 - 360.0)
 8360BP,757,No sector number for sector red (0.0 - 360.0)
 850600,764,No sector number for sector red (0.0 - 360.0)
-859000,770,Missing sector number 2
-859000,770,Missing sector number 3
-862500,773,Missing sector number 8
-862500,773,Missing sector number 7
+859000,770,Gap in sector numbering. Missing sector number 2
+859000,770,Gap in sector numbering. Missing sector number 3
+859000,770,Non sequential sector has a non-continuous angle. 2.5 != 63.1
+862500,773,Gap in sector numbering. Missing sector number 8
+862500,773,Gap in sector numbering. Missing sector number 7
+862500,773,Non sequential sector has a non-continuous angle. 270.0 != 305.2
 863837,774,No sector number for sector green (0.0 - 360.0)
-872900,780,Missing sector number 5
-875500,782,Missing sector number 2
-875500,782,Missing sector number 3
-877000,782,Missing sector number 4
+872900,780,Gap in sector numbering. Missing sector number 5
+872900,780,Non sequential sector has a non-continuous angle. 308.7 != 58.3
+875500,782,Gap in sector numbering. Missing sector number 2
+875500,782,Gap in sector numbering. Missing sector number 3
+875500,782,Non sequential sector has a non-continuous angle. 266.3 != 351.4
+875500,782,Non sequential sector has a non-continuous angle. 140.0 != 158.2
+877000,782,Gap in sector numbering. Missing sector number 4
+877000,782,Non sequential sector has a non-continuous angle. 20.3 != 31.2
 8809FP,786,No sector number for sector green (0.0 - 360.0)
-882000,787,Missing sector number 5
+882000,787,Gap in sector numbering. Missing sector number 5
+882000,787,Non sequential sector has a non-continuous angle. 169.6 != 178.0
 917500,806,No sector number for sector white (0.0 - 360.0)
-960100,833,Missing sector number 1
+960100,833,Gap in sector numbering. Missing sector number 1
