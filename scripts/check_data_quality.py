@@ -20,8 +20,10 @@ def add_problem(lighthouse, problem):
         error_types["Missing sector number"] += 1
     elif "Invalid sector number 0" in problem:
         error_types["Invalid sector number 0"] += 1
-    elif "Missing sector number" in problem:
+    elif "Gap in sector numbering" in problem:
         error_types["Gap in sector numbering"] += 1
+    elif "Non sequential sector has a non-continuous angle" in problem:
+        error_types["Non sequential sector has a non-continuous angle"] += 1
 
 def check_sectors(lighthouse):
     sectors_with_numbers = []
@@ -38,14 +40,25 @@ def check_sectors(lighthouse):
     # Skip sequence check if no numbered sectors
     if not sectors_with_numbers:
         return
-        
+    
     # Check for gaps in sequence
     expected_numbers = set(range(1, len(sectors_with_numbers) + 1))
     actual_numbers = set(sector['number'] for sector in sectors_with_numbers)
     missing_numbers = expected_numbers - actual_numbers
     
     for missing in missing_numbers:
-        add_problem(lighthouse, f"Missing sector number {missing}")
+        add_problem(lighthouse, f"Gap in sector numbering. Missing sector number {missing}")
+
+    # iterate over all sectors and their next sector
+    for sector_index, sector in enumerate(lighthouse['sectors'][:-1]):  # Exclude last sector
+        next_sector = lighthouse['sectors'][sector_index + 1]
+        # Check if the sector numbers are in sequence
+        if sector['number'] is not None and next_sector['number'] is not None:
+            if sector['number'] + 1 != next_sector['number']:
+                # Now check the end angle vs next start angle
+                if sector['stop'] != next_sector['start']:
+                    add_problem(lighthouse, f"Non sequential sector has a non-continuous angle. {sector['stop']} != {next_sector['start']}")
+        
 
 for lighthouse in lighthouses:
     lighthouses_by_fyrnr[lighthouse['fyrnr']] = lighthouse
