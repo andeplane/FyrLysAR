@@ -9,5 +9,6 @@
 7. Click the plus button -> iOS -> iOS App icon and drag in the non transparent logo
 8. It may happen that the Asset Catalog file is not added to the project. If this is the case, find it in Finder and drag'n drop into list of files in XCode.
 9. Click the main project root item in file list, go to General and update App Icon to be AppIcon
+10. Version may have to be set both in "General" tab and "Info" tab
 
 You should now be able to run Product -> Archive that validates the app bundle.
