@@ -261,7 +261,7 @@ Rectangle {
         let lightOn = true;
         if (flashValues && flashValues.length > 0 && flashPeriod > 0) {
             let index = Math.floor(((time/1000 % flashPeriod) / flashPeriod) * flashValues.length)
-            lightOn = flashValues[index]
+            lightOn = index >= 0 && index < flashValues.length ? flashValues[index] : true
         }
 
         if (!lightOn) {
