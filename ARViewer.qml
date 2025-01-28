@@ -211,6 +211,12 @@ Item {
         onReadingChanged: {
             const t0 = Date.now()
 
+            // Device coordinate system is:
+            // x to the left
+            // y down
+            // z outwards from back camera
+            // accelerometer reading follows this coordinate system
+
             const g = Qt.vector3d(0, 0, 1)
             let gp = Qt.vector3d(-reading.x, reading.y, -reading.z).normalized()
 
