@@ -316,8 +316,11 @@ Rectangle {
         let angle = deviceCoordinate.azimuthTo(coordinates)
         angle *= Math.PI / 180
 
+        const tanPhi = (root.heightOverSea - deviceCoordinate.altitude)/root.distance
+
         const HEIGHT_FACTOR = 4; // Increasing effect of height to improve visuals.
-        const v = Qt.vector3d(Math.sin(angle), Math.cos(angle), HEIGHT_FACTOR*(root.heightOverSea - deviceCoordinate.altitude)/root.distance)
+        let phi = Math.atan(tanPhi)
+        const v = Qt.vector3d(Math.sin(angle), Math.cos(angle), HEIGHT_FACTOR*Math.sin(phi))
 
         const vPrime = R.times(v)
         xx -= xx / smoothingN
