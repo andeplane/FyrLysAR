@@ -65,7 +65,6 @@ Rectangle {
     function parseFlash(pattern) {
       let re = /\s[WGR]+\s*/
       const splitted = pattern.split(re)
-      splitted[0].substr()
       const paranthesesIndex = splitted[0].indexOf('(')
 
       let flashClass = splitted[0]
@@ -260,9 +259,9 @@ Rectangle {
         const time = Date.now()
 
         let lightOn = true;
-        if (flashValues && flashValues.length > 0 & flashPeriod > 0) {
+        if (flashValues && flashValues.length > 0 && flashPeriod > 0) {
             let index = Math.floor(((time/1000 % flashPeriod) / flashPeriod) * flashValues.length)
-            lightOn = flashValues[index]
+            lightOn = index >= 0 && index < flashValues.length ? flashValues[index] : true
         }
 
         if (!lightOn) {
