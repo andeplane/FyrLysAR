@@ -68,7 +68,6 @@ fyrnr,page_number,problem
 047600,81,Non sequential sector has a non-continuous angle. 141.0 != 159.4
 048000,82,Gap in sector numbering. Missing sector number 1
 048000,82,Gap in sector numbering. Missing sector number 2
-052103,85,No sector number for sector green (0.0 - 360.0)
 052114,85,No sector number for sector red (0.0 - 360.0)
 052127,85,No sector number for sector green (0.0 - 360.0)
 052153,86,No sector number for sector green (0.0 - 360.0)
@@ -621,7 +620,6 @@ fyrnr,page_number,problem
 823708,743,No sector number for sector red (0.0 - 360.0)
 825010,744,No sector number for sector white (0.0 - 360.0)
 825303,745,No sector number for sector green (0.0 - 360.0)
-825501,745,No sector number for sector green (0.0 - 360.0)
 825802,745,No sector number for sector red (0.0 - 360.0)
 834500,754,No sector number for sector white (0.0 - 360.0)
 835102,756,Gap in sector numbering. Missing sector number 2
