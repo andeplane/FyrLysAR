@@ -96,6 +96,7 @@ ios {
 }
 
 DISTFILES += \
+  MapMode.qml \
   WelcomeScreen.qml \
   images/splash.png \
   ARViewer.qml \
