@@ -7,6 +7,7 @@ Item {
     id: root
     property real longitude
     property real latitude
+    property real compassBearing
 
     Plugin {
         id: mapPlugin
@@ -19,6 +20,7 @@ Item {
         plugin: mapPlugin
         center: QtPositioning.coordinate(root.latitude, root.longitude)
         zoomLevel: 14
+        bearing: root.compassBearing
         property geoCoordinate startCentroid
 
         PinchHandler {
@@ -61,13 +63,14 @@ Item {
         }
     }
 
-    Compass {
-        id: compass
-        active: true
-        dataRate: 7
-        property real azimuth: 0
-        onReadingChanged: {
-            map.bearing = reading.azimuth;
-        }
+    CompassNeedle {
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.topMargin: 20
+        anchors.leftMargin: 20
+        width: 50
+        height: 50
+
+        rotation: -compassBearing
     }
 }

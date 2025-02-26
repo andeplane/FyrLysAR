@@ -44,6 +44,7 @@ Window {
 
     MapMode {
         id: map
+        compassBearing: sensors.compass
         longitude: root.selfCoord ? root.selfCoord.longitude : 0
         latitude: root.selfCoord ? root.selfCoord.latitude : 0
     }
@@ -68,38 +69,25 @@ Window {
         anchors.fill: parent
     }
 
-    PositionSource {
-        id: positionSource
-        updateInterval: 250
-        active: true
-
+    Sensors {
+        id: sensors
         onPositionChanged: {
             if (settings.useHardCodedPosition) {
                 root.selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude, 0)
             } else {
-                root.selfCoord = positionSource.position.coordinate
+                root.selfCoord = position
             }
         }
-    }
 
-    Accelerometer {
-        id: accelerometer
-        active: true
-        dataRate: 25
-
-        property real accumulatedTime: 0
-        property real numUpdates: 1
-        property real timePerUpdate: accumulatedTime/numUpdates
-
-        onReadingChanged: {
+        onAccelerometerChanged: {
             const g = 9.81;
             let thresholdTransitionToMap = g * (Math.sqrt(3) / 2);
             let thresholdTransitionToAR = g * (Math.sqrt(1) / 2);
 
-            if (stack.currentItem === map && reading.z < thresholdTransitionToAR) {
+            if (stack.currentItem === map && accelerometer.z < thresholdTransitionToAR) {
                 stack.replace(mainView);
             }
-            else if (stack.currentItem === mainView && reading.z > thresholdTransitionToMap) {
+            else if (stack.currentItem === mainView && accelerometer.z > thresholdTransitionToMap) {
                 stack.replace(map);
             }
         }

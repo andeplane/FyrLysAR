@@ -170,5 +170,7 @@
         <file>images/light2.gif</file>
         <file>images/crosshair.png</file>
         <file>images/gear-white.svg</file>
+        <file>Sensors.qml</file>
+        <file>CompassNeedle.qml</file>
     </qresource>
 </RCC>

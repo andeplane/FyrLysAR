@@ -96,7 +96,9 @@ ios {
 }
 
 DISTFILES += \
+  CompassNeedle.qml \
   MapMode.qml \
+  Sensors.qml \
   WelcomeScreen.qml \
   images/splash.png \
   ARViewer.qml \
