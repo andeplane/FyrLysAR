@@ -1,6 +1,7 @@
 import QtQuick
 import QtLocation
 import QtPositioning
+import QtSensors
 
 Item {
     id: root
@@ -30,10 +31,6 @@ Item {
                 map.zoomLevel += Math.log2(delta)
                 map.alignCoordinateToPoint(map.startCentroid, pinch.centroid.position)
             }
-            onRotationChanged: (delta) => {
-                map.bearing -= delta
-                map.alignCoordinateToPoint(map.startCentroid, pinch.centroid.position)
-            }
             grabPermissions: PointerHandler.TakeOverForbidden
         }
         WheelHandler {
@@ -61,6 +58,16 @@ Item {
             enabled: map.zoomLevel > map.minimumZoomLevel
             sequence: StandardKey.ZoomOut
             onActivated: map.zoomLevel = Math.round(map.zoomLevel - 1)
+        }
+    }
+
+    Compass {
+        id: compass
+        active: true
+        dataRate: 7
+        property real azimuth: 0
+        onReadingChanged: {
+            map.bearing = reading.azimuth;
         }
     }
 }
