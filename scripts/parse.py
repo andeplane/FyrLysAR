@@ -195,7 +195,7 @@ with open("scripts/lighthouses.json", "w") as f:
     print("Wrote the file")
     json.dump(lighthouses_as_dicts, f, indent=2, ensure_ascii=False)
 qml_string = dump_qml(lighthouses_as_dicts)
-with open("lighthouses.qml", "w") as f:
+with open("LighthouseList.qml", "w") as f:
     f.write(qml_string)
 print("total_number_of_lighthouses: ", total_number_of_lighthouses)
 print("total_real_number_of_lighthouses: ", len(lighthouses))
