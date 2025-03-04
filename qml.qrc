@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>Lighthouse.qml</file>
+        <file>ARLighthouseCircle.qml</file>
         <file>images/gear.svg</file>
         <file>ARViewer.qml</file>
         <file>SettingsView.qml</file>

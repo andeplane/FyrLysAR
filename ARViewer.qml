@@ -38,7 +38,7 @@ Item {
     }
 
     Component.onCompleted: {
-        lighthouseComponent = Qt.createComponent("qrc:/Lighthouse.qml");
+        lighthouseComponent = Qt.createComponent("qrc:/ARLighthouseCircle.qml");
     }
 
     LighthouseList {

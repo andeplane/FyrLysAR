@@ -104,7 +104,7 @@ DISTFILES += \
   images/splash.png \
   ARViewer.qml \
   Header.qml \
-  Lighthouse.qml \
+  ARLighthouseCircle.qml \
   Sector.qml \
   SettingsView.qml \
   heightdata/6400_50m_33.tfw \
