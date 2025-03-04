@@ -72,8 +72,8 @@ Window {
     Sensors {
         id: sensors
         onPositionChanged: {
-            if (settings.useHardCodedPosition) {
-                root.selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude, 0)
+            if (settings.useHardCodedPosition && settings.hardcodedLatitude && settings.hardcodedLongitude) {
+                root.selfCoord = QtPositioning.coordinate(settings.hardcodedLatitude, settings.hardcodedLongitude, 0)
             } else {
                 root.selfCoord = position
             }
