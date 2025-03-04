@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>Lighthouses.qml</file>
         <file>Lighthouse.qml</file>
         <file>images/gear.svg</file>
         <file>ARViewer.qml</file>
@@ -172,5 +171,6 @@
         <file>images/gear-white.svg</file>
         <file>Sensors.qml</file>
         <file>CompassNeedle.qml</file>
+        <file>LighthouseList.qml</file>
     </qresource>
 </RCC>
