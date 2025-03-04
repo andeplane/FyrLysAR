@@ -41,7 +41,7 @@ Item {
         lighthouseComponent = Qt.createComponent("qrc:/Lighthouse.qml");
     }
 
-    Lighthouses {
+    LighthouseList {
         id: lighthousesSource
         Component.onCompleted: {
             root.lighthouses = JSON.parse(jsonString)

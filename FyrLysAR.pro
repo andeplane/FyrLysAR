@@ -97,6 +97,7 @@ ios {
 
 DISTFILES += \
   CompassNeedle.qml \
+  LighthouseList.qml \
   MapMode.qml \
   Sensors.qml \
   WelcomeScreen.qml \
@@ -104,7 +105,6 @@ DISTFILES += \
   ARViewer.qml \
   Header.qml \
   Lighthouse.qml \
-  Lighthouses.qml \
   Sector.qml \
   SettingsView.qml \
   heightdata/6400_50m_33.tfw \
