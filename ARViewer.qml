@@ -4,7 +4,6 @@ import QtMultimedia
 import QtPositioning
 import QtQuick.Controls
 import QtQuick.Layouts
-import HeightReader 1.0
 
 import "qrc:/"
 
@@ -12,84 +11,36 @@ Item {
     id: root
 
     property bool debug
-    property var  lighthouses
     property var  lighthouseComponent
-    property var  nearbyLighthouses: []
-    property real numLighthousesNotHiddenByLand: 0
-    property real numLighthousesAboveHorizon: 0
-    property real numLighthousesInNearbyList: 0
-    property bool useHardCodedPosition
-    property real hardcodedLongitude
-    property real hardcodedLatitude
-    property real selfHeight
     property real crosshairRadius: 0.1
     property var  selfCoord
     property real fovL: 69
     property real fovP: 38
     property real smoothingN: 3
-    property real earthRadius: 6371009 // meters
+    property var  nearbyLighthouses: []
+    property real nearbyLighthousesLengthLastUpdate: 0
+    property bool spritesDirty: false
 
     onDebugChanged: {
         // Reset stats
         accelerometer.accumulatedTime = 0
         accelerometer.numUpdates = 1
-        positionSource.accumulatedTime = 0
-        positionSource.numUpdates = 1
     }
 
     Component.onCompleted: {
         lighthouseComponent = Qt.createComponent("qrc:/ARLighthouseCircle.qml");
     }
 
-    LighthouseList {
-        id: lighthousesSource
-        Component.onCompleted: {
-            root.lighthouses = JSON.parse(jsonString)
-            // Some lighthouses don't have height from source.
-            // Assume 1 meter for calculations
-            lighthouses.forEach(lighthouse => {
-                if (lighthouse.height === undefined) {
-                    lighthouse.height = 1.0
-                }
-            })
+    Timer {
+        repeat: true
+        interval: 250
+        running: true
+        onTriggered: {
+            if (nearbyLighthouses.length !== nearbyLighthousesLengthLastUpdate) {
+                createLighthouseObjects()
+                nearbyLighthousesLengthLastUpdate = nearbyLighthouses.length
+            }
         }
-    }
-
-    function deg2rad(deg) {
-        return deg / 180 * Math.PI
-    }
-
-    function visibilityRange(height) {
-        return Math.sqrt(2*earthRadius * height)
-    }
-
-    function calculateDistance(lat1, lon1, lat2, lon2) {
-      lat1 = deg2rad(lat1)
-      lat2 = deg2rad(lat2)
-      lon1 = deg2rad(lon1)
-      lon2 = deg2rad(lon2)
-
-      const dLat = lat2 - lat1
-      const dLon = lon2 - lon1
-      const a = (Math.pow(Math.sin(dLat / 2), 2) +
-        Math.pow(Math.sin(dLon / 2), 2) *
-        Math.cos(lat1) * Math.cos(lat2));
-      return earthRadius * 2 * Math.asin(Math.sqrt(a))
-    }
-
-    function calculateAngle(lat1, lon1, lat2, lon2) {
-      lat1 = deg2rad(lat1)
-      lat2 = deg2rad(lat2)
-      lon1 = deg2rad(lon1)
-      lon2 = deg2rad(lon2)
-
-      const dLon = (lon2 - lon1);
-
-      const y = Math.sin(dLon) * Math.cos(lat2);
-      const x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1)
-        * Math.cos(lat2) * Math.cos(dLon);
-
-      return Math.atan2(y, x)
     }
 
     function createLighthouseObjects() {
@@ -111,75 +62,12 @@ Item {
                     radius: 10,
                     width: 10,
                     height: 10,
-                    color: Qt.rgba(1.0, 0.0, 0.0, 1.0)
+                    color: Qt.rgba(1.0, 0.0, 0.0, 1.0),
+                    visible: false
                 });
+                root.spritesDirty = true
             }
         })
-    }
-
-    function updateVisibilityBasedOnLand(selfCoord, lighthouses) {
-        numLighthousesNotHiddenByLand = 0
-        numLighthousesAboveHorizon = 0
-        numLighthousesInNearbyList = nearbyLighthouses.length
-        lighthouses.forEach(lighthouse => {
-            const lighthouseCoord = QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouse.height)
-            lighthouse.isHiddenByLand = !heightReader.lineIsAboveLand(selfCoord, lighthouseCoord)
-            lighthouse.isAboveHorizon = selfCoord.distanceTo(lighthouseCoord) < visibilityRange(selfCoord.altitude) + visibilityRange(lighthouse.height)
-            if (lighthouse.sprite) {
-                lighthouse.sprite.visible = !lighthouse.isHiddenByLand && lighthouse.isAboveHorizon
-            }
-
-            numLighthousesNotHiddenByLand += !lighthouse.isHiddenByLand ? 1 : 0
-            numLighthousesAboveHorizon += lighthouse.isAboveHorizon ? 1 : 0
-        })
-    }
-
-    PositionSource {
-        id: positionSource
-        updateInterval: 250
-        active: true
-        property var lastUpdatedCoord: undefined
-        property real accumulatedTime: 0
-        property real numUpdates: 1
-        property real timePerUpdate: accumulatedTime/numUpdates
-
-        onPositionChanged: {
-            const t0 = Date.now()
-            root.selfCoord = positionSource.position.coordinate
-
-            if (useHardCodedPosition) {
-                root.selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude, 0)
-            }
-
-            const altitude = heightReader.findHeight(root.selfCoord)
-            root.selfCoord = QtPositioning.coordinate(root.selfCoord.latitude, root.selfCoord.longitude, selfHeight + altitude)
-
-            let shouldScanForNewNearbyLighthouses = lastUpdatedCoord===undefined || calculateDistance(selfCoord.latitude, selfCoord.longitude, lastUpdatedCoord.latitude, lastUpdatedCoord.longitude) > 1852
-            let shouldUpdateVisibilityBasedOnLand = lastUpdatedCoord===undefined || calculateDistance(selfCoord.latitude, selfCoord.longitude, lastUpdatedCoord.latitude, lastUpdatedCoord.longitude) > 20
-
-            if (shouldScanForNewNearbyLighthouses) {
-                lighthouses.forEach(lighthouse => {
-                    var lighthouseCoord = QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouse.height)
-
-                    if (selfCoord.distanceTo(lighthouseCoord) < visibilityRange(selfCoord.altitude) + visibilityRange(lighthouse.height)) {
-                        if (nearbyLighthouses.indexOf(lighthouse) < 0) {
-
-                            nearbyLighthouses.push(lighthouse)
-                        }
-                    }
-                })
-                lastUpdatedCoord = selfCoord
-                createLighthouseObjects()
-            }
-
-            if (shouldUpdateVisibilityBasedOnLand) {
-                updateVisibilityBasedOnLand(selfCoord, nearbyLighthouses)
-            }
-
-            const t1 = Date.now()
-            accumulatedTime += t1-t0
-            numUpdates += 1
-        }
     }
 
     CaptureSession {
@@ -210,6 +98,9 @@ Item {
 
         onReadingChanged: {
             const t0 = Date.now()
+            if (!root.selfCoord) {
+                return
+            }
 
             // Device coordinate system is:
             // x to the left
@@ -237,8 +128,12 @@ Item {
 
             nearbyLighthouses.forEach(lighthouse => {
                 if (lighthouse.sprite && !lighthouse.isHiddenByLand && lighthouse.isAboveHorizon) {
-                    lighthouse.sprite.update(selfCoord, R, fovP, fovL, root.width, root.height)
+                    lighthouse.sprite.update(root.selfCoord, R, fovP, fovL, root.width, root.height)
+                    // console.log(lighthouse.name, " is pretty visible!")
+                    // console.log(lighthouse.name, " lighthouse.sprite.visible: !", lighthouse.sprite.visible)
+                    // console.log(lighthouse.name, lighthouse.sprite.normalizedDistanceToScreenCenter, "<", nearestCenterOnScreenDistance, ": ", lighthouse.sprite.normalizedDistanceToScreenCenter < nearestCenterOnScreenDistance)
                     if (lighthouse.sprite.visible && lighthouse.sprite.normalizedDistanceToScreenCenter < nearestCenterOnScreenDistance) {
+                        // console.log("Will update nearest to ", lighthouse.name)
                         nearestCenterOnScreenDistance = lighthouse.sprite.normalizedDistanceToScreenCenter
                         lighthouseNearestCenterOnScreen = lighthouse
                     }
@@ -273,18 +168,14 @@ Item {
         anchors.fill: parent
     }
 
-    HeightReader {
-        id: heightReader
-    }
-
     InfoBox {
         id: infoBox
         deviceCoordinate: root.selfCoord
     }
 
-    DebugBox {
-        visible: debug
-    }
+    // DebugBox {
+    //     visible: debug
+    // }
 
     Crosshair {
         crosshairRadius: root.crosshairRadius

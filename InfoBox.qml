@@ -1,13 +1,15 @@
 import QtQuick
 
 Rectangle {
-    id: infoBox
+    id: root
     property var lighthouse
     property var deviceCoordinate
     property real heading: {
-        if (deviceCoordinate && lighthouse) {
-            return deviceCoordinate.azimuthTo(lighthouse.coordinates) * Math.PI / 180
+        if (root.deviceCoordinate && root.lighthouse) {
+            const heading_value = deviceCoordinate.azimuthTo(lighthouse.coordinates) * Math.PI / 180
+            return heading_value
         }
+
         return 0
     }
 
@@ -26,7 +28,7 @@ Rectangle {
                 text: "Name: "
             }
             Text {
-                text: infoBox.lighthouse ? infoBox.lighthouse.name : ""
+                text: root.lighthouse ? root.lighthouse.name : ""
             }
         }
 
@@ -35,7 +37,7 @@ Rectangle {
                 text: "Distance: "
             }
             Text {
-                text: infoBox.lighthouse ? infoBox.lighthouse.distance.toFixed(0.0) + ' m' : ""
+                text: root.lighthouse ? root.lighthouse.distance.toFixed(0.0) + ' m' : ""
             }
         }
 
@@ -44,7 +46,7 @@ Rectangle {
                 text: "Height: "
             }
             Text {
-                text: infoBox.lighthouse ? infoBox.lighthouse.heightOverSea + ' m' : ""
+                text: root.lighthouse ? root.lighthouse.heightOverSea + ' m' : ""
             }
         }
 
@@ -53,7 +55,7 @@ Rectangle {
                 text: "Heading: "
             }
             Text {
-                text: Math.round(infoBox.heading / Math.PI * 180, 0)
+                text: Math.round(root.heading / Math.PI * 180, 0)
             }
         }
     }
@@ -71,11 +73,11 @@ Rectangle {
         anchors.bottomMargin: margin
         anchors.right: parent.right
         anchors.top: parent.top
-        lighthouse: infoBox.lighthouse
+        lighthouse: root.lighthouse
 
         Rectangle {
-            // Assuming you want a circle, ensure width and height are equal and based on a factor of infoBox.width
-            width: 0.02 * infoBox.width
+            // Assuming you want a circle, ensure width and height are equal and based on a factor of root.width
+            width: 0.02 * root.width
             height: width  // Makes the shape a square, which will look like a circle with the corner radius
             color: "red"
 

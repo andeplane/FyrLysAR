@@ -172,5 +172,6 @@
         <file>Sensors.qml</file>
         <file>CompassNeedle.qml</file>
         <file>LighthouseList.qml</file>
+        <file>LighthouseProvider.qml</file>
     </qresource>
 </RCC>

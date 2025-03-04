@@ -15,6 +15,7 @@ Window {
     visible: true
     property alias debug: settings.debug
     property var selfCoord
+    property alias spritesDirty: mainView.spritesDirty
 
     Settings {
         property alias useHardCodedPosition: settings.useHardCodedPosition
@@ -33,13 +34,21 @@ Window {
         }
     }
 
+    LighthouseProvider {
+        id: lighthouseProvider
+        property alias spritesDirty: mainView.spritesDirty
+        selfCoord: root.selfCoord
+    }
+
+    HeightReader {
+        id: heightReader
+    }
+
     ARViewer {
         id: mainView
         debug: root.debug
-        useHardCodedPosition: settings.useHardCodedPosition
-        hardcodedLongitude: settings.hardcodedLongitude
-        hardcodedLatitude: settings.hardcodedLatitude
-        selfHeight: settings.selfHeight
+        nearbyLighthouses: lighthouseProvider.nearbyLighthouses
+        selfCoord: root.selfCoord
     }
 
     MapMode {
@@ -72,11 +81,15 @@ Window {
     Sensors {
         id: sensors
         onPositionChanged: {
+            let selfCoord
             if (settings.useHardCodedPosition && settings.hardcodedLatitude && settings.hardcodedLongitude) {
-                root.selfCoord = QtPositioning.coordinate(settings.hardcodedLatitude, settings.hardcodedLongitude, 0)
+                selfCoord = QtPositioning.coordinate(settings.hardcodedLatitude, settings.hardcodedLongitude, 0)
             } else {
-                root.selfCoord = position
+                selfCoord = position
             }
+
+            const altitude = heightReader.findHeight(selfCoord)
+            root.selfCoord = QtPositioning.coordinate(selfCoord.latitude, selfCoord.longitude, settings.selfHeight + altitude)
         }
 
         onAccelerometerChanged: {
