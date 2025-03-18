@@ -34,12 +34,6 @@ Window {
         }
     }
 
-    LighthouseProvider {
-        id: lighthouseProvider
-        property alias spritesDirty: mainView.spritesDirty
-        selfCoord: root.selfCoord
-    }
-
     HeightReader {
         id: heightReader
     }
@@ -47,7 +41,6 @@ Window {
     ARViewer {
         id: mainView
         debug: root.debug
-        nearbyLighthouses: lighthouseProvider.nearbyLighthouses
         selfCoord: root.selfCoord
     }
 

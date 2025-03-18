@@ -11,15 +11,22 @@ Item {
     id: root
 
     property bool debug
+    property var  lighthouseProvider
     property var  lighthouseComponent
     property real crosshairRadius: 0.1
     property var  selfCoord
     property real fovL: 69
     property real fovP: 38
     property real smoothingN: 3
-    property var  nearbyLighthouses: []
+    property alias nearbyLighthouses: lighthouseProvider.nearbyLighthouses
     property real nearbyLighthousesLengthLastUpdate: 0
     property bool spritesDirty: false
+
+    LighthouseProvider {
+        id: lighthouseProvider
+        property alias spritesDirty: root.spritesDirty
+        selfCoord: root.selfCoord
+    }
 
     onDebugChanged: {
         // Reset stats
