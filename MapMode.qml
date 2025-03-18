@@ -12,6 +12,9 @@ Item {
     property bool customView: false
     // flag to indicate if we are animating a reset
     property bool animatingReset: false
+    property real cumulativeDeltaRotation: 0
+    property bool activeRotation: false
+    property bool customScale: false
 
     // activeBearing uses the animated value when animating, otherwise uses
     // either map.bearing (if custom view) or the compass value.
@@ -20,6 +23,7 @@ Item {
     function resetView() {
         // disable any custom view so external updates are ignored during animation
         customView = false
+        customScale = false
         animatingReset = true
         resetAnimation.start()
     }
@@ -70,16 +74,27 @@ Item {
         target: null
         onActiveChanged: if (active) {
             map.startCentroid = map.toCoordinate(pinch.centroid.position, false)
+            if (!active) {
+                root.cumulativeDeltaRotation = 0
+                root.activeRotation = false
+            }
         }
         onScaleChanged: (delta) => {
-            customView = true
+            customScale = true
             map.zoomLevel += Math.log2(delta)
             map.alignCoordinateToPoint(map.startCentroid, pinch.centroid.position)
         }
         onRotationChanged: (delta) => {
-            customView = true
-            map.bearing -= delta
-            map.alignCoordinateToPoint(map.startCentroid, pinch.centroid.position)
+            cumulativeDeltaRotation += delta
+            console.log("cumulativeDeltaRotation: ", cumulativeDeltaRotation)
+            if (Math.abs(cumulativeDeltaRotation) > 60) {
+                root.activeRotation = true
+            }
+            if (root.activeRotation) {
+                customView = true
+                map.bearing -= delta
+                map.alignCoordinateToPoint(map.startCentroid, pinch.centroid.position)
+            }
         }
         grabPermissions: PointerHandler.TakeOverForbidden
     }
@@ -119,7 +134,7 @@ Item {
         anchors.left: parent.left
         anchors.topMargin: 20
         anchors.leftMargin: 20
-        compassStrokeStyle: customView ? ShapePath.DashLine : ShapePath.SolidLine
+        compassStrokeStyle: (customView || customScale) ? ShapePath.DashLine : ShapePath.SolidLine
         width: 50
         height: 50
         // while animating, use the map’s current bearing
