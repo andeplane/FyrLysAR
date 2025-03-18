@@ -22,7 +22,9 @@ Item {
         }
 
         let shouldScanForNewNearbyLighthouses = lastUpdatedCoordScan===undefined || calculateDistance(root.selfCoord.latitude, root.selfCoord.longitude, lastUpdatedCoordScan.latitude, lastUpdatedCoordScan.longitude) > 1852
-        let shouldUpdateVisibilityBasedOnLand = lastUpdatedCoordUpdateVisbility===undefined || calculateDistance(root.selfCoord.latitude, root.selfCoord.longitude, lastUpdatedCoordUpdateVisbility.latitude, lastUpdatedCoordUpdateVisbility.longitude) > 20
+
+        const hasChangedHeightSinceVisibilityUpdate = lastUpdatedCoordUpdateVisbility && (root.selfCoord.altitude !== lastUpdatedCoordUpdateVisbility.altitude)
+        let shouldUpdateVisibilityBasedOnLand = lastUpdatedCoordUpdateVisbility===undefined || calculateDistance(root.selfCoord.latitude, root.selfCoord.longitude, lastUpdatedCoordUpdateVisbility.latitude, lastUpdatedCoordUpdateVisbility.longitude) > 20 || hasChangedHeightSinceVisibilityUpdate
 
 
         if (shouldScanForNewNearbyLighthouses) {
