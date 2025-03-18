@@ -18,15 +18,9 @@ Item {
     property real fovL: 69
     property real fovP: 38
     property real smoothingN: 3
-    property alias nearbyLighthouses: lighthouseProvider.nearbyLighthouses
+    property var  nearbyLighthouses: []
     property real nearbyLighthousesLengthLastUpdate: 0
     property bool spritesDirty: false
-
-    LighthouseProvider {
-        id: lighthouseProvider
-        property alias spritesDirty: root.spritesDirty
-        selfCoord: root.selfCoord
-    }
 
     onDebugChanged: {
         // Reset stats

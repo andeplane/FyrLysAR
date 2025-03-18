@@ -34,6 +34,13 @@ Window {
         }
     }
 
+    LighthouseProvider {
+        id: lighthouseProvider
+        property alias spritesDirty: mainView.spritesDirty
+        // selfCoord: stack.currentItem === map ? map. : root.selfCoord
+        selfCoord: root.selfCoord
+    }
+
     HeightReader {
         id: heightReader
     }
@@ -41,14 +48,17 @@ Window {
     ARViewer {
         id: mainView
         debug: root.debug
+        nearbyLighthouses: lighthouseProvider.nearbyLighthouses
         selfCoord: root.selfCoord
     }
 
     MapMode {
         id: map
         compassBearing: sensors.compass
-        longitude: root.selfCoord ? root.selfCoord.longitude : 0
-        latitude: root.selfCoord ? root.selfCoord.latitude : 0
+        selfCoord: root.selfCoord
+        onCenterChanged: {
+            console.log("Got new center: ", center.latitude, center.longitude)
+        }
     }
 
     SettingsView {
