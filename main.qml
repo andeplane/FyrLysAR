@@ -69,6 +69,9 @@ Window {
         id: stack
         initialItem: mainView
         anchors.fill: parent
+        onCurrentItemChanged: {
+            map.resetView()
+        }
     }
 
     SettingsButton {
