@@ -109,9 +109,14 @@ Window {
         }
 
         onAccelerometerChanged: {
-            const g = 9.81;
+            const g = Math.sqrt(accelerometer.x*accelerometer.x + accelerometer.y*accelerometer.y + accelerometer.z*accelerometer.z)
             let thresholdTransitionToMap = g * (Math.sqrt(3) / 2);
             let thresholdTransitionToAR = g * (Math.sqrt(1) / 2);
+            if (g < 8 || g > 12) {
+                // We don't want to use the accelerometer when
+                // the phone is accelerating due to waves or humans moving the phone
+                return
+            }
 
             if (stack.currentItem === map && accelerometer.z < thresholdTransitionToAR) {
                 stack.replace(mainView);
