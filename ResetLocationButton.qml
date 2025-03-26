@@ -15,11 +15,11 @@ Rectangle {
 
     Image {
         id: image
-        source: customCenter ? arrowOpenFileName : arrowFilledFileName
+        source: (customCenter || customScale) ? arrowOpenFileName : arrowFilledFileName
         x: parent.width / 2 - image.width / 2 - 1
         y: parent.height / 2 - image.height / 2 + 1
-        width: 23
-        height: 23
+        width: customScale ? 15 : 23
+        height: customScale ? 15 : 23
     }
 }
 
