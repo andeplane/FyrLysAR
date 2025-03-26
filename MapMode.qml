@@ -141,8 +141,8 @@ Item {
         anchors.topMargin: 10
         anchors.leftMargin: 10
         compassStrokeStyle: (customRotation) ? ShapePath.DashLine : ShapePath.SolidLine
-        width: 44
-        height: 44
+        width: 56
+        height: 56
         // while animating, use the map’s current bearing
         rotation: -activeBearing
 
