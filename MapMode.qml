@@ -72,28 +72,26 @@ Item {
     PinchHandler {
         id: pinch
         target: null
-        onActiveChanged: if (active) {
-            map.startCentroid = map.toCoordinate(pinch.centroid.position, false)
+        onActiveChanged: {
             if (!active) {
                 root.cumulativeDeltaRotation = 0
                 root.activeRotation = false
             }
         }
+
         onScaleChanged: (delta) => {
             customScale = true
             map.zoomLevel += Math.log2(delta)
-            map.alignCoordinateToPoint(map.startCentroid, pinch.centroid.position)
         }
+
         onRotationChanged: (delta) => {
             cumulativeDeltaRotation += delta
-            console.log("cumulativeDeltaRotation: ", cumulativeDeltaRotation)
-            if (Math.abs(cumulativeDeltaRotation) > 60) {
+            if (Math.abs(cumulativeDeltaRotation) > 7) {
                 root.activeRotation = true
             }
             if (root.activeRotation) {
                 customView = true
                 map.bearing -= delta
-                map.alignCoordinateToPoint(map.startCentroid, pinch.centroid.position)
             }
         }
         grabPermissions: PointerHandler.TakeOverForbidden
