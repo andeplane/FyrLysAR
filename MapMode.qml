@@ -141,8 +141,8 @@ Item {
         anchors.topMargin: 10
         anchors.leftMargin: 10
         compassStrokeStyle: (customRotation) ? ShapePath.DashLine : ShapePath.SolidLine
-        width: 40
-        height: 40
+        width: 44
+        height: 44
         // while animating, use the map’s current bearing
         rotation: -activeBearing
 
@@ -157,11 +157,11 @@ Item {
     }
 
     ResetLocationButton {
-        width: 40
-        height: 40
+        width: 44
+        height: 44
         anchors.top: parent.top
         anchors.right: parent.right
-        anchors.topMargin: 55
+        anchors.topMargin: 59
         anchors.rightMargin: 10
         MouseArea {
             anchors.fill: parent

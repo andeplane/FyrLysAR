@@ -18,8 +18,8 @@ Rectangle {
         source: arrowFilledFileName
         x: parent.width / 2 - image.width / 2 - 1
         y: parent.height / 2 - image.height / 2 + 1
-        width: 22
-        height: 22
+        width: 23
+        height: 23
     }
 }
 

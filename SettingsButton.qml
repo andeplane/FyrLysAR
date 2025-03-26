@@ -3,8 +3,8 @@ import QtQuick
 Rectangle {
     Image {
         anchors.centerIn: parent
-        width: 32
-        height: 32
+        width: 33
+        height: 33
         source: "qrc:/images/gear.svg"
         MouseArea {
             anchors.fill: parent
