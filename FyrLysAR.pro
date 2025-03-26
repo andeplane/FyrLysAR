@@ -100,6 +100,7 @@ DISTFILES += \
   LighthouseList.qml \
   LighthouseProvider.qml \
   MapMode.qml \
+  ResetLocationButton.qml \
   Sensors.qml \
   WelcomeScreen.qml \
   images/splash.png \

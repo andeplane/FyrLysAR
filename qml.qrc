@@ -173,5 +173,8 @@
         <file>CompassNeedle.qml</file>
         <file>LighthouseList.qml</file>
         <file>LighthouseProvider.qml</file>
+        <file>ResetLocationButton.qml</file>
+        <file>images/location-arrow-o-svgrepo-com.svg</file>
+        <file>images/location-arrow-svgrepo-com.svg</file>
     </qresource>
 </RCC>

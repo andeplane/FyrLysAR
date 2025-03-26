@@ -76,6 +76,16 @@ Window {
 
     SettingsButton {
         id: settingsButton
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.topMargin: 10
+        anchors.rightMargin: 10
+        width: 40
+        height: 40
+        color: Qt.rgba(1.0, 1.0, 1.0, 0.0)
+        border.color: "#000"
+        border.width: stack.currentItem === map ? 2 : 0
+        radius: 5
     }
 
     WelcomeScreen {

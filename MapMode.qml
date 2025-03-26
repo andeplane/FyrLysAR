@@ -9,34 +9,34 @@ Item {
     property var selfCoord
     property real compassBearing
     property alias center: map.center
-    property bool customView: false
     // flag to indicate if we are animating a reset
-    property bool animatingReset: false
+    property bool rotationAnimatingReset: false
+    property bool scaleAnimatingReset: false
+    property bool positionAnimatingReset: false
     property real cumulativeDeltaRotation: 0
-    property bool activeRotation: false
+    property bool customRotation: false
     property bool customScale: false
+    property bool customCenter: false
 
     // activeBearing uses the animated value when animating, otherwise uses
-    // either map.bearing (if custom view) or the compass value.
-    property real activeBearing: animatingReset ? map.bearing : (customView ? map.bearing : compassBearing)
+    // either map.bearing (if customRotation) or the compass value.
+    property real activeBearing: rotationAnimatingReset ? map.bearing : (customRotation ? map.bearing : compassBearing)
 
     function resetView() {
-        // disable any custom view so external updates are ignored during animation
-        customView = false
+        customRotation = false
         customScale = false
-        animatingReset = true
-        resetAnimation.start()
+        customCenter = false
     }
 
     // If updates come from outside while not animating, update immediately.
     onSelfCoordChanged: {
-        if (customView || animatingReset)
+        if (customCenter || positionAnimatingReset)
             return;
         map.center = selfCoord;
     }
 
     onCompassBearingChanged: {
-        if (customView || animatingReset)
+        if (customRotation || rotationAnimatingReset)
             return;
         map.bearing = compassBearing;
     }
@@ -52,20 +52,29 @@ Item {
         plugin: mapPlugin
         zoomLevel: 14
         bearing: compassBearing
-        // center is normally updated via onSelfCoordChanged or via the animation
-        // during resetView the animations will drive map.center, map.bearing and map.zoomLevel
     }
 
-    // Animate the center, bearing and zoomLevel concurrently.
     ParallelAnimation {
-        id: resetAnimation
-        // duration can be adjusted as desired (here 500ms)
-        PropertyAnimation { target: map; property: "center"; duration: 500; to: selfCoord }
-        PropertyAnimation { target: map; property: "bearing"; duration: 500; to: compassBearing }
-        PropertyAnimation { target: map; property: "zoomLevel"; duration: 500; to: 14 }
+        id: resetRotationAnimation
+        PropertyAnimation { target: map; property: "bearing"; duration: 250; to: compassBearing }
         onFinished: {
-            // Once done, allow external updates again.
-            root.animatingReset = false;
+            root.rotationAnimatingReset = false;
+        }
+    }
+
+    ParallelAnimation {
+        id: resetPositionAnimation
+        PropertyAnimation { target: map; property: "center"; duration: 250; to: selfCoord }
+        onFinished: {
+            root.positionAnimatingReset = false;
+        }
+    }
+
+    ParallelAnimation {
+        id: resetScaleAnimation
+        PropertyAnimation { target: map; property: "zoomLevel"; duration: 250; to: 14 }
+        onFinished: {
+            root.scaleAnimatingReset = false;
         }
     }
 
@@ -75,7 +84,6 @@ Item {
         onActiveChanged: {
             if (!active) {
                 root.cumulativeDeltaRotation = 0
-                root.activeRotation = false
             }
         }
 
@@ -87,10 +95,9 @@ Item {
         onRotationChanged: (delta) => {
             cumulativeDeltaRotation += delta
             if (Math.abs(cumulativeDeltaRotation) > 7) {
-                root.activeRotation = true
+                root.customRotation = true
             }
-            if (root.activeRotation) {
-                customView = true
+            if (root.customRotation) {
                 map.bearing -= delta
             }
         }
@@ -112,7 +119,7 @@ Item {
         target: null
         onTranslationChanged: (delta) => {
             map.pan(-delta.x, -delta.y)
-            customView = true
+            customCenter = true
         }
     }
 
@@ -128,21 +135,46 @@ Item {
     }
 
     CompassNeedle {
+        id: compassNeedle
         anchors.top: parent.top
         anchors.left: parent.left
-        anchors.topMargin: 20
-        anchors.leftMargin: 20
-        compassStrokeStyle: (customView || customScale) ? ShapePath.DashLine : ShapePath.SolidLine
-        width: 50
-        height: 50
+        anchors.topMargin: 10
+        anchors.leftMargin: 10
+        compassStrokeStyle: (customRotation) ? ShapePath.DashLine : ShapePath.SolidLine
+        width: 40
+        height: 40
         // while animating, use the map’s current bearing
         rotation: -activeBearing
 
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                // Trigger the animated reset.
-                resetView()
+                customRotation = false
+                rotationAnimatingReset = true
+                resetRotationAnimation.start()
+            }
+        }
+    }
+
+    ResetLocationButton {
+        width: 40
+        height: 40
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.topMargin: 55
+        anchors.rightMargin: 10
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                if (customCenter) {
+                    customCenter = false
+                    positionAnimatingReset = true
+                    resetPositionAnimation.start()
+                } else if (customScale) {
+                    customScale = false
+                    scaleAnimatingReset = true
+                    resetScaleAnimation.start()
+                }
             }
         }
     }
