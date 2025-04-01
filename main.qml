@@ -55,9 +55,7 @@ Window {
         id: map
         compassBearing: sensors.compass
         selfCoord: root.selfCoord
-        onCenterChanged: {
-            console.log("Got new center: ", center.latitude, center.longitude)
-        }
+        nearbyLighthouses: lighthouseProvider.nearbyLighthouses
     }
 
     SettingsView {

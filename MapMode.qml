@@ -8,6 +8,7 @@ Item {
     id: root
     property var selfCoord
     property real compassBearing
+    property var nearbyLighthouses
     property alias center: map.center
     // flag to indicate if we are animating a reset
     property bool rotationAnimatingReset: false
@@ -52,6 +53,36 @@ Item {
         plugin: mapPlugin
         zoomLevel: 14
         bearing: compassBearing
+
+        WheelHandler {
+            id: wheel
+            // workaround for QTBUG-87646 / QTBUG-112394 / QTBUG-112432:
+            acceptedDevices: Qt.platform.pluginName === "cocoa" || Qt.platform.pluginName === "wayland"
+                             ? PointerDevice.Mouse | PointerDevice.TouchPad
+                             : PointerDevice.Mouse
+            rotationScale: 1/120
+            property: "zoomLevel"
+        }
+
+        MapItemView {
+            anchors.fill: parent
+            model: nearbyLighthouses
+
+            delegate: MapQuickItem {
+                // The coordinate where the sector is displayed
+                coordinate: QtPositioning.coordinate(modelData.latitude, modelData.longitude)
+                // Setting zoomLevel makes the item scale with the map
+                zoomLevel: 14
+                anchorPoint.x: sourceItem.width / 2
+                anchorPoint.y: sourceItem.height / 2
+
+                sourceItem: Sector {
+                    width: 50
+                    height: 50
+                    lighthouse: modelData
+                }
+            }
+        }
     }
 
     ParallelAnimation {
@@ -102,16 +133,6 @@ Item {
             }
         }
         grabPermissions: PointerHandler.TakeOverForbidden
-    }
-
-    WheelHandler {
-        id: wheel
-        // workaround for QTBUG-87646 / QTBUG-112394 / QTBUG-112432:
-        acceptedDevices: Qt.platform.pluginName === "cocoa" || Qt.platform.pluginName === "wayland"
-                         ? PointerDevice.Mouse | PointerDevice.TouchPad
-                         : PointerDevice.Mouse
-        rotationScale: 1/120
-        property: "zoomLevel"
     }
 
     DragHandler {
