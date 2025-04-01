@@ -33,7 +33,9 @@ Item {
     onSelfCoordChanged: {
         if (customCenter || positionAnimatingReset)
             return;
-        map.center = selfCoord;
+        if (selfCoord) {
+            map.center = selfCoord;
+        }
     }
 
     onCompassBearingChanged: {
