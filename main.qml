@@ -15,7 +15,6 @@ Window {
     visible: true
     property alias debug: settings.debug
     property var selfCoord
-    property alias spritesDirty: mainView.spritesDirty
 
     Settings {
         property alias useHardCodedPosition: settings.useHardCodedPosition
@@ -37,8 +36,8 @@ Window {
     LighthouseProvider {
         id: lighthouseProvider
         property alias spritesDirty: mainView.spritesDirty
-        // selfCoord: stack.currentItem === map ? map. : root.selfCoord
-        selfCoord: root.selfCoord
+        selfCoord: stack.currentItem === map ? map.center : root.selfCoord
+
     }
 
     HeightReader {
