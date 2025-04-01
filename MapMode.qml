@@ -66,13 +66,48 @@ Item {
             property: "zoomLevel"
         }
 
+        PinchHandler {
+            id: pinch
+            target: null
+            onActiveChanged: {
+                if (!active) {
+                    root.cumulativeDeltaRotation = 0
+                }
+            }
+
+            onScaleChanged: (delta) => {
+                customScale = true
+                map.zoomLevel += Math.log2(delta)
+            }
+
+            onRotationChanged: (delta) => {
+                cumulativeDeltaRotation += delta
+                if (Math.abs(cumulativeDeltaRotation) > 7) {
+                    root.customRotation = true
+                }
+                if (root.customRotation) {
+                    map.bearing -= delta
+                }
+            }
+            grabPermissions: PointerHandler.TakeOverForbidden
+        }
+
+        DragHandler {
+            id: drag
+            target: null
+            onTranslationChanged: (delta) => {
+                map.pan(-delta.x, -delta.y)
+                customCenter = true
+            }
+        }
+
         MapItemView {
             anchors.fill: parent
             model: nearbyLighthouses
 
             delegate: MapQuickItem {
                 // The coordinate where the sector is displayed
-                coordinate: QtPositioning.coordinate(modelData.latitude, modelData.longitude)
+                coordinate: modelData.coordinates
                 // Setting zoomLevel makes the item scale with the map
                 zoomLevel: 14
                 anchorPoint.x: sourceItem.width / 2
@@ -82,9 +117,16 @@ Item {
                     width: 50
                     height: 50
                     lighthouse: modelData
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            infoBox.lighthouse = modelData
+                        }
+                    }
                 }
             }
         }
+
     }
 
     ParallelAnimation {
@@ -111,46 +153,12 @@ Item {
         }
     }
 
-    PinchHandler {
-        id: pinch
-        target: null
-        onActiveChanged: {
-            if (!active) {
-                root.cumulativeDeltaRotation = 0
-            }
-        }
-
-        onScaleChanged: (delta) => {
-            customScale = true
-            map.zoomLevel += Math.log2(delta)
-        }
-
-        onRotationChanged: (delta) => {
-            cumulativeDeltaRotation += delta
-            if (Math.abs(cumulativeDeltaRotation) > 7) {
-                root.customRotation = true
-            }
-            if (root.customRotation) {
-                map.bearing -= delta
-            }
-        }
-        grabPermissions: PointerHandler.TakeOverForbidden
-    }
-
-    DragHandler {
-        id: drag
-        target: null
-        onTranslationChanged: (delta) => {
-            map.pan(-delta.x, -delta.y)
-            customCenter = true
-        }
-    }
-
     Shortcut {
         enabled: map.zoomLevel < map.maximumZoomLevel
         sequence: StandardKey.ZoomIn
         onActivated: map.zoomLevel = Math.round(map.zoomLevel + 1)
     }
+
     Shortcut {
         enabled: map.zoomLevel > map.minimumZoomLevel
         sequence: StandardKey.ZoomOut
@@ -198,6 +206,18 @@ Item {
                     scaleAnimatingReset = true
                     resetScaleAnimation.start()
                 }
+            }
+        }
+    }
+
+    InfoBox {
+        id: infoBox
+        deviceCoordinate: root.selfCoord
+        visible: lighthouse != null
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                infoBox.lighthouse = null
             }
         }
     }

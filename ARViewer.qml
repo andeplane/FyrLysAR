@@ -38,24 +38,18 @@ Item {
         running: true
         onTriggered: {
             if (nearbyLighthouses.length !== nearbyLighthousesLengthLastUpdate) {
-                createLighthouseObjects()
+                createLighthouseSprites()
                 nearbyLighthousesLengthLastUpdate = nearbyLighthouses.length
             }
         }
     }
 
-    function createLighthouseObjects() {
+    function createLighthouseSprites() {
         // Will create the sprites (aka objects that are rendered on screen)
         // for all lighthouse objects in nearbyLighthouses
         nearbyLighthouses.forEach(lighthouse => {
-            if (lighthouse.sprite === undefined && lighthouseComponent.status === Component.Ready) {
-                lighthouse.sprite = lighthouseComponent.createObject(lighthouseContainer, {
-                    coordinates: QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouse.height),
-                    heightOverSea: lighthouse.height,
-                    pattern: lighthouse.pattern,
-                    name: lighthouse.name,
-                    maxRange: lighthouse.maxRange,
-                    sectors: lighthouse.sectors,
+            if (lighthouse.arSprite === undefined && lighthouseComponent.status === Component.Ready) {
+                lighthouse.arSprite = lighthouseComponent.createObject(lighthouseContainer, {
                     accelerometerReading: accelerometer.reading,
                     x: 100,
                     y: 100,
@@ -63,7 +57,7 @@ Item {
                     radius: 10,
                     width: 10,
                     height: 10,
-                    color: Qt.rgba(1.0, 0.0, 0.0, 1.0),
+                    lighthouse: lighthouse,
                     visible: false
                 });
                 root.spritesDirty = true
@@ -128,10 +122,10 @@ Item {
             let nearestCenterOnScreenDistance = 1e9
 
             nearbyLighthouses.forEach(lighthouse => {
-                if (lighthouse.sprite && !lighthouse.isHiddenByLand && lighthouse.isAboveHorizon) {
-                    lighthouse.sprite.update(root.selfCoord, R, fovP, fovL, root.width, root.height)
-                    if (lighthouse.sprite.visible && lighthouse.sprite.normalizedDistanceToScreenCenter < nearestCenterOnScreenDistance) {
-                        nearestCenterOnScreenDistance = lighthouse.sprite.normalizedDistanceToScreenCenter
+                if (lighthouse.arSprite && !lighthouse.isHiddenByLand && lighthouse.isAboveHorizon) {
+                    lighthouse.arSprite.update(root.selfCoord, R, fovP, fovL, root.width, root.height)
+                    if (lighthouse.arSprite.visible && lighthouse.arSprite.normalizedDistanceToScreenCenter < nearestCenterOnScreenDistance) {
+                        nearestCenterOnScreenDistance = lighthouse.arSprite.normalizedDistanceToScreenCenter
                         lighthouseNearestCenterOnScreen = lighthouse
                     }
                 }
@@ -139,7 +133,7 @@ Item {
 
             if (nearestCenterOnScreenDistance < crosshairRadius) {
                 infoBox.visible = true
-                infoBox.lighthouse = lighthouseNearestCenterOnScreen.sprite
+                infoBox.lighthouse = lighthouseNearestCenterOnScreen
             } else {
                 infoBox.visible = false
             }

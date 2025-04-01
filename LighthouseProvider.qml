@@ -12,6 +12,7 @@ Item {
     property real numLighthousesAboveHorizon: 0
     property real numLighthousesNotHiddenByLand: 0
     property real numLighthousesInNearbyList: 0
+    property var lighthouseComponent
 
     property real earthRadius: 6371009 // meters
 
@@ -19,11 +20,16 @@ Item {
         runLighthouseUpdate()
     }
 
+    Component.onCompleted: {
+        lighthouseComponent = Qt.createComponent("qrc:/Lighthouse.qml");
+    }
+
     function runLighthouseUpdate() {
-        if (!root.selfCoord || lighthouses.length == 0) {
+        if (!root.selfCoord || root.lighthouses.length == 0) {
             // We are not ready yet, need to get coordinates and read JSON file
             return
         }
+
 
         let shouldScanForNewNearbyLighthouses = lastUpdatedCoordScan===undefined || calculateDistance(root.selfCoord.latitude, root.selfCoord.longitude, lastUpdatedCoordScan.latitude, lastUpdatedCoordScan.longitude) > 1852
 
@@ -32,10 +38,8 @@ Item {
 
 
         if (shouldScanForNewNearbyLighthouses) {
-            lighthouses.forEach(lighthouse => {
-                var lighthouseCoord = QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouse.height)
-
-                if (root.selfCoord.distanceTo(lighthouseCoord) < visibilityRange(root.selfCoord.altitude) + visibilityRange(lighthouse.height)) {
+            root.lighthouses.forEach(lighthouse => {
+                if (root.selfCoord.distanceTo(lighthouse.coordinates) < visibilityRange(root.selfCoord.altitude) + visibilityRange(lighthouse.heightOverSea)) {
                     if (nearbyLighthouses.indexOf(lighthouse) < 0) {
                         nearbyLighthouses.push(lighthouse)
                     }
@@ -93,12 +97,11 @@ Item {
         numLighthousesAboveHorizon = 0
         numLighthousesInNearbyList = nearbyLighthouses.length
         lighthouses.forEach(lighthouse => {
-            const lighthouseCoord = QtPositioning.coordinate(lighthouse.latitude, lighthouse.longitude, lighthouse.height)
-            lighthouse.isHiddenByLand = !heightReader.lineIsAboveLand(selfCoord, lighthouseCoord)
-            lighthouse.isAboveHorizon = selfCoord.distanceTo(lighthouseCoord) < visibilityRange(selfCoord.altitude) + visibilityRange(lighthouse.height)
-            if (lighthouse.sprite) {
+            lighthouse.isHiddenByLand = !heightReader.lineIsAboveLand(selfCoord, lighthouse.coordinates)
+            lighthouse.isAboveHorizon = selfCoord.distanceTo(lighthouse.coordinates) < visibilityRange(selfCoord.altitude) + visibilityRange(lighthouse.height)
+            if (lighthouse.arSprite) {
                 const isVisible = !lighthouse.isHiddenByLand && lighthouse.isAboveHorizon
-                lighthouse.sprite.visible = isVisible
+                lighthouse.arSprite.visible = isVisible
             }
 
             numLighthousesNotHiddenByLand += !lighthouse.isHiddenByLand ? 1 : 0
@@ -106,18 +109,38 @@ Item {
         })
     }
 
+    function createLighthouse(lighthouseData) {
+        const lighthouse_object = lighthouseComponent.createObject(lighthouseContainer, {
+            coordinates: QtPositioning.coordinate(lighthouseData.latitude, lighthouseData.longitude, lighthouseData.height),
+            heightOverSea: lighthouseData.height,
+            pattern: lighthouseData.pattern,
+            name: lighthouseData.name,
+            maxRange: lighthouseData.maxRange,
+            sectors: lighthouseData.sectors
+        });
+        lighthouse_object.update(selfCoord)
+        return lighthouse_object
+    }
+
+    Item {
+        id: lighthouseContainer
+    }
+
     LighthouseList {
         id: lighthousesSource
         Component.onCompleted: {
-            root.lighthouses = JSON.parse(jsonString)
+            const parsedLighthouses = JSON.parse(jsonString)
+            root.lighthouses = []
+
             // Some lighthouses don't have height from source.
             // Assume 1 meter for calculations
-            lighthouses.forEach(lighthouse => {
+            parsedLighthouses.forEach(lighthouse => {
                 if (lighthouse.height === undefined) {
                     lighthouse.height = 1.0
                 }
-            })
 
+                root.lighthouses.push(createLighthouse(lighthouse))
+            })
             runLighthouseUpdate()
         }
     }
