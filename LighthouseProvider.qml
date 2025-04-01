@@ -16,6 +16,10 @@ Item {
     property real earthRadius: 6371009 // meters
 
     onSelfCoordChanged: {
+        runLighthouseUpdate()
+    }
+
+    function runLighthouseUpdate() {
         if (!root.selfCoord || lighthouses.length == 0) {
             // We are not ready yet, need to get coordinates and read JSON file
             return
@@ -37,7 +41,8 @@ Item {
                     }
                 }
             })
-            lastUpdatedCoordScan = root.selfCoord
+            nearbyLighthouses = [...nearbyLighthouses]
+            lastUpdatedCoordScan = QtPositioning.coordinate(root.selfCoord.latitude, root.selfCoord.longitude, root.selfCoord.altitude)
         }
         if (spritesDirty || shouldUpdateVisibilityBasedOnLand) {
             updateVisibilityBasedOnLand(root.selfCoord, nearbyLighthouses)
@@ -112,6 +117,8 @@ Item {
                     lighthouse.height = 1.0
                 }
             })
+
+            runLighthouseUpdate()
         }
     }
 
