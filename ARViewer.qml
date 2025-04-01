@@ -130,11 +130,7 @@ Item {
             nearbyLighthouses.forEach(lighthouse => {
                 if (lighthouse.sprite && !lighthouse.isHiddenByLand && lighthouse.isAboveHorizon) {
                     lighthouse.sprite.update(root.selfCoord, R, fovP, fovL, root.width, root.height)
-                    // console.log(lighthouse.name, " is pretty visible!")
-                    // console.log(lighthouse.name, " lighthouse.sprite.visible: !", lighthouse.sprite.visible)
-                    // console.log(lighthouse.name, lighthouse.sprite.normalizedDistanceToScreenCenter, "<", nearestCenterOnScreenDistance, ": ", lighthouse.sprite.normalizedDistanceToScreenCenter < nearestCenterOnScreenDistance)
                     if (lighthouse.sprite.visible && lighthouse.sprite.normalizedDistanceToScreenCenter < nearestCenterOnScreenDistance) {
-                        // console.log("Will update nearest to ", lighthouse.name)
                         nearestCenterOnScreenDistance = lighthouse.sprite.normalizedDistanceToScreenCenter
                         lighthouseNearestCenterOnScreen = lighthouse
                     }

@@ -239,7 +239,7 @@ Rectangle {
         return flash
       }
 
-      console.log(`Could not convert ${lightClass}`)
+      // console.log(`Could not convert ${lightClass}`)
       return null
     }
 
