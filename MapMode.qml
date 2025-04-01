@@ -55,6 +55,7 @@ Item {
         plugin: mapPlugin
         zoomLevel: 14
         bearing: compassBearing
+        copyrightsVisible: false
 
         WheelHandler {
             id: wheel
