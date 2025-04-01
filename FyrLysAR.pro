@@ -97,6 +97,7 @@ ios {
 
 DISTFILES += \
   CompassNeedle.qml \
+  InfoBox.qml \
   LighthouseList.qml \
   LighthouseProvider.qml \
   MapMode.qml \
