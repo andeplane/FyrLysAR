@@ -183,7 +183,7 @@ Item {
 
       if (lightClass === "LFl") {
         let l = 2
-        let d = p - l // TODO might need tweeking for (very) long periodes like 20s
+        let d = p - l // TODO might need tweaking for (very) long periods like 20s
         range(l).forEach(j => { // light parts
           flash.push(1)
         })
