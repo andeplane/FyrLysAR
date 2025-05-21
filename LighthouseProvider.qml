@@ -53,8 +53,9 @@ Item {
             lastUpdatedCoordScan = QtPositioning.coordinate(findLighthousesAroundCoordinate.latitude, findLighthousesAroundCoordinate.longitude, findLighthousesAroundCoordinate.altitude)
         }
 
+        const arMode = mapCenterCoord === undefined
         nearbyLighthouses.forEach(lighthouse => {
-            lighthouse.update(selfCoord)
+            lighthouse.update(selfCoord, arMode)
         })
 
 
