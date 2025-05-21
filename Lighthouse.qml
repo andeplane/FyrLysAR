@@ -218,11 +218,11 @@ Item {
         }
     }
 
-    function updateColor(deviceCoordinate) {
+    function updateColor(selfCoord) {
         let newColor = null
 
-        var angle = deviceCoordinate.azimuthTo(coordinates)
-        distance = deviceCoordinate.distanceTo(coordinates)
+        var angle = selfCoord.azimuthTo(coordinates)
+        distance = selfCoord.distanceTo(coordinates)
 
         angle = (angle + 2 * 180) % (2 * 180) // Deal with boundary conditions on angles in range [0, 2pi]
         let sector = null
