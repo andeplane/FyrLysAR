@@ -48,7 +48,7 @@ jobs:
       - name: Commit Changes
         id: commit_changes
         run: |
-          git add lighthouses.qml scripts/lighthouses.json scripts/lighthouses_with_problems.csv
+          git add LighthouseList.qml scripts/lighthouses.json scripts/lighthouses_with_problems.csv
           if git diff --cached --quiet; then
             echo "No changes to commit."
             echo "::set-output name=changes::false"
