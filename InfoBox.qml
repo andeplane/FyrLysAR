@@ -73,7 +73,8 @@ Rectangle {
         anchors.bottomMargin: margin
         anchors.right: parent.right
         anchors.top: parent.top
-        sectors: root.lighthouse.sectors
+        sectors: root.lighthouse ? root.lighthouse.sectors : []
+        blackBackground: true
 
         Rectangle {
             // Assuming you want a circle, ensure width and height are equal and based on a factor of root.width

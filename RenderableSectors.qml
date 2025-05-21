@@ -4,8 +4,9 @@ import QtQuick.Controls
 Rectangle {
     id: root
     property var sectors
+    property bool blackBackground: false
     radius: width/2
-    color: "black"
+    color: Qt.rgba(0, 0, 0, 0)
     onSectorsChanged: {
         canvas.requestPaint()
     }
@@ -34,11 +35,15 @@ Rectangle {
     }
 
     function drawSectors(ctx, sectors) {
+        if (blackBackground) {
+            drawSector(ctx, "black", 0, 360);
+        }
+
         sectors.forEach(sector => {
             const start = (sector.start + 90) / 180 * Math.PI
             const stop = (sector.stop + 90) / 180 * Math.PI
             drawSector(ctx, sector.color, start, stop);
-          })
+        })
     }
 
     Canvas {
