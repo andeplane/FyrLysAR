@@ -3,10 +3,10 @@ import QtQuick.Controls
 
 Rectangle {
     id: root
-    property var lighthouse
+    property var sectors
     radius: width/2
     color: "black"
-    onLighthouseChanged: {
+    onSectorsChanged: {
         canvas.requestPaint()
     }
 
@@ -48,8 +48,8 @@ Rectangle {
         onPaint: {
             var ctx = getContext("2d");
             ctx.reset();
-            if (root.lighthouse) {
-                drawSectors(ctx, root.lighthouse.sectors)
+            if (root.sectors) {
+                drawSectors(ctx, root.sectors)
             }
         }
     }

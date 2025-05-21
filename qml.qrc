@@ -6,7 +6,7 @@
         <file>ARViewer.qml</file>
         <file>SettingsView.qml</file>
         <file>Header.qml</file>
-        <file>Sector.qml</file>
+        <file>RenderableSectors.qml</file>
         <file>InfoBox.qml</file>
         <file>DebugBox.qml</file>
         <file>SettingsButton.qml</file>

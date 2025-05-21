@@ -60,7 +60,7 @@ Rectangle {
         }
     }
 
-    Sector {
+    RenderableSectors {
         id: sector
         property real margin: 20
 
@@ -73,7 +73,7 @@ Rectangle {
         anchors.bottomMargin: margin
         anchors.right: parent.right
         anchors.top: parent.top
-        lighthouse: root.lighthouse
+        sectors: root.lighthouse.sectors
 
         Rectangle {
             // Assuming you want a circle, ensure width and height are equal and based on a factor of root.width

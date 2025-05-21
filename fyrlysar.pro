@@ -109,7 +109,7 @@ DISTFILES += \
   ARViewer.qml \
   Header.qml \
   ARLighthouseCircle.qml \
-  Sector.qml \
+  RenderableSectors.qml \
   SettingsView.qml \
   heightdata/6400_50m_33.tfw \
   heightdata/6401_50m_33.tfw \

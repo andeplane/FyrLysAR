@@ -114,10 +114,10 @@ Item {
                 anchorPoint.x: sourceItem.width / 2
                 anchorPoint.y: sourceItem.height / 2
 
-                sourceItem: Sector {
+                sourceItem: RenderableSectors {
                     width: 50
                     height: 50
-                    lighthouse: modelData
+                    sectors: modelData.sectors
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
