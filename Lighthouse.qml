@@ -263,7 +263,11 @@ Item {
         root.colorTowardsSelf = newColor
     }
 
-    function update(deviceCoordinate) {
-        root.distance = deviceCoordinate.distanceTo(coordinates)
+    function update(selfCoord, arMode) {
+        root.distance = selfCoord.distanceTo(coordinates)
+        if (arMode) {
+            updateLightIsOn()
+            updateColor(selfCoord)
+        }
     }
 }
