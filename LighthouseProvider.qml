@@ -7,6 +7,7 @@ Item {
     property var lighthouses: []
     property var nearbyLighthouses: []
     property var selfCoord
+    property var mapCenterCoord
     property var lastUpdatedCoordScan
     property var lastUpdatedCoordUpdateVisbility
     property real numLighthousesAboveHorizon: 0
@@ -30,25 +31,36 @@ Item {
             return
         }
 
+        let findLighthousesAroundCoordinate = root.mapCenterCoord ? root.mapCenterCoord : root.selfCoord
 
-        let shouldScanForNewNearbyLighthouses = lastUpdatedCoordScan===undefined || calculateDistance(root.selfCoord.latitude, root.selfCoord.longitude, lastUpdatedCoordScan.latitude, lastUpdatedCoordScan.longitude) > 1852
+        let shouldScanForNewNearbyLighthouses = lastUpdatedCoordScan===undefined || calculateDistance(findLighthousesAroundCoordinate.latitude, findLighthousesAroundCoordinate.longitude, lastUpdatedCoordScan.latitude, lastUpdatedCoordScan.longitude) > 1852
 
-        const hasChangedHeightSinceVisibilityUpdate = lastUpdatedCoordUpdateVisbility && (root.selfCoord.altitude !== lastUpdatedCoordUpdateVisbility.altitude)
-        let shouldUpdateVisibilityBasedOnLand = lastUpdatedCoordUpdateVisbility===undefined || calculateDistance(root.selfCoord.latitude, root.selfCoord.longitude, lastUpdatedCoordUpdateVisbility.latitude, lastUpdatedCoordUpdateVisbility.longitude) > 20 || hasChangedHeightSinceVisibilityUpdate
-
+        const hasChangedHeightSinceVisibilityUpdate = lastUpdatedCoordUpdateVisbility && (findLighthousesAroundCoordinate.altitude !== lastUpdatedCoordUpdateVisbility.altitude)
+        let shouldUpdateVisibilityBasedOnLand = !mapCenterCoord &&
+            (lastUpdatedCoordUpdateVisbility===undefined
+            || calculateDistance(findLighthousesAroundCoordinate.latitude, findLighthousesAroundCoordinate.longitude, lastUpdatedCoordUpdateVisbility.latitude, lastUpdatedCoordUpdateVisbility.longitude) > 20
+            || hasChangedHeightSinceVisibilityUpdate)
 
         if (shouldScanForNewNearbyLighthouses) {
             root.lighthouses.forEach(lighthouse => {
-                if (root.selfCoord.distanceTo(lighthouse.coordinates) < visibilityRange(root.selfCoord.altitude) + visibilityRange(lighthouse.heightOverSea)) {
+                if (findLighthousesAroundCoordinate.distanceTo(lighthouse.coordinates) < visibilityRange(root.selfCoord.altitude) + visibilityRange(lighthouse.heightOverSea)) {
                     if (nearbyLighthouses.indexOf(lighthouse) < 0) {
                         nearbyLighthouses.push(lighthouse)
                     }
                 }
             })
             nearbyLighthouses = [...nearbyLighthouses]
-            lastUpdatedCoordScan = QtPositioning.coordinate(root.selfCoord.latitude, root.selfCoord.longitude, root.selfCoord.altitude)
+            lastUpdatedCoordScan = QtPositioning.coordinate(findLighthousesAroundCoordinate.latitude, findLighthousesAroundCoordinate.longitude, findLighthousesAroundCoordinate.altitude)
         }
+
+        nearbyLighthouses.forEach(lighthouse => {
+            lighthouse.update(selfCoord)
+        })
+
+
         if (spritesDirty || shouldUpdateVisibilityBasedOnLand) {
+            // This will only update .visible on ARLighthouseCircle, not relevant for map mode
+            // spritesDirty will happen with newly created ARLighthouseCircle sprites
             updateVisibilityBasedOnLand(root.selfCoord, nearbyLighthouses)
             lastUpdatedCoordUpdateVisbility = root.selfCoord
             root.spritesDirty = false
