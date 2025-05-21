@@ -265,7 +265,5 @@ Item {
 
     function update(deviceCoordinate) {
         root.distance = deviceCoordinate.distanceTo(coordinates)
-        updateLightIsOn()
-        updateColor(deviceCoordinate)
     }
 }

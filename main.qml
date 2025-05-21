@@ -36,8 +36,8 @@ Window {
     LighthouseProvider {
         id: lighthouseProvider
         property alias spritesDirty: mainView.spritesDirty
-        selfCoord: stack.currentItem === map ? map.center : root.selfCoord
-
+        selfCoord: root.selfCoord
+        mapCenterCoord: stack.currentItem === map ? map.center : undefined
     }
 
     HeightReader {
