@@ -118,7 +118,6 @@ Item {
             maxRange: lighthouseData.maxRange,
             sectors: lighthouseData.sectors
         });
-        lighthouse_object.update(selfCoord)
         return lighthouse_object
     }
 
