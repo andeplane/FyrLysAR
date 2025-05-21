@@ -18,21 +18,21 @@ See [SUPPORT.md](support.md).
 The position, height, color and character (blinking pattern) of the
 lighthouses in Norway are read from the
 [Norwegian List of Lights](https://nfs.kystverket.no/fyrlister/Fyrliste_HeleLandet.pdf)
-published by the [Norwegian Costal Administration](https://kystverket.no).
+published by the [Norwegian Coastal Administration](https://kystverket.no).
 There are about 7600 lighted marine aids for navigation along the
 coast of Norway.
 
 ## What colors are the lights?
 
-The colors used in lighted marine navigagational aids are white, red, green,
-blue, and yellow. We have used [color reccomendations](https://www.iala-aism.org/product/r0201/)
+The colors used in lighted marine navigational aids are white, red, green,
+blue, and yellow. We have used [color recommendations](https://www.iala-aism.org/product/r0201/)
 from the [International Association of Marine Aids to Navigation and Lighthouse Authorities](https://www.iala-aism.org)
 The colors are converted from xy to rgb using [ColorMine](https://colormine.org/convert/rgb-to-yxy)
 
 ## What is the blinking like?
 
 The character - blinking pattern - used in the app is according to the
-reccomandations in
+recommendations in
 [Rythmic Characters of Lights on aids to Navigation](https://www.iala-aism.org/product/r0110/)
 This might not match the actual blinking perfectly, but is should show a
 blinking which is easily recognisable and matching the description in the
@@ -51,5 +51,5 @@ If there is an island blocking your view of a lighthouse, the app will not show
 that light. How does the app know about the island? The height above sea
 level of all of Norway is available from the
 [Norwegian Mapping Authority](https://hoydedata.no/LaserInnsyn2/). Combined
-with your position and that of the lighthouse, the app can calcualte if there
+with your position and that of the lighthouse, the app can calculate if there
 is an island in the way.
