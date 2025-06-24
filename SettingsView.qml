@@ -117,6 +117,35 @@ Page {
         }
     }
 
+    // Function to edit a custom location
+    function editCustomLocation(index) {
+        if (index > 0 && index < locationModel.count) { // Skip "Use current location"
+            const customIndex = index - 1
+            const location = customLocations[customIndex]
+            
+            // Set dialog properties for editing
+            addLocationDialog.locationName = location.name
+            addLocationDialog.latitude = location.latitude
+            addLocationDialog.longitude = location.longitude
+            addLocationDialog.editingIndex = customIndex
+            addLocationDialog.isEditing = true
+            addLocationDialog.open()
+        }
+    }
+
+    // Function to handle location editing
+    function handleLocationEdited(index, name, latitude, longitude) {
+        if (index >= 0 && index < customLocations.length) {
+            customLocations[index] = {
+                name: name,
+                latitude: latitude,
+                longitude: longitude
+            }
+            saveCustomLocations()
+            updateLocationModel()
+        }
+    }
+
     Header {
         id: header
         text: "Settings"
@@ -185,15 +214,31 @@ Page {
                                 anchors.margins: 10
                                 spacing: 10
                                 
+                                // Location name - takes available space
                                 Text {
                                     id: nameText
                                     text: name
                                     anchors.verticalCenter: parent.verticalCenter
                                     font.pixelSize: 14
+                                    Layout.fillWidth: true
                                 }
                                 
+                                // Spacer to push buttons to the right
                                 Item { 
-                                    width: parent.width - nameText.width - 50
+                                    Layout.fillWidth: true
+                                }
+                                
+                                // Edit button for custom locations
+                                Button {
+                                    id: editButton
+                                    visible: isCustom
+                                    text: "✎"
+                                    width: 30
+                                    height: 30
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    onClicked: {
+                                        editCustomLocation(index)
+                                    }
                                 }
                                 
                                 // Delete button for custom locations
@@ -210,8 +255,13 @@ Page {
                                 }
                             }
                             
+                            // MouseArea only for the text area, not the buttons
                             MouseArea {
-                                anchors.fill: parent
+                                anchors.left: parent.left
+                                anchors.right: isCustom ? editButton.left : parent.right
+                                anchors.top: parent.top
+                                anchors.bottom: parent.bottom
+                                anchors.margins: 10
                                 onClicked: listView.currentIndex = index
                             }
                         }
@@ -308,6 +358,9 @@ Page {
         id: addLocationDialog
         onLocationAdded: function(name, lat, lon) {
             addCustomLocation(name, lat, lon)
+        }
+        onLocationEdited: function(index, name, lat, lon) {
+            handleLocationEdited(index, name, lat, lon)
         }
     }
 }
