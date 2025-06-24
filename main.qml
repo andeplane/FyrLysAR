@@ -43,6 +43,11 @@ Window {
 
     SettingsView {
         id: settings
+        onUseHardCodedPositionChanged: {
+            if (useHardCodedPosition) {
+                root.selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude, 0)
+            }
+        }
         onHardcodedLatitudeChanged: {
             if (useHardCodedPosition) {
                 root.selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude, 0)
