@@ -251,22 +251,45 @@ Page {
                             }
                         }
 
-                        swipe.right: Label {
-                            id: deleteLabel
-                            text: qsTr("Delete")
-                            color: "white"
-                            verticalAlignment: Label.AlignVCenter
-                            padding: 12
+                        swipe.right: Row {
+                            anchors.right: swipeDelegate.right
                             height: parent.height
-                            anchors.right: parent.right
+                            
+                            Label {
+                                id: editLabel
+                                text: qsTr("Edit")
+                                color: "white"
+                                verticalAlignment: Label.AlignVCenter
+                                padding: 12
+                                height: parent.height
+                                width: 60
 
-                            SwipeDelegate.onClicked: {
-                                removeCustomLocation(index)
-                                listView.model.remove(index)
+                                SwipeDelegate.onClicked: {
+                                    editCustomLocation(index)
+                                }
+
+                                background: Rectangle {
+                                    color: editLabel.SwipeDelegate.pressed ? Qt.darker("steelblue", 1.1) : "steelblue"
+                                }
                             }
 
-                            background: Rectangle {
-                                color: deleteLabel.SwipeDelegate.pressed ? Qt.darker("tomato", 1.1) : "tomato"
+                            Label {
+                                id: deleteLabel
+                                text: qsTr("Delete")
+                                color: "white"
+                                verticalAlignment: Label.AlignVCenter
+                                padding: 12
+                                height: parent.height
+                                width: 60
+
+                                SwipeDelegate.onClicked: {
+                                    removeCustomLocation(index)
+                                    listView.model.remove(index)
+                                }
+
+                                background: Rectangle {
+                                    color: deleteLabel.SwipeDelegate.pressed ? Qt.darker("tomato", 1.1) : "tomato"
+                                }
                             }
                         }
                     }
