@@ -82,10 +82,10 @@ Dialog {
                 placeholderText: "Enter latitude (e.g., 59.901484)"
                 text: root.latitude.toString()
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
-                validator: DoubleValidator { bottom: -90.0; top: 90.0; notation: DoubleValidator.StandardNotation }
                 onTextChanged: {
-                    const parsedValue = parseFloat(text)
+                    const parsedValue = parseFloat(text.replace(",","."))
                     if (!isNaN(parsedValue)) {
+                        console.log("Parsed value: ", parsedValue)
                         root.latitude = parsedValue
                     }
                 }
@@ -104,10 +104,10 @@ Dialog {
                 placeholderText: "Enter longitude (e.g., 10.751129)"
                 text: root.longitude.toString()
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
-                validator: DoubleValidator { bottom: -180.0; top: 180.0; notation: DoubleValidator.StandardNotation }
                 onTextChanged: {
-                    const parsedValue = parseFloat(text)
+                    const parsedValue = parseFloat(text.replace(",","."))
                     if (!isNaN(parsedValue)) {
+                        console.log("Parsed value: ", parsedValue)
                         root.longitude = parsedValue
                     }
                 }
