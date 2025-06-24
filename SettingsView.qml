@@ -25,7 +25,7 @@ Page {
 
     // Custom locations data
     property var customLocations: []
-    
+
     // Default locations that will be installed on first run
     property var defaultLocations: [
         { name: "Herfølrenna nord", latitude: 59.006630, longitude: 11.057814 },
@@ -33,7 +33,7 @@ Page {
         { name: "Sørenga", latitude: 59.901484, longitude: 10.751129 },
         { name: "Ytre Oslofjord", latitude: 58.982769, longitude: 10.763596 }
     ]
-    
+
     // Load custom locations from settings on component creation
     Component.onCompleted: {
         try {
@@ -70,7 +70,7 @@ Page {
     // Function to update the location model
     function updateLocationModel() {
         locationModel.clear()
-        
+
         // Add "Use current location" option
         locationModel.append({
             name: "Use current location",
@@ -78,7 +78,7 @@ Page {
             latitude: 0,
             longitude: 0
         })
-        
+
         // Add custom locations
         for (let i = 0; i < customLocations.length; i++) {
             const location = customLocations[i]
@@ -108,12 +108,12 @@ Page {
             const customIndex = index - 1
             customLocations.splice(customIndex, 1)
             saveCustomLocations()
-            updateLocationModel()
-            
-            // If the removed location was selected, switch to current location
-            if (listView.currentIndex === index) {
-                listView.currentIndex = 0
-            }
+            // updateLocationModel()
+
+            // // If the removed location was selected, switch to current location
+            // if (listView.currentIndex === index) {
+            //     listView.currentIndex = 0
+            // }
         }
     }
 
@@ -122,7 +122,7 @@ Page {
         if (index > 0 && index < locationModel.count) { // Skip "Use current location"
             const customIndex = index - 1
             const location = customLocations[customIndex]
-            
+
             // Set dialog properties for editing
             addLocationDialog.locationName = location.name
             addLocationDialog.latitude = location.latitude
@@ -152,6 +152,7 @@ Page {
     }
 
     ScrollView {
+        id: scrollView
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: header.bottom
@@ -169,7 +170,7 @@ Page {
             Column {
                 width: parent.width
                 spacing: 10
-                
+
                 Label {
                     text: "Observer height (meters)"
                     font.bold: true
@@ -191,104 +192,63 @@ Page {
             Column {
                 width: parent.width
                 spacing: 10
-                
+
                 Label {
                     text: "Location"
                     font.bold: true
                 }
 
-                Rectangle {
-                    width: root.width
-                    height: Math.max(80, locationModel.count * 50)
-                    border.color: "lightgray"
-                    border.width: 1
+                ListView {
+                    id: listView
+                    width: parent.width
+                    height: Math.max(80, locationModel.count * 60)
+                    model: locationModel
+                    delegate: SwipeDelegate {
+                        id: swipeDelegate
+                        text: model.name
+                        width: listView.width
 
-                    Component {
-                        id: locationDelegate
-                        Item {
-                            width: root.width
-                            height: 50
-                            
-                            Row {
-                                anchors.fill: parent
-                                anchors.margins: 10
-                                spacing: 10
-                                
-                                // Location name - takes available space
-                                Text {
-                                    id: nameText
-                                    text: name
-                                    anchors.verticalCenter: parent.verticalCenter
-                                    font.pixelSize: 14
-                                    Layout.fillWidth: true
-                                }
-                                
-                                // Spacer to push buttons to the right
-                                Item { 
-                                    Layout.fillWidth: true
-                                }
-                                
-                                // Edit button for custom locations
-                                Button {
-                                    id: editButton
-                                    visible: isCustom
-                                    text: "✎"
-                                    width: 30
-                                    height: 30
-                                    anchors.verticalCenter: parent.verticalCenter
-                                    onClicked: {
-                                        editCustomLocation(index)
-                                    }
-                                }
-                                
-                                // Delete button for custom locations
-                                Button {
-                                    id: deleteButton
-                                    visible: isCustom
-                                    text: "×"
-                                    width: 30
-                                    height: 30
-                                    anchors.verticalCenter: parent.verticalCenter
-                                    onClicked: {
-                                        removeCustomLocation(index)
-                                    }
-                                }
-                            }
-                            
-                            // MouseArea only for the text area, not the buttons
-                            MouseArea {
-                                anchors.left: parent.left
-                                anchors.right: isCustom ? editButton.left : parent.right
-                                anchors.top: parent.top
-                                anchors.bottom: parent.bottom
-                                anchors.margins: 10
-                                onClicked: listView.currentIndex = index
-                            }
-                        }
-                    }
+                        ListView.onRemove: removeAnimation.start()
 
-                    ListView {
-                        id: listView
-                        currentIndex: useHardCodedPosition ? 1 : 0
-                        onCurrentIndexChanged: {
-                            if (currentIndex >= 0 && currentIndex < locationModel.count) {
-                                const item = locationModel.get(currentIndex)
-                                root.useHardCodedPosition = currentIndex > 0
-                                if (item.isCustom) {
-                                    root.hardcodedLatitude = item.latitude
-                                    root.hardcodedLongitude = item.longitude
-                                }
+                        SequentialAnimation {
+                            id: removeAnimation
+
+                            PropertyAction {
+                                target: swipeDelegate
+                                property: "ListView.delayRemove"
+                                value: true
+                            }
+                            NumberAnimation {
+                                target: swipeDelegate
+                                property: "height"
+                                to: 0
+                                easing.type: Easing.InOutQuad
+                            }
+                            PropertyAction {
+                                target: swipeDelegate
+                                property: "ListView.delayRemove"
+                                value: false
                             }
                         }
 
-                        anchors.fill: parent
-                        model: locationModel
-                        delegate: locationDelegate
-                        highlight: Rectangle { 
-                            color: "lightsteelblue"
-                            radius: 5
+                        swipe.right: Label {
+                            id: deleteLabel
+                            text: qsTr("Delete")
+                            color: "white"
+                            verticalAlignment: Label.AlignVCenter
+                            padding: 12
+                            height: parent.height
+                            anchors.right: parent.right
+
+                            SwipeDelegate.onClicked: {
+                                removeCustomLocation(index)
+                                listView.model.remove(index)
+                            }
+
+                            background: Rectangle {
+                                color: deleteLabel.SwipeDelegate.pressed ? Qt.darker("tomato", 1.1) : "tomato"
+                            }
                         }
-                        focus: true
                     }
                 }
 
@@ -307,7 +267,7 @@ Page {
                     visible: listView.currentIndex > 0
                     width: parent.width
                     spacing: 10
-                    
+
                     Label {
                         text: "Manual Coordinates"
                         font.bold: true
