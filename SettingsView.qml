@@ -222,6 +222,7 @@ Page {
                         text: model.name
                         width: listView.width
                         onClicked: listView.currentIndex = index
+                        swipe.enabled: index > 0 // Disable swiping for "Use current location" (index 0)
 
                         background: Rectangle {
                             color: listView.currentIndex === index ? "#e0e0e0" : "white"
