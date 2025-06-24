@@ -37,18 +37,25 @@ Page {
     // Load custom locations from settings on component creation
     Component.onCompleted: {
         try {
-            const locations = JSON.parse(settings.customLocations)
-            if (Array.isArray(locations)) {
-                customLocations = locations
-            } else {
+            // Check if settings string is empty or invalid
+            if (settings.customLocations === "" || settings.customLocations === "[]" || settings.customLocations === "null") {
                 // First run - load default locations
                 customLocations = defaultLocations.slice()
                 saveCustomLocations()
+            } else {
+                const locations = JSON.parse(settings.customLocations)
+                if (Array.isArray(locations)) {
+                    customLocations = locations
+                } else {
+                    // Invalid data - load default locations
+                    customLocations = defaultLocations.slice()
+                    saveCustomLocations()
+                }
             }
             updateLocationModel()
         } catch (e) {
             console.log("Error parsing custom locations:", e)
-            // First run or error - load default locations
+            // Error parsing - load default locations
             customLocations = defaultLocations.slice()
             saveCustomLocations()
             updateLocationModel()
