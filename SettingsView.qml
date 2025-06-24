@@ -223,12 +223,12 @@ Page {
                         width: listView.width
                         onClicked: listView.currentIndex = index
 
-                        ListView.onRemove: removeAnimation.start()
-
                         background: Rectangle {
-                            color: listView.currentIndex === index ? "lightsteelblue" : "transparent"
-                            radius: 5
+                            color: listView.currentIndex === index ? "#e0e0e0" : "white"
+                            radius: 4
                         }
+
+                        ListView.onRemove: removeAnimation.start()
 
                         SequentialAnimation {
                             id: removeAnimation
