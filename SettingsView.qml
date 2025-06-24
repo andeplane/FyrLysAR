@@ -203,12 +203,32 @@ Page {
                     width: parent.width
                     height: Math.max(80, locationModel.count * 60)
                     model: locationModel
+
+                    currentIndex: useHardCodedPosition ? 1 : 0
+
+                    onCurrentIndexChanged: {
+                        if (currentIndex >= 0 && currentIndex < locationModel.count) {
+                            const item = locationModel.get(currentIndex)
+                            root.useHardCodedPosition = currentIndex > 0
+                            if (item.isCustom) {
+                                root.hardcodedLatitude = item.latitude
+                                root.hardcodedLongitude = item.longitude
+                            }
+                        }
+                    }
+
                     delegate: SwipeDelegate {
                         id: swipeDelegate
                         text: model.name
                         width: listView.width
+                        onClicked: listView.currentIndex = index
 
                         ListView.onRemove: removeAnimation.start()
+
+                        background: Rectangle {
+                            color: listView.currentIndex === index ? "lightsteelblue" : "transparent"
+                            radius: 5
+                        }
 
                         SequentialAnimation {
                             id: removeAnimation
@@ -259,54 +279,6 @@ Page {
                     height: 40
                     onClicked: {
                         addLocationDialog.open()
-                    }
-                }
-
-                // Manual coordinates section (only visible when custom location is selected)
-                Column {
-                    visible: listView.currentIndex > 0
-                    width: parent.width
-                    spacing: 10
-
-                    Label {
-                        text: "Manual Coordinates"
-                        font.bold: true
-                    }
-
-                    Label {
-                        text: "Latitude"
-                    }
-                    TextField {
-                        id: latitudeText
-                        width: root.width
-                        height: 40
-                        placeholderText: "Enter latitude"
-                        text: root.hardcodedLatitude
-                        inputMethodHints: Qt.ImhFormattedNumbersOnly
-                        onTextChanged: {
-                            const parsedValue = parseFloat(text)
-                            if (!isNaN(parsedValue)) {
-                                root.hardcodedLatitude = parsedValue
-                            }
-                        }
-                    }
-
-                    Label {
-                        text: "Longitude"
-                    }
-                    TextField {
-                        id: longitudeText
-                        width: root.width
-                        height: 40
-                        placeholderText: "Enter longitude"
-                        text: root.hardcodedLongitude
-                        inputMethodHints: Qt.ImhFormattedNumbersOnly
-                        onTextChanged: {
-                            const parsedValue = parseFloat(text)
-                            if (!isNaN(parsedValue)) {
-                                root.hardcodedLongitude = parsedValue
-                            }
-                        }
                     }
                 }
             }
