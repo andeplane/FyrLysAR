@@ -226,7 +226,6 @@ Page {
 
                         background: Rectangle {
                             color: listView.currentIndex === index ? "#e0e0e0" : "white"
-                            radius: 4
                         }
 
                         ListView.onRemove: removeAnimation.start()
