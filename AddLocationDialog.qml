@@ -9,8 +9,6 @@ Dialog {
     modal: true
     
     // Dynamic positioning and sizing for better mobile support
-    x: Math.max(0, (parent ? parent.width - width : 0) / 2)
-    y: Math.max(20, (parent ? parent.height - height : 0) / 2)
     width: parent ? parent.width * 0.95 : 400
     height: parent ? parent.height * 0.8 : 500
     
@@ -41,6 +39,12 @@ Dialog {
         nameField.text = root.locationName
         latField.text = root.latitude.toString()
         lonField.text = root.longitude.toString()
+        
+        // Ensure proper positioning after dialog is opened
+        if (parent) {
+            x = Math.max(0, (parent.width - width) / 2)
+            y = Math.max(20, (parent.height - height) / 2)
+        }
     }
     
     // Use ScrollView to handle content overflow on small screens
