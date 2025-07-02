@@ -41,23 +41,17 @@ Window {
         nearbyLighthouses: lighthouseProvider.nearbyLighthouses
     }
 
+    function updateSelfCoord() {
+        if (useHardCodedPosition) {
+            root.selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude, 0)
+        }
+    }
+
     SettingsView {
         id: settings
-        onUseHardCodedPositionChanged: {
-            if (useHardCodedPosition) {
-                root.selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude, 0)
-            }
-        }
-        onHardcodedLatitudeChanged: {
-            if (useHardCodedPosition) {
-                root.selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude, 0)
-            }
-        }
-        onHardcodedLongitudeChanged: {
-            if (useHardCodedPosition) {
-                root.selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude, 0)
-            }
-        }
+        onUseHardCodedPositionChanged: updateSelfCoord()
+        onHardcodedLatitudeChanged: updateSelfCoord()
+        onHardcodedLongitudeChanged: updateSelfCoord()
     }
 
     StackView {
