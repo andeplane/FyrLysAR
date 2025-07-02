@@ -26,11 +26,6 @@ Dialog {
             y = parent.height - height - 10
         }
     }
-
-    function parseStupidFloat(text) {
-        const parsedValue = parseFloat(text.replace(",","."))
-        return parsedValue
-    }
     
     property string locationName: ""
     property real latitude: 0.0
@@ -88,7 +83,7 @@ Dialog {
                 text: root.latitude.toString()
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
                 onTextChanged: {
-                    const parsedValue = parseStupidFloat(text)
+                    const parsedValue = parseFloat(text.replace(",","."))
                     if (!isNaN(parsedValue)) {
                         root.latitude = parsedValue
                     }
@@ -109,7 +104,7 @@ Dialog {
                 text: root.longitude.toString()
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
                 onTextChanged: {
-                    const parsedValue = parseStupidFloat(text)
+                    const parsedValue = parseFloat(text.replace(",","."))
                     if (!isNaN(parsedValue)) {
                         root.longitude = parsedValue
                     }
@@ -140,17 +135,13 @@ Dialog {
                     Layout.preferredWidth: 100
                     Layout.preferredHeight: 40
                     enabled: nameField.text.trim() !== "" && 
-                             !isNaN(parseFloat(latField.text)) && 
-                             !isNaN(parseFloat(lonField.text))
+                             !isNaN(root.latitude) &&
+                             !isNaN(root.longitude)
                     onClicked: {
                         if (isEditing) {
-                            root.locationEdited(editingIndex, nameField.text.trim(), 
-                                              parseStupidFloat(latField.text),
-                                              parseStupidFloat(lonField.text))
+                            root.locationEdited(editingIndex, nameField.text.trim(), root.latitude, root.longitude)
                         } else {
-                            root.locationAdded(nameField.text.trim(), 
-                                             parseStupidFloat(latField.text),
-                                             parseStupidFloat(lonField.text))
+                            root.locationAdded(nameField.text.trim(), root.latitude, root.longitude)
                         }
                         root.close()
                     }
