@@ -46,12 +46,12 @@ Dialog {
     // Use ScrollView to handle content overflow on small screens
     ScrollView {
         anchors.fill: parent
-        anchors.margins: 10
+        anchors.margins: 5
         clip: true
         
         ColumnLayout {
             width: parent.width
-            spacing: 15
+            spacing: 8
             
             Label {
                 text: "Location Name"
@@ -62,7 +62,7 @@ Dialog {
             TextField {
                 id: nameField
                 Layout.fillWidth: true
-                Layout.preferredHeight: 40
+                Layout.preferredHeight: 35
                 placeholderText: "Enter location name"
                 text: root.locationName
                 focus: true
@@ -78,7 +78,7 @@ Dialog {
             TextField {
                 id: latField
                 Layout.fillWidth: true
-                Layout.preferredHeight: 40
+                Layout.preferredHeight: 35
                 placeholderText: "Enter latitude (e.g., 59.901484)"
                 text: root.latitude.toString()
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
@@ -99,7 +99,7 @@ Dialog {
             TextField {
                 id: lonField
                 Layout.fillWidth: true
-                Layout.preferredHeight: 40
+                Layout.preferredHeight: 35
                 placeholderText: "Enter longitude (e.g., 10.751129)"
                 text: root.longitude.toString()
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
@@ -115,7 +115,7 @@ Dialog {
             Button {
                 text: "Choose on Map"
                 Layout.fillWidth: true
-                Layout.preferredHeight: 44
+                Layout.preferredHeight: 38
                 background: Rectangle {
                     color: parent.pressed ? "#e3f2fd" : "#2196f3"
                     border.color: "#1976d2"
@@ -137,27 +137,27 @@ Dialog {
             
             // Add some spacing before buttons
             Item {
-                Layout.preferredHeight: 20
+                Layout.preferredHeight: 10
             }
             
             RowLayout {
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignRight
-                spacing: 10
+                spacing: 8
                 
                 Button {
                     text: "Cancel"
                     flat: true // Makes it look like a less prominent action
                     palette.buttonText: "gray"
                     Layout.preferredWidth: 100
-                    Layout.preferredHeight: 40
+                    Layout.preferredHeight: 35
                     onClicked: root.close()
                 }
                 
                 Button {
                     text: isEditing ? "Save" : "Add"
                     Layout.preferredWidth: 100
-                    Layout.preferredHeight: 40
+                    Layout.preferredHeight: 35
                     enabled: nameField.text.trim() !== "" && 
                              !isNaN(root.latitude) &&
                              !isNaN(root.longitude)
