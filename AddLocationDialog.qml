@@ -111,6 +111,30 @@ Dialog {
                 }
             }
             
+            // Choose on Map button
+            Button {
+                text: "Choose on Map"
+                Layout.fillWidth: true
+                Layout.preferredHeight: 44
+                background: Rectangle {
+                    color: parent.pressed ? "#e3f2fd" : "#2196f3"
+                    border.color: "#1976d2"
+                    border.width: 1
+                    radius: 4
+                }
+                contentItem: Text {
+                    text: parent.text
+                    color: "white"
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    font.pixelSize: 14
+                    font.bold: true
+                }
+                onClicked: {
+                    mapDialog.open()
+                }
+            }
+            
             // Add some spacing before buttons
             Item {
                 Layout.preferredHeight: 20
@@ -146,6 +170,36 @@ Dialog {
                         root.close()
                     }
                 }
+            }
+        }
+    }
+    
+    // Map selection dialog
+    Dialog {
+        id: mapDialog
+        title: "Choose Location on Map"
+        modal: true
+        parent: root.parent
+        width: root.width
+        height: root.height
+        x: root.x
+        y: root.y
+        
+        MapMode {
+            id: mapMode
+            anchors.fill: parent
+            isSettingHardcodedLocation: true
+            
+            onHardcodedLocationSet: function(lat, lon) {
+                root.latitude = lat
+                root.longitude = lon
+                latField.text = lat.toString()
+                lonField.text = lon.toString()
+                mapDialog.close()
+            }
+            
+            onHardcodedLocationCancelled: function() {
+                mapDialog.close()
             }
         }
     }
