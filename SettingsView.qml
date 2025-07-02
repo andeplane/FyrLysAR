@@ -100,6 +100,8 @@ Page {
         })
         saveCustomLocations()
         updateLocationModel()
+        // Select the newly added location (last item in the list)
+        listView.currentIndex = locationModel.count - 1
     }
 
     // Function to remove a custom location
@@ -143,6 +145,8 @@ Page {
             }
             saveCustomLocations()
             updateLocationModel()
+            // Select the edited location (index + 1 because index 0 is "Use current location")
+            listView.currentIndex = index + 1
         }
     }
 
