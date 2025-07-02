@@ -11,6 +11,8 @@ Dialog {
     // Dynamic positioning and sizing for better mobile support
     width: parent ? parent.width * 0.95 : 400
     height: parent ? parent.height * 0.8 : 500
+    x: parent ? (parent.width - width) / 2 : 0
+    y: parent ? Math.max(20, (parent.height - height) / 2) : 20
     
     // Ensure dialog doesn't go off-screen
     onWidthChanged: {
@@ -39,12 +41,6 @@ Dialog {
         nameField.text = root.locationName
         latField.text = root.latitude.toString()
         lonField.text = root.longitude.toString()
-        
-        // Ensure proper positioning after dialog is opened
-        if (parent) {
-            x = Math.max(0, (parent.width - width) / 2)
-            y = Math.max(20, (parent.height - height) / 2)
-        }
     }
     
     // Use ScrollView to handle content overflow on small screens
