@@ -5,6 +5,7 @@
         <file>images/gear.svg</file>
         <file>ARViewer.qml</file>
         <file>SettingsView.qml</file>
+        <file>AddLocationDialog.qml</file>
         <file>Header.qml</file>
         <file>RenderableSectors.qml</file>
         <file>InfoBox.qml</file>

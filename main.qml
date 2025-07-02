@@ -16,23 +16,6 @@ Window {
     property alias debug: settings.debug
     property var selfCoord
 
-    Settings {
-        property alias useHardCodedPosition: settings.useHardCodedPosition
-        property alias hardcodedLongitude: settings.hardcodedLongitude
-        property alias hardcodedLatitude: settings.hardcodedLatitude
-        property alias selfHeight: settings.selfHeight
-        onHardcodedLatitudeChanged: {
-            if (useHardCodedPosition) {
-                root.selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude, 0)
-            }
-        }
-        onHardcodedLongitudeChanged: {
-            if (useHardCodedPosition) {
-                root.selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude, 0)
-            }
-        }
-    }
-
     LighthouseProvider {
         id: lighthouseProvider
         property alias spritesDirty: mainView.spritesDirty
@@ -58,8 +41,17 @@ Window {
         nearbyLighthouses: lighthouseProvider.nearbyLighthouses
     }
 
+    function updateSelfCoord() {
+        if (useHardCodedPosition) {
+            root.selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude, 0)
+        }
+    }
+
     SettingsView {
         id: settings
+        onUseHardCodedPositionChanged: updateSelfCoord()
+        onHardcodedLatitudeChanged: updateSelfCoord()
+        onHardcodedLongitudeChanged: updateSelfCoord()
     }
 
     StackView {
