@@ -41,14 +41,15 @@ Window {
         nearbyLighthouses: lighthouseProvider.nearbyLighthouses
     }
 
-    function updateSelfCoord() {
-        if (useHardCodedPosition) {
-            root.selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude, 0)
-        }
-    }
-
     SettingsView {
         id: settings
+
+        function updateSelfCoord() {
+            if (useHardCodedPosition) {
+                root.selfCoord = QtPositioning.coordinate(hardcodedLatitude, hardcodedLongitude, 0)
+            }
+        }
+
         onUseHardCodedPositionChanged: updateSelfCoord()
         onHardcodedLatitudeChanged: updateSelfCoord()
         onHardcodedLongitudeChanged: updateSelfCoord()
