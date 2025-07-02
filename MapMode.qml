@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Controls
 import QtLocation
 import QtPositioning
 import QtSensors
@@ -18,6 +19,10 @@ Item {
     property bool customRotation: false
     property bool customScale: false
     property bool customCenter: false
+    property bool isSettingHardcodedLocation: false
+
+    signal hardcodedLocationSet(real latitude, real longitude)
+    signal hardcodedLocationCancelled()
 
     // activeBearing uses the animated value when animating, otherwise uses
     // either map.bearing (if customRotation) or the compass value.
@@ -175,7 +180,7 @@ Item {
         compassStrokeStyle: (customRotation) ? ShapePath.DashLine : ShapePath.SolidLine
         width: 56
         height: 56
-        // while animating, use the map’s current bearing
+        // while animating, use the map's current bearing
         rotation: -activeBearing
 
         MouseArea {
@@ -220,6 +225,104 @@ Item {
             onClicked: {
                 infoBox.lighthouse = null
             }
+        }
+    }
+
+    // Center crosshair lines when setting hardcoded location
+    Rectangle {
+        id: verticalLine
+        visible: isSettingHardcodedLocation
+        width: 1
+        height: parent.height
+        color: "red"
+        opacity: 0.7
+        anchors.horizontalCenter: parent.horizontalCenter
+    }
+
+    Rectangle {
+        id: horizontalLine
+        visible: isSettingHardcodedLocation
+        width: parent.width
+        height: 1
+        color: "red"
+        opacity: 0.7
+        anchors.verticalCenter: parent.verticalCenter
+    }
+
+    // Coordinates display at the top right (where settings button normally is)
+    Rectangle {
+        id: coordinatesBox
+        visible: isSettingHardcodedLocation
+        width: parent.width / 2 - 20
+        height: 44
+        color: "black"
+        opacity: 0.8
+        radius: 5
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.topMargin: 10
+        anchors.rightMargin: 10
+
+        Column {
+            anchors.left: parent.left
+            anchors.leftMargin: 8
+            anchors.verticalCenter: parent.verticalCenter
+            spacing: 1
+
+            Text {
+                id: latText
+                color: "white"
+                font.pixelSize: 12
+                text: isSettingHardcodedLocation ? "Latitude: " + map.center.latitude.toFixed(3) : ""
+            }
+
+            Text {
+                id: lonText
+                color: "white"
+                font.pixelSize: 12
+                text: isSettingHardcodedLocation ? "Longitude: " + map.center.longitude.toFixed(3) : ""
+            }
+        }
+    }
+
+    Button {
+        text: "Add"
+        visible: isSettingHardcodedLocation
+        width: 80
+        height: 44
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        anchors.bottomMargin: 20
+        anchors.rightMargin: 20
+        onClicked: {
+            hardcodedLocationSet(map.center.latitude, map.center.longitude)
+        }
+    }
+
+    Button {
+        text: "Cancel"
+        visible: isSettingHardcodedLocation
+        width: 80
+        height: 44
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.bottomMargin: 20
+        anchors.leftMargin: 20
+        background: Rectangle {
+            color: parent.pressed ? "#e3f2fd" : "white"
+            border.color: "#2196f3"
+            border.width: 1
+            radius: 4
+        }
+        contentItem: Text {
+            text: parent.text
+            color: "#2196f3"
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            font.pixelSize: 14
+        }
+        onClicked: {
+            hardcodedLocationCancelled()
         }
     }
 }
