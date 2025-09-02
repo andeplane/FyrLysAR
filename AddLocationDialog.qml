@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.15
 import QtQuick.Window 2.15
 
 Dialog {
+    property var selfCoord
     id: root
     title: isEditing ? "Edit Custom Location" : "Add Custom Location"
     modal: true
@@ -185,11 +186,11 @@ Dialog {
         x: root.x
         y: root.y
         
-        MapMode {
-            id: mapMode
+        MapLocationSelector {
+            id: mapSelector
             anchors.fill: parent
-            isSettingHardcodedLocation: true
-            
+            selfCoord: root.selfCoord
+
             onHardcodedLocationSet: function(lat, lon) {
                 root.latitude = lat
                 root.longitude = lon
