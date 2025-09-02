@@ -8,6 +8,7 @@ Rectangle {
     color: Qt.rgba(1.0, 1.0, 1.0, 0.0)
     border.color: "#000"
     border.width: 2
+    property bool arrowStyleOpen
 
     readonly property string arrowFilledFileName: "qrc:/images/location-arrow-svgrepo-com.svg"
     readonly property string arrowOpenFileName: "qrc:/images/location-arrow-o-svgrepo-com.svg"
@@ -15,7 +16,7 @@ Rectangle {
 
     Image {
         id: image
-        source: customCenter ? arrowOpenFileName : arrowFilledFileName
+        source: arrowStyleOpen ? arrowOpenFileName : arrowFilledFileName
         x: parent.width / 2 - image.width / 2 - 1
         y: parent.height / 2 - image.height / 2 + 1
         width: customScale ? 15 : 23

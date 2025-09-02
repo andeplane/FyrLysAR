@@ -200,6 +200,7 @@ Item {
         anchors.right: parent.right
         anchors.topMargin: 59
         anchors.rightMargin: 10
+        arrowStyleOpen: customCenter
         MouseArea {
             anchors.fill: parent
             onClicked: {
