@@ -10,7 +10,6 @@ import QtQuick.Shapes 1.15
     property var selfCoord
     property var nearbyLighthouses
     property alias center: map.center
-    // flag to indicate if we are animating a reset
 
     signal hardcodedLocationSet(real latitude, real longitude)
     signal hardcodedLocationCancelled()

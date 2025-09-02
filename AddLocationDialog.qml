@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Window 2.15
+import QtPositioning
 
 Dialog {
     id: root
@@ -178,6 +179,7 @@ Dialog {
     // Map selection dialog
     Dialog {
         id: mapDialog
+        property var initialCenter: QtPositioning.coordinate(0, 0)
         title: "Choose Location on Map"
         modal: true
         parent: root.parent
@@ -185,12 +187,16 @@ Dialog {
         height: root.height
         x: root.x
         y: root.y
+
+        onOpened: {
+            initialCenter = root.selfCoord
+        }
         
         MapLocationSelector {
             id: mapSelector
             anchors.fill: parent
             selfCoord: root.selfCoord
-            center: (root.latitude === 0.0 && root.longitude === 0.0) ? root.selfCoord : QtPositioning.coordinate(root.latitude, root.longitude)
+            center: (root.latitude === 0.0 && root.longitude === 0.0) ? mapDialog.initialCenter : QtPositioning.coordinate(root.latitude, root.longitude)
 
             onHardcodedLocationSet: function(lat, lon) {
                 root.latitude = lat
