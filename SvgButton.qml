@@ -11,15 +11,17 @@ Rectangle {
     border.color: "#000"
     border.width: 2
     property var fileName
+    property real imageScale: 1
 
     signal clicked()
 
     Image {
         id: image
         source: fileName
-        anchors.fill: parent
         x: parent.width / 2 - image.width / 2 - 1
         y: parent.height / 2 - image.height / 2 + 1
+        width: root.width*root.imageScale
+        height: root.height*root.imageScale
     }
 
     MouseArea {

@@ -192,26 +192,22 @@ Item {
         }
     }
 
-    ResetLocationButton {
-        width: 44
-        height: 44
+    SvgButton {
         anchors.top: parent.top
         anchors.right: parent.right
         anchors.topMargin: 59
         anchors.rightMargin: 10
-        arrowStyleOpen: customCenter
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                if (customCenter) {
-                    customCenter = false
-                    positionAnimatingReset = true
-                    resetPositionAnimation.start()
-                } else if (customScale) {
-                    customScale = false
-                    scaleAnimatingReset = true
-                    resetScaleAnimation.start()
-                }
+        imageScale: customScale ? 0.35 : 0.5
+        fileName: customCenter ? "qrc:/images/location-arrow-o-svgrepo-com.svg" : "qrc:/images/location-arrow-svgrepo-com.svg"
+        onClicked: {
+            if (customCenter) {
+                customCenter = false
+                positionAnimatingReset = true
+                resetPositionAnimation.start()
+            } else if (customScale) {
+                customScale = false
+                scaleAnimatingReset = true
+                resetScaleAnimation.start()
             }
         }
     }
