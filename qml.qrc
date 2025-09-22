@@ -178,5 +178,9 @@
         <file>images/location-arrow-o-svgrepo-com.svg</file>
         <file>images/location-arrow-svgrepo-com.svg</file>
         <file>Lighthouse.qml</file>
+        <file>MapLocationSelector.qml</file>
+        <file>SvgButton.qml</file>
+        <file>images/minus-svgrepo-com.svg</file>
+        <file>images/plus-svgrepo-com.svg</file>
     </qresource>
 </RCC>

@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Controls
 import QtLocation
 import QtPositioning
 import QtSensors
@@ -18,6 +19,9 @@ Item {
     property bool customRotation: false
     property bool customScale: false
     property bool customCenter: false
+
+    signal hardcodedLocationSet(real latitude, real longitude)
+    signal hardcodedLocationCancelled()
 
     // activeBearing uses the animated value when animating, otherwise uses
     // either map.bearing (if customRotation) or the compass value.
@@ -175,7 +179,7 @@ Item {
         compassStrokeStyle: (customRotation) ? ShapePath.DashLine : ShapePath.SolidLine
         width: 56
         height: 56
-        // while animating, use the map’s current bearing
+        // while animating, use the map's current bearing
         rotation: -activeBearing
 
         MouseArea {
@@ -195,6 +199,7 @@ Item {
         anchors.right: parent.right
         anchors.topMargin: 59
         anchors.rightMargin: 10
+        arrowStyleOpen: customCenter
         MouseArea {
             anchors.fill: parent
             onClicked: {

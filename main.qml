@@ -43,6 +43,7 @@ Window {
 
     SettingsView {
         id: settings
+        selfCoord: root.selfCoord
 
         function updateSelfCoord() {
             if (useHardCodedPosition) {

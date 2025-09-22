@@ -2,17 +2,19 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Window 2.15
+import QtPositioning
 
 Dialog {
     id: root
+    property var selfCoord
     title: isEditing ? "Edit Custom Location" : "Add Custom Location"
     modal: true
     
     // Dynamic positioning and sizing for better mobile support
-    x: Math.max(0, (parent ? parent.width - width : 0) / 2)
-    y: Math.max(20, (parent ? parent.height - height : 0) / 2)
     width: parent ? parent.width * 0.95 : 400
     height: parent ? parent.height * 0.8 : 500
+    x: parent ? (parent.width - width) / 2 : 0
+    y: parent ? Math.max(20, (parent.height - height) / 2) : 20
     
     // Ensure dialog doesn't go off-screen
     onWidthChanged: {
@@ -46,12 +48,12 @@ Dialog {
     // Use ScrollView to handle content overflow on small screens
     ScrollView {
         anchors.fill: parent
-        anchors.margins: 10
+        anchors.margins: 5
         clip: true
         
         ColumnLayout {
             width: parent.width
-            spacing: 15
+            spacing: 8
             
             Label {
                 text: "Location Name"
@@ -62,7 +64,7 @@ Dialog {
             TextField {
                 id: nameField
                 Layout.fillWidth: true
-                Layout.preferredHeight: 40
+                Layout.preferredHeight: 35
                 placeholderText: "Enter location name"
                 text: root.locationName
                 focus: true
@@ -78,7 +80,7 @@ Dialog {
             TextField {
                 id: latField
                 Layout.fillWidth: true
-                Layout.preferredHeight: 40
+                Layout.preferredHeight: 35
                 placeholderText: "Enter latitude (e.g., 59.901484)"
                 text: root.latitude.toString()
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
@@ -99,7 +101,7 @@ Dialog {
             TextField {
                 id: lonField
                 Layout.fillWidth: true
-                Layout.preferredHeight: 40
+                Layout.preferredHeight: 35
                 placeholderText: "Enter longitude (e.g., 10.751129)"
                 text: root.longitude.toString()
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
@@ -111,29 +113,53 @@ Dialog {
                 }
             }
             
+            // Choose on Map button
+            Button {
+                text: "Choose on Map"
+                Layout.fillWidth: true
+                Layout.preferredHeight: 38
+                background: Rectangle {
+                    color: parent.pressed ? "#e3f2fd" : "#2196f3"
+                    border.color: "#1976d2"
+                    border.width: 1
+                    radius: 4
+                }
+                contentItem: Text {
+                    text: parent.text
+                    color: "white"
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    font.pixelSize: 14
+                    font.bold: true
+                }
+                onClicked: {
+                    mapDialog.open()
+                }
+            }
+            
             // Add some spacing before buttons
             Item {
-                Layout.preferredHeight: 20
+                Layout.preferredHeight: 10
             }
             
             RowLayout {
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignRight
-                spacing: 10
+                spacing: 8
                 
                 Button {
                     text: "Cancel"
                     flat: true // Makes it look like a less prominent action
                     palette.buttonText: "gray"
                     Layout.preferredWidth: 100
-                    Layout.preferredHeight: 40
+                    Layout.preferredHeight: 35
                     onClicked: root.close()
                 }
                 
                 Button {
                     text: isEditing ? "Save" : "Add"
                     Layout.preferredWidth: 100
-                    Layout.preferredHeight: 40
+                    Layout.preferredHeight: 35
                     enabled: nameField.text.trim() !== "" && 
                              !isNaN(root.latitude) &&
                              !isNaN(root.longitude)
@@ -146,6 +172,42 @@ Dialog {
                         root.close()
                     }
                 }
+            }
+        }
+    }
+    
+    // Map selection dialog
+    Dialog {
+        id: mapDialog
+        property var initialCenter: QtPositioning.coordinate(0, 0)
+        title: "Choose Location on Map"
+        modal: true
+        parent: root.parent
+        width: root.width
+        height: root.height
+        x: root.x
+        y: root.y
+
+        onOpened: {
+            initialCenter = root.selfCoord
+        }
+        
+        MapLocationSelector {
+            id: mapSelector
+            anchors.fill: parent
+            selfCoord: root.selfCoord
+            center: (root.latitude === 0.0 && root.longitude === 0.0) ? mapDialog.initialCenter : QtPositioning.coordinate(root.latitude, root.longitude)
+
+            onHardcodedLocationSet: function(lat, lon) {
+                root.latitude = lat
+                root.longitude = lon
+                latField.text = lat.toString()
+                lonField.text = lon.toString()
+                mapDialog.close()
+            }
+            
+            onHardcodedLocationCancelled: function() {
+                mapDialog.close()
             }
         }
     }

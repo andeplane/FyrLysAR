@@ -12,6 +12,7 @@ Page {
     property real hardcodedLongitude
     property real hardcodedLatitude
     property real selfHeight: 2.0
+    property var selfCoord
 
     // Settings for persistent storage
     Settings {
@@ -315,6 +316,7 @@ Page {
     // Add Location Dialog
     AddLocationDialog {
         id: addLocationDialog
+        selfCoord: root.selfCoord
         onLocationAdded: function(name, lat, lon) {
             addCustomLocation(name, lat, lon)
         }
