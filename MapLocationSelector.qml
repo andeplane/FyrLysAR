@@ -102,16 +102,15 @@ import QtQuick.Shapes 1.15
         }
     }
 
-    ResetLocationButton {
-        anchors.top: parent.top
+    SvgButton {
+        anchors.top: coordinatesBox.bottom
         anchors.right: parent.right
-        anchors.topMargin: 64
+        anchors.topMargin: 10
         anchors.rightMargin: 10
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                map.center = selfCoord
-            }
+        fileName: "qrc:/images/location-arrow-svgrepo-com.svg"
+        imageScale: 0.5
+        onClicked: {
+            map.center = selfCoord
         }
     }
 
