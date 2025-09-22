@@ -12,12 +12,19 @@ Rectangle {
     border.width: 2
     property var fileName
 
+    signal clicked()
+
     Image {
         id: image
         source: fileName
         anchors.fill: parent
         x: parent.width / 2 - image.width / 2 - 1
         y: parent.height / 2 - image.height / 2 + 1
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        onClicked: root.clicked()
     }
 }
 

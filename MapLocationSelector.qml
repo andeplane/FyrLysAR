@@ -83,12 +83,9 @@ import QtQuick.Shapes 1.15
         anchors.topMargin: 10
         anchors.leftMargin: 10
         fileName: "qrc:/images/plus-svgrepo-com.svg"
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                map.zoomLevel *= 1.1
-                map.zoomLevel = Math.min(map.zoomLevel, 14)
-            }
+        onClicked: {
+            map.zoomLevel *= 1.1
+            map.zoomLevel = Math.min(map.zoomLevel, 14)
         }
     }
 
@@ -99,12 +96,9 @@ import QtQuick.Shapes 1.15
         anchors.topMargin: 10
         anchors.leftMargin: 10
         fileName: "qrc:/images/minus-svgrepo-com.svg"
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                map.zoomLevel *= 0.9
-                map.zoomLevel = Math.max(map.zoomLevel, 4)
-            }
+        onClicked: {
+            map.zoomLevel *= 0.9
+            map.zoomLevel = Math.max(map.zoomLevel, 4)
         }
     }
 
