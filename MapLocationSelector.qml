@@ -24,7 +24,7 @@ import QtQuick.Shapes 1.15
         anchors.fill: parent
         plugin: mapPlugin
         zoomLevel: 10
-        copyrightsVisible: false
+        copyrightsVisible: true
 
         WheelHandler {
             id: wheel
