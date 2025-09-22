@@ -1,0 +1,5 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/fyrlysar">
+<file alias="main.qml">/Users/kvakkefly/projects/fyrlysar/main.qml</file>
+</qresource>
+</RCC>
