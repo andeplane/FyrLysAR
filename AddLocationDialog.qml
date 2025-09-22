@@ -13,21 +13,7 @@ Dialog {
     // Dynamic positioning and sizing for better mobile support
     width: parent ? parent.width * 0.95 : 400
     height: parent ? parent.height * 0.8 : 500
-    x: parent ? (parent.width - width) / 2 : 0
-    y: parent ? Math.max(20, (parent.height - height) / 2) : 20
-    
-    // Ensure dialog doesn't go off-screen
-    onWidthChanged: {
-        if (parent && x + width > parent.width) {
-            x = parent.width - width - 10
-        }
-    }
-    
-    onHeightChanged: {
-        if (parent && y + height > parent.height) {
-            y = parent.height - height - 10
-        }
-    }
+    anchors.centerIn: parent
     
     property string locationName: ""
     property real latitude: 0.0
@@ -182,11 +168,9 @@ Dialog {
         property var initialCenter: QtPositioning.coordinate(0, 0)
         title: "Choose Location on Map"
         modal: true
-        parent: root.parent
         width: root.width
         height: root.height
-        x: root.x
-        y: root.y
+        anchors.centerIn: parent
 
         onOpened: {
             initialCenter = root.selfCoord
