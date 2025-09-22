@@ -5,6 +5,8 @@ import QtQuick.Shapes 1.15
 Rectangle {
     id: root
     radius: 5
+    width: 44
+    height: 44
     color: Qt.rgba(1.0, 1.0, 1.0, 0.0)
     border.color: "#000"
     border.width: 2

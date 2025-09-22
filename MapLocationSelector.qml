@@ -127,11 +127,9 @@ import QtQuick.Shapes 1.15
     }
 
     ResetLocationButton {
-        width: 44
-        height: 44
         anchors.top: parent.top
         anchors.right: parent.right
-        anchors.topMargin: 59
+        anchors.topMargin: 64
         anchors.rightMargin: 10
         MouseArea {
             anchors.fill: parent
