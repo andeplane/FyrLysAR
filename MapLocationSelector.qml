@@ -23,7 +23,7 @@ import QtQuick.Shapes 1.15
         id: map
         anchors.fill: parent
         plugin: mapPlugin
-        zoomLevel: 14
+        zoomLevel: 10
         copyrightsVisible: false
 
         WheelHandler {
@@ -63,7 +63,7 @@ import QtQuick.Shapes 1.15
                 // The coordinate where the sector is displayed
                 coordinate: modelData.coordinates
                 // Setting zoomLevel makes the item scale with the map
-                zoomLevel: 14
+                zoomLevel: 10
                 anchorPoint.x: sourceItem.width / 2
                 anchorPoint.y: sourceItem.height / 2
 
@@ -94,15 +94,36 @@ import QtQuick.Shapes 1.15
         onActivated: map.zoomLevel = Math.round(map.zoomLevel - 1)
     }
 
-    CompassNeedle {
-        id: compassNeedle
+    SvgButton {
+        id: zoomInButton
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.topMargin: 10
         anchors.leftMargin: 10
-        compassStrokeStyle: ShapePath.SolidLine
-        width: 56
-        height: 56
+        fileName: "qrc:/images/plus-svgrepo-com.svg"
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                map.zoomLevel *= 1.1
+                map.zoomLevel = Math.min(map.zoomLevel, 14)
+            }
+        }
+    }
+
+    SvgButton {
+        id: zoomOutButton
+        anchors.top: zoomInButton.bottom
+        anchors.left: parent.left
+        anchors.topMargin: 10
+        anchors.leftMargin: 10
+        fileName: "qrc:/images/minus-svgrepo-com.svg"
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                map.zoomLevel *= 0.9
+                map.zoomLevel = Math.max(map.zoomLevel, 4)
+            }
+        }
     }
 
     ResetLocationButton {
