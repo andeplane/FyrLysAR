@@ -71,12 +71,6 @@ import QtQuick.Shapes 1.15
                     width: 50
                     height: 50
                     sectors: modelData.sectors
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            infoBox.lighthouse = modelData
-                        }
-                    }
                 }
             }
         }
