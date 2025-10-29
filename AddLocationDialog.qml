@@ -21,6 +21,10 @@ Dialog {
     property bool isEditing: false
     property int editingIndex: -1
     
+    // Margin constants for consistent spacing
+    readonly property int horizontalMargin: 16
+    readonly property int verticalMargin: 8
+    
     signal locationAdded(string name, real lat, real lon)
     signal locationEdited(int index, string name, real lat, real lon)
 
@@ -33,12 +37,16 @@ Dialog {
     
     // Use ScrollView to handle content overflow on small screens
     ScrollView {
+        id: scrollView
         anchors.fill: parent
-        anchors.margins: 5
+        anchors.leftMargin: root.horizontalMargin
+        anchors.rightMargin: root.horizontalMargin
+        anchors.topMargin: root.verticalMargin
+        anchors.bottomMargin: root.verticalMargin
         clip: true
         
         ColumnLayout {
-            width: parent.width
+            width: scrollView.availableWidth
             spacing: 8
             
             Label {
