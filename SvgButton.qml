@@ -8,7 +8,7 @@ Rectangle {
     height: 44
     radius: 5
     color: Qt.rgba(1.0, 1.0, 1.0, 0.0)
-    border.color: palette.buttonText
+    border.color: "black"
     border.width: 2
     property var fileName
     property real imageScale: 1
