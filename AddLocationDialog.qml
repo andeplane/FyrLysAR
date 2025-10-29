@@ -33,12 +33,16 @@ Dialog {
     
     // Use ScrollView to handle content overflow on small screens
     ScrollView {
+        id: scrollView
         anchors.fill: parent
-        anchors.margins: 5
+        anchors.leftMargin: 16
+        anchors.rightMargin: 16
+        anchors.topMargin: 8
+        anchors.bottomMargin: 8
         clip: true
         
         ColumnLayout {
-            width: parent.width
+            width: scrollView.availableWidth
             spacing: 8
             
             Label {
