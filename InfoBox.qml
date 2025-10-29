@@ -17,7 +17,7 @@ Rectangle {
     anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.right: parent.right
-    color: Qt.rgba(1.0, 1.0, 1.0, 0.7)
+    color: Qt.rgba(palette.window.r, palette.window.g, palette.window.b, 0.7)
     visible: false
 
     Column {
@@ -26,36 +26,44 @@ Rectangle {
         Row {
             Text {
                 text: "Name: "
+                color: palette.windowText
             }
             Text {
                 text: root.lighthouse ? root.lighthouse.name : ""
+                color: palette.windowText
             }
         }
 
         Row {
             Text {
                 text: "Distance: "
+                color: palette.windowText
             }
             Text {
                 text: root.lighthouse ? root.lighthouse.distance.toFixed(0.0) + ' m' : ""
+                color: palette.windowText
             }
         }
 
         Row {
             Text {
                 text: "Height: "
+                color: palette.windowText
             }
             Text {
                 text: root.lighthouse ? root.lighthouse.heightOverSea + ' m' : ""
+                color: palette.windowText
             }
         }
 
         Row {
             Text {
                 text: "Heading: "
+                color: palette.windowText
             }
             Text {
                 text: Math.round(root.heading / Math.PI * 180, 0)
+                color: palette.windowText
             }
         }
     }

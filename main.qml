@@ -74,7 +74,7 @@ Window {
         width: 44
         height: 44
         color: Qt.rgba(1.0, 1.0, 1.0, 0.0)
-        border.color: "#000"
+        border.color: palette.buttonText
         border.width: stack.currentItem === map ? 2 : 0
         radius: 5
     }
