@@ -44,6 +44,7 @@ Dialog {
             Label {
                 text: "Location Name"
                 font.bold: true
+                color: palette.windowText
                 Layout.fillWidth: true
             }
             
@@ -60,6 +61,7 @@ Dialog {
             Label {
                 text: "Latitude"
                 font.bold: true
+                color: palette.windowText
                 Layout.fillWidth: true
             }
             
@@ -81,6 +83,7 @@ Dialog {
             Label {
                 text: "Longitude"
                 font.bold: true
+                color: palette.windowText
                 Layout.fillWidth: true
             }
             

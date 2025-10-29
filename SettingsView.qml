@@ -229,8 +229,15 @@ Page {
                         onClicked: listView.currentIndex = index
                         swipe.enabled: index > 0 // Disable swiping for "Use current location" (index 0)
 
+                        contentItem: Text {
+                            text: swipeDelegate.text
+                            color: listView.currentIndex === index ? palette.highlightedText : palette.text
+                            verticalAlignment: Text.AlignVCenter
+                            leftPadding: 16
+                        }
+
                         background: Rectangle {
-                            color: listView.currentIndex === index ? "#e0e0e0" : "white"
+                            color: listView.currentIndex === index ? palette.highlight : palette.base
                         }
 
                         ListView.onRemove: removeAnimation.start()
