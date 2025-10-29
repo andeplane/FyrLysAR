@@ -51,12 +51,25 @@ Item {
     Plugin {
         id: mapPlugin
         name: "osm"
+        PluginParameter {
+            name: "osm.mapping.providersrepository.disabled"
+            value: true
+        }
+        PluginParameter {
+            name: "osm.mapping.custom.host"
+            value: "https://tile.openstreetmap.org/%z/%x/%y.png"
+        }
+        PluginParameter {
+            name: "osm.mapping.copyright"
+            value: "© OpenStreetMap contributors"
+        }
     }
 
     Map {
         id: map
         anchors.fill: parent
         plugin: mapPlugin
+        activeMapType: supportedMapTypes[supportedMapTypes.length - 1]
         zoomLevel: 14
         bearing: compassBearing
         copyrightsVisible: false
