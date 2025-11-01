@@ -106,10 +106,20 @@ def extract_character(pattern):
         }
     
     light_classes = re.findall(possible_classes, pattern)
-    
+
+    if len(light_classes) == 0:
+        # No matching light class found in the pattern
+        print(f"No light class found in pattern '{pattern}'")
+        return {
+            "light_class": "None",
+            "numflash": 0,
+            "extra_class": None,
+            "period": 0,
+        }
+
     if len(light_classes) > 2:
         # Don't think any lighthouse has more than two lightclasses
-        print(f"{len(light_class)} light classes found", light_class)     
+        print(f"{len(light_classes)} light classes found", light_classes)
     
     light_class = light_classes[0]
     # TODO: Figure out what to do about the South Cardinal
