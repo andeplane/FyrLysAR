@@ -114,36 +114,55 @@ def parse_lighthouses(text_elements, page_number):
         SECTOR_FIRST_COLOR_Y_COORDINATE = lighthouse.bounding_box[0][1] + 9/SCALING_FACTOR
         SECTOR_COLOR_LINE_HEIGHT = 5/SCALING_FACTOR
         current_y_coordinate = SECTOR_FIRST_COLOR_Y_COORDINATE
-        current_color = None
 
         SINGLE_LINE_HEIGHT = 28/SCALING_FACTOR
         SECTOR_FIRST_ANGLE_X_COORDINATE = 1536/SCALING_FACTOR
         SECTOR_SECOND_ANGLE_X_COORDINATE = 1614/SCALING_FACTOR
         
+        # Track processed sectors by (color, from_angle, to_angle) to avoid duplicates
+        # from multi-line descriptions and to catch consecutive same-color sectors
+        processed_sectors = set()
+        
         while current_y_coordinate < lighthouse.bounding_box[1][1]:
             sector_color = find_element_containing_point(SECTOR_COLOR_X_COORDINATE, current_y_coordinate, text_elements)
-            if sector_color and sector_color['description'] != current_color:
-                current_color = sector_color['description']
-                if current_color in ['R', 'G', 'W']:
-                    sector_number = find_element_containing_point(SECTOR_NUMBER_X_COORDINATE, current_y_coordinate, text_elements)
-                    sector_number = sector_number.get('description') if sector_number else None
-                    if sector_number is not None:
-                        sector_number = int(sector_number)
-                    mean_y_coordinate = (sector_color['bounding_box'][0][1] + sector_color['bounding_box'][2][1]) / 2
-                    sector_from = find_text_element_containing_point(SECTOR_FIRST_ANGLE_X_COORDINATE, mean_y_coordinate, text_elements)
-                    sector_to = find_text_element_containing_point(SECTOR_SECOND_ANGLE_X_COORDINATE, mean_y_coordinate, text_elements)
-                    sector_from_float = float(sector_from.replace(",", ".")) if sector_from else None
-                    sector_to_float = float(sector_to.replace(",", ".").replace("-", "")) if sector_to else None
-                    if sector_from_float is None:
-                        print(f"WARNING! Sector from is None for {fyrnr} {sector_color['description']} {sector_from}. Choosing 0.0 instead.")
-                        sector_from_float = 0.0
+            
+            # Process any valid color found (not just on color change)
+            if sector_color and sector_color['description'] in ['R', 'G', 'W']:
+                # Get sector number
+                sector_number = find_element_containing_point(SECTOR_NUMBER_X_COORDINATE, current_y_coordinate, text_elements)
+                sector_number = sector_number.get('description') if sector_number else None
+                if sector_number is not None:
+                    sector_number = int(sector_number)
+                
+                # Calculate mean Y coordinate for angle lookup
+                mean_y_coordinate = (sector_color['bounding_box'][0][1] + sector_color['bounding_box'][2][1]) / 2
+                
+                # Parse angles first to create unique key
+                sector_from = find_text_element_containing_point(SECTOR_FIRST_ANGLE_X_COORDINATE, mean_y_coordinate, text_elements)
+                sector_to = find_text_element_containing_point(SECTOR_SECOND_ANGLE_X_COORDINATE, mean_y_coordinate, text_elements)
+                
+                sector_from_float = float(sector_from.replace(",", ".")) if sector_from else None
+                sector_to_float = float(sector_to.replace(",", ".").replace("-", "")) if sector_to else None
+                
+                if sector_from_float is None:
+                    print(f"WARNING! Sector from is None for {fyrnr} {sector_color['description']} {sector_from}. Choosing 0.0 instead.")
+                    sector_from_float = 0.0
+                
+                # Create unique key to detect duplicates (multi-line descriptions)
+                sector_key = (sector_color['description'], sector_from_float, sector_to_float)
+                
+                # Only process if we haven't seen this sector definition before
+                if sector_key not in processed_sectors:
+                    processed_sectors.add(sector_key)
                     
-                    lighthouses_on_page[fyrnr].sectors.append({
+                    sector_data = {
                         'color': color_map[sector_color['description']],
                         'number': sector_number,
                         'start': sector_from_float,
-                        'stop': float(sector_to.replace(",", ".").replace("-", ""))
-                    })
+                        'stop': sector_to_float
+                    }
+                    
+                    lighthouses_on_page[fyrnr].sectors.append(sector_data)
                 
             current_y_coordinate += SECTOR_COLOR_LINE_HEIGHT
     
