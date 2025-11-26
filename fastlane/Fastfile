@@ -1,0 +1,116 @@
+# Fastfile for fyrlysar iOS App
+# 
+# Usage:
+#   bundle exec fastlane build      # Build the app
+#   bundle exec fastlane release    # Build, archive, and upload to App Store Connect
+#   bundle exec fastlane testflight # Build and upload to TestFlight
+
+default_platform(:ios)
+
+# Configuration
+PROJECT_ROOT = File.expand_path("..", __dir__)
+BUILD_DIR = File.join(PROJECT_ROOT, "build", "Qt_6_6_1_for_iOS-Release")
+XCODEPROJ_PATH = File.join(BUILD_DIR, "fyrlysar.xcodeproj")
+SCHEME = "fyrlysar"
+
+def read_version
+  version_file = File.join(PROJECT_ROOT, "VERSION")
+  File.read(version_file).strip
+end
+
+platform :ios do
+  desc "Generate Xcode project from Qt"
+  lane :generate_xcode do
+    # This lane runs qmake to generate the Xcode project
+    # You may need to adjust the Qt path based on your installation
+    sh("cd #{PROJECT_ROOT} && ./scripts/build_release.sh --generate-only")
+  end
+
+  desc "Build the app for release"
+  lane :build do
+    version = read_version
+    UI.message("Building fyrlysar version #{version}")
+
+    # Run the build script which handles qmake and patching
+    sh("cd #{PROJECT_ROOT} && ./scripts/build_release.sh --build-only")
+
+    build_app(
+      project: XCODEPROJ_PATH,
+      scheme: SCHEME,
+      configuration: "Release",
+      export_method: "app-store",
+      output_directory: File.join(BUILD_DIR, "output"),
+      output_name: "fyrlysar.ipa",
+      clean: true,
+      skip_codesigning: false
+    )
+  end
+
+  desc "Build and upload to TestFlight"
+  lane :testflight_release do
+    version = read_version
+    UI.message("Releasing fyrlysar version #{version} to TestFlight")
+
+    # Run the build script
+    sh("cd #{PROJECT_ROOT} && ./scripts/build_release.sh --build-only")
+
+    build_app(
+      project: XCODEPROJ_PATH,
+      scheme: SCHEME,
+      configuration: "Release",
+      export_method: "app-store",
+      output_directory: File.join(BUILD_DIR, "output"),
+      output_name: "fyrlysar.ipa",
+      clean: true
+    )
+
+    upload_to_testflight(
+      skip_waiting_for_build_processing: true
+    )
+  end
+
+  desc "Build and upload to App Store"
+  lane :release do
+    version = read_version
+    UI.message("Releasing fyrlysar version #{version} to App Store")
+
+    # Run the full build script
+    sh("cd #{PROJECT_ROOT} && ./scripts/build_release.sh --build-only")
+
+    build_app(
+      project: XCODEPROJ_PATH,
+      scheme: SCHEME,
+      configuration: "Release",
+      export_method: "app-store",
+      output_directory: File.join(BUILD_DIR, "output"),
+      output_name: "fyrlysar.ipa",
+      clean: true
+    )
+
+    upload_to_app_store(
+      skip_metadata: true,
+      skip_screenshots: true,
+      precheck_include_in_app_purchases: false
+    )
+  end
+
+  desc "Just archive without uploading (for manual submission)"
+  lane :archive do
+    version = read_version
+    UI.message("Archiving fyrlysar version #{version}")
+
+    sh("cd #{PROJECT_ROOT} && ./scripts/build_release.sh --build-only")
+
+    build_app(
+      project: XCODEPROJ_PATH,
+      scheme: SCHEME,
+      configuration: "Release",
+      export_method: "app-store",
+      output_directory: File.join(BUILD_DIR, "output"),
+      output_name: "fyrlysar.ipa",
+      clean: true,
+      skip_archive: false
+    )
+  end
+end
+

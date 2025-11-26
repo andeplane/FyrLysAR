@@ -1,5 +1,9 @@
 PRODUCT_NAME = $$TARGET
 
+# Read version from VERSION file
+VERSION_FILE = $$cat($$PWD/VERSION)
+APP_VERSION = $$first(VERSION_FILE)
+
 INFOPLIST = \
    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" \
    "<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">" \
@@ -38,9 +42,9 @@ INFOPLIST = \
     "    <key>CFBundleName</key>" \
     "    <string>fyrlysar</string>" \
     "    <key>CFBundleShortVersionString</key>" \
-    "    <string>1.0</string>" \
+    "    <string>$$APP_VERSION</string>" \
     "    <key>CFBundleVersion</key>" \
-    "    <string>1.0</string>" \
+    "    <string>$$APP_VERSION</string>" \
     "    <key>LSRequiresIPhoneOS</key>" \
     "    <true/>" \
     "    <key>UILaunchStoryboardName</key>" \
@@ -86,9 +90,11 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 ios {
-    # QMAKE_ASSET_CATALOGS += $$PWD/logo/ios/AppIcon.appiconset
-    # ios_icon.files = $$files($$PWD/logo/ios/AppIcon.appiconset/*.png)
-    # QMAKE_BUNDLE_DATA += ios_icon
+    # Include App Icon asset catalog
+    QMAKE_ASSET_CATALOGS += $$PWD/ios/AppIcon.xcassets
+
+    # Set app icon name in Xcode project
+    QMAKE_XCODE_APPICON = AppIcon
 
     QT_SUPPORTED_PLATFORM.name = SUPPORTED_PLATFORMS
     QT_SUPPORTED_PLATFORM.value = "iphonesimulator iphoneos"
