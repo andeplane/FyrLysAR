@@ -159,7 +159,7 @@ def parse_lighthouses(text_elements, page_number):
                         'color': color_map[sector_color['description']],
                         'number': sector_number,
                         'start': sector_from_float,
-                        'stop': float(sector_to.replace(",", ".").replace("-", ""))
+                        'stop': sector_to_float
                     }
                     
                     lighthouses_on_page[fyrnr].sectors.append(sector_data)
