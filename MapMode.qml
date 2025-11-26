@@ -135,9 +135,8 @@ Item {
                     width: 50
                     height: 50
                     sectors: modelData.sectors
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
+                    TapHandler {
+                        onTapped: {
                             infoBox.lighthouse = modelData
                         }
                     }
