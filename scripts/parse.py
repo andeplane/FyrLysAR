@@ -152,6 +152,8 @@ def parse_lighthouses(text_elements, page_number):
             return False
         if lighthouse.height is None:
             return False
+        if len(lighthouse.sectors) == 0:
+            return False
         return True
 
     lighthouses_on_page = {
