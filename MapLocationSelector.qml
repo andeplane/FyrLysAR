@@ -98,7 +98,7 @@ import QtQuick.Shapes 1.15
         fileName: "qrc:/images/plus-svgrepo-com.svg"
         onClicked: {
             map.zoomLevel *= 1.1
-            map.zoomLevel = Math.min(map.zoomLevel, 14)
+            map.zoomLevel = Math.min(map.zoomLevel, 15)
         }
     }
 
