@@ -285,27 +285,17 @@ total_number_of_lighthouses = 0
 lighthouses = []
 with pdfplumber.open(pdf_path) as pdf:  # type: ignore
     page_number = 0
-    DEBUG_PAGE_NUMBER = 97
     for pdf_page in tqdm(pdf.pages, desc="Processing pages"):
         page_number += 1
-        
-        # Only process page 97 for debugging
-        if page_number != DEBUG_PAGE_NUMBER:
-            continue
-        
         # print(f"Processing page {i} of {len(pdf.pages)}")
         text_on_page = pdf_page.extract_text()
         search_text = ["Lysvidde", "Fyrnr.", "Kartnr."]
         should_parse_page = all(map(lambda needle: needle in text_on_page, search_text))
         if not should_parse_page:
-            print(f"Page {page_number} does not contain required search text, skipping")
-            break
+            continue
         text_elements = perform_text_extraction(pdf_page)
         lighthouses_on_page = parse_lighthouses(text_elements, page_number)
         lighthouses.extend(lighthouses_on_page)
-        
-        # Break after processing page 97
-        break
 
 lighthouses_as_dicts = [asdict(lighthouse) for lighthouse in lighthouses]
 for lighthouse in lighthouses_as_dicts:
