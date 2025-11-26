@@ -9,9 +9,6 @@ from dataclasses import dataclass, asdict, field
 
 def parse_lighthouses(text_elements, page_number):
     global total_number_of_lighthouses
-    DEBUG_FYRNR = "053210"
-    DEBUG_PAGE = 97
-    
     @dataclass
     class Lighthouse:
         fyrnr: str
@@ -28,10 +25,6 @@ def parse_lighthouses(text_elements, page_number):
         
     lighthouses_on_page = {}
     fyrnr_with_bounding_boxes = []
-    
-    if page_number == DEBUG_PAGE:
-        print(f"\n=== DEBUG: Processing page {page_number} ===")
-        print(f"Total text elements on page: {len(text_elements)}")
     
     # Find Fyrnr. elements. y coordinates start at 180 and increase by 10 for each line 
     for y in range(int(180/SCALING_FACTOR), int(1550/SCALING_FACTOR), int(10/SCALING_FACTOR)):
@@ -63,14 +56,8 @@ def parse_lighthouses(text_elements, page_number):
             full_bounding_box = [bounding_box[0], (X_MAX_FOR_LIGHTHOUSE_BOUNDING_BOX, Y_FOR_LAST_LIGHTHOUSE)]
         
         lighthouses_on_page[fyrnr] = Lighthouse(fyrnr, page_number, full_bounding_box)
-        if page_number == DEBUG_PAGE and fyrnr == DEBUG_FYRNR:
-            print(f"\n=== DEBUG: Found lighthouse {fyrnr} ===")
-            print(f"Bounding box: {full_bounding_box}")
-    
     for fyrnr, lighthouse in lighthouses_on_page.items():
         total_number_of_lighthouses += 1
-        is_debug_lighthouse = (page_number == DEBUG_PAGE and fyrnr == DEBUG_FYRNR)
-        
         NAME_X_COORDINATE = 220/SCALING_FACTOR
         NAME_Y_COORDINATE = lighthouse.bounding_box[0][1] + 36/SCALING_FACTOR
         name = find_text_element_containing_point(NAME_X_COORDINATE, NAME_Y_COORDINATE, text_elements)
@@ -121,16 +108,6 @@ def parse_lighthouses(text_elements, page_number):
             lighthouses_on_page[fyrnr].maxRange = max(ranges)
             # Convert to meters
             lighthouses_on_page[fyrnr].maxRange = lighthouses_on_page[fyrnr].maxRange * 1852
-        
-        if is_debug_lighthouse:
-            print(f"\n=== DEBUG: Basic fields for {fyrnr} ===")
-            print(f"Name: {name}")
-            print(f"Latitude: {latitude}")
-            print(f"Longitude: {longitude}")
-            print(f"Pattern: {pattern}")
-            print(f"Height: {lighthouses_on_page[fyrnr].height}")
-            print(f"Lysvidde R: {lysvidde_r}, G: {lysvidde_g}, W: {lysvidde_w}")
-            print(f"MaxRange: {lighthouses_on_page[fyrnr].maxRange}")
         # Find sectors
         SECTOR_NUMBER_X_COORDINATE = 1440/SCALING_FACTOR
         SECTOR_COLOR_X_COORDINATE = 1482/SCALING_FACTOR
@@ -146,29 +123,11 @@ def parse_lighthouses(text_elements, page_number):
         # from multi-line descriptions and to catch consecutive same-color sectors
         processed_sectors = set()
         
-        if is_debug_lighthouse:
-            print(f"\n=== DEBUG: Starting sector parsing loop for {fyrnr} ===")
-            print(f"Bounding box bottom Y: {lighthouse.bounding_box[1][1]}")
-            print(f"Starting Y coordinate: {current_y_coordinate}")
-            print(f"Sector color line height: {SECTOR_COLOR_LINE_HEIGHT}")
-        
-        loop_iteration = 0
         while current_y_coordinate < lighthouse.bounding_box[1][1]:
-            loop_iteration += 1
             sector_color = find_element_containing_point(SECTOR_COLOR_X_COORDINATE, current_y_coordinate, text_elements)
-            
-            if is_debug_lighthouse:
-                print(f"\n--- Loop iteration {loop_iteration} ---")
-                print(f"Current Y coordinate: {current_y_coordinate}")
-                print(f"Sector color found: {sector_color['description'] if sector_color else None}")
-                if sector_color:
-                    print(f"Sector color bounding box: {sector_color['bounding_box']}")
             
             # Process any valid color found (not just on color change)
             if sector_color and sector_color['description'] in ['R', 'G', 'W']:
-                if is_debug_lighthouse:
-                    print(f"Valid color {sector_color['description']} detected, checking if already processed...")
-                
                 # Get sector number
                 sector_number = find_element_containing_point(SECTOR_NUMBER_X_COORDINATE, current_y_coordinate, text_elements)
                 sector_number = sector_number.get('description') if sector_number else None
@@ -178,24 +137,12 @@ def parse_lighthouses(text_elements, page_number):
                 # Calculate mean Y coordinate for angle lookup
                 mean_y_coordinate = (sector_color['bounding_box'][0][1] + sector_color['bounding_box'][2][1]) / 2
                 
-                if is_debug_lighthouse:
-                    print(f"Sector number: {sector_number}")
-                    print(f"Mean Y coordinate: {mean_y_coordinate}")
-                
                 # Parse angles first to create unique key
                 sector_from = find_text_element_containing_point(SECTOR_FIRST_ANGLE_X_COORDINATE, mean_y_coordinate, text_elements)
                 sector_to = find_text_element_containing_point(SECTOR_SECOND_ANGLE_X_COORDINATE, mean_y_coordinate, text_elements)
                 
-                if is_debug_lighthouse:
-                    print(f"Raw sector_from string: {sector_from}")
-                    print(f"Raw sector_to string: {sector_to}")
-                
                 sector_from_float = float(sector_from.replace(",", ".")) if sector_from else None
                 sector_to_float = float(sector_to.replace(",", ".").replace("-", "")) if sector_to else None
-                
-                if is_debug_lighthouse:
-                    print(f"Parsed sector_from_float: {sector_from_float}")
-                    print(f"Parsed sector_to_float: {sector_to_float}")
                 
                 if sector_from_float is None:
                     print(f"WARNING! Sector from is None for {fyrnr} {sector_color['description']} {sector_from}. Choosing 0.0 instead.")
@@ -203,10 +150,6 @@ def parse_lighthouses(text_elements, page_number):
                 
                 # Create unique key to detect duplicates (multi-line descriptions)
                 sector_key = (sector_color['description'], sector_from_float, sector_to_float)
-                
-                if is_debug_lighthouse:
-                    print(f"Sector key: {sector_key}")
-                    print(f"Already processed: {sector_key in processed_sectors}")
                 
                 # Only process if we haven't seen this sector definition before
                 if sector_key not in processed_sectors:
@@ -219,25 +162,9 @@ def parse_lighthouses(text_elements, page_number):
                         'stop': float(sector_to.replace(",", ".").replace("-", ""))
                     }
                     
-                    if is_debug_lighthouse:
-                        print(f"Appending new sector: {sector_data}")
-                    
                     lighthouses_on_page[fyrnr].sectors.append(sector_data)
-                elif is_debug_lighthouse:
-                    print(f"Sector already processed (likely multi-line description), skipping")
-            elif is_debug_lighthouse:
-                if not sector_color:
-                    print("No sector color found at this Y coordinate")
-                elif sector_color['description'] not in ['R', 'G', 'W']:
-                    print(f"Sector color {sector_color['description']} is not R/G/W, skipping")
                 
             current_y_coordinate += SECTOR_COLOR_LINE_HEIGHT
-        
-        if is_debug_lighthouse:
-            print(f"\n=== DEBUG: Finished sector parsing loop for {fyrnr} ===")
-            print(f"Total loop iterations: {loop_iteration}")
-            print(f"Total sectors found: {len(lighthouses_on_page[fyrnr].sectors)}")
-            print(f"Final sectors list: {lighthouses_on_page[fyrnr].sectors}")
     
     def should_keep_lighthouse(lighthouse):
         if lighthouse.maxRange is None:
@@ -248,27 +175,11 @@ def parse_lighthouses(text_elements, page_number):
             return False
         return True
 
-    if page_number == DEBUG_PAGE and DEBUG_FYRNR in lighthouses_on_page:
-        debug_lighthouse = lighthouses_on_page[DEBUG_FYRNR]
-        print(f"\n=== DEBUG: Lighthouse {DEBUG_FYRNR} before filtering ===")
-        print(f"maxRange: {debug_lighthouse.maxRange}")
-        print(f"height: {debug_lighthouse.height}")
-        print(f"number of sectors: {len(debug_lighthouse.sectors)}")
-        print(f"Will be kept: {should_keep_lighthouse(debug_lighthouse)}")
-    
     lighthouses_on_page = {
         fyrnr: lighthouse 
         for fyrnr, lighthouse in lighthouses_on_page.items() 
         if should_keep_lighthouse(lighthouse)
     }
-    
-    if page_number == DEBUG_PAGE:
-        print(f"\n=== DEBUG: After filtering, {len(lighthouses_on_page)} lighthouses kept on page {page_number} ===")
-        if DEBUG_FYRNR in lighthouses_on_page:
-            print(f"Lighthouse {DEBUG_FYRNR} was kept")
-        else:
-            print(f"Lighthouse {DEBUG_FYRNR} was filtered out")
-    
     return lighthouses_on_page.values()
 
 
