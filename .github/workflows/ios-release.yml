@@ -43,7 +43,12 @@ jobs:
           pipx ensurepath
           pipx install aqtinstall
 
+          # Install Qt for macOS (required by iOS qmake wrapper)
+          echo "Installing Qt $QT_VERSION for macOS..."
+          aqt install-qt mac desktop $QT_VERSION -O "$QT_INSTALL_DIR" --archives qtbase qtsvg qtdeclarative qtmultimedia qtsensors qtlocation qtcharts || echo "macOS Qt installation failed or already exists"
+
           # Install Qt iOS
+          echo "Installing Qt $QT_VERSION for iOS..."
           aqt install-qt mac ios $QT_VERSION -O "$QT_INSTALL_DIR" --archives qtbase qtsvg qtdeclarative qtmultimedia qtsensors qtlocation qtcharts
 
           # Verify installation
