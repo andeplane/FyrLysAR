@@ -74,11 +74,25 @@ platform :ios do
 
   desc "Build and upload to TestFlight"
   lane :testflight_release do
+    version = read_version
     _build_release_ipa(message: "Releasing fyrlysar version to TestFlight")
 
+    # Upload to TestFlight - Fastlane will automatically create version if needed
     upload_to_testflight(
-      skip_waiting_for_build_processing: true
+      skip_waiting_for_build_processing: true,
+      skip_submission: true,  # Don't auto-submit for review (manual step)
+      distribute_external: false,
+      notify_external_testers: false
     )
+    
+    # Optional: Add release notes (you can customize this)
+    # add_app_store_metadata(
+    #   app_identifier: "com.kvakkefly.fyrlysar",
+    #   version: version,
+    #   release_notes: {
+    #     "en-US" => "Bug fixes and improvements"
+    #   }
+    # )
   end
 
   desc "Build and upload to App Store"
