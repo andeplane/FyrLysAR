@@ -26,10 +26,10 @@ platform :ios do
     sh("cd #{PROJECT_ROOT} && ./scripts/build_release.sh --generate-only")
   end
 
-  desc "Build the app for release"
-  lane :build do
+  private_lane :_build_release_ipa do |options|
     version = read_version
-    UI.message("Building fyrlysar version #{version}")
+    message = options[:message] || "Building fyrlysar version"
+    UI.message("#{message} #{version}")
 
     # Run the build script which handles qmake and patching
     sh("cd #{PROJECT_ROOT} && ./scripts/build_release.sh --build-only")
@@ -42,27 +42,22 @@ platform :ios do
       output_directory: File.join(BUILD_DIR, "output"),
       output_name: "fyrlysar.ipa",
       clean: true,
+      skip_codesigning: options[:skip_codesigning] || false,
+      skip_archive: options[:skip_archive] || false
+    )
+  end
+
+  desc "Build the app for release"
+  lane :build do
+    _build_release_ipa(
+      message: "Building fyrlysar version",
       skip_codesigning: false
     )
   end
 
   desc "Build and upload to TestFlight"
   lane :testflight_release do
-    version = read_version
-    UI.message("Releasing fyrlysar version #{version} to TestFlight")
-
-    # Run the build script
-    sh("cd #{PROJECT_ROOT} && ./scripts/build_release.sh --build-only")
-
-    build_app(
-      project: XCODEPROJ_PATH,
-      scheme: SCHEME,
-      configuration: "Release",
-      export_method: "app-store",
-      output_directory: File.join(BUILD_DIR, "output"),
-      output_name: "fyrlysar.ipa",
-      clean: true
-    )
+    _build_release_ipa(message: "Releasing fyrlysar version to TestFlight")
 
     upload_to_testflight(
       skip_waiting_for_build_processing: true
@@ -71,21 +66,7 @@ platform :ios do
 
   desc "Build and upload to App Store"
   lane :release do
-    version = read_version
-    UI.message("Releasing fyrlysar version #{version} to App Store")
-
-    # Run the full build script
-    sh("cd #{PROJECT_ROOT} && ./scripts/build_release.sh --build-only")
-
-    build_app(
-      project: XCODEPROJ_PATH,
-      scheme: SCHEME,
-      configuration: "Release",
-      export_method: "app-store",
-      output_directory: File.join(BUILD_DIR, "output"),
-      output_name: "fyrlysar.ipa",
-      clean: true
-    )
+    _build_release_ipa(message: "Releasing fyrlysar version to App Store")
 
     upload_to_app_store(
       skip_metadata: true,
@@ -96,19 +77,8 @@ platform :ios do
 
   desc "Just archive without uploading (for manual submission)"
   lane :archive do
-    version = read_version
-    UI.message("Archiving fyrlysar version #{version}")
-
-    sh("cd #{PROJECT_ROOT} && ./scripts/build_release.sh --build-only")
-
-    build_app(
-      project: XCODEPROJ_PATH,
-      scheme: SCHEME,
-      configuration: "Release",
-      export_method: "app-store",
-      output_directory: File.join(BUILD_DIR, "output"),
-      output_name: "fyrlysar.ipa",
-      clean: true,
+    _build_release_ipa(
+      message: "Archiving fyrlysar version",
       skip_archive: false
     )
   end
