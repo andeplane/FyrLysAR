@@ -1,0 +1,214 @@
+# Fastfile for fyrlysar iOS App
+# 
+# Usage:
+#   # Local development (requires .env file with API keys):
+#   source scripts/setup_local_env.sh
+#   bundle exec fastlane build      # Build the app
+#   bundle exec fastlane release    # Build, archive, and upload to App Store Connect
+#   bundle exec fastlane testflight # Build and upload to TestFlight
+#   bundle exec fastlane archive    # Just archive (for CI/testing)
+#
+# Authentication:
+#   - Uses App Store Connect API key (preferred) from environment variables
+#   - Falls back to Apple ID if API key not available (interactive, requires 2FA)
+#   - See DEPLOYMENT_SETUP.md for setup instructions
+#
+# Environment Variables (from .env file or GitHub Secrets):
+#   - APP_STORE_CONNECT_API_KEY_ID (required for releases)
+#   - APP_STORE_CONNECT_ISSUER_ID (required for releases)
+#   - APP_STORE_CONNECT_API_KEY_CONTENT (required for releases)
+#   - OPENAI_API_KEY (optional, for AI-generated release notes)
+
+default_platform(:ios)
+
+# Configuration
+PROJECT_ROOT = File.expand_path("..", __dir__)
+BUILD_DIR = File.join(PROJECT_ROOT, "build", "Qt_6_6_1_for_iOS-Release")
+XCODEPROJ_PATH = File.join(BUILD_DIR, "fyrlysar.xcodeproj")
+SCHEME = "fyrlysar"
+
+def read_version
+  version_file = File.join(PROJECT_ROOT, "APP_VERSION")
+  File.read(version_file).strip
+end
+
+# Generate release notes using AI based on git diff since last version change
+def generate_release_notes(version)
+  # Find the last commit where APP_VERSION changed
+  last_version_commit = `git log --format='%H' -- APP_VERSION | sed -n '2p'`.strip
+  last_version_commit = "HEAD~1" if last_version_commit.empty?
+  
+  # Get git diff and log since last version change
+  git_diff = `git diff #{last_version_commit}..HEAD --stat`.strip
+  git_log = `git log #{last_version_commit}..HEAD --oneline`.strip
+  
+  # Use OpenAI API to generate release notes if key is available
+  if ENV['OPENAI_API_KEY'] && !ENV['OPENAI_API_KEY'].empty?
+    require 'net/http'
+    require 'json'
+    
+    prompt = "Generate concise release notes for iOS app version #{version} based on these changes:\n\nGit log:\n#{git_log}\n\nGit diff summary:\n#{git_diff}\n\nFormat as a short, user-friendly bullet list of improvements and fixes. Keep it under 200 words."
+    
+    begin
+      uri = URI('https://api.openai.com/v1/chat/completions')
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
+      http.read_timeout = 30
+      
+      request = Net::HTTP::Post.new(uri)
+      request['Content-Type'] = 'application/json'
+      request['Authorization'] = "Bearer #{ENV['OPENAI_API_KEY']}"
+      request.body = {
+        model: 'gpt-4o-mini',
+        messages: [
+          { role: 'system', content: 'You are a technical writer creating concise, user-friendly iOS app release notes.' },
+          { role: 'user', content: prompt }
+        ],
+        max_tokens: 300,
+        temperature: 0.7
+      }.to_json
+      
+      response = http.request(request)
+      
+      if response.code == '200'
+        result = JSON.parse(response.body)
+        if result['choices'] && result['choices'][0] && result['choices'][0]['message']
+          notes = result['choices'][0]['message']['content'].strip
+          UI.success("Generated AI release notes for version #{version}")
+          return notes
+        else
+          UI.important("AI API returned unexpected response, using fallback")
+        end
+      else
+        UI.important("AI API returned error #{response.code}, using fallback")
+      end
+    rescue => e
+      UI.important("Failed to generate AI release notes: #{e.message}, using fallback")
+    end
+  else
+    UI.message("OPENAI_API_KEY not set, skipping AI generation and using fallback release notes")
+  end
+  
+  # Fallback: simple release notes from commit messages
+  if git_log.empty?
+    return "What's New in #{version}:\n\n- Bug fixes and improvements"
+  end
+  
+  commits = git_log.split("\n").map { |line| "- #{line.split(' ', 2)[1]}" }.join("\n")
+  "What's New in #{version}:\n\n#{commits}"
+end
+
+platform :ios do
+  desc "Generate Xcode project from Qt"
+  lane :generate_xcode do
+    # This lane runs qmake to generate the Xcode project
+    # You may need to adjust the Qt path based on your installation
+    sh("cd #{PROJECT_ROOT} && ./scripts/build_release.sh --generate-only")
+  end
+
+  private_lane :_build_release_ipa do |options|
+    version = read_version
+    message = options[:message] || "Building fyrlysar version"
+    UI.message("#{message} #{version}")
+
+    # Generate Xcode project if it doesn't exist, then patch it
+    unless File.exist?(XCODEPROJ_PATH)
+      UI.message("Generating Xcode project...")
+      sh("cd #{PROJECT_ROOT} && ./scripts/build_release.sh --generate-only")
+    end
+    
+    # Run the build script which handles patching
+    sh("cd #{PROJECT_ROOT} && ./scripts/build_release.sh --build-only")
+
+    build_options = {
+      project: XCODEPROJ_PATH,
+      scheme: SCHEME,
+      configuration: "Release",
+      export_method: "app-store",
+      output_directory: File.join(BUILD_DIR, "output"),
+      output_name: "fyrlysar.ipa",
+      clean: true,
+      skip_codesigning: options[:skip_codesigning] || false,
+      skip_archive: options[:skip_archive] || false,
+      buildlog_path: File.join(PROJECT_ROOT, "build_logs")
+    }
+    
+    # Configure automatic code signing when API key is available
+    unless options[:skip_codesigning]
+      # Fastlane will automatically manage certificates and provisioning profiles
+      # when App Store Connect API key is available
+      # The Xcode project is patched to use CODE_SIGN_STYLE = Automatic
+      # Fastlane will automatically set DEVELOPMENT_TEAM during build
+    else
+      # Disable code signing if explicitly requested
+      build_options[:xcargs] = "CODE_SIGN_IDENTITY='' CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO"
+    end
+    
+    build_app(build_options)
+  end
+
+  desc "Build the app for release"
+  lane :build do
+    _build_release_ipa(
+      message: "Building fyrlysar version",
+      skip_codesigning: false
+    )
+  end
+
+  desc "Build and upload to TestFlight"
+  lane :testflight_release do
+    # Check if App Store Connect API key is available
+    unless ENV['APP_STORE_CONNECT_API_KEY_ID'] && ENV['APP_STORE_CONNECT_ISSUER_ID'] && ENV['APP_STORE_CONNECT_API_KEY_CONTENT']
+      UI.important("App Store Connect API key not found in environment variables")
+      UI.important("Fastlane will prompt for Apple ID credentials instead")
+      UI.important("For API key setup, see DEPLOYMENT_SETUP.md or run: source scripts/setup_local_env.sh")
+    end
+
+    version = read_version
+    _build_release_ipa(message: "Releasing fyrlysar version to TestFlight")
+
+    # Generate AI release notes based on git diff since last version change
+    release_notes = generate_release_notes(version)
+    UI.message("Release notes:\n#{release_notes}")
+
+    # Upload to TestFlight with AI-generated release notes
+    # Fastlane will automatically create version if needed
+    upload_to_testflight(
+      skip_waiting_for_build_processing: true,
+      skip_submission: true,  # Manual submit for review
+      distribute_external: false,
+      notify_external_testers: false,
+      release_notes: {
+        "en-US" => release_notes
+      }
+    )
+  end
+
+  desc "Build and upload to App Store"
+  lane :release do
+    # Check if App Store Connect API key is available
+    unless ENV['APP_STORE_CONNECT_API_KEY_ID'] && ENV['APP_STORE_CONNECT_ISSUER_ID'] && ENV['APP_STORE_CONNECT_API_KEY_CONTENT']
+      UI.important("App Store Connect API key not found in environment variables")
+      UI.important("Fastlane will prompt for Apple ID credentials instead")
+      UI.important("For API key setup, see DEPLOYMENT_SETUP.md or run: source scripts/setup_local_env.sh")
+    end
+
+    _build_release_ipa(message: "Releasing fyrlysar version to App Store")
+
+    upload_to_app_store(
+      skip_metadata: true,
+      skip_screenshots: true,
+      precheck_include_in_app_purchases: false
+    )
+  end
+
+  desc "Just archive without uploading (for manual submission)"
+  lane :archive do
+    _build_release_ipa(
+      message: "Archiving fyrlysar version",
+      skip_archive: false,
+      skip_codesigning: false  # Enable code signing for CI builds
+    )
+  end
+end
+
