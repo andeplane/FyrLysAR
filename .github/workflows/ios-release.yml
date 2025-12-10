@@ -50,7 +50,7 @@ jobs:
           # Install Qt iOS base first
           echo "Installing Qt $QT_VERSION base for iOS..."
           aqt install-qt mac ios $QT_VERSION -O "$QT_INSTALL_DIR"
-          
+
           # Install additional modules separately
           echo "Installing Qt iOS modules..."
           aqt install-tool mac ios $QT_VERSION qt.tools.qtcreator || true
@@ -144,28 +144,6 @@ jobs:
             exit 1
           fi
 
-      - name: Import code signing certificates
-        if: steps.version_check.outcome == 'success'
-        env:
-          APPLE_CERTIFICATE_BASE64: ${{ secrets.APPLE_CERTIFICATE_BASE64 }}
-          APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
-          KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
-        run: |
-          # Create variables
-          CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
-          KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
-
-          # Decode certificate
-          echo $APPLE_CERTIFICATE_BASE64 | base64 --decode > $CERTIFICATE_PATH
-
-          # Create temporary keychain
-          security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
-          security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
-          security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
-
-          # Import certificate to keychain
-          security import $CERTIFICATE_PATH -P "$APPLE_CERTIFICATE_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
-          security list-keychain -d user -s $KEYCHAIN_PATH
 
       - name: Build and Upload to TestFlight
         if: steps.version_check.outcome == 'success'
@@ -174,12 +152,9 @@ jobs:
           LANGUAGE: en_US.UTF-8
           LC_ALL: en_US.UTF-8
           QT_PATH: ${{ env.QT_PATH }}
-          # Option 1: App Store Connect API Key (recommended)
+          # App Store Connect API Key for authentication and automatic code signing
           APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
           APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
           APP_STORE_CONNECT_API_KEY_CONTENT: ${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT }}
-          # Option 2: Apple ID + App-Specific Password (alternative)
-          FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
-          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
         run: |
           bundle exec fastlane testflight_release
