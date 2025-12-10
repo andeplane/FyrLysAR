@@ -87,7 +87,8 @@ platform :ios do
   lane :archive do
     _build_release_ipa(
       message: "Archiving fyrlysar version",
-      skip_archive: false
+      skip_archive: false,
+      skip_codesigning: true  # Skip code signing for CI builds
     )
   end
 end
