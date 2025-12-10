@@ -40,7 +40,7 @@ platform :ios do
     # Run the build script which handles patching
     sh("cd #{PROJECT_ROOT} && ./scripts/build_release.sh --build-only")
 
-    build_app(
+    build_options = {
       project: XCODEPROJ_PATH,
       scheme: SCHEME,
       configuration: "Release",
@@ -50,9 +50,15 @@ platform :ios do
       clean: true,
       skip_codesigning: options[:skip_codesigning] || false,
       skip_archive: options[:skip_archive] || false,
-      buildlog_path: File.join(PROJECT_ROOT, "build_logs"),
-      xcargs: "CODE_SIGN_IDENTITY='' CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO" if options[:skip_codesigning]
-    )
+      buildlog_path: File.join(PROJECT_ROOT, "build_logs")
+    }
+    
+    # Add xcargs to disable code signing if skip_codesigning is true
+    if options[:skip_codesigning]
+      build_options[:xcargs] = "CODE_SIGN_IDENTITY='' CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO"
+    end
+    
+    build_app(build_options)
   end
 
   desc "Build the app for release"
