@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - ".VERSION"
+      - "APP_VERSION"
 
 jobs:
   build-and-release:
@@ -37,12 +37,12 @@ jobs:
           fi
 
           echo "Installing Qt $QT_VERSION for iOS using aqtinstall..."
-          
+
           # Install aqtinstall using pipx (recommended for CLI tools)
           brew install pipx
           pipx ensurepath
           pipx install aqtinstall
-          
+
           # Install Qt iOS
           aqt install-qt mac ios $QT_VERSION -O "$QT_INSTALL_DIR" --archives qtbase qtsvg qtdeclarative qtmultimedia qtsensors qtlocation qtcharts
 
@@ -62,14 +62,14 @@ jobs:
       - name: Check version increment
         id: version_check
         run: |
-          # Get current version from .VERSION file
-          CURRENT_VERSION=$(cat .VERSION | tr -d '[:space:]')
+          # Get current version from APP_VERSION file
+          CURRENT_VERSION=$(cat APP_VERSION | tr -d '[:space:]')
           echo "Current version: $CURRENT_VERSION"
 
           # Get previous version from git (before this commit)
-          # Try HEAD~1 first, then look for the last commit that modified .VERSION
-          PREVIOUS_VERSION=$(git show HEAD~1:.VERSION 2>/dev/null | tr -d '[:space:]' || \
-            git log --format="%H" -- .VERSION | sed -n '2p' | xargs -I {} git show {}:.VERSION 2>/dev/null | tr -d '[:space:]' || \
+          # Try HEAD~1 first, then look for the last commit that modified APP_VERSION
+          PREVIOUS_VERSION=$(git show HEAD~1:APP_VERSION 2>/dev/null | tr -d '[:space:]' || \
+            git log --format="%H" -- APP_VERSION | sed -n '2p' | xargs -I {} git show {}:APP_VERSION 2>/dev/null | tr -d '[:space:]' || \
             echo "0.0.0")
           echo "Previous version: $PREVIOUS_VERSION"
 

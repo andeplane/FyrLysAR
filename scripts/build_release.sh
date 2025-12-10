@@ -12,7 +12,7 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 BUILD_DIR="$PROJECT_ROOT/build/Qt_6_6_1_for_iOS-Release"
-VERSION=$(cat "$PROJECT_ROOT/.VERSION" | tr -d '[:space:]')
+VERSION=$(cat "$PROJECT_ROOT/APP_VERSION" | tr -d '[:space:]')
 
 # Qt installation path - adjust this based on your system
 QT_PATH="${QT_PATH:-$HOME/Qt/6.6.1/ios}"

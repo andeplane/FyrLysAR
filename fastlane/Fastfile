@@ -14,7 +14,7 @@ XCODEPROJ_PATH = File.join(BUILD_DIR, "fyrlysar.xcodeproj")
 SCHEME = "fyrlysar"
 
 def read_version
-  version_file = File.join(PROJECT_ROOT, ".VERSION")
+  version_file = File.join(PROJECT_ROOT, "APP_VERSION")
   File.read(version_file).strip
 end
 
