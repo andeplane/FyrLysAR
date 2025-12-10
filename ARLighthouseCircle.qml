@@ -98,7 +98,7 @@ Rectangle {
     }
 
     function update(deviceCoordinate, R, fovP, fovL, screenWidth, screenHeight) {
-        root.lighthouse.update(deviceCoordinate)
+        root.lighthouse.update(deviceCoordinate, true)
         updatePositionOnScreen(deviceCoordinate, R, fovP, fovL, screenWidth, screenHeight)
         updateDistanceFromScreenCenter(screenWidth, screenHeight)
         updateCircleSize()
