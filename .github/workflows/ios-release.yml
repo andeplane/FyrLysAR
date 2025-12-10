@@ -144,7 +144,6 @@ jobs:
             exit 1
           fi
 
-
       - name: Build and Upload to TestFlight
         if: steps.version_check.outcome == 'success'
         env:
@@ -156,5 +155,7 @@ jobs:
           APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
           APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
           APP_STORE_CONNECT_API_KEY_CONTENT: ${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT }}
+          # OpenAI API Key for generating release notes
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           bundle exec fastlane testflight_release

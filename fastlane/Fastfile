@@ -18,6 +18,64 @@ def read_version
   File.read(version_file).strip
 end
 
+# Generate release notes using AI based on git diff since last version change
+def generate_release_notes(version)
+  # Find the last commit where APP_VERSION changed
+  last_version_commit = `git log --format='%H' -- APP_VERSION | sed -n '2p'`.strip
+  last_version_commit = "HEAD~1" if last_version_commit.empty?
+  
+  # Get git diff and log since last version change
+  git_diff = `git diff #{last_version_commit}..HEAD --stat`.strip
+  git_log = `git log #{last_version_commit}..HEAD --oneline`.strip
+  
+  # Use OpenAI API to generate release notes
+  if ENV['OPENAI_API_KEY']
+    require 'net/http'
+    require 'json'
+    
+    prompt = "Generate concise release notes for iOS app version #{version} based on these changes:\n\nGit log:\n#{git_log}\n\nGit diff summary:\n#{git_diff}\n\nFormat as a short, user-friendly bullet list of improvements and fixes. Keep it under 200 words."
+    
+    begin
+      uri = URI('https://api.openai.com/v1/chat/completions')
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
+      http.read_timeout = 30
+      
+      request = Net::HTTP::Post.new(uri)
+      request['Content-Type'] = 'application/json'
+      request['Authorization'] = "Bearer #{ENV['OPENAI_API_KEY']}"
+      request.body = {
+        model: 'gpt-4o-mini',
+        messages: [
+          { role: 'system', content: 'You are a technical writer creating concise, user-friendly iOS app release notes.' },
+          { role: 'user', content: prompt }
+        ],
+        max_tokens: 300,
+        temperature: 0.7
+      }.to_json
+      
+      response = http.request(request)
+      result = JSON.parse(response.body)
+      
+      if result['choices'] && result['choices'][0] && result['choices'][0]['message']
+        notes = result['choices'][0]['message']['content'].strip
+        UI.success("Generated AI release notes for version #{version}")
+        return notes
+      else
+        UI.important("AI API returned unexpected response, using fallback")
+      end
+    rescue => e
+      UI.important("Failed to generate AI release notes: #{e.message}, using fallback")
+    end
+  else
+    UI.important("OPENAI_API_KEY not set, using fallback release notes")
+  end
+  
+  # Fallback: simple release notes from commit messages
+  commits = git_log.split("\n").map { |line| "- #{line.split(' ', 2)[1]}" }.join("\n")
+  "What's New in #{version}:\n\n#{commits}"
+end
+
 platform :ios do
   desc "Generate Xcode project from Qt"
   lane :generate_xcode do
@@ -77,22 +135,21 @@ platform :ios do
     version = read_version
     _build_release_ipa(message: "Releasing fyrlysar version to TestFlight")
 
-    # Upload to TestFlight - Fastlane will automatically create version if needed
+    # Generate AI release notes based on git diff since last version change
+    release_notes = generate_release_notes(version)
+    UI.message("Release notes:\n#{release_notes}")
+
+    # Upload to TestFlight with AI-generated release notes
+    # Fastlane will automatically create version if needed
     upload_to_testflight(
       skip_waiting_for_build_processing: true,
-      skip_submission: true,  # Don't auto-submit for review (manual step)
+      skip_submission: true,  # Manual submit for review
       distribute_external: false,
-      notify_external_testers: false
+      notify_external_testers: false,
+      release_notes: {
+        "en-US" => release_notes
+      }
     )
-    
-    # Optional: Add release notes (you can customize this)
-    # add_app_store_metadata(
-    #   app_identifier: "com.kvakkefly.fyrlysar",
-    #   version: version,
-    #   release_notes: {
-    #     "en-US" => "Bug fixes and improvements"
-    #   }
-    # )
   end
 
   desc "Build and upload to App Store"
