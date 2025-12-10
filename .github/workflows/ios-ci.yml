@@ -44,10 +44,13 @@ jobs:
           fi
 
           echo "Installing Qt $QT_VERSION for iOS using aqtinstall..."
-
+          
           # Install aqtinstall (Python tool for installing Qt)
-          pip3 install aqtinstall
-
+          pip3 install --user aqtinstall
+          
+          # Add user pip bin to PATH (persist across steps)
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+          
           # Install Qt iOS
           aqt install-qt mac ios $QT_VERSION -O "$QT_INSTALL_DIR" --archives qtbase qtsvg qtdeclarative qtmultimedia qtsensors qtlocation qtcharts
 
