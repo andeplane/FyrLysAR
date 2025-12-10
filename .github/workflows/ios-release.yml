@@ -45,11 +45,11 @@ jobs:
 
           # Install Qt for macOS (required by iOS qmake wrapper)
           echo "Installing Qt $QT_VERSION for macOS..."
-          aqt install-qt mac desktop $QT_VERSION -O "$QT_INSTALL_DIR" --archives qtbase qtsvg qtdeclarative qtmultimedia qtsensors qtlocation qtcharts || echo "macOS Qt installation failed or already exists"
+          aqt install-qt mac desktop $QT_VERSION -O "$QT_INSTALL_DIR" --archives qtbase qtsvg qtdeclarative qtmultimedia qtsensors qtlocation qtcharts qtpositioning || echo "macOS Qt installation failed or already exists"
 
-          # Install Qt iOS
+          # Install Qt iOS with all required modules
           echo "Installing Qt $QT_VERSION for iOS..."
-          aqt install-qt mac ios $QT_VERSION -O "$QT_INSTALL_DIR" --archives qtbase qtsvg qtdeclarative qtmultimedia qtsensors qtlocation qtcharts
+          aqt install-qt mac ios $QT_VERSION -O "$QT_INSTALL_DIR" --archives qtbase qtsvg qtdeclarative qtmultimedia qtsensors qtlocation qtcharts qtpositioning
 
           # Verify installation
           if [ -f "$QT_IOS_DIR/bin/qmake" ]; then
@@ -162,9 +162,12 @@ jobs:
           LANGUAGE: en_US.UTF-8
           LC_ALL: en_US.UTF-8
           QT_PATH: ${{ env.QT_PATH }}
+          # Option 1: App Store Connect API Key (recommended)
+          APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          APP_STORE_CONNECT_API_KEY_CONTENT: ${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT }}
+          # Option 2: Apple ID + App-Specific Password (alternative)
           FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
-          FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
           FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
-          FASTLANE_SESSION: ${{ secrets.FASTLANE_SESSION }}
         run: |
-          fastlane testflight_release
+          bundle exec fastlane testflight_release

@@ -52,11 +52,11 @@ jobs:
 
           # Install Qt for macOS (required by iOS qmake wrapper)
           echo "Installing Qt $QT_VERSION for macOS..."
-          aqt install-qt mac desktop $QT_VERSION -O "$QT_INSTALL_DIR" --archives qtbase qtsvg qtdeclarative qtmultimedia qtsensors qtlocation qtcharts || echo "macOS Qt installation failed or already exists"
+          aqt install-qt mac desktop $QT_VERSION -O "$QT_INSTALL_DIR" --archives qtbase qtsvg qtdeclarative qtmultimedia qtsensors qtlocation qtcharts qtpositioning || echo "macOS Qt installation failed or already exists"
 
-          # Install Qt iOS
+          # Install Qt iOS with all required modules
           echo "Installing Qt $QT_VERSION for iOS..."
-          aqt install-qt mac ios $QT_VERSION -O "$QT_INSTALL_DIR" --archives qtbase qtsvg qtdeclarative qtmultimedia qtsensors qtlocation qtcharts
+          aqt install-qt mac ios $QT_VERSION -O "$QT_INSTALL_DIR" --archives qtbase qtsvg qtdeclarative qtmultimedia qtsensors qtlocation qtcharts qtpositioning
 
           # Verify installation
           if [ -f "$QT_IOS_DIR/bin/qmake" ]; then
@@ -92,7 +92,7 @@ jobs:
           LC_ALL: en_US.UTF-8
           QT_PATH: ${{ env.QT_PATH }}
         run: |
-          fastlane archive
+          bundle exec fastlane archive
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
