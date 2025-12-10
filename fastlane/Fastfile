@@ -44,7 +44,6 @@ platform :ios do
       project: XCODEPROJ_PATH,
       scheme: SCHEME,
       configuration: "Release",
-      export_method: options[:skip_codesigning] ? "development" : "app-store",
       output_directory: File.join(BUILD_DIR, "output"),
       output_name: "fyrlysar.ipa",
       clean: true,
@@ -53,11 +52,13 @@ platform :ios do
       buildlog_path: File.join(PROJECT_ROOT, "build_logs")
     }
     
-    # Add xcargs to disable code signing if skip_codesigning is true
+    # For CI builds without code signing, just archive (no IPA export)
     if options[:skip_codesigning]
       build_options[:xcargs] = "CODE_SIGN_IDENTITY='' CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO"
-      # For CI builds, we can skip export entirely and just archive
       build_options[:export_method] = "development"
+      build_options[:export] = false  # Skip IPA export, just create archive
+    else
+      build_options[:export_method] = "app-store"
     end
     
     build_app(build_options)
