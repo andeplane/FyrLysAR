@@ -47,9 +47,21 @@ jobs:
           echo "Installing Qt $QT_VERSION for macOS..."
           aqt install-qt mac desktop $QT_VERSION -O "$QT_INSTALL_DIR" --archives qtbase qtsvg qtdeclarative qtmultimedia qtsensors qtlocation qtcharts qtpositioning || echo "macOS Qt installation failed or already exists"
 
-          # Install Qt iOS with all required modules
-          echo "Installing Qt $QT_VERSION for iOS..."
-          aqt install-qt mac ios $QT_VERSION -O "$QT_INSTALL_DIR" --archives qtbase qtsvg qtdeclarative qtmultimedia qtsensors qtlocation qtcharts qtpositioning
+          # Install Qt iOS base first
+          echo "Installing Qt $QT_VERSION base for iOS..."
+          aqt install-qt mac ios $QT_VERSION -O "$QT_INSTALL_DIR"
+          
+          # Install additional modules separately
+          echo "Installing Qt iOS modules..."
+          aqt install-tool mac ios $QT_VERSION qt.tools.qtcreator || true
+          aqt install-qt mac ios $QT_VERSION -O "$QT_INSTALL_DIR" --modules qtmultimedia qtsensors qtlocation qtcharts qtpositioning || {
+            echo "Installing modules individually..."
+            # Try installing modules one by one
+            for module in qtmultimedia qtsensors qtlocation qtcharts qtpositioning; do
+              echo "Installing $module..."
+              aqt install-qt mac ios $QT_VERSION -O "$QT_INSTALL_DIR" --modules $module || echo "Failed to install $module"
+            done
+          }
 
           # Verify installation
           if [ -f "$QT_IOS_DIR/bin/qmake" ]; then
