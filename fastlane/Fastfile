@@ -133,9 +133,14 @@ platform :ios do
       buildlog_path: File.join(PROJECT_ROOT, "build_logs")
     }
     
-    # Only disable code signing if explicitly requested
-    # Fastlane will handle code signing automatically when App Store Connect API key is available
-    if options[:skip_codesigning]
+    # Configure automatic code signing when API key is available
+    unless options[:skip_codesigning]
+      # Fastlane will automatically manage certificates and provisioning profiles
+      # when App Store Connect API key is available
+      # The Xcode project is patched to use CODE_SIGN_STYLE = Automatic
+      # Fastlane will automatically set DEVELOPMENT_TEAM during build
+    else
+      # Disable code signing if explicitly requested
       build_options[:xcargs] = "CODE_SIGN_IDENTITY='' CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO"
     end
     

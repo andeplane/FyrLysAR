@@ -140,6 +140,26 @@ def patch_project(xcodeproj_path, version):
     if count > 0:
         print(f"  Set PRODUCT_BUNDLE_IDENTIFIER = com.kvakkefly.fyrlysar in {count} configuration(s)")
     
+    # 7. Enable automatic code signing (Fastlane will manage certificates)
+    count = update_build_settings(project, "CODE_SIGN_STYLE", "Automatic")
+    if count > 0:
+        print(f"  Set CODE_SIGN_STYLE = Automatic in {count} configuration(s)")
+    
+    # 8. Set development team if provided via environment variable
+    # Fastlane will automatically set this when using App Store Connect API key
+    # But we can set it here if FASTLANE_TEAM_ID is provided
+    import os
+    team_id = os.environ.get('FASTLANE_TEAM_ID')
+    if team_id:
+        count = update_build_settings(project, "DEVELOPMENT_TEAM", team_id)
+        if count > 0:
+            print(f"  Set DEVELOPMENT_TEAM = {team_id} in {count} configuration(s)")
+    else:
+        # Set empty team - Fastlane will populate it automatically
+        count = update_build_settings(project, "DEVELOPMENT_TEAM", "")
+        if count > 0:
+            print(f"  Set DEVELOPMENT_TEAM = (empty, will be set by Fastlane) in {count} configuration(s)")
+    
     # Write the modified project back
     # Use XML format which Xcode can read (and is more standard)
     try:
