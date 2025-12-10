@@ -13,18 +13,6 @@ on:
       - "ios/**"
       - "fastlane/**"
       - "scripts/**"
-  push:
-    branches-ignore:
-      - main
-    paths:
-      - "**.qml"
-      - "**.cpp"
-      - "**.h"
-      - "**.pro"
-      - ".VERSION"
-      - "ios/**"
-      - "fastlane/**"
-      - "scripts/**"
 
 jobs:
   build-and-test:
