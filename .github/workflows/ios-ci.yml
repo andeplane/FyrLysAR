@@ -1,0 +1,124 @@
+name: iOS CI Build
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "**.qml"
+      - "**.cpp"
+      - "**.h"
+      - "**.pro"
+      - ".VERSION"
+      - "ios/**"
+      - "fastlane/**"
+      - "scripts/**"
+  push:
+    branches-ignore:
+      - main
+    paths:
+      - "**.qml"
+      - "**.cpp"
+      - "**.h"
+      - "**.pro"
+      - ".VERSION"
+      - "ios/**"
+      - "fastlane/**"
+      - "scripts/**"
+
+jobs:
+  build-and-test:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch full history to compare versions
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.0"
+          bundler-cache: true
+
+      - name: Install Qt iOS
+        run: |
+          QT_VERSION="6.6.1"
+          QT_INSTALL_DIR="/Users/runner/Qt"
+          QT_IOS_DIR="$QT_INSTALL_DIR/$QT_VERSION/ios"
+
+          # Check if already installed
+          if [ -f "$QT_IOS_DIR/bin/qmake" ]; then
+            echo "Qt iOS already installed at: $QT_IOS_DIR"
+            echo "QT_PATH=$QT_IOS_DIR" >> $GITHUB_ENV
+            exit 0
+          fi
+
+          echo "Installing Qt $QT_VERSION for iOS using aqtinstall..."
+
+          # Install aqtinstall (Python tool for installing Qt)
+          pip3 install aqtinstall
+
+          # Install Qt iOS
+          aqt install-qt mac ios $QT_VERSION -O "$QT_INSTALL_DIR" --archives qtbase qtsvg qtdeclarative qtmultimedia qtsensors qtlocation qtcharts
+
+          # Verify installation
+          if [ -f "$QT_IOS_DIR/bin/qmake" ]; then
+            echo "✅ Qt iOS installed successfully at: $QT_IOS_DIR"
+            echo "QT_PATH=$QT_IOS_DIR" >> $GITHUB_ENV
+          else
+            echo "❌ Qt iOS installation failed"
+            exit 1
+          fi
+
+      - name: Install fastlane
+        run: |
+          gem install fastlane
+
+      - name: Verify Qt installation
+        run: |
+          QT_PATH="${QT_PATH:-/Users/runner/Qt/6.6.1/ios}"
+          echo "Using Qt iOS path: ${QT_PATH}"
+          if [ -f "${QT_PATH}/bin/qmake" ]; then
+            echo "✅ qmake found at ${QT_PATH}/bin/qmake"
+            ${QT_PATH}/bin/qmake --version
+          else
+            echo "❌ Error: qmake not found at ${QT_PATH}/bin/qmake"
+            echo "Qt iOS needs to be installed on the runner"
+            echo "Qt iOS can be installed via Qt Online Installer: https://www.qt.io/download"
+            exit 1
+          fi
+
+      - name: Build and Archive
+        env:
+          LANG: en_US.UTF-8
+          LANGUAGE: en_US.UTF-8
+          LC_ALL: en_US.UTF-8
+          QT_PATH: ${{ env.QT_PATH }}
+        run: |
+          fastlane archive
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-build-artifacts
+          path: |
+            build/Qt_6_6_1_for_iOS-Release/output/*.ipa
+            build/Qt_6_6_1_for_iOS-Release/output/*.dSYM.zip
+          retention-days: 7
+
+      - name: Build summary
+        run: |
+          echo "## iOS Build Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Build completed successfully" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f "build/Qt_6_6_1_for_iOS-Release/output/fyrlysar.ipa" ]; then
+            IPA_SIZE=$(du -h build/Qt_6_6_1_for_iOS-Release/output/fyrlysar.ipa | cut -f1)
+            echo "- IPA size: $IPA_SIZE" >> $GITHUB_STEP_SUMMARY
+          fi
+          if [ -f ".VERSION" ]; then
+            VERSION=$(cat .VERSION | tr -d '[:space:]')
+            echo "- Version: $VERSION" >> $GITHUB_STEP_SUMMARY
+          fi

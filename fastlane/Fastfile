@@ -14,7 +14,7 @@ XCODEPROJ_PATH = File.join(BUILD_DIR, "fyrlysar.xcodeproj")
 SCHEME = "fyrlysar"
 
 def read_version
-  version_file = File.join(PROJECT_ROOT, "VERSION")
+  version_file = File.join(PROJECT_ROOT, ".VERSION")
   File.read(version_file).strip
 end
 
@@ -31,7 +31,13 @@ platform :ios do
     message = options[:message] || "Building fyrlysar version"
     UI.message("#{message} #{version}")
 
-    # Run the build script which handles qmake and patching
+    # Generate Xcode project if it doesn't exist, then patch it
+    unless File.exist?(XCODEPROJ_PATH)
+      UI.message("Generating Xcode project...")
+      sh("cd #{PROJECT_ROOT} && ./scripts/build_release.sh --generate-only")
+    end
+    
+    # Run the build script which handles patching
     sh("cd #{PROJECT_ROOT} && ./scripts/build_release.sh --build-only")
 
     build_app(

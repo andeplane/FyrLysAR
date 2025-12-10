@@ -1,7 +1,7 @@
 PRODUCT_NAME = $$TARGET
 
-# Read version from VERSION file
-VERSION_FILE = $$cat($$PWD/VERSION)
+# Read version from .VERSION file
+VERSION_FILE = $$cat($$PWD/.VERSION)
 APP_VERSION = $$first(VERSION_FILE)
 
 INFOPLIST = \

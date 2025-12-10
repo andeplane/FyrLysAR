@@ -1,0 +1,163 @@
+name: iOS Release
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".VERSION"
+
+jobs:
+  build-and-release:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch full history to compare versions
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.0"
+          bundler-cache: true
+
+      - name: Install Qt iOS
+        run: |
+          QT_VERSION="6.6.1"
+          QT_INSTALL_DIR="/Users/runner/Qt"
+          QT_IOS_DIR="$QT_INSTALL_DIR/$QT_VERSION/ios"
+
+          # Check if already installed
+          if [ -f "$QT_IOS_DIR/bin/qmake" ]; then
+            echo "Qt iOS already installed at: $QT_IOS_DIR"
+            echo "QT_PATH=$QT_IOS_DIR" >> $GITHUB_ENV
+            exit 0
+          fi
+
+          echo "Installing Qt $QT_VERSION for iOS using aqtinstall..."
+
+          # Install aqtinstall (Python tool for installing Qt)
+          pip3 install aqtinstall
+
+          # Install Qt iOS
+          aqt install-qt mac ios $QT_VERSION -O "$QT_INSTALL_DIR" --archives qtbase qtsvg qtdeclarative qtmultimedia qtsensors qtlocation qtcharts
+
+          # Verify installation
+          if [ -f "$QT_IOS_DIR/bin/qmake" ]; then
+            echo "✅ Qt iOS installed successfully at: $QT_IOS_DIR"
+            echo "QT_PATH=$QT_IOS_DIR" >> $GITHUB_ENV
+          else
+            echo "❌ Qt iOS installation failed"
+            exit 1
+          fi
+
+      - name: Install fastlane
+        run: |
+          gem install fastlane
+
+      - name: Check version increment
+        id: version_check
+        run: |
+          # Get current version from .VERSION file
+          CURRENT_VERSION=$(cat .VERSION | tr -d '[:space:]')
+          echo "Current version: $CURRENT_VERSION"
+
+          # Get previous version from git (before this commit)
+          # Try HEAD~1 first, then look for the last commit that modified .VERSION
+          PREVIOUS_VERSION=$(git show HEAD~1:.VERSION 2>/dev/null | tr -d '[:space:]' || \
+            git log --format="%H" -- .VERSION | sed -n '2p' | xargs -I {} git show {}:.VERSION 2>/dev/null | tr -d '[:space:]' || \
+            echo "0.0.0")
+          echo "Previous version: $PREVIOUS_VERSION"
+
+          # Compare versions using a simple version comparison function
+          # Split version by dots and compare numerically
+          compare_versions() {
+            local v1="$1"
+            local v2="$2"
+            
+            # Split versions into arrays
+            IFS='.' read -ra V1_PARTS <<< "$v1"
+            IFS='.' read -ra V2_PARTS <<< "$v2"
+            
+            # Compare each part
+            local max_len=${#V1_PARTS[@]}
+            if [ ${#V2_PARTS[@]} -gt $max_len ]; then
+              max_len=${#V2_PARTS[@]}
+            fi
+            
+            for ((i=0; i<max_len; i++)); do
+              local part1="${V1_PARTS[$i]:-0}"
+              local part2="${V2_PARTS[$i]:-0}"
+              
+              if [ "$part1" -gt "$part2" ]; then
+                return 0  # v1 > v2
+              elif [ "$part1" -lt "$part2" ]; then
+                return 1  # v1 < v2
+              fi
+            done
+            
+            # If we get here, versions are equal
+            return 1  # v1 is not greater than v2
+          }
+
+          if compare_versions "$CURRENT_VERSION" "$PREVIOUS_VERSION"; then
+            echo "Version check passed: $CURRENT_VERSION > $PREVIOUS_VERSION"
+            echo "version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+          else
+            echo "Version $CURRENT_VERSION is not greater than $PREVIOUS_VERSION"
+            echo "Skipping release"
+            exit 1
+          fi
+
+      - name: Verify Qt installation
+        run: |
+          QT_PATH="${QT_PATH:-/Users/runner/Qt/6.6.1/ios}"
+          echo "Using Qt iOS path: ${QT_PATH}"
+          if [ -f "${QT_PATH}/bin/qmake" ]; then
+            echo "✅ qmake found at ${QT_PATH}/bin/qmake"
+            ${QT_PATH}/bin/qmake --version
+          else
+            echo "❌ Error: qmake not found at ${QT_PATH}/bin/qmake"
+            echo "Qt iOS needs to be installed on the runner"
+            echo "Qt iOS can be installed via Qt Online Installer: https://www.qt.io/download"
+            exit 1
+          fi
+
+      - name: Import code signing certificates
+        if: steps.version_check.outcome == 'success'
+        env:
+          APPLE_CERTIFICATE_BASE64: ${{ secrets.APPLE_CERTIFICATE_BASE64 }}
+          APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
+          KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+        run: |
+          # Create variables
+          CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
+          KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
+
+          # Decode certificate
+          echo $APPLE_CERTIFICATE_BASE64 | base64 --decode > $CERTIFICATE_PATH
+
+          # Create temporary keychain
+          security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
+          security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
+
+          # Import certificate to keychain
+          security import $CERTIFICATE_PATH -P "$APPLE_CERTIFICATE_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
+          security list-keychain -d user -s $KEYCHAIN_PATH
+
+      - name: Build and Upload to TestFlight
+        if: steps.version_check.outcome == 'success'
+        env:
+          LANG: en_US.UTF-8
+          LANGUAGE: en_US.UTF-8
+          LC_ALL: en_US.UTF-8
+          QT_PATH: ${{ env.QT_PATH }}
+          FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
+          FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
+          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
+          FASTLANE_SESSION: ${{ secrets.FASTLANE_SESSION }}
+        run: |
+          fastlane testflight_release
