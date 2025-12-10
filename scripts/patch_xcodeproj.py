@@ -150,7 +150,7 @@ def patch_project(xcodeproj_path, version):
     # You can override this by setting FASTLANE_TEAM_ID environment variable
     DEFAULT_TEAM_ID = "4XKET6P69R"  # Team ID for "Anders Hafreager"
     
-    import os
+    # os is already imported at the top of the file
     team_id = os.environ.get('FASTLANE_TEAM_ID') or DEFAULT_TEAM_ID
     
     if team_id:
