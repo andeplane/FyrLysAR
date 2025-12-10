@@ -154,3 +154,7 @@ scripts/*.pdf
 vendor/bundle/
 .bundle/
 Gemfile.lock
+
+# Environment variables (local secrets)
+.env
+.env.local

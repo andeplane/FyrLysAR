@@ -1,9 +1,23 @@
 # Fastfile for fyrlysar iOS App
 # 
 # Usage:
+#   # Local development (requires .env file with API keys):
+#   source scripts/setup_local_env.sh
 #   bundle exec fastlane build      # Build the app
 #   bundle exec fastlane release    # Build, archive, and upload to App Store Connect
 #   bundle exec fastlane testflight # Build and upload to TestFlight
+#   bundle exec fastlane archive    # Just archive (for CI/testing)
+#
+# Authentication:
+#   - Uses App Store Connect API key (preferred) from environment variables
+#   - Falls back to Apple ID if API key not available (interactive, requires 2FA)
+#   - See DEPLOYMENT_SETUP.md for setup instructions
+#
+# Environment Variables (from .env file or GitHub Secrets):
+#   - APP_STORE_CONNECT_API_KEY_ID (required for releases)
+#   - APP_STORE_CONNECT_ISSUER_ID (required for releases)
+#   - APP_STORE_CONNECT_API_KEY_CONTENT (required for releases)
+#   - OPENAI_API_KEY (optional, for AI-generated release notes)
 
 default_platform(:ios)
 
@@ -138,6 +152,13 @@ platform :ios do
 
   desc "Build and upload to TestFlight"
   lane :testflight_release do
+    # Check if App Store Connect API key is available
+    unless ENV['APP_STORE_CONNECT_API_KEY_ID'] && ENV['APP_STORE_CONNECT_ISSUER_ID'] && ENV['APP_STORE_CONNECT_API_KEY_CONTENT']
+      UI.important("App Store Connect API key not found in environment variables")
+      UI.important("Fastlane will prompt for Apple ID credentials instead")
+      UI.important("For API key setup, see DEPLOYMENT_SETUP.md or run: source scripts/setup_local_env.sh")
+    end
+
     version = read_version
     _build_release_ipa(message: "Releasing fyrlysar version to TestFlight")
 
@@ -160,6 +181,13 @@ platform :ios do
 
   desc "Build and upload to App Store"
   lane :release do
+    # Check if App Store Connect API key is available
+    unless ENV['APP_STORE_CONNECT_API_KEY_ID'] && ENV['APP_STORE_CONNECT_ISSUER_ID'] && ENV['APP_STORE_CONNECT_API_KEY_CONTENT']
+      UI.important("App Store Connect API key not found in environment variables")
+      UI.important("Fastlane will prompt for Apple ID credentials instead")
+      UI.important("For API key setup, see DEPLOYMENT_SETUP.md or run: source scripts/setup_local_env.sh")
+    end
+
     _build_release_ipa(message: "Releasing fyrlysar version to App Store")
 
     upload_to_app_store(
