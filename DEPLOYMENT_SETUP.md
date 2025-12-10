@@ -22,12 +22,18 @@ You need to set up the following GitHub Secrets in your repository:
    - **Download the `.p8` file** (you can only download it once!)
    - Note the **Key ID** and **Issuer ID** shown on screen
 
-2. **Add GitHub Secrets:**
+2. **Get Your Team ID:**
+   - Go to https://developer.apple.com/account/
+   - Your Team ID is shown at the top right (e.g., "Team: ABC123DEFG")
+   - Or go to **Membership** → Your Team ID is listed there
+
+3. **Add GitHub Secrets:**
    - Go to your repository → **Settings** → **Secrets and variables** → **Actions**
    - Add these secrets:
      - `APP_STORE_CONNECT_API_KEY_ID` - The Key ID from step 1
      - `APP_STORE_CONNECT_ISSUER_ID` - The Issuer ID from step 1
      - `APP_STORE_CONNECT_API_KEY_CONTENT` - The entire contents of the `.p8` file
+     - `FASTLANE_TEAM_ID` - Your Apple Developer Team ID (optional but recommended for automatic code signing)
 
 ### Option 2: Apple ID + App-Specific Password (Alternative)
 

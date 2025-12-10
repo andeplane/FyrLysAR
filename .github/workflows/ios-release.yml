@@ -178,6 +178,8 @@ jobs:
           APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
           APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
           APP_STORE_CONNECT_API_KEY_CONTENT: ${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT }}
+          # Team ID for code signing (optional - Fastlane can detect it, but explicit is better)
+          FASTLANE_TEAM_ID: ${{ secrets.FASTLANE_TEAM_ID }}
           # OpenAI API Key for generating release notes (optional - will use fallback if not set)
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
