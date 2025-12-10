@@ -145,20 +145,26 @@ def patch_project(xcodeproj_path, version):
     if count > 0:
         print(f"  Set CODE_SIGN_STYLE = Automatic in {count} configuration(s)")
     
-    # 8. Set development team if provided via environment variable
-    # Fastlane will automatically set this when using App Store Connect API key
-    # But we can set it here if FASTLANE_TEAM_ID is provided
+    # 8. Set development team
+    # Hard-coded team ID for "Anders Hafreager"
+    # You can override this by setting FASTLANE_TEAM_ID environment variable
+    # To find your Team ID: https://developer.apple.com/account/ → Membership (top right)
+    DEFAULT_TEAM_ID = ""  # TODO: Set your Team ID here (e.g., "ABC123DEFG") or leave empty for auto-detection
+    
     import os
-    team_id = os.environ.get('FASTLANE_TEAM_ID')
+    team_id = os.environ.get('FASTLANE_TEAM_ID') or DEFAULT_TEAM_ID
+    
     if team_id:
+        # Use provided/hard-coded team ID
         count = update_build_settings(project, "DEVELOPMENT_TEAM", team_id)
         if count > 0:
             print(f"  Set DEVELOPMENT_TEAM = {team_id} in {count} configuration(s)")
     else:
-        # Set empty team - Fastlane will populate it automatically
+        # Set empty - Fastlane will populate it automatically from App Store Connect API key
+        # Fastlane can detect the team from the API key when building
         count = update_build_settings(project, "DEVELOPMENT_TEAM", "")
         if count > 0:
-            print(f"  Set DEVELOPMENT_TEAM = (empty, will be set by Fastlane) in {count} configuration(s)")
+            print(f"  Set DEVELOPMENT_TEAM = (empty, will be set by Fastlane automatically) in {count} configuration(s)")
     
     # Write the modified project back
     # Use XML format which Xcode can read (and is more standard)
