@@ -28,8 +28,8 @@ def generate_release_notes(version)
   git_diff = `git diff #{last_version_commit}..HEAD --stat`.strip
   git_log = `git log #{last_version_commit}..HEAD --oneline`.strip
   
-  # Use OpenAI API to generate release notes
-  if ENV['OPENAI_API_KEY']
+  # Use OpenAI API to generate release notes if key is available
+  if ENV['OPENAI_API_KEY'] && !ENV['OPENAI_API_KEY'].empty?
     require 'net/http'
     require 'json'
     
@@ -55,23 +55,31 @@ def generate_release_notes(version)
       }.to_json
       
       response = http.request(request)
-      result = JSON.parse(response.body)
       
-      if result['choices'] && result['choices'][0] && result['choices'][0]['message']
-        notes = result['choices'][0]['message']['content'].strip
-        UI.success("Generated AI release notes for version #{version}")
-        return notes
+      if response.code == '200'
+        result = JSON.parse(response.body)
+        if result['choices'] && result['choices'][0] && result['choices'][0]['message']
+          notes = result['choices'][0]['message']['content'].strip
+          UI.success("Generated AI release notes for version #{version}")
+          return notes
+        else
+          UI.important("AI API returned unexpected response, using fallback")
+        end
       else
-        UI.important("AI API returned unexpected response, using fallback")
+        UI.important("AI API returned error #{response.code}, using fallback")
       end
     rescue => e
       UI.important("Failed to generate AI release notes: #{e.message}, using fallback")
     end
   else
-    UI.important("OPENAI_API_KEY not set, using fallback release notes")
+    UI.message("OPENAI_API_KEY not set, skipping AI generation and using fallback release notes")
   end
   
   # Fallback: simple release notes from commit messages
+  if git_log.empty?
+    return "What's New in #{version}:\n\n- Bug fixes and improvements"
+  end
+  
   commits = git_log.split("\n").map { |line| "- #{line.split(' ', 2)[1]}" }.join("\n")
   "What's New in #{version}:\n\n#{commits}"
 end
