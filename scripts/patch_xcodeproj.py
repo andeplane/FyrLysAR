@@ -148,8 +148,7 @@ def patch_project(xcodeproj_path, version):
     # 8. Set development team
     # Hard-coded team ID for "Anders Hafreager"
     # You can override this by setting FASTLANE_TEAM_ID environment variable
-    # To find your Team ID: https://developer.apple.com/account/ → Membership (top right)
-    DEFAULT_TEAM_ID = ""  # TODO: Set your Team ID here (e.g., "ABC123DEFG") or leave empty for auto-detection
+    DEFAULT_TEAM_ID = "4XKET6P69R"  # Team ID for "Anders Hafreager"
     
     import os
     team_id = os.environ.get('FASTLANE_TEAM_ID') or DEFAULT_TEAM_ID
