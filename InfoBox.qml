@@ -13,7 +13,7 @@ Rectangle {
         return 0
     }
 
-    height: 110
+    height: 120
     anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.right: parent.right
@@ -63,6 +63,17 @@ Rectangle {
             }
             Text {
                 text: Math.round(root.heading / Math.PI * 180, 0)
+                color: palette.windowText
+            }
+        }
+
+        Row {
+            Text {
+                text: "Pattern: "
+                color: palette.windowText
+            }
+            Text {
+                text: root.lighthouse ? root.lighthouse.pattern : ""
                 color: palette.windowText
             }
         }
