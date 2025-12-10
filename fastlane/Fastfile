@@ -116,15 +116,13 @@ platform :ios do
       clean: true,
       skip_codesigning: options[:skip_codesigning] || false,
       skip_archive: options[:skip_archive] || false,
-      buildlog_path: File.join(PROJECT_ROOT, "build_logs"),
-      # Enable automatic code signing with App Store Connect API
-      automatic_code_signing: true
+      buildlog_path: File.join(PROJECT_ROOT, "build_logs")
     }
     
     # Only disable code signing if explicitly requested
+    # Fastlane will handle code signing automatically when App Store Connect API key is available
     if options[:skip_codesigning]
       build_options[:xcargs] = "CODE_SIGN_IDENTITY='' CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO"
-      build_options[:automatic_code_signing] = false
     end
     
     build_app(build_options)
