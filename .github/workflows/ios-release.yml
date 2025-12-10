@@ -61,7 +61,7 @@ jobs:
             brew install pipx
             pipx ensurepath
           fi
-          
+
           if ! command -v aqtinstall &> /dev/null; then
             pipx install aqtinstall
           fi
