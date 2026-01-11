@@ -1699,6 +1699,12 @@ Rectangle {
         "number": 1,\
         "start": 0.0,\
         "stop": 3.5\
+      },\
+      {\
+        "color": "white",\
+        "number": 2,\
+        "start": 353.5,\
+        "stop": 360.0\
       }\
     ]\
   },\
@@ -1723,6 +1729,12 @@ Rectangle {
         "number": 1,\
         "start": 0.0,\
         "stop": 3.5\
+      },\
+      {\
+        "color": "white",\
+        "number": 2,\
+        "start": 353.5,\
+        "stop": 360.0\
       }\
     ]\
   },\
@@ -13503,6 +13515,12 @@ Rectangle {
         "stop": 351.8\
       },\
       {\
+        "color": "green",\
+        "number": 2,\
+        "start": 351.8,\
+        "stop": 352.8\
+      },\
+      {\
         "color": "white",\
         "number": 3,\
         "start": 352.8,\
@@ -13513,6 +13531,12 @@ Rectangle {
         "number": 4,\
         "start": 354.6,\
         "stop": 355.5\
+      },\
+      {\
+        "color": "red",\
+        "number": 5,\
+        "start": 355.5,\
+        "stop": 358.8\
       }\
     ]\
   },\
@@ -14929,6 +14953,12 @@ Rectangle {
         "number": 1,\
         "start": 142.3,\
         "stop": 182.9\
+      },\
+      {\
+        "color": "white",\
+        "number": 2,\
+        "start": 316.9,\
+        "stop": 356.5\
       }\
     ]\
   },\
@@ -17565,6 +17595,12 @@ Rectangle {
         "stop": 345.6\
       },\
       {\
+        "color": "green",\
+        "number": 2,\
+        "start": 345.6,\
+        "stop": 346.1\
+      },\
+      {\
         "color": "white",\
         "number": 3,\
         "start": 346.1,\
@@ -17575,6 +17611,12 @@ Rectangle {
         "number": 4,\
         "start": 347.1,\
         "stop": 347.6\
+      },\
+      {\
+        "color": "red",\
+        "number": 5,\
+        "start": 347.6,\
+        "stop": 351.8\
       }\
     ]\
   },\
@@ -18705,6 +18747,12 @@ Rectangle {
         "stop": 349.8\
       },\
       {\
+        "color": "green",\
+        "number": 2,\
+        "start": 349.8,\
+        "stop": 350.7\
+      },\
+      {\
         "color": "white",\
         "number": 3,\
         "start": 350.7,\
@@ -18715,6 +18763,12 @@ Rectangle {
         "number": 4,\
         "start": 351.8,\
         "stop": 352.6\
+      },\
+      {\
+        "color": "red",\
+        "number": 5,\
+        "start": 352.6,\
+        "stop": 356.4\
       }\
     ]\
   },\
@@ -21969,6 +22023,12 @@ Rectangle {
         "stop": 339.4\
       },\
       {\
+        "color": "green",\
+        "number": 2,\
+        "start": 339.4,\
+        "stop": 340.3\
+      },\
+      {\
         "color": "white",\
         "number": 3,\
         "start": 340.3,\
@@ -21979,6 +22039,12 @@ Rectangle {
         "number": 4,\
         "start": 341.3,\
         "stop": 342.3\
+      },\
+      {\
+        "color": "red",\
+        "number": 5,\
+        "start": 342.3,\
+        "stop": 346.4\
       }\
     ]\
   },\
@@ -23121,6 +23187,12 @@ Rectangle {
         "stop": 5.7\
       },\
       {\
+        "color": "green",\
+        "number": 2,\
+        "start": 5.7,\
+        "stop": 6.7\
+      },\
+      {\
         "color": "white",\
         "number": 3,\
         "start": 6.7,\
@@ -23131,6 +23203,12 @@ Rectangle {
         "number": 4,\
         "start": 10.8,\
         "stop": 11.8\
+      },\
+      {\
+        "color": "red",\
+        "number": 5,\
+        "start": 11.8,\
+        "stop": 13.9\
       }\
     ]\
   },\
@@ -23167,6 +23245,12 @@ Rectangle {
         "number": 3,\
         "start": 226.5,\
         "stop": 247.9\
+      },\
+      {\
+        "color": "green",\
+        "number": 6,\
+        "start": 333.6,\
+        "stop": 46.9\
       },\
       {\
         "color": "white",\
@@ -23251,6 +23335,12 @@ Rectangle {
         "number": 1,\
         "start": 87.4,\
         "stop": 115.2\
+      },\
+      {\
+        "color": "green",\
+        "number": 2,\
+        "start": 262.7,\
+        "stop": 287.5\
       },\
       {\
         "color": "white",\
@@ -32091,6 +32181,12 @@ Rectangle {
         "stop": 176.2\
       },\
       {\
+        "color": "green",\
+        "number": 2,\
+        "start": 176.2,\
+        "stop": 176.7\
+      },\
+      {\
         "color": "white",\
         "number": 3,\
         "start": 176.7,\
@@ -32101,6 +32197,12 @@ Rectangle {
         "number": 4,\
         "start": 177.2,\
         "stop": 177.7\
+      },\
+      {\
+        "color": "red",\
+        "number": 5,\
+        "start": 177.7,\
+        "stop": 182.8\
       }\
     ]\
   },\
@@ -32127,6 +32229,12 @@ Rectangle {
         "stop": 333.3\
       },\
       {\
+        "color": "green",\
+        "number": 2,\
+        "start": 333.3,\
+        "stop": 334.8\
+      },\
+      {\
         "color": "white",\
         "number": 3,\
         "start": 334.8,\
@@ -32137,6 +32245,12 @@ Rectangle {
         "number": 4,\
         "start": 335.8,\
         "stop": 337.3\
+      },\
+      {\
+        "color": "red",\
+        "number": 5,\
+        "start": 337.3,\
+        "stop": 340.4\
       }\
     ]\
   },\
@@ -34561,6 +34675,12 @@ Rectangle {
         "number": 3,\
         "start": 42.5,\
         "stop": 45.4\
+      },\
+      {\
+        "color": "red",\
+        "number": 4,\
+        "start": 146.7,\
+        "stop": 165.2\
       },\
       {\
         "color": "green",\
@@ -55011,6 +55131,12 @@ Rectangle {
         "stop": 183.4\
       },\
       {\
+        "color": "red",\
+        "number": 3,\
+        "start": 139.6,\
+        "stop": 157.3\
+      },\
+      {\
         "color": "green",\
         "number": 4,\
         "start": 157.3,\
@@ -55021,6 +55147,12 @@ Rectangle {
         "number": 4,\
         "start": 183.4,\
         "stop": 188.9\
+      },\
+      {\
+        "color": "white",\
+        "number": 5,\
+        "start": 183.7,\
+        "stop": 188.7\
       },\
       {\
         "color": "red",\
@@ -78969,6 +79101,12 @@ Rectangle {
         "stop": 360.0\
       },\
       {\
+        "color": "red",\
+        "number": 2,\
+        "start": 238.7,\
+        "stop": 68.4\
+      },\
+      {\
         "color": "green",\
         "number": 4,\
         "start": 69.7,\
@@ -88493,30 +88631,6 @@ Rectangle {
       {\
         "color": "green",\
         "number": null,\
-        "start": 0.0,\
-        "stop": 360.0\
-      }\
-    ]\
-  },\
-  {\
-    "fyrnr": "254739",\
-    "page_number": 334,\
-    "name": "Kylleren",\
-    "latitude": 61.58285166666667,\
-    "longitude": 4.996888333333334,\
-    "character": {\
-      "light_class": "Iso",\
-      "numflash": 1,\
-      "extra_class": null,\
-      "period": 6.0\
-    },\
-    "pattern": "Iso W 6s",\
-    "height": 4.9,\
-    "maxRange": 4815.2,\
-    "sectors": [\
-      {\
-        "color": "white",\
-        "number": 1,\
         "start": 0.0,\
         "stop": 360.0\
       }\
@@ -110025,6 +110139,12 @@ Rectangle {
         "stop": 192.1\
       },\
       {\
+        "color": "red",\
+        "number": 15,\
+        "start": 252.6,\
+        "stop": 259.4\
+      },\
+      {\
         "color": "green",\
         "number": 16,\
         "start": 259.4,\
@@ -116238,7 +116358,7 @@ Rectangle {
     },\
     "pattern": "Fl G 3s",\
     "height": 5.7,\
-    "maxRange": 2222.4,\
+    "maxRange": 1481.6000000000001,\
     "sectors": [\
       {\
         "color": "green",\
@@ -154953,6 +155073,12 @@ Rectangle {
         "stop": 31.7\
       },\
       {\
+        "color": "red",\
+        "number": 4,\
+        "start": 156.6,\
+        "stop": 171.3\
+      },\
+      {\
         "color": "green",\
         "number": 5,\
         "start": 200.9,\
@@ -155029,6 +155155,12 @@ Rectangle {
         "number": 7,\
         "start": 158.2,\
         "stop": 164.6\
+      },\
+      {\
+        "color": "green",\
+        "number": 8,\
+        "start": 213.9,\
+        "stop": 224.4\
       },\
       {\
         "color": "white",\
@@ -182703,6 +182835,12 @@ Rectangle {
         "stop": 217.3\
       },\
       {\
+        "color": "red",\
+        "number": 10,\
+        "start": 236.6,\
+        "stop": 240.8\
+      },\
+      {\
         "color": "green",\
         "number": 11,\
         "start": 240.8,\
@@ -195373,6 +195511,12 @@ Rectangle {
         "number": 6,\
         "start": 338.6,\
         "stop": 117.4\
+      },\
+      {\
+        "color": "red",\
+        "number": 7,\
+        "start": 131.9,\
+        "stop": 135.2\
       }\
     ]\
   },\
@@ -202189,6 +202333,12 @@ Rectangle {
         "number": 1,\
         "start": 71.7,\
         "stop": 140.4\
+      },\
+      {\
+        "color": "green",\
+        "number": 2,\
+        "start": 140.8,\
+        "stop": 163.5\
       },\
       {\
         "color": "red",\
