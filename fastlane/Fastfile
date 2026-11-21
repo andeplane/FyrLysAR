@@ -152,8 +152,9 @@ platform :ios do
           "-authenticationKeyIssuerID", ENV['APP_STORE_CONNECT_ISSUER_ID'].shellescape
         ]
       end
+      # gym also passes xcargs to the -exportArchive step, so setting export_xcargs
+      # too would repeat them and xcodebuild rejects duplicate -authenticationKey* options.
       build_options[:xcargs] = signing_xcargs.join(" ")
-      build_options[:export_xcargs] = signing_xcargs.join(" ")
     else
       # Disable code signing if explicitly requested
       build_options[:xcargs] = "CODE_SIGN_IDENTITY='' CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO"
