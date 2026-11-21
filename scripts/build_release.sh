@@ -5,7 +5,7 @@
 # Usage:
 #   ./scripts/build_release.sh                 # Full build (generate + patch + build)
 #   ./scripts/build_release.sh --generate-only # Only generate Xcode project
-#   ./scripts/build_release.sh --build-only    # Only patch and build (assumes Xcode project exists)
+#   ./scripts/build_release.sh --build-only    # Only patch (assumes Xcode project exists; fastlane builds it)
 #
 set -e
 
@@ -103,7 +103,8 @@ if [ "$GENERATE_ONLY" = true ]; then
     generate_xcode_project
 elif [ "$BUILD_ONLY" = true ]; then
     patch_xcode_project
-    # Note: actual build is handled by fastlane's build_app
+    # fastlane's build_app does the build, archive and signing in this mode.
+    # build_project is only used by the full build for local unsigned builds.
 else
     # Full build
     generate_xcode_project
