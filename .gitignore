@@ -149,3 +149,12 @@ dmypy.json
 *.psd
 *.psd.zip
 scripts/*.pdf
+
+# Bundler
+vendor/bundle/
+.bundle/
+Gemfile.lock
+
+# Environment variables (local secrets)
+.env
+.env.local
