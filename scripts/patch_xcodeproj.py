@@ -66,6 +66,21 @@ def update_build_settings(project, setting_key, setting_value, target_name="fyrl
     return updated_count
 
 
+def read_bundle_identifier(xcodeproj_path):
+    """Read CFBundleIdentifier from the Info.plist qmake generates next to the Xcode project."""
+    info_plist_path = os.path.join(os.path.dirname(os.path.abspath(xcodeproj_path)), "Info.plist")
+    try:
+        with open(info_plist_path, 'rb') as f:
+            bundle_id = plistlib.load(f).get("CFBundleIdentifier")
+    except Exception as e:
+        print(f"Error reading {info_plist_path}: {e}")
+        sys.exit(1)
+    if not bundle_id:
+        print(f"Error: CFBundleIdentifier not set in {info_plist_path}")
+        sys.exit(1)
+    return bundle_id
+
+
 def patch_project(xcodeproj_path, version):
     """Patch the Xcode project with required settings."""
     pbxproj_path = os.path.join(xcodeproj_path, "project.pbxproj")
@@ -135,10 +150,12 @@ def patch_project(xcodeproj_path, version):
     if count > 0:
         print(f"  Set SUPPORTS_MACCATALYST = NO in {count} configuration(s)")
     
-    # 6. Ensure PRODUCT_BUNDLE_IDENTIFIER is correct (lowercase)
-    count = update_build_settings(project, "PRODUCT_BUNDLE_IDENTIFIER", "com.kvakkefly.fyrlysar")
+    # 6. Match PRODUCT_BUNDLE_IDENTIFIER to the CFBundleIdentifier that fyrlysar.pro
+    #    writes to the generated Info.plist, so the bundle ID has one source
+    bundle_id = read_bundle_identifier(xcodeproj_path)
+    count = update_build_settings(project, "PRODUCT_BUNDLE_IDENTIFIER", bundle_id)
     if count > 0:
-        print(f"  Set PRODUCT_BUNDLE_IDENTIFIER = com.kvakkefly.fyrlysar in {count} configuration(s)")
+        print(f"  Set PRODUCT_BUNDLE_IDENTIFIER = {bundle_id} in {count} configuration(s)")
     
     # 7. Enable automatic code signing (Fastlane will manage certificates)
     count = update_build_settings(project, "CODE_SIGN_STYLE", "Automatic")
