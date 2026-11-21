@@ -135,10 +135,25 @@ platform :ios do
     
     # Configure automatic code signing when API key is available
     unless options[:skip_codesigning]
-      # Fastlane will automatically manage certificates and provisioning profiles
-      # when App Store Connect API key is available
-      # The Xcode project is patched to use CODE_SIGN_STYLE = Automatic
-      # Fastlane will automatically set DEVELOPMENT_TEAM during build
+      # The Xcode project is patched to use CODE_SIGN_STYLE = Automatic.
+      # xcodebuild only creates or downloads certificates and profiles with
+      # -allowProvisioningUpdates, and on CI it needs the App Store Connect API key
+      # to authenticate since no Apple ID is signed in to Xcode.
+      signing_xcargs = ["-allowProvisioningUpdates"]
+      if ENV['APP_STORE_CONNECT_API_KEY_ID'].to_s != "" && ENV['APP_STORE_CONNECT_ISSUER_ID'].to_s != "" && ENV['APP_STORE_CONNECT_API_KEY_CONTENT'].to_s != ""
+        require 'tmpdir'
+        require 'shellwords'
+        key_path = File.join(Dir.mktmpdir, "AuthKey_#{ENV['APP_STORE_CONNECT_API_KEY_ID']}.p8")
+        File.write(key_path, ENV['APP_STORE_CONNECT_API_KEY_CONTENT'])
+        File.chmod(0600, key_path)
+        signing_xcargs += [
+          "-authenticationKeyPath", key_path.shellescape,
+          "-authenticationKeyID", ENV['APP_STORE_CONNECT_API_KEY_ID'].shellescape,
+          "-authenticationKeyIssuerID", ENV['APP_STORE_CONNECT_ISSUER_ID'].shellescape
+        ]
+      end
+      build_options[:xcargs] = signing_xcargs.join(" ")
+      build_options[:export_xcargs] = signing_xcargs.join(" ")
     else
       # Disable code signing if explicitly requested
       build_options[:xcargs] = "CODE_SIGN_IDENTITY='' CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO"
